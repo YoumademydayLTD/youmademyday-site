@@ -1,0 +1,35 @@
+<div id="app" lang="he">
+  <header class="top">
+    <div class="wrap top-row">
+      <a class="logo" href="#home" aria-label="You Made My Day, לדף הבית">
+        <svg width="38" height="38" viewBox="0 0 38 38" aria-hidden="true"><rect width="38" height="38" rx="10" fill="var(--sun)"/><path d="M8 25a11 11 0 0 1 22 0Z" fill="var(--sun-ink)"/><rect x="6" y="27" width="26" height="3" rx="1.5" fill="var(--sun-ink)"/></svg>
+        <span class="logo-txt"><span class="logo-en">You Made My Day</span><span class="logo-he">עשית לי את היום</span></span>
+      </a>
+      <nav class="main" id="nav">
+        <a href="#home" data-nav="home">ראשי</a>
+        <a href="#courses" data-nav="courses">קורסים</a>
+        <a href="#books" data-nav="books">ספרים ותבניות</a>
+        <a href="#pricing" data-nav="pricing">מחירים</a>
+      </nav>
+      <form class="top-search" id="topSearch" role="search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="חיפוש קורס, ספר או מרצה" aria-label="חיפוש">
+      </form>
+      <div class="icons" style="display:flex;gap:8px">
+        <button class="icon-btn" data-act="open-wish" aria-label="מועדפים"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg><span class="badge" id="wishN" data-n="0">0</span></button>
+        <button class="icon-btn" data-act="open-cart" aria-label="סל קניות"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 7h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8Z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg><span class="badge" id="cartN" data-n="0">0</span></button>
+      </div>
+    </div>
+  </header>
+  <main id="view"></main>
+  <footer class="site">
+    <div class="wrap foot-grid">
+      <div><b style="color:var(--ink);font-family:var(--font-display);font-size:30px">You Made My Day</b><p style="margin:6px 0 0;max-width:40ch">קורסים דיגיטליים וספרים מעשיים בעברית, שאנחנו כותבים ומפיקים בעצמנו.</p><p style="margin:10px 0 0">עשית לי את היום בע״מ · ח.פ. 517347712 · דוד אלעזר 10, חיפה</p></div>
+      <div><h4>החנות</h4><ul><li><a href="#courses">קורסים</a></li><li><a href="#books">ספרים ותבניות</a></li><li><a href="#pricing">מחירים</a></li></ul></div>
+      <div><h4>עזרה</h4><ul><li><a href="#pricing">מחירים ותשלום</a></li><li><a href="#refunds">מדיניות החזרים</a></li><li><a href="#refunds" data-act="go-cancel"><b>ביטול עסקה</b></a></li></ul></div>
+      <div><h4>מידע</h4><ul><li><a href="#terms">תקנון ותנאי שימוש</a></li><li><a href="#privacy">מדיניות פרטיות</a></li><li>youmademydayltd@gmail.com</li></ul></div>
+    </div>
+  </footer>
+</div>
+<div id="drawerRoot"></div>
+<div id="toast" hidden></div>

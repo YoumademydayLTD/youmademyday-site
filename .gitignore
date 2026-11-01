@@ -2,3 +2,6 @@
 web/public/
 brand/logo/renders/
 docs/
+content/
+brand/catalog.json
+tools/.venv/
