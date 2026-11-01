@@ -135,8 +135,6 @@ section.block{padding-block:48px}
 .card h3{font-size:17px;line-height:1.25;font-weight:700}
 .card .by{font-size:14px;color:var(--muted)}
 .card .meta{display:flex;gap:10px;font-size:13px;color:var(--muted);flex-wrap:wrap}
-.rating{color:var(--ink);font-weight:700}
-.rating::before{content:"★ ";color:#E9A400}
 .price-row{display:flex;align-items:baseline;gap:8px;margin-top:2px}
 .price{font-weight:800;font-size:18px}
 .old{text-decoration:line-through;color:var(--muted);font-size:14px}
@@ -157,11 +155,6 @@ section.block{padding-block:48px}
 .bundle .btn-sun{height:52px}
 @media (max-width:700px){.bundle{grid-template-columns:1fr;padding:24px}}
 
-/* testimonials */
-.quotes{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-.quote{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:12px}
-.quote p{margin:0;font-size:17px}
-.quote footer{display:flex;align-items:center;gap:10px;font-size:14px}
 .ava{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:800;background:var(--surface-2);flex:none}
 
 /* faq */
@@ -230,16 +223,6 @@ input[type=range]{accent-color:var(--ink);padding:0;height:auto;border:0;backgro
 .person{display:flex;gap:16px;align-items:flex-start}
 .person .ava{width:64px;height:64px;font-size:24px;font-family:var(--font-display)}
 .person p{margin:6px 0 0;color:var(--muted)}
-.rev-top{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center;margin-bottom:18px}
-.rev-avg b{font-family:var(--font-display);font-size:72px;line-height:.9;display:block}
-.bars{display:flex;flex-direction:column;gap:5px;font-size:13px}
-.bars div{display:grid;grid-template-columns:28px 1fr 36px;gap:8px;align-items:center}
-.bars i{display:block;height:8px;border-radius:4px;background:var(--surface-2);overflow:hidden}
-.bars i::after{content:"";display:block;height:100%;width:var(--w);background:var(--sun)}
-.rev{border-top:1px solid var(--line);padding-block:14px}
-.rev p{margin:6px 0 0}
-.rev .who{display:flex;justify-content:space-between;font-size:14px;color:var(--muted)}
-.rev .who b{color:var(--ink)}
 .buybox{position:sticky;top:calc(var(--header-h) + 20px);background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow)}
 .buybox .big{font-size:36px;font-weight:800;line-height:1}
 .save{font-weight:800;color:var(--danger);font-size:14px}
@@ -390,106 +373,80 @@ document.documentElement.setAttribute("dir","rtl");
 document.documentElement.setAttribute("lang","he");
 
 /* ---------- demo content (all examples) ---------- */
-const PEOPLE = {
-  noam:{name:"נועם לוי",role:"מנהלת סושיאל, 9 שנות ניסיון",bio:"ליוותה מעל 300 עסקים קטנים בבניית נוכחות ברשתות. מאמינה בתוכן פשוט שעושים כל יום, לא בקמפיין גדול פעם בשנה."},
-  yael:{name:"יעל שגיא",role:"מאמנת אישית ומנחת סדנאות",bio:"מנחה קבוצות כבר 12 שנה. עובדת עם כלים קטנים ומעשיים שאפשר להכניס לשגרה כבר מחר בבוקר."},
-  amit:{name:"עמית ברק",role:"שף ובעל מסעדה בתל אביב",bio:"בישל במטבחים בפריז ובלונדון וחזר הביתה לבשל אוכל של אמא, רק מדויק יותר."},
-  dana:{name:"דנה אורן",role:"צלמת ובמאית קליפים",bio:"מצלמת עשור, היום בעיקר בטלפון. מלמדת איך לספר סיפור בתמונה אחת."},
-  ron:{name:"רון כהן",role:"מפתח ומנהל מוצר",bio:"בנה אפליקציות לסטארטאפים ולחברות גדולות. מסביר טכנולוגיה בשפה של בני אדם."},
-  maya:{name:"מאיה פרץ",role:"יועצת זוגית M.A",bio:"מטפלת בזוגות ובמשפחות 15 שנה. כותבת על תקשורת, ריבים טובים והקשבה."},
-  tal:{name:"טל אביטל",role:"מאמן כושר ותזונאי קליני",bio:"מאמין בשלושה אימונים קצרים בשבוע ובצלחת מאוזנת, בלי דיאטות קיצון."},
-  shir:{name:"שיר נחום",role:"מאיירת ומעצבת",bio:"מאיירת ספרי ילדים ומותגים. אוהבת עפרון רך ומחברת זולה."},
-  eli:{name:"אלי מזרחי",role:"יועץ כלכלי למשפחות",bio:"עזר לאלפי משפחות לצאת מהמינוס ולבנות חיסכון ראשון, צעד אחרי צעד."}
-};
+const STUDIO = {name:"You Made My Day",role:"הצוות שכותב ומפיק את כל התוכן באתר",bio:"כל קורס וכל ספר באתר נכתבו, צולמו והופקו על ידינו. אנחנו לא מוכרים תוכן של אחרים, וכל הזכויות שלנו."};
 
 const COURSES = [
-  {id:"c1",title:"שיווק באינסטגרם מאפס",sub:"מהפוסט הראשון ועד לקוחות שחוזרים, בלי תקציב פרסום",cat:"שיווק ועסקים",by:"noam",price:349,old:590,rating:4.9,students:3240,hours:8.5,level:"מתחילים",tag:"רב מכר",cv:["#F25C3B","#FFF4E8","#FFC21A"],sh:"sun",
+  {id:"c1",title:"שיווק באינסטגרם מאפס",sub:"מהפוסט הראשון ועד לקוחות שחוזרים, בלי תקציב פרסום",cat:"שיווק ועסקים",price:349,old:590,hours:8.5,level:"מתחילים",cv:["#F25C3B","#FFF4E8","#FFC21A"],sh:"sun",
    learn:["לבנות פרופיל שנראה מקצועי ב-30 דקות","לתכנן חודש תוכן בערב אחד","לכתוב כיתוב שגורם לאנשים לענות","להפוך עוקבים להודעות פרטיות ומכירות"],
    mods:["הבסיס: פרופיל, ביו ותמונה","תוכן שעובד: רילס, סטוריז ופוסטים","כתיבה שמוכרת","מעוקבים ללקוחות","מדידה ושיפור"]},
-  {id:"c2",title:"בוקר טוב לעצמי",sub:"שגרת בוקר של 20 דקות שמשנה את כל היום",cat:"התפתחות אישית",by:"yael",price:189,old:290,rating:4.8,students:5110,hours:3,level:"לכולם",tag:"חדש",cv:["#FFE27A","#2A2140","#FF8A5B"],sh:"half",
+  {id:"c2",title:"בוקר טוב לעצמי",sub:"שגרת בוקר של 20 דקות שמשנה את כל היום",cat:"התפתחות אישית",price:189,old:290,hours:3,level:"לכולם",tag:"חדש",cv:["#FFE27A","#2A2140","#FF8A5B"],sh:"half",
    learn:["לבנות שגרת בוקר שמחזיקה גם בימים עמוסים","תרגילי נשימה של 3 דקות","יומן תודה שלא מרגיש מאולץ","להתחיל את היום בלי טלפון"],
    mods:["למה הבוקר קובע","20 הדקות הראשונות","גוף ונשימה","הראש: כתיבה וכוונה","להחזיק לאורך זמן"]},
-  {id:"c3",title:"בישול ביתי ברמת מסעדה",sub:"12 מנות, 5 טכניקות, אפס לחץ",cat:"בישול ואוכל",by:"amit",price:420,old:690,rating:4.9,students:2280,hours:11,level:"מתחילים",tag:"רב מכר",cv:["#1F4D3A","#F6EFD9","#E8A23A"],sh:"ring",
+  {id:"c3",title:"בישול ביתי ברמת מסעדה",sub:"12 מנות, 5 טכניקות, אפס לחץ",cat:"בישול ואוכל",price:420,old:690,hours:11,level:"מתחילים",cv:["#1F4D3A","#F6EFD9","#E8A23A"],sh:"ring",
    learn:["לחתוך כמו שף, מהר ובטוח","רטבים בסיסיים שהופכים כל מנה","לצלות בשר ודג בדיוק במידה","להגיש צלחת שנראית כמו במסעדה"],
    mods:["סכינים וחיתוכים","רטבים אם","צלייה וטיגון","ירקות שאוהבים לאכול","קינוחים מהירים","ערב אירוח מלא"]},
-  {id:"c4",title:"צילום בטלפון כמו מקצוען",sub:"אור, קומפוזיציה ועריכה, רק עם המכשיר שבכיס",cat:"יצירה ועיצוב",by:"dana",price:259,old:420,rating:4.7,students:4020,hours:6,level:"מתחילים",cv:["#14213D","#FCA311","#E5E5E5"],sh:"dot",
+  {id:"c4",title:"צילום בטלפון כמו מקצוען",sub:"אור, קומפוזיציה ועריכה, רק עם המכשיר שבכיס",cat:"יצירה ועיצוב",price:259,old:420,hours:6,level:"מתחילים",cv:["#14213D","#FCA311","#E5E5E5"],sh:"dot",
    learn:["למצוא את האור הכי טוב בכל חדר","חוק השליש ומתי לשבור אותו","פורטרט שאנשים אוהבים לראות","עריכה מהירה באפליקציות חינמיות"],
    mods:["להכיר את המצלמה","אור טבעי","קומפוזיציה","אנשים ופורטרטים","עריכה וסגנון"]},
-  {id:"c5",title:"בינה מלאכותית לעסק קטן",sub:"לחסוך 10 שעות בשבוע עם כלים שכבר קיימים",cat:"טכנולוגיה",by:"ron",price:390,old:640,rating:4.8,students:1870,hours:7,level:"לכולם",tag:"חם עכשיו",cv:["#2F55F0","#FFFFFF","#7EE0C3"],sh:"bars",
+  {id:"c5",title:"בינה מלאכותית לעסק קטן",sub:"לחסוך 10 שעות בשבוע עם כלים שכבר קיימים",cat:"טכנולוגיה",price:390,old:640,hours:7,level:"לכולם",cv:["#2F55F0","#FFFFFF","#7EE0C3"],sh:"bars",
    learn:["לכתוב מיילים והצעות מחיר בדקה","לסכם פגישות אוטומטית","ליצור תמונות לשיווק","לבנות עוזר אישי לשאלות לקוחות"],
    mods:["מה זה בכלל ומה זה לא","כתיבה ותקשורת","שיווק ותמונות","אוטומציות פשוטות","בטיחות ופרטיות"]},
-  {id:"c6",title:"לדבר כדי שיקשיבו",sub:"תקשורת זוגית בלי ריבים מיותרים",cat:"זוגיות ומשפחה",by:"maya",price:290,old:450,rating:4.9,students:2650,hours:5,level:"לכולם",cv:["#B5446E","#FFF0F5","#F7B2C4"],sh:"half",
+  {id:"c6",title:"לדבר כדי שיקשיבו",sub:"תקשורת זוגית בלי ריבים מיותרים",cat:"זוגיות ומשפחה",price:290,old:450,hours:5,level:"לכולם",cv:["#B5446E","#FFF0F5","#F7B2C4"],sh:"half",
    learn:["להגיד דבר קשה בלי לפגוע","להקשיב באמת, לא רק לחכות לתור","לסגור ריב לפני השינה","לבנות טקסים קטנים של קרבה"],
    mods:["איך אנחנו מדברים היום","הקשבה פעילה","ריב טוב","אינטימיות ביום יום"]},
-  {id:"c7",title:"כושר ב-20 דקות ביום",sub:"אימונים בבית, בלי ציוד, לכל רמה",cat:"בריאות וכושר",by:"tal",price:199,old:320,rating:4.6,students:6300,hours:9,level:"כל הרמות",tag:"רב מכר",cv:["#0B7A75","#F0FFFD","#FFD23F"],sh:"sun",
+  {id:"c7",title:"כושר ב-20 דקות ביום",sub:"אימונים בבית, בלי ציוד, לכל רמה",cat:"בריאות וכושר",price:199,old:320,hours:9,level:"כל הרמות",cv:["#0B7A75","#F0FFFD","#FFD23F"],sh:"sun",
    learn:["תוכנית של 8 שבועות מוכנה","לבנות כוח בלי משקולות","למנוע כאבי גב","לאכול נכון סביב אימון"],
    mods:["הערכה ונקודת פתיחה","שבועות 1–2","שבועות 3–5","שבועות 6–8","תזונה ומנוחה"]},
-  {id:"c8",title:"איור בעפרון לכל אחד",sub:"מקו ראשון ועד דמות שלמה",cat:"יצירה ועיצוב",by:"shir",price:229,old:360,rating:4.8,students:1540,hours:6.5,level:"מתחילים",cv:["#F6EFD9","#2B2B2B","#E86A4A"],sh:"dot",
+  {id:"c8",title:"איור בעפרון לכל אחד",sub:"מקו ראשון ועד דמות שלמה",cat:"יצירה ועיצוב",price:229,old:360,hours:6.5,level:"מתחילים",cv:["#F6EFD9","#2B2B2B","#E86A4A"],sh:"dot",
    learn:["לצייר צורות בסיסיות בביטחון","פרופורציות של פנים וגוף","הצללה עם עפרון אחד","לפתח סגנון אישי"],
    mods:["קווים וצורות","פנים","גוף ותנועה","אור וצל","הסגנון שלך"]},
-  {id:"c9",title:"לצאת מהמינוס ב-90 יום",sub:"תקציב משפחתי שבאמת עובד",cat:"כסף וכלכלה",by:"eli",price:249,old:400,rating:4.9,students:3980,hours:4.5,level:"לכולם",cv:["#173F5F","#F2F7FB","#3CAEA3"],sh:"ring",
-   learn:["לדעת לאן הולך כל שקל","לבנות תקציב בטבלה אחת","לסגור חובות לפי סדר נכון","להתחיל קרן חירום"],
-   mods:["תמונת מצב","התקציב","חובות","חיסכון ראשון","להחזיק את זה"]},
-  {id:"c10",title:"מותג אישי בלינקדאין",sub:"להפוך ניסיון לפניות עבודה ולקוחות",cat:"שיווק ועסקים",by:"noam",price:310,old:490,rating:4.7,students:1210,hours:5,level:"מתקדמים",cv:["#0E1A2B","#FFC21A","#3B5B92"],sh:"bars",
+  {id:"c10",title:"מותג אישי בלינקדאין",sub:"להפוך ניסיון לפניות עבודה ולקוחות",cat:"שיווק ועסקים",price:310,old:490,hours:5,level:"מתקדמים",cv:["#0E1A2B","#FFC21A","#3B5B92"],sh:"bars",
    learn:["פרופיל שמגייסים מחפשים","פוסט שבועי שמביא חשיפה","שיחות שהופכות לפגישות","לבנות סמכות בתחום"],
    mods:["פרופיל","כתיבה","רשת קשרים","מפגישה לעסקה"]},
-  {id:"c11",title:"אפייה ביתית: לחם ומאפים",sub:"מחמצת, חלות וקרואסונים במטבח רגיל",cat:"בישול ואוכל",by:"amit",price:280,old:430,rating:4.8,students:2090,hours:7.5,level:"מתחילים",tag:"חדש",cv:["#C8763B","#FFF7EC","#F3D2A2"],sh:"half",
+  {id:"c11",title:"אפייה ביתית: לחם ומאפים",sub:"מחמצת, חלות וקרואסונים במטבח רגיל",cat:"בישול ואוכל",price:280,old:430,hours:7.5,level:"מתחילים",tag:"חדש",cv:["#C8763B","#FFF7EC","#F3D2A2"],sh:"half",
    learn:["לגדל מחמצת מאפס","לש ותפיחה בלי מיקסר","חלה קלועה ל-6","בצק עלים ביתי"],
    mods:["קמח, מים ומלח","מחמצת","לחמים","חלות","מאפים מתוקים"]},
-  {id:"c12",title:"שינה טובה יותר",sub:"להירדם מהר ולקום עם כוח",cat:"בריאות וכושר",by:"yael",price:169,old:260,rating:4.7,students:4400,hours:2.5,level:"לכולם",cv:["#1E1B4B","#E0E7FF","#FFC21A"],sh:"sun",
+  {id:"c12",title:"שינה טובה יותר",sub:"להירדם מהר ולקום עם כוח",cat:"בריאות וכושר",price:169,old:260,hours:2.5,level:"לכולם",cv:["#1E1B4B","#E0E7FF","#FFC21A"],sh:"sun",
    learn:["שגרת ערב של 15 דקות","מה לעשות כשמתעוררים בלילה","אור, קפה ומסכים","לישון טוב גם עם ילדים קטנים"],
    mods:["איך שינה עובדת","הערב","הלילה","הבוקר שאחרי"]}
 ];
 
 const BOOKS = [
-  {id:"b1",title:"100 רעיונות לפוסטים",sub:"מחברת עבודה לשנה שלמה של תוכן",cat:"שיווק ועסקים",by:"noam",price:59,old:89,rating:4.8,sold:5200,pages:124,mb:6.2,year:2025,tag:"רב מכר",cv:["#F25C3B","#FFF4E8","#FFC21A"],sh:"bars",
+  {id:"b1",title:"100 רעיונות לפוסטים",sub:"מחברת עבודה לשנה שלמה של תוכן",cat:"שיווק ועסקים",price:59,old:89,pages:124,mb:6.2,year:2025,cv:["#F25C3B","#FFF4E8","#FFC21A"],sh:"bars",
    ch:["איך משתמשים במחברת","רעיונות למכירה","רעיונות לקהילה","רעיונות מאחורי הקלעים","לוח תכנון שנתי"],
    ex:"הכלל הראשון של תוכן הוא שאף אחד לא מחכה לפוסט שלך. אנשים גוללים, עייפים, בין שתי משימות. לכן כל פוסט צריך לענות על שאלה אחת בשורה הראשונה: למה לעצור דווקא כאן? במחברת הזאת תמצאו מאה תשובות מוכנות לשאלה הזאת, מסודרות לפי חודשים."},
-  {id:"b2",title:"מחברת התודה",sub:"5 דקות ביום, 90 יום של כתיבה מודרכת",cat:"התפתחות אישית",by:"yael",price:39,old:59,rating:4.9,sold:8100,pages:96,mb:3.4,year:2026,tag:"רב מכר",cv:["#FFE27A","#2A2140","#FF8A5B"],sh:"sun",
+  {id:"b2",title:"מחברת התודה",sub:"5 דקות ביום, 90 יום של כתיבה מודרכת",cat:"התפתחות אישית",price:39,old:59,pages:96,mb:3.4,year:2026,cv:["#FFE27A","#2A2140","#FF8A5B"],sh:"sun",
    ch:["למה תודה","שבועות 1–4","שבועות 5–8","שבועות 9–13","מה השתנה"],
    ex:"בבוקר הראשון כתבתי שלושה דברים: קפה חם, הודעה מאחותי, ושלא ירד גשם בדרך לגן. זה נראה קטן ומטופש. ביום העשרים כבר חיפשתי אותם במהלך היום, כמו מי שאוסף אבנים יפות על החוף."},
-  {id:"b3",title:"המטבח של אמא, מדויק",sub:"40 מתכונים ביתיים עם טכניקה של שף",cat:"בישול ואוכל",by:"amit",price:79,old:120,rating:4.9,sold:3400,pages:212,mb:28,year:2025,cv:["#1F4D3A","#F6EFD9","#E8A23A"],sh:"half",
+  {id:"b3",title:"המטבח של אמא, מדויק",sub:"40 מתכונים ביתיים עם טכניקה של שף",cat:"בישול ואוכל",price:79,old:120,pages:212,mb:28,year:2025,cv:["#1F4D3A","#F6EFD9","#E8A23A"],sh:"half",
    ch:["המזווה","מרקים","תבשילים","מהתנור","מתוקים של שישי"],
    ex:"אמא שלי מעולם לא מדדה כלום. קורט, חופן, \"עד שזה נראה נכון\". לקח לי עשר שנים במטבחים מקצועיים להבין שהיא צדקה, ועוד שנה לתרגם את זה לגרמים כדי שגם אתם תצליחו מהפעם הראשונה."},
-  {id:"b4",title:"תקציב בדף אחד",sub:"המדריך המעשי לכסף של המשפחה",cat:"כסף וכלכלה",by:"eli",price:49,old:79,rating:4.8,sold:4700,pages:88,mb:4.1,year:2026,tag:"חדש",cv:["#173F5F","#F2F7FB","#3CAEA3"],sh:"ring",
-   ch:["הדף","הכנסות","הוצאות קבועות","הוצאות משתנות","היעד הראשון"],
-   ex:"רוב התקציבים נכשלים כי הם מסובכים מדי. עשרים קטגוריות, שלוש אפליקציות, ובחודש השני אף אחד לא פותח אותן. כאן יש דף אחד, ארבע שורות, ועשר דקות בשבוע. זה הכל."},
-  {id:"b5",title:"ריב טוב",sub:"איך לריב בלי לאבד אחד את השני",cat:"זוגיות ומשפחה",by:"maya",price:59,old:89,rating:4.9,sold:3900,pages:164,mb:5.0,year:2025,cv:["#B5446E","#FFF0F5","#F7B2C4"],sh:"dot",
+  {id:"b5",title:"ריב טוב",sub:"איך לריב בלי לאבד אחד את השני",cat:"זוגיות ומשפחה",price:59,old:89,pages:164,mb:5.0,year:2025,cv:["#B5446E","#FFF0F5","#F7B2C4"],sh:"dot",
    ch:["כולם רבים","מה באמת רבנו עליו","המילים שמחריפות","להתקרב אחרי","הסכמים קטנים"],
    ex:"זוגות טובים לא רבים פחות. הם רבים אחרת. הם יודעים לעצור באמצע, להגיד \"רגע, אני מוצף\", ולחזור אחרי עשרים דקות. את המשפט הזה, ועוד שישה כמוהו, נלמד בפרק השלישי."},
-  {id:"b6",title:"מדריך הפרומפטים",sub:"200 פקודות מוכנות לבינה מלאכותית בעברית",cat:"טכנולוגיה",by:"ron",price:69,old:99,rating:4.7,sold:2600,pages:140,mb:7.8,year:2026,tag:"חם עכשיו",cv:["#2F55F0","#FFFFFF","#7EE0C3"],sh:"bars",
+  {id:"b6",title:"מדריך הפרומפטים",sub:"200 פקודות מוכנות לבינה מלאכותית בעברית",cat:"טכנולוגיה",price:69,old:99,pages:140,mb:7.8,year:2026,cv:["#2F55F0","#FFFFFF","#7EE0C3"],sh:"bars",
    ch:["איך לבקש נכון","כתיבה","עסקים ומכירות","לימודים","יצירה ותמונות"],
    ex:"הטעות הנפוצה היא לבקש כמו מחפשים בגוגל: שלוש מילים ומקווים לטוב. בינה מלאכותית עובדת טוב יותר כשמסבירים לה כמו לעובד חדש ביום הראשון: מי אתה, מה המטרה, ואיך נראית תוצאה טובה."},
-  {id:"b7",title:"8 שבועות לגוף חזק",sub:"תוכנית אימונים מודפסת עם יומן מעקב",cat:"בריאות וכושר",by:"tal",price:45,old:69,rating:4.6,sold:3100,pages:72,mb:9.5,year:2025,cv:["#0B7A75","#F0FFFD","#FFD23F"],sh:"half",
+  {id:"b7",title:"8 שבועות לגוף חזק",sub:"תוכנית אימונים מודפסת עם יומן מעקב",cat:"בריאות וכושר",price:45,old:69,pages:72,mb:9.5,year:2025,cv:["#0B7A75","#F0FFFD","#FFD23F"],sh:"half",
    ch:["לפני שמתחילים","שלב א׳","שלב ב׳","שלב ג׳","יומן מעקב"],
    ex:"אתם לא צריכים מוטיבציה. אתם צריכים תאריך ושעה. תכתבו עכשיו בלוח השנה שלושה אימונים לשבוע הקרוב, עשרים דקות כל אחד, ותתייחסו אליהם כמו לתור לרופא."},
-  {id:"b8",title:"מחברת סקיצות",sub:"60 תרגילי איור יומיים",cat:"יצירה ועיצוב",by:"shir",price:39,old:55,rating:4.8,sold:1900,pages:120,mb:14,year:2026,cv:["#F6EFD9","#2B2B2B","#E86A4A"],sh:"sun",
+  {id:"b8",title:"מחברת סקיצות",sub:"60 תרגילי איור יומיים",cat:"יצירה ועיצוב",price:39,old:55,pages:120,mb:14,year:2026,cv:["#F6EFD9","#2B2B2B","#E86A4A"],sh:"sun",
    ch:["חימום","חפצים","צמחים","אנשים","דמויות שלכם"],
    ex:"תרגיל היום: ציירו את הספל שלכם חמש פעמים, כל פעם בדקה אחת בלבד. אל תמחקו. הספל החמישי יהיה טוב יותר מהראשון, ובזה כל הסוד."},
-  {id:"b9",title:"לישון כמו תינוק",sub:"המדריך הקצר לשינה טובה למבוגרים",cat:"בריאות וכושר",by:"yael",price:35,old:49,rating:4.7,sold:2800,pages:64,mb:2.6,year:2025,cv:["#1E1B4B","#E0E7FF","#FFC21A"],sh:"ring",
+  {id:"b9",title:"לישון כמו תינוק",sub:"המדריך הקצר לשינה טובה למבוגרים",cat:"בריאות וכושר",price:35,old:49,pages:64,mb:2.6,year:2025,cv:["#1E1B4B","#E0E7FF","#FFC21A"],sh:"ring",
    ch:["השעון הפנימי","החדר","הערב","הלילה","מתי לפנות לרופא"],
    ex:"הדבר הראשון שאני שואלת כל מי שמתקשה לישון הוא לא כמה קפה הוא שותה, אלא באיזו שעה הוא קם. השעון של הגוף מתכוונן בבוקר, לא בלילה."},
-  {id:"b10",title:"הסיפור שלך מוכר",sub:"כתיבה שיווקית לבעלי עסקים",cat:"שיווק ועסקים",by:"noam",price:65,old:95,rating:4.8,sold:2200,pages:150,mb:4.4,year:2026,cv:["#0E1A2B","#FFC21A","#3B5B92"],sh:"dot",
+  {id:"b10",title:"הסיפור שלך מוכר",sub:"כתיבה שיווקית לבעלי עסקים",cat:"שיווק ועסקים",price:65,old:95,pages:150,mb:4.4,year:2026,cv:["#0E1A2B","#FFC21A","#3B5B92"],sh:"dot",
    ch:["למה סיפור","הלקוח הוא הגיבור","מבנה של שלוש שורות","דף נחיתה","מיילים"],
    ex:"אף אחד לא קונה ממך כי יש לך עשר שנות ניסיון. קונים ממך כי הבינו שאת מבינה אותם. הספר הזה עוסק בדבר אחד: איך להראות את זה במילים."},
-  {id:"b11",title:"לחם בבית",sub:"מחמצת צעד אחר צעד, עם תמונות",cat:"בישול ואוכל",by:"amit",price:55,old:79,rating:4.9,sold:2500,pages:98,mb:22,year:2025,tag:"חדש",cv:["#C8763B","#FFF7EC","#F3D2A2"],sh:"sun",
+  {id:"b11",title:"לחם בבית",sub:"מחמצת צעד אחר צעד, עם תמונות",cat:"בישול ואוכל",price:55,old:79,pages:98,mb:22,year:2025,tag:"חדש",cv:["#C8763B","#FFF7EC","#F3D2A2"],sh:"sun",
    ch:["המחמצת","הבצק","הקיפול","האפייה","תקלות נפוצות"],
    ex:"ביום השלישי המחמצת שלכם תריח כמו גבינה ישנה ותחשבו שהרסתם הכל. לא הרסתם. זה בדיוק השלב שבו רוב האנשים זורקים אותה, יום אחד לפני שהיא מתעוררת."},
-  {id:"b12",title:"הורים רגועים",sub:"כלים קצרים לרגעים הכי עמוסים בבית",cat:"זוגיות ומשפחה",by:"maya",price:49,old:75,rating:4.8,sold:3300,pages:110,mb:3.9,year:2026,cv:["#6A994E","#F7FBEF","#F2E8CF"],sh:"half",
+  {id:"b12",title:"הורים רגועים",sub:"כלים קצרים לרגעים הכי עמוסים בבית",cat:"זוגיות ומשפחה",price:49,old:75,pages:110,mb:3.9,year:2026,cv:["#6A994E","#F7FBEF","#F2E8CF"],sh:"half",
    ch:["הבוקר","ארוחת ערב","מקלחת ושינה","ריבים בין אחים","לשמור על עצמכם"],
    ex:"שבע וחצי בבוקר, שלושה ילדים, נעל אחת חסרה. ברגע הזה אף ספר הורות לא עוזר, כי אין זמן לקרוא. לכן כל כלי כאן קצר ממשפט אחד ואפשר לזכור אותו גם כשכולם צועקים."}
 ];
 
-const REVIEWS = [
-  {n:"מיכל ר.",s:5,t:"הסברים ברורים בלי חפירות. ראיתי שינוי כבר בשבוע הראשון."},
-  {n:"אורי ד.",s:5,t:"קניתי בשביל אשתי ובסוף אני זה שסיימתי ראשון. ממליץ בחום."},
-  {n:"שני ל.",s:4,t:"תוכן מעולה, הייתי שמחה לעוד כמה דוגמאות בפרק האחרון."},
-  {n:"יוסי מ.",s:5,t:"הכי שווה כסף שהוצאתי השנה. חוזר לזה כל כמה ימים."},
-  {n:"הילה ג.",s:5,t:"נעים, חם ומקצועי. מרגישים שמי שמלמד באמת עושה את זה."},
-  {n:"נדב ש.",s:4,t:"התחלתי סקפטי. אחרי שלושה שיעורים כבר שלחתי לחברים."},
-  {n:"רותם א.",s:5,t:"פורמט נוח, צופה בנייד ברכבת. סוף סוף משהו שאני מסיים."},
-  {n:"גלית ב.",s:5,t:"הקבצים להורדה שווים לבד את המחיר."}
-];
 
 const FAQ = [
   ["לכמה זמן יש גישה לקורס?","לכל החיים. קונים פעם אחת וחוזרים מתי שרוצים, כולל עדכונים עתידיים."],
@@ -512,7 +469,7 @@ const store = {
 const S = {
   cart: store.get("cart",["c1","b2"]),
   wish: store.get("wish",["c3"]),
-  owned: store.get("owned",["c2","b4"]),
+  owned: store.get("owned",["c2","b2"]),
   coupon: null,
   q:"",
   f:{ courses:{cat:"הכל",level:"הכל",max:700,sort:"pop"}, books:{cat:"הכל",level:"הכל",max:150,sort:"pop"} },
@@ -537,13 +494,13 @@ const initials = name => name.split(" ").map(w=>w[0]).join("").slice(0,2);
 function cover(x,{lg=false}={}){
   const kind = isCourse(x) ? "קורס וידאו" : "ספר PDF";
   return `<div class="cover ${isCourse(x)?"":"book"} s-${x.sh} ${lg?"lg":""}" style="--c1:${x.cv[0]};--c2:${x.cv[1]};--c3:${x.cv[2]}" aria-hidden="true">
-    <span class="cv-kind">${kind}</span><i class="cv-shape"></i><b class="cv-title">${esc(x.title)}</b>${isCourse(x)?"":`<span class="cv-by">${esc(PEOPLE[x.by].name)}</span>`}</div>`;
+    <span class="cv-kind">${kind}</span><i class="cv-shape"></i><b class="cv-title">${esc(x.title)}</b>${isCourse(x)?"":`<span class="cv-by">${esc(STUDIO.name)}</span>`}</div>`;
 }
 function card(x){
-  const p = PEOPLE[x.by]; const w = S.wish.includes(x.id);
+  const p = STUDIO; const w = S.wish.includes(x.id);
   const meta = isCourse(x)
-    ? `<span class="rating">${x.rating}</span><span>${fmt(x.students)} תלמידים</span><span>${hoursLabel(x.hours)}</span>`
-    : `<span class="rating">${x.rating}</span><span>${x.pages} עמ׳</span><span>PDF</span>`;
+    ? `<span>${hoursLabel(x.hours)}</span><span>${lessonCount(x)} שיעורים</span><span>${esc(x.level)}</span>`
+    : `<span>${x.pages} עמ׳</span><span>PDF</span>`;
   return `<a class="card" href="#${x.id}">
     ${x.tag?`<span class="tag tag-sun flag">${x.tag}</span>`:""}
     <button class="wish ${w?"on":""}" data-act="wish" data-id="${x.id}" aria-label="${w?"הסרה מהמועדפים":"הוספה למועדפים"}" aria-pressed="${w}">${heart(w)}</button>
@@ -580,28 +537,27 @@ function totals(ids, coupon){
 
 /* ---------- views ---------- */
 function viewHome(){
-  const best = [...COURSES].sort((a,b)=>b.students-a.students).slice(0,4);
+  const best = COURSES.slice(0,4);
   const newB = BOOKS.slice(0,6);
   const cats = [...new Set([...COURSES,...BOOKS].map(x=>x.cat))].map(c=>({c,n:[...COURSES,...BOOKS].filter(x=>x.cat===c).length}));
-  const totalStudents = COURSES.reduce((a,c)=>a+c.students,0);
   return `
   <section class="hero"><div class="wrap hero-in">
     <div>
       <h1>משהו קטן<br>שיעשה לך<br><em>את היום.</em></h1>
-      <p class="lead">קורסים מצולמים וספרים דיגיטליים מאנשים שעושים את זה באמת. לומדים מתי שנוח, מכל מכשיר, עם גישה לכל החיים.</p>
+      <p class="lead">קורסים מצולמים וספרים דיגיטליים שאנחנו כותבים ומפיקים בעצמנו. לומדים מתי שנוח, מכל מכשיר, עם גישה לכל החיים.</p>
       <div class="hero-ctas"><a class="btn btn-ink" href="#courses">לכל הקורסים</a><a class="btn btn-ghost" href="#books">לחנות הספרים</a></div>
       <div class="hero-stats num">
-        <div><b>${fmt(totalStudents)}</b><span>תלמידים</span></div>
+        <div><b>∞</b><span>גישה לכל החיים</span></div>
         <div><b>${COURSES.length}</b><span>קורסים</span></div>
         <div><b>${BOOKS.length}</b><span>ספרים דיגיטליים</span></div>
-        <div><b>4.8★</b><span>דירוג ממוצע</span></div>
+        <div><b>14</b><span>ימים להחזר בקורסים</span></div>
       </div>
     </div>
     <div class="hero-stack" aria-hidden="true">${cover(BOOKS[1])}${cover(COURSES[2])}${cover(BOOKS[0])}</div>
   </div></section>
 
   <section class="block"><div class="wrap">
-    <div class="sec-head"><div><h2>הכי נמכרים</h2><p class="muted">הקורסים שהכי הרבה אנשים מסיימים וממליצים עליהם</p></div><a class="more" href="#courses">לכל הקורסים</a></div>
+    <div class="sec-head"><div><h2>הקורסים שלנו</h2><p class="muted">קורסי וידאו מצולמים שהפקנו בעצמנו</p></div><a class="more" href="#courses">לכל הקורסים</a></div>
     <div class="grid courses-g">${best.map(card).join("")}</div>
   </div></section>
 
@@ -622,10 +578,6 @@ function viewHome(){
     </div>
   </div></section>
 
-  <section class="block" style="padding-top:0"><div class="wrap">
-    <div class="sec-head"><h2>מה אומרים עלינו</h2></div>
-    <div class="quotes">${REVIEWS.slice(0,3).map(r=>`<figure class="quote" style="margin:0"><p>״${esc(r.t)}״</p><footer><span class="ava">${initials(r.n)}</span><span><b>${esc(r.n)}</b><br><span class="muted">${"★".repeat(r.s)}</span></span></footer></figure>`).join("")}</div>
-  </div></section>
 
   <section class="block" style="padding-top:0"><div class="wrap">
     <div class="sec-head"><h2>שאלות נפוצות</h2></div>
@@ -657,8 +609,7 @@ function viewCatalog(type){
     <div style="min-width:0">
       <div class="toolbar"><span class="muted" id="countLbl"></span>
         <select id="sort" aria-label="מיון" data-type="${type}">
-          <option value="pop" ${f.sort==="pop"?"selected":""}>הכי פופולרי</option>
-          <option value="rating" ${f.sort==="rating"?"selected":""}>דירוג גבוה</option>
+          <option value="pop" ${f.sort==="pop"?"selected":""}>מומלץ</option>
           <option value="low" ${f.sort==="low"?"selected":""}>מחיר: נמוך לגבוה</option>
           <option value="high" ${f.sort==="high"?"selected":""}>מחיר: גבוה לנמוך</option>
           <option value="deal" ${f.sort==="deal"?"selected":""}>ההנחה הגדולה</option>
@@ -669,9 +620,8 @@ function viewCatalog(type){
 }
 function fillGrid(type){
   const list = type==="courses"?COURSES:BOOKS; const f=S.f[type];
-  const pop = x => isCourse(x)?x.students:x.sold;
   let r = list.filter(x=>(f.cat==="הכל"||x.cat===f.cat) && (type!=="courses"||f.level==="הכל"||x.level===f.level) && x.price<=f.max);
-  const sorters = {pop:(a,b)=>pop(b)-pop(a), rating:(a,b)=>b.rating-a.rating, low:(a,b)=>a.price-b.price, high:(a,b)=>b.price-a.price, deal:(a,b)=>pctOff(b)-pctOff(a)};
+  const sorters = {pop:(a,b)=>list.indexOf(a)-list.indexOf(b), low:(a,b)=>a.price-b.price, high:(a,b)=>b.price-a.price, deal:(a,b)=>pctOff(b)-pctOff(a)};
   r.sort(sorters[f.sort]);
   $("#countLbl").textContent = `${r.length} ${type==="courses"?"קורסים":"ספרים"}`;
   $("#grid").innerHTML = r.length ? r.map(card).join("") : `<div class="empty" style="grid-column:1/-1">אין תוצאות לסינון הזה. נסו להרחיב את טווח המחיר או לבחור ״הכל״.</div>`;
@@ -679,7 +629,7 @@ function fillGrid(type){
 
 function viewSearch(){
   const q = S.q.trim();
-  const hit = x => [x.title,x.sub,x.cat,PEOPLE[x.by].name].join(" ").includes(q);
+  const hit = x => [x.title,x.sub,x.cat,STUDIO.name].join(" ").includes(q);
   const c = COURSES.filter(hit), b = BOOKS.filter(hit);
   return `<div class="wrap page-head"><h1>חיפוש</h1><p class="muted" style="margin:6px 0 0">${q?`${c.length+b.length} תוצאות עבור ״${esc(q)}״`:"כתבו מילה בחיפוש למעלה"}</p></div>
   <div class="wrap" style="padding-bottom:40px;display:flex;flex-direction:column;gap:30px">
@@ -689,17 +639,6 @@ function viewSearch(){
   </div>`;
 }
 
-function reviewsBlock(x){
-  const dist = x.rating>=4.85?[84,11,3,1,1]:x.rating>=4.75?[74,18,5,2,1]:[62,24,9,3,2];
-  const count = Math.round((isCourse(x)?x.students:x.sold)*0.11);
-  const start = Number(x.id.slice(1))%REVIEWS.length;
-  const picks = [0,1,2,3].map(i=>REVIEWS[(start+i)%REVIEWS.length]);
-  return `<div class="panel"><h2>ביקורות</h2>
-    <div class="rev-top"><div class="rev-avg"><b class="num">${x.rating}</b><span class="muted">${fmt(count)} ביקורות</span></div>
-    <div class="bars num">${dist.map((p,i)=>`<div><span>${5-i}★</span><i style="--w:${p}%"></i><span class="muted">${p}%</span></div>`).join("")}</div></div>
-    ${picks.map((r,i)=>`<div class="rev"><div class="who"><b>${esc(r.n)}</b><span>${"★".repeat(r.s)} · לפני ${i*3+2} ימים</span></div><p>${esc(r.t)}</p></div>`).join("")}
-  </div>`;
-}
 function buyBox(x){
   const owned = S.owned.includes(x.id), inCart = S.cart.includes(x.id);
   const incl = isCourse(x)
@@ -718,14 +657,14 @@ function buyBox(x){
 }
 function viewItem(id){
   const x = ALL[id]; if(!x) return viewHome();
-  const p = PEOPLE[x.by];
+  const p = STUDIO;
   const related = [...COURSES,...BOOKS].filter(y=>y.id!==x.id && (y.cat===x.cat||y.by===x.by)).slice(0,4);
   const listHref = isCourse(x)?"#courses":"#books";
   const main = isCourse(x) ? `
     <div class="item-hero">${cover(x,{lg:true})}
       <div><div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap">${x.tag?`<span class="tag tag-sun">${x.tag}</span>`:""}<span class="tag">${esc(x.cat)}</span><span class="tag">${esc(x.level)}</span></div>
       <h1>${esc(x.title)}</h1><p class="sub">${esc(x.sub)}</p></div>
-      <div class="facts num"><span class="rating">${x.rating}</span><span><b>${fmt(x.students)}</b> תלמידים</span><span><b>${hoursLabel(x.hours)}</b></span><span><b>${lessonCount(x)}</b> שיעורים</span><span>מרצה: <b>${esc(p.name)}</b></span><span>עודכן: אוקטובר 2026</span></div>
+      <div class="facts num"><span><b>${hoursLabel(x.hours)}</b></span><span><b>${lessonCount(x)}</b> שיעורים</span><span>נוצר על ידי <b>${esc(p.name)}</b></span><span>עודכן: אוקטובר 2026</span></div>
     </div>
     <div class="panel"><h2>מה תדעו לעשות בסוף</h2><ul class="learn">${x.learn.map(l=>`<li>${esc(l)}</li>`).join("")}</ul></div>
     <div class="panel"><h2>תוכנית הקורס</h2><p class="muted" style="margin:-6px 0 10px">${x.mods.length} פרקים · ${lessonCount(x)} שיעורים · ${hoursLabel(x.hours)}. ${FREE_LESSONS} השיעורים הראשונים פתוחים לצפייה חינם.</p>
@@ -737,14 +676,13 @@ function viewItem(id){
     <div class="item-hero book">${cover(x,{lg:true})}
       <div><div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap">${x.tag?`<span class="tag tag-sun">${x.tag}</span>`:""}<span class="tag">${esc(x.cat)}</span><span class="tag">PDF</span></div>
       <h1>${esc(x.title)}</h1><p class="sub">${esc(x.sub)}</p>
-      <div class="facts num" style="margin-top:14px"><span class="rating">${x.rating}</span><span>מאת <b>${esc(p.name)}</b></span><span><b>${x.pages}</b> עמודים</span><span><b>${x.mb} MB</b></span><span>עברית · ${x.year}</span><span><b>${fmt(x.sold)}</b> עותקים</span></div></div>
+      <div class="facts num" style="margin-top:14px"><span>מאת <b>${esc(p.name)}</b></span><span><b>${x.pages}</b> עמודים</span><span><b>${x.mb} MB</b></span><span>עברית · ${x.year}</span></div></div>
     </div>
     <div class="panel"><h2>הצצה לספר</h2><div class="paper"><h3>פרק 1: ${esc(x.ch[0])}</h3><p>${esc(x.ex)}</p><span class="pg">עמוד 7</span></div></div>
     <div class="panel"><h2>תוכן העניינים</h2><ol class="toc">${x.ch.map((c,i)=>`<li><span>${esc(c)}</span><em>${7+Math.round(i*x.pages/x.ch.length)}</em></li>`).join("")}</ol></div>`;
   return `<div class="wrap"><div class="crumbs"><a href="#home">ראשי</a> / <a href="${listHref}">${isCourse(x)?"קורסים":"ספרים"}</a> / <span>${esc(x.title)}</span></div></div>
   <div class="wrap item"><div class="item-main">${main}
-    <div class="panel"><h2>${isCourse(x)?"המרצה":"על הכותבת"}</h2><div class="person"><span class="ava">${initials(p.name)}</span><div><b>${esc(p.name)}</b><div class="muted" style="font-size:14px">${esc(p.role)}</div><p>${esc(p.bio)}</p></div></div></div>
-    ${reviewsBlock(x)}
+    <div class="panel"><h2>מי יצר את ${isCourse(x)?"הקורס":"הספר"}</h2><div class="person"><span class="ava">${initials(p.name)}</span><div><b>${esc(p.name)}</b><div class="muted" style="font-size:14px">${esc(p.role)}</div><p>${esc(p.bio)}</p></div></div></div>
     ${related.length?`<div><h2 style="margin-bottom:14px">עוד שאולי תאהבו</h2><div class="grid ${isCourse(x)?"courses-g":"books"}">${related.map(card).join("")}</div></div>`:""}
   </div>${buyBox(x)}</div>`;
 }
@@ -791,8 +729,8 @@ function viewLibrary(){
   const c = mine.filter(isCourse), b = mine.filter(x=>!isCourse(x));
   const tab = S.libTab;
   const rows = tab==="courses"
-    ? (c.length?c.map(x=>{const prog=(Number(x.id.slice(1))*23)%85+5; return `<div class="lib-row">${cover(x)}<div style="min-width:0"><b>${esc(x.title)}</b><div class="muted" style="font-size:14px">${esc(PEOPLE[x.by].name)} · ${lessonCount(x)} שיעורים</div><div class="prog"><i style="--w:${prog}%"></i></div><small class="muted num">${prog}% הושלם</small></div><a class="btn btn-ink btn-sm" href="#${x.id}">להמשיך ללמוד</a></div>`}).join(""):`<div class="empty">אין עדיין קורסים. <a href="#courses">לקורסים</a></div>`)
-    : (b.length?b.map(x=>`<div class="lib-row book">${cover(x)}<div style="min-width:0"><b>${esc(x.title)}</b><div class="muted" style="font-size:14px">${esc(PEOPLE[x.by].name)} · PDF · ${x.mb} MB</div></div><button class="btn btn-ink btn-sm" data-act="download">להורדה</button></div>`).join(""):`<div class="empty">אין עדיין ספרים. <a href="#books">לספרים</a></div>`);
+    ? (c.length?c.map(x=>{const prog=(Number(x.id.slice(1))*23)%85+5; return `<div class="lib-row">${cover(x)}<div style="min-width:0"><b>${esc(x.title)}</b><div class="muted" style="font-size:14px">${esc(STUDIO.name)} · ${lessonCount(x)} שיעורים</div><div class="prog"><i style="--w:${prog}%"></i></div><small class="muted num">${prog}% הושלם</small></div><a class="btn btn-ink btn-sm" href="#${x.id}">להמשיך ללמוד</a></div>`}).join(""):`<div class="empty">אין עדיין קורסים. <a href="#courses">לקורסים</a></div>`)
+    : (b.length?b.map(x=>`<div class="lib-row book">${cover(x)}<div style="min-width:0"><b>${esc(x.title)}</b><div class="muted" style="font-size:14px">${esc(STUDIO.name)} · PDF · ${x.mb} MB</div></div><button class="btn btn-ink btn-sm" data-act="download">להורדה</button></div>`).join(""):`<div class="empty">אין עדיין ספרים. <a href="#books">לספרים</a></div>`);
   return `<div class="wrap page-head"><h1>הספרייה שלי</h1><p class="muted" style="margin:6px 0 0">כל מה שקניתם, במקום אחד. דוגמה: מה שתקנו בדמו יופיע כאן.</p></div>
   <div class="wrap" style="padding-bottom:40px">
     <div class="tabs" role="tablist"><button role="tab" class="${tab==="courses"?"on":""}" data-act="lib-tab" data-v="courses" aria-selected="${tab==="courses"}">קורסים (${c.length})</button><button role="tab" class="${tab==="books"?"on":""}" data-act="lib-tab" data-v="books" aria-selected="${tab==="books"}">ספרים (${b.length})</button></div>
@@ -875,7 +813,8 @@ function viewTerms(){
     {id:"t-general",h:"כללי",b:`<p>האתר You Made My Day (״האתר״) מופעל בידי ${ph(BIZ.name)}, ${ph(BIZ.id)}, ${ph(BIZ.addr)} (״אנחנו״). התקנון חל על כל שימוש באתר ועל כל רכישה בו. גלישה באתר או רכישה בו הן הסכמה לתקנון.</p>
       <p>התקנון כתוב לנוחות בלשון אחת ופונה לכל המגדרים. בנושאי פרטיות והחזרים חלים גם <a href="#privacy">מדיניות הפרטיות</a> ו<a href="#refunds">מדיניות ההחזרים</a>. אם יש סתירה, המסמך הייעודי לנושא גובר.</p>`},
     {id:"t-products",h:"מה נמכר באתר",b:`<ul><li><b>קורסי וידאו:</b> שיעורים מצולמים מראש, עם קבצי עבודה, לצפייה באתר ובנייד.</li><li><b>ספרים דיגיטליים:</b> קובצי PDF להורדה ולקריאה בכל מכשיר.</li><li><b>מנוי כל הגישה:</b> גישה לכל הקורסים והספרים, בחיוב חודשי או שנתי שמתחדש אוטומטית.</li></ul>
-      <p>בעמוד של כל מוצר מופיעים תיאור, היקף (שעות, שיעורים או עמודים), המרצה או הכותב והמחיר. התמונות והכריכות להמחשה.</p>`},
+      <p>בעמוד של כל מוצר מופיעים תיאור, היקף (שעות, שיעורים או עמודים), והמחיר. התמונות והכריכות להמחשה.</p>`},
+    {id:"t-seller",h:"מי מוכר ומי יצר את התוכן",b:`<p>אנחנו המוכר היחיד באתר. כל הקורסים והספרים נכתבו, צולמו והופקו על ידינו, וכל הזכויות בהם שייכות לנו. האתר הוא החנות שלנו בלבד: אין בו מוכרים אחרים, ואי אפשר למכור דרכו מוצרים של צד שלישי.</p>`},
     {id:"t-price",h:"מחירים ותשלום",b:`<ul><li>המחירים בשקלים וכוללים מע״מ.</li><li>המחיר שמחייב הוא המחיר שהופיע ברגע ביצוע ההזמנה. אנחנו רשאים לשנות מחירים בכל עת, והשינוי לא חל על הזמנה שכבר בוצעה.</li><li>אם נפלה טעות ברורה וגסה במחיר (למשל ספר שמופיע ב-0.40 ₪), נודיע לכם, נבטל את ההזמנה ונחזיר את מלוא הסכום.</li><li>התשלום מתבצע דרך ספק סליקה חיצוני מאובטח. פרטי הכרטיס לא נשמרים אצלנו.</li><li>תשלומים בלי ריבית לפי המפורט ב<a href="#pricing">עמוד המחירים</a>.</li><li>חשבונית מס/קבלה נשלחת למייל שמסרתם.</li></ul>`},
     {id:"t-delivery",h:"הזמנה ואספקה",b:`<p>מיד אחרי אישור התשלום המוצר נפתח ב״הספרייה שלי״ ונשלח מייל עם פרטי העסקה וקישור. המייל הזה הוא גם מסמך הגילוי שהחוק מחייב, ובו פרטי העסק, תיאור המוצר, המחיר ותנאי הביטול.</p>
       <p>לא קיבלתם גישה או מייל תוך 24 שעות? כתבו ל-${ph(BIZ.email)} ונטפל.</p>
