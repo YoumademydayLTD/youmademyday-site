@@ -357,7 +357,7 @@ input[type=range]{accent-color:var(--ink);padding:0;height:auto;border:0;backgro
   <main id="view"></main>
   <footer class="site">
     <div class="wrap foot-grid">
-      <div><b style="color:var(--ink);font-family:var(--font-display);font-size:30px">You Made My Day</b><p style="margin:6px 0 0;max-width:40ch">קורסים מצולמים וספרים דיגיטליים בעברית. לומדים בקצב שלכם, מכל מכשיר, עם גישה לכל החיים.</p></div>
+      <div><b style="color:var(--ink);font-family:var(--font-display);font-size:30px">You Made My Day</b><p style="margin:6px 0 0;max-width:40ch">קורסים מצולמים וספרים דיגיטליים בעברית. לומדים בקצב שלכם, מכל מכשיר, עם גישה לכל החיים.</p><p style="margin:10px 0 0">עשית לי את היום בע״מ · ח.פ. 517347712 · דוד אלעזר 10, חיפה</p></div>
       <div><h4>החנות</h4><ul><li><a href="#courses">קורסים</a></li><li><a href="#books">ספרים דיגיטליים</a></li><li><a href="#library">הספרייה שלי</a></li></ul></div>
       <div><h4>עזרה</h4><ul><li><a href="#pricing">מחירים ותשלום</a></li><li><a href="#refunds">מדיניות החזרים</a></li><li><a href="#refunds" data-act="go-cancel"><b>ביטול עסקה</b></a></li></ul></div>
       <div><h4>מידע</h4><ul><li><a href="#terms">תקנון ותנאי שימוש</a></li><li><a href="#privacy">מדיניות פרטיות</a></li><li>הצהרת נגישות</li></ul></div>
@@ -739,9 +739,9 @@ function viewLibrary(){
 }
 
 /* ---------- pricing + legal pages ---------- */
-// Business identity is not decided yet: every [placeholder] is filled by the owner before launch.
-const BIZ = { name:"[שם העסק בע״מ]", id:"[ח.פ. 000000000]", addr:"[כתובת רשומה]", email:"[support@youmademyday.co.il]", phone:"[03-0000000]", city:"[עיר]" };
-const ph = s => `<span class="ph">${esc(s)}</span>`;
+// Registered company details from the owner (01.11.2026); [placeholders] left are still open.
+const BIZ = { name:"עשית לי את היום בע״מ", id:"ח.פ. 517347712", addr:"דוד אלעזר 10, חיפה", email:"[support@youmademyday.co.il]", phone:"[03-0000000]", city:"חיפה" };
+const ph = s => s.startsWith("[") ? `<span class="ph">${esc(s)}</span>` : esc(s);
 const UPDATED = "1 בנובמבר 2026";
 const PLAN = { month:79, year:690 };
 const INSTALLMENTS = [{min:300,n:3},{min:600,n:6}];
