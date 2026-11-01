@@ -27,7 +27,7 @@ COMPANY = "עשית לי את היום בע״מ · ח.פ. 517347712"
 MD_EXTENSIONS = ["tables", "fenced_code", "sane_lists", "attr_list"]
 FRONTMATTER = re.compile(r"\A---\n.*?\n---\n", re.S)
 # Daily journals with one "##" heading per day and no explicit page markers.
-ONE_PAGE_PER_H2 = {22, 24}
+ONE_PAGE_PER_H2 = {22, 24, 35}
 
 CSS = """
 @page { size: A4; margin: 18mm 16mm 20mm; }
@@ -53,13 +53,23 @@ hr { border: 0; margin: 0; break-after: page; }  /* "---" in the source = a new 
 .cover .sub { font-size: 15pt; margin-top: 8pt; }
 .cover .brand { font-family: "Fraunces", serif; font-size: 18pt; font-weight: 600; direction: ltr; text-align: left; }
 .legal { break-before: page; font-size: 10pt; color: #5B4D70; }
+.blank { display: inline-block; min-width: 60%; border-bottom: 1px solid #CBBDE0; height: 14pt; vertical-align: bottom; }
+.write-line { border-bottom: 1px solid #CBBDE0; height: 22pt; }
 .lesson-meta { color: #6E5F86; font-size: 10.5pt; margin-bottom: 8pt; }
 """
 FONTS = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Fraunces:opsz,wght@9..144,600&display=swap">'
 
 
+# A line of only underscores is a writing line in worksheets, not a Markdown rule (which would break the page).
+WRITING_LINE = re.compile(r"^[ \t\u00a0]*_{3,}[ \t\u00a0]*$", re.M)
+# Fill-in blanks inside a line ("1. ______") would otherwise parse as a rule or emphasis.
+BLANK_RUN = re.compile(r"_{5,}")
+
+
 def md_to_html(text: str) -> str:
-    return markdown.markdown(FRONTMATTER.sub("", text), extensions=MD_EXTENSIONS)
+    text = WRITING_LINE.sub('<div class="write-line"></div>', FRONTMATTER.sub("", text))
+    text = BLANK_RUN.sub('<span class="blank"></span>', text)
+    return markdown.markdown(text, extensions=MD_EXTENSIONS)
 
 
 def page(title: str, subtitle: str, kind: str, body: str, body_class: str = "") -> str:
@@ -130,7 +140,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--only", help="comma-separated product numbers")
     args = parser.parse_args()
-    only = {int(x) for x in args.only.split(",")} if args.only else None
+    only = {int(x) for x in args.only.split(",") if x.strip()} if args.only else None
     DIST.mkdir(parents=True, exist_ok=True)
     failures = []
     for n, kind, folder in product_folders():

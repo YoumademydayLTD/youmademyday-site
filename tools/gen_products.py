@@ -81,8 +81,9 @@ def build() -> tuple[list[dict], list[int]]:
             if not c:
                 missing.append(n)
                 continue
-            base.update(description=paragraphs(c.get("description", p["sub"])), outcomes=c.get("outcomes", []),
-                        forWho=c.get("for", []) if isinstance(c.get("for"), list) else paragraphs(c.get("for", "")),
+            for_who = c.get("for") or c.get("forWho") or []  # course 1 was written with camelCase keys
+            base.update(description=paragraphs(c.get("description", p["sub"])), outcomes=c.get("outcomes") or c.get("learningOutcomes") or [],
+                        forWho=for_who if isinstance(for_who, list) else paragraphs(for_who),
                         lessons=[{"title": l["title"], "summary": l.get("summary", ""), "minutes": int(l.get("minutes", 20))} for l in c["lessons"]])
         elif p["type"] == "bundle":
             base.update(includes=[f"b{i}" for i in BUNDLES[n]],
