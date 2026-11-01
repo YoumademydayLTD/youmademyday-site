@@ -1,0 +1,1093 @@
+<title>You Made My Day</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karantina:wght@400;700&family=Assistant:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: sticky header, a sunrise-yellow hero band, then catalog grids; item pages are a two-column read + sticky buy box. */
+:root{
+  --bg:#F4F5FA; --surface:#FFFFFF; --surface-2:#ECEEF6; --ink:#15172E; --muted:#5B5F78; --line:#E0E3EE;
+  --sun:#FFC21A; --sun-ink:#15172E; --sky:#2F55F0; --ok:#178A57; --danger:#C9372F;
+  --font-display:"Karantina","Assistant","Arial Hebrew",sans-serif;
+  --font-body:"Assistant","Arial Hebrew","Segoe UI",sans-serif;
+  --r:14px; --r-sm:9px; --shadow:0 1px 2px rgba(21,23,46,.06),0 8px 24px rgba(21,23,46,.07);
+  --header-h:64px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1021; --surface:#171A2F; --surface-2:#1F2340; --ink:#EDEFF8; --muted:#A1A6C2; --line:#2A2E4A;
+  --sun:#FFC933; --sun-ink:#15172E; --sky:#8099FF; --ok:#3CC487; --danger:#FF6B62;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35); color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#0E1021; --surface:#171A2F; --surface-2:#1F2340; --ink:#EDEFF8; --muted:#A1A6C2; --line:#2A2E4A;
+  --sun:#FFC933; --sun-ink:#15172E; --sky:#8099FF; --ok:#3CC487; --danger:#FF6B62;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35); color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.55}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--surface)}
+#app{direction:rtl}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--sky);outline-offset:2px;border-radius:6px}
+h1,h2,h3{text-wrap:balance;margin:0}
+.wrap{max-width:1180px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.muted{color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+
+/* demo strip + header */
+.demo-strip{background:var(--ink);color:var(--bg);font-size:13px;text-align:center;padding-block:6px}
+.demo-strip b{color:var(--sun)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--surface);border-bottom:1px solid var(--line)}
+.top-row{display:flex;align-items:center;gap:16px;min-height:var(--header-h)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo svg{flex:none}
+.logo-txt{display:flex;flex-direction:column;line-height:1}
+.logo-en{font-family:var(--font-display);font-weight:700;font-size:28px;letter-spacing:.5px;direction:ltr}
+.logo-he{font-size:12px;color:var(--muted);font-weight:600}
+nav.main{display:flex;gap:4px;margin-inline-start:12px}
+nav.main a{text-decoration:none;font-weight:600;padding:8px 12px;border-radius:999px;color:var(--muted);white-space:nowrap}
+nav.main a:hover{color:var(--ink);background:var(--surface-2)}
+nav.main a.on{color:var(--ink);background:var(--surface-2)}
+.top-search{flex:1;max-width:320px;margin-inline-start:auto;position:relative}
+.top-search input{width:100%;height:40px;border-radius:999px;border:1px solid var(--line);background:var(--bg);padding:0 40px 0 14px;font:inherit;color:var(--ink)}
+.top-search svg{position:absolute;right:13px;top:11px;color:var(--muted)}
+.icon-btn{position:relative;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--surface);display:grid;place-items:center;flex:none}
+.icon-btn:hover{background:var(--surface-2)}
+.badge{position:absolute;top:-4px;left:-4px;min-width:20px;height:20px;border-radius:10px;background:var(--sun);color:var(--sun-ink);font-size:12px;font-weight:800;display:grid;place-items:center;padding-inline:5px}
+.badge[data-n="0"]{display:none}
+@media (max-width:860px){
+  .top-row{flex-wrap:wrap;gap:10px;padding-block:8px}
+  nav.main{order:3;width:100%;margin:0;overflow-x:auto;scrollbar-width:none}
+  .top-search{order:2;max-width:none;flex-basis:100%}
+  .top-row .icons{margin-inline-start:auto}
+}
+
+/* buttons, chips */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 22px;border-radius:999px;border:1px solid transparent;font-weight:700;text-decoration:none;white-space:nowrap}
+.btn-ink{background:var(--ink);color:var(--bg)}
+.btn-ink:hover{opacity:.9}
+.btn-sun{background:var(--sun);color:var(--sun-ink)}
+.btn-sun:hover{filter:brightness(.96)}
+.btn-ghost{background:transparent;border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{background:var(--surface-2)}
+.btn-block{width:100%}
+.btn-sm{height:36px;padding:0 14px;font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;font-weight:600;font-size:14px}
+.chip:hover{background:var(--surface-2)}
+.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip small{opacity:.6;margin-inline-start:4px}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--surface-2);color:var(--muted)}
+.tag-sun{background:var(--sun);color:var(--sun-ink)}
+.tag-ok{background:color-mix(in srgb,var(--ok) 16%,transparent);color:var(--ok)}
+
+/* hero */
+.hero{background:var(--sun);color:var(--sun-ink);overflow:hidden}
+.hero-in{display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:center;padding-block:48px 56px}
+.hero h1{font-family:var(--font-display);font-weight:700;font-size:clamp(56px,9vw,112px);line-height:.88;letter-spacing:.3px}
+.hero h1 em{font-style:normal;background:var(--sun-ink);color:var(--sun);padding:0 .12em;border-radius:6px;display:inline-block;transform:rotate(-1.5deg)}
+.hero p.lead{font-size:19px;max-width:46ch;margin:18px 0 26px;font-weight:600;opacity:.86}
+.hero .btn-ghost{border-color:rgba(21,23,46,.3);color:var(--sun-ink)}
+.hero .btn-ghost:hover{background:rgba(21,23,46,.07)}
+.hero .btn-ink{background:var(--sun-ink);color:var(--sun)}
+.hero-ctas{display:flex;gap:10px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:34px}
+.hero-stats div{display:flex;flex-direction:column}
+.hero-stats b{font-family:var(--font-display);font-size:44px;line-height:1}
+.hero-stats span{font-size:13px;font-weight:700;opacity:.75}
+.hero-stack{position:relative;height:380px}
+.hero-stack .cover{position:absolute;width:56%;box-shadow:0 18px 40px rgba(21,23,46,.28)}
+.hero-stack .cover:nth-child(1){top:10px;right:0;transform:rotate(5deg)}
+.hero-stack .cover:nth-child(2){top:70px;right:26%;transform:rotate(-4deg);z-index:2}
+.hero-stack .cover:nth-child(3){top:150px;right:6%;transform:rotate(2deg);z-index:3}
+@media (max-width:860px){.hero-in{grid-template-columns:1fr;padding-block:34px 40px}.hero-stack{height:300px}.hero-stack .cover{width:48%}}
+@media (max-width:480px){.hero-stack{display:none}}
+
+/* covers */
+.cover{position:relative;overflow:hidden;border-radius:var(--r-sm);background:var(--c1);color:var(--c2);display:flex;flex-direction:column;justify-content:flex-end;padding:14px;isolation:isolate;aspect-ratio:4/3;max-width:100%}
+.cover.book{aspect-ratio:3/4;border-radius:4px 10px 10px 4px;box-shadow:inset -8px 0 0 rgba(0,0,0,.14)}
+.cv-kind{position:absolute;top:12px;right:14px;font-size:11px;font-weight:800;letter-spacing:1px;opacity:.85;z-index:1}
+.cv-title{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,3.2vw,40px);line-height:.92;z-index:1;text-wrap:balance}
+.cover.lg .cv-title{font-size:clamp(40px,6vw,68px)}
+.cv-by{font-size:12px;font-weight:700;opacity:.85;z-index:1;margin-top:6px}
+.cv-shape{position:absolute;z-index:0;background:var(--c3)}
+.s-sun .cv-shape{width:70%;aspect-ratio:1;border-radius:50%;top:-18%;left:-14%}
+.s-half .cv-shape{width:90%;aspect-ratio:2/1;border-radius:999px 999px 0 0;bottom:-2%;left:5%;opacity:.9}
+.s-ring .cv-shape{width:64%;aspect-ratio:1;border-radius:50%;top:8%;left:-10%;background:transparent;border:18px solid var(--c3)}
+.s-bars .cv-shape{inset:0 0 auto 0;height:52%;background:repeating-linear-gradient(90deg,var(--c3) 0 12px,transparent 12px 26px);opacity:.55}
+.s-dot .cv-shape{width:26%;aspect-ratio:1;border-radius:50%;top:16%;left:14%;box-shadow:70px 40px 0 -8px var(--c3),20px 96px 0 -14px var(--c3)}
+
+/* sections */
+section.block{padding-block:48px}
+.sec-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.sec-head h2{font-family:var(--font-display);font-size:clamp(40px,5vw,56px);line-height:.95;font-weight:700}
+.sec-head p{margin:4px 0 0}
+.sec-head a.more{font-weight:700;text-decoration:none;border-bottom:2px solid var(--sun)}
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.grid.books{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
+@media (max-width:480px){.grid{grid-template-columns:1fr 1fr;gap:12px}.grid.courses-g{grid-template-columns:1fr}}
+
+/* product card */
+.card{display:flex;flex-direction:column;gap:10px;text-decoration:none;position:relative;min-width:0}
+.card:hover .cover{transform:translateY(-3px)}
+.card .cover{transition:transform .2s ease}
+.card-body{display:flex;flex-direction:column;gap:4px;min-width:0}
+.card h3{font-size:17px;line-height:1.25;font-weight:700}
+.card .by{font-size:14px;color:var(--muted)}
+.card .meta{display:flex;gap:10px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.rating{color:var(--ink);font-weight:700}
+.rating::before{content:"★ ";color:#E9A400}
+.price-row{display:flex;align-items:baseline;gap:8px;margin-top:2px}
+.price{font-weight:800;font-size:18px}
+.old{text-decoration:line-through;color:var(--muted);font-size:14px}
+.wish{position:absolute;top:10px;left:10px;width:34px;height:34px;border-radius:50%;border:0;background:rgba(255,255,255,.9);display:grid;place-items:center;z-index:2;color:#15172E}
+.wish.on{color:#D6334A}
+.card .flag{position:absolute;top:10px;right:10px;z-index:2}
+
+/* categories */
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.cat{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:16px 18px;border-radius:var(--r);background:var(--surface);border:1px solid var(--line);text-decoration:none;font-weight:700}
+.cat:hover{border-color:var(--ink)}
+.cat span{font-weight:600;font-size:13px;color:var(--muted)}
+
+/* bundle band */
+.bundle{background:var(--ink);color:var(--bg);border-radius:20px;padding:34px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.bundle h2{font-family:var(--font-display);font-size:clamp(40px,5vw,60px);line-height:.92;color:var(--sun)}
+.bundle p{margin:10px 0 0;max-width:52ch;opacity:.85}
+.bundle .btn-sun{height:52px}
+@media (max-width:700px){.bundle{grid-template-columns:1fr;padding:24px}}
+
+/* testimonials */
+.quotes{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.quote{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:12px}
+.quote p{margin:0;font-size:17px}
+.quote footer{display:flex;align-items:center;gap:10px;font-size:14px}
+.ava{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:800;background:var(--surface-2);flex:none}
+
+/* faq */
+.faq{display:flex;flex-direction:column;gap:10px;max-width:820px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:0 18px}
+.faq summary{cursor:pointer;font-weight:700;padding-block:16px;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.faq summary::after{content:"+";font-size:22px;line-height:1;color:var(--muted)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{margin:0 0 16px;color:var(--muted)}
+
+/* newsletter + footer */
+.news{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:30px}
+.news h2{font-family:var(--font-display);font-size:48px;line-height:.95}
+.news form{display:flex;gap:8px}
+.news input{flex:1;min-width:0;height:46px;border-radius:999px;border:1px solid var(--line);background:var(--bg);padding:0 16px;font:inherit;color:var(--ink)}
+@media (max-width:700px){.news{grid-template-columns:1fr;padding:22px}}
+footer.site{border-top:1px solid var(--line);margin-top:40px;padding-block:36px;color:var(--muted);font-size:14px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:24px}
+.foot-grid h4{color:var(--ink);margin:0 0 8px;font-size:15px}
+.foot-grid ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+@media (max-width:700px){.foot-grid{grid-template-columns:1fr 1fr}}
+
+/* catalog */
+.page-head{padding-block:34px 18px}
+.page-head h1{font-family:var(--font-display);font-size:clamp(56px,8vw,88px);line-height:.9}
+.catalog{display:grid;grid-template-columns:250px 1fr;gap:28px;padding-bottom:40px}
+.filters{display:flex;flex-direction:column;gap:22px;position:sticky;top:calc(var(--header-h) + 20px);align-self:start}
+.filters h4{margin:0 0 8px;font-size:14px;color:var(--muted);letter-spacing:.4px}
+.filters .chips{flex-direction:column;align-items:stretch}
+.filters .chip{text-align:right;display:flex;justify-content:space-between}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-weight:700;font-size:14px}
+.field input,.field select{height:44px;border-radius:var(--r-sm);border:1px solid var(--line);background:var(--surface);padding:0 12px;font:inherit;color:var(--ink);width:100%}
+input[type=range]{accent-color:var(--ink);padding:0;height:auto;border:0;background:none}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.toolbar select{height:40px;border-radius:999px;border:1px solid var(--line);background:var(--surface);padding:0 14px;font:inherit;color:var(--ink)}
+.empty{padding:50px 20px;text-align:center;border:1px dashed var(--line);border-radius:var(--r);color:var(--muted)}
+@media (max-width:860px){.catalog{grid-template-columns:1fr}.filters{position:static}.filters .chips{flex-direction:row;flex-wrap:wrap}}
+
+/* item page */
+.crumbs{font-size:14px;color:var(--muted);padding-block:20px 6px;display:flex;gap:6px;flex-wrap:wrap}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{text-decoration:underline}
+.item{display:grid;grid-template-columns:1fr 360px;gap:36px;padding-bottom:40px;align-items:start}
+.item-main{display:flex;flex-direction:column;gap:28px;min-width:0}
+.item-hero{display:grid;grid-template-columns:1fr;gap:20px}
+.item-hero.book{grid-template-columns:240px 1fr;align-items:end}
+.item h1{font-family:var(--font-display);font-size:clamp(48px,6vw,76px);line-height:.92}
+.item .sub{font-size:19px;color:var(--muted);margin:10px 0 0;max-width:60ch}
+.facts{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;color:var(--muted)}
+.facts b{color:var(--ink)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.panel h2{font-size:22px;margin-bottom:14px}
+.learn{display:grid;grid-template-columns:1fr 1fr;gap:10px 22px;margin:0;padding:0;list-style:none}
+.learn li{display:flex;gap:10px}
+.learn li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:50%;background:var(--sun);box-shadow:inset 0 0 0 5px var(--sun),inset 0 0 0 9px var(--sun-ink)}
+@media (max-width:600px){.learn{grid-template-columns:1fr}}
+.mod{border-top:1px solid var(--line)}
+.mod:first-of-type{border-top:0}
+.mod summary{display:flex;justify-content:space-between;gap:12px;padding-block:14px;cursor:pointer;font-weight:700;list-style:none}
+.mod summary span{font-weight:600;color:var(--muted);font-size:14px;white-space:nowrap}
+.mod ol{margin:0 0 14px;padding:0;list-style:none;display:flex;flex-direction:column;gap:2px}
+.mod li{display:flex;justify-content:space-between;gap:10px;padding:8px 10px;border-radius:8px;font-size:15px}
+.mod li:hover{background:var(--surface-2)}
+.mod li .free{color:var(--sky);font-weight:700;font-size:13px}
+.person{display:flex;gap:16px;align-items:flex-start}
+.person .ava{width:64px;height:64px;font-size:24px;font-family:var(--font-display)}
+.person p{margin:6px 0 0;color:var(--muted)}
+.rev-top{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center;margin-bottom:18px}
+.rev-avg b{font-family:var(--font-display);font-size:72px;line-height:.9;display:block}
+.bars{display:flex;flex-direction:column;gap:5px;font-size:13px}
+.bars div{display:grid;grid-template-columns:28px 1fr 36px;gap:8px;align-items:center}
+.bars i{display:block;height:8px;border-radius:4px;background:var(--surface-2);overflow:hidden}
+.bars i::after{content:"";display:block;height:100%;width:var(--w);background:var(--sun)}
+.rev{border-top:1px solid var(--line);padding-block:14px}
+.rev p{margin:6px 0 0}
+.rev .who{display:flex;justify-content:space-between;font-size:14px;color:var(--muted)}
+.rev .who b{color:var(--ink)}
+.buybox{position:sticky;top:calc(var(--header-h) + 20px);background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow)}
+.buybox .big{font-size:36px;font-weight:800;line-height:1}
+.save{font-weight:800;color:var(--danger);font-size:14px}
+.countdown{background:var(--surface-2);border-radius:var(--r-sm);padding:10px 12px;font-size:14px;display:flex;justify-content:space-between;gap:8px}
+.countdown b{font-variant-numeric:tabular-nums;direction:ltr}
+.incl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;font-size:14px}
+.incl li{display:flex;gap:9px}
+.incl li::before{content:"✓";font-weight:800;color:var(--ok)}
+.owned-note{background:color-mix(in srgb,var(--ok) 12%,transparent);color:var(--ok);border-radius:var(--r-sm);padding:10px 12px;font-weight:700;font-size:14px}
+@media (max-width:960px){.item{grid-template-columns:1fr}.buybox{position:static}}
+@media (max-width:560px){.item-hero.book{grid-template-columns:1fr}.item-hero.book .cover{max-width:220px}}
+.paper{background:#FBFAF6;color:#24231F;border-radius:6px;padding:34px 32px;box-shadow:var(--shadow);font-family:"Frank Ruhl Libre","David","Times New Roman",serif;position:relative;max-width:560px}
+.paper h3{font-size:22px;margin-bottom:12px}
+.paper p{margin:0;font-size:17px;line-height:1.75}
+.paper .pg{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-size:12px;color:#8a877c;font-family:var(--font-body)}
+.paper::after{content:"";position:absolute;inset:auto 0 0 0;height:90px;background:linear-gradient(to top,#FBFAF6 30%,rgba(251,250,246,0));border-radius:0 0 6px 6px}
+.toc{list-style:none;margin:0;padding:0;counter-reset:ch}
+.toc li{display:flex;gap:10px;padding:9px 0;border-bottom:1px dotted var(--line)}
+.toc li::before{counter-increment:ch;content:counter(ch);font-family:var(--font-display);font-size:24px;line-height:1;width:24px;color:var(--muted)}
+.toc li span{flex:1}
+.toc li em{font-style:normal;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* drawer */
+.overlay{position:fixed;inset:0;background:rgba(10,12,28,.45);z-index:80}
+.drawer{position:fixed;top:0;bottom:0;left:0;width:min(420px,100%);background:var(--surface);z-index:90;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);padding-left:env(safe-area-inset-left,0px);box-shadow:var(--shadow);direction:rtl}
+.drawer header{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line)}
+.drawer header h2{font-family:var(--font-display);font-size:40px;line-height:1}
+.drawer .list{flex:1;overflow-y:auto;padding:12px 20px;display:flex;flex-direction:column;gap:12px}
+.line{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center}
+.line .cover{padding:6px;border-radius:6px}
+.line .cover .cv-title{font-size:16px}
+.line .cover .cv-kind{display:none}
+.line h4{margin:0;font-size:15px;line-height:1.25}
+.line small{color:var(--muted)}
+.line .x{border:0;background:none;color:var(--muted);font-size:13px;text-decoration:underline;padding:0}
+.drawer .foot{border-top:1px solid var(--line);padding:16px 20px;display:flex;flex-direction:column;gap:10px}
+.sum{display:flex;justify-content:space-between;font-size:15px}
+.sum.total{font-size:20px;font-weight:800}
+
+/* checkout */
+.checkout{display:grid;grid-template-columns:1fr 380px;gap:30px;padding-bottom:40px;align-items:start}
+.checkout form{display:flex;flex-direction:column;gap:18px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pay-opts{display:flex;gap:10px;flex-wrap:wrap}
+.pay-opts label{flex:1;min-width:140px;border:1px solid var(--line);border-radius:var(--r-sm);padding:12px 14px;display:flex;gap:10px;align-items:center;font-weight:700;cursor:pointer;background:var(--surface)}
+.pay-opts label:has(input:checked){border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.err{color:var(--danger);font-size:13px;font-weight:700}
+.coupon{display:flex;gap:8px}
+.coupon input{flex:1;min-width:0;height:40px;border-radius:999px;border:1px solid var(--line);background:var(--bg);padding:0 14px;font:inherit;color:var(--ink)}
+@media (max-width:860px){.checkout{grid-template-columns:1fr}.two{grid-template-columns:1fr}}
+.success{text-align:center;padding:60px 20px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.success h1{font-family:var(--font-display);font-size:clamp(56px,9vw,96px);line-height:.9}
+
+/* library */
+.lib-row{display:grid;grid-template-columns:140px 1fr auto;gap:18px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px}
+.lib-row.book{grid-template-columns:90px 1fr auto}
+.lib-list{display:flex;flex-direction:column;gap:12px}
+.prog{height:8px;border-radius:4px;background:var(--surface-2);overflow:hidden;margin-top:8px}
+.prog i{display:block;height:100%;width:var(--w);background:var(--ok)}
+@media (max-width:600px){.lib-row,.lib-row.book{grid-template-columns:80px 1fr}.lib-row .btn{grid-column:1/-1}}
+.tabs{display:flex;gap:6px;border-bottom:1px solid var(--line);margin-bottom:18px}
+.tabs button{border:0;background:none;padding:10px 14px;font-weight:700;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-1px}
+.tabs button.on{color:var(--ink);border-bottom-color:var(--sun)}
+
+/* legal pages */
+.legal{display:grid;grid-template-columns:230px 1fr;gap:40px;padding-bottom:48px;align-items:start}
+.legal-toc{position:sticky;top:calc(var(--header-h) + 20px);display:flex;flex-direction:column;gap:2px;font-size:14px}
+.legal-toc h4{margin:0 0 8px;font-size:13px;color:var(--muted);letter-spacing:.4px}
+.legal-toc button{border:0;background:none;text-align:right;padding:6px 10px;border-radius:8px;color:var(--muted);font-weight:600}
+.legal-toc button:hover{background:var(--surface-2);color:var(--ink)}
+.legal article{display:flex;flex-direction:column;gap:30px;min-width:0;max-width:760px}
+.legal section{scroll-margin-top:calc(var(--header-h) + 24px)}
+.legal section h2{font-size:24px;margin-bottom:10px}
+.legal section p{margin:0 0 10px}
+.legal section ul{margin:0 0 10px;padding-inline-start:20px;display:flex;flex-direction:column;gap:6px}
+.legal .law{font-size:13px;color:var(--muted)}
+.legal-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.note{background:var(--surface-2);border-radius:var(--r-sm);padding:12px 14px;font-size:14px}
+.ph{background:color-mix(in srgb,var(--sun) 45%,transparent);border-radius:4px;padding:0 4px;font-weight:700}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+.tbl{width:100%;border-collapse:collapse;font-size:15px;min-width:520px}
+.tbl th,.tbl td{text-align:right;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{font-size:13px;color:var(--muted);font-weight:700;background:var(--surface-2)}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td.num,.tbl th.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+@media (max-width:860px){.legal{grid-template-columns:1fr}.legal-toc{position:static;flex-direction:row;flex-wrap:wrap}}
+
+/* pricing */
+.billing{display:inline-flex;background:var(--surface-2);border-radius:999px;padding:4px;gap:4px}
+.billing button{border:0;background:none;border-radius:999px;padding:8px 16px;font-weight:700;color:var(--muted)}
+.billing button.on{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:14px}
+.plan.hot{border:2px solid var(--ink);position:relative}
+.plan.hot .tag{position:absolute;top:-12px;right:20px}
+.plan h3{font-size:20px}
+.plan .big{font-family:var(--font-display);font-size:64px;line-height:.9}
+.plan .big small{font-family:var(--font-body);font-size:15px;color:var(--muted);font-weight:600}
+.plan .incl{flex:1}
+@media (max-width:900px){.plans{grid-template-columns:1fr}}
+
+/* toast */
+#toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:999px;font-weight:700;z-index:100;box-shadow:var(--shadow);max-width:calc(100% - 32px);text-align:center;direction:rtl}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div id="app" lang="he">
+  <div class="demo-strip">דמו לעיצוב · כל התוכן, השמות והמחירים לדוגמה · קוד קופון לניסיון: <b>YMD10</b></div>
+  <header class="top">
+    <div class="wrap top-row">
+      <a class="logo" href="#home" aria-label="You Made My Day, לדף הבית">
+        <svg width="38" height="38" viewBox="0 0 38 38" aria-hidden="true"><rect width="38" height="38" rx="10" fill="var(--sun)"/><path d="M8 25a11 11 0 0 1 22 0Z" fill="var(--sun-ink)"/><rect x="6" y="27" width="26" height="3" rx="1.5" fill="var(--sun-ink)"/></svg>
+        <span class="logo-txt"><span class="logo-en">You Made My Day</span><span class="logo-he">עשית לי את היום</span></span>
+      </a>
+      <nav class="main" id="nav">
+        <a href="#home" data-nav="home">ראשי</a>
+        <a href="#courses" data-nav="courses">קורסים</a>
+        <a href="#books" data-nav="books">ספרים דיגיטליים</a>
+        <a href="#pricing" data-nav="pricing">מחירים</a>
+        <a href="#library" data-nav="library">הספרייה שלי</a>
+      </nav>
+      <form class="top-search" id="topSearch" role="search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="חיפוש קורס, ספר או מרצה" aria-label="חיפוש">
+      </form>
+      <div class="icons" style="display:flex;gap:8px">
+        <button class="icon-btn" data-act="open-wish" aria-label="מועדפים"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg><span class="badge" id="wishN" data-n="0">0</span></button>
+        <button class="icon-btn" data-act="open-cart" aria-label="סל קניות"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 7h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8Z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg><span class="badge" id="cartN" data-n="0">0</span></button>
+      </div>
+    </div>
+  </header>
+  <main id="view"></main>
+  <footer class="site">
+    <div class="wrap foot-grid">
+      <div><b style="color:var(--ink);font-family:var(--font-display);font-size:30px">You Made My Day</b><p style="margin:6px 0 0;max-width:40ch">קורסים מצולמים וספרים דיגיטליים בעברית. לומדים בקצב שלכם, מכל מכשיר, עם גישה לכל החיים.</p></div>
+      <div><h4>החנות</h4><ul><li><a href="#courses">קורסים</a></li><li><a href="#books">ספרים דיגיטליים</a></li><li><a href="#library">הספרייה שלי</a></li></ul></div>
+      <div><h4>עזרה</h4><ul><li><a href="#pricing">מחירים ותשלום</a></li><li><a href="#refunds">מדיניות החזרים</a></li><li><a href="#refunds" data-act="go-cancel"><b>ביטול עסקה</b></a></li></ul></div>
+      <div><h4>מידע</h4><ul><li><a href="#terms">תקנון ותנאי שימוש</a></li><li><a href="#privacy">מדיניות פרטיות</a></li><li>הצהרת נגישות</li></ul></div>
+    </div>
+  </footer>
+</div>
+<div id="drawerRoot"></div>
+<div id="toast" hidden></div>
+
+<script>
+"use strict";
+document.documentElement.setAttribute("dir","rtl");
+document.documentElement.setAttribute("lang","he");
+
+/* ---------- demo content (all examples) ---------- */
+const PEOPLE = {
+  noam:{name:"נועם לוי",role:"מנהלת סושיאל, 9 שנות ניסיון",bio:"ליוותה מעל 300 עסקים קטנים בבניית נוכחות ברשתות. מאמינה בתוכן פשוט שעושים כל יום, לא בקמפיין גדול פעם בשנה."},
+  yael:{name:"יעל שגיא",role:"מאמנת אישית ומנחת סדנאות",bio:"מנחה קבוצות כבר 12 שנה. עובדת עם כלים קטנים ומעשיים שאפשר להכניס לשגרה כבר מחר בבוקר."},
+  amit:{name:"עמית ברק",role:"שף ובעל מסעדה בתל אביב",bio:"בישל במטבחים בפריז ובלונדון וחזר הביתה לבשל אוכל של אמא, רק מדויק יותר."},
+  dana:{name:"דנה אורן",role:"צלמת ובמאית קליפים",bio:"מצלמת עשור, היום בעיקר בטלפון. מלמדת איך לספר סיפור בתמונה אחת."},
+  ron:{name:"רון כהן",role:"מפתח ומנהל מוצר",bio:"בנה אפליקציות לסטארטאפים ולחברות גדולות. מסביר טכנולוגיה בשפה של בני אדם."},
+  maya:{name:"מאיה פרץ",role:"יועצת זוגית M.A",bio:"מטפלת בזוגות ובמשפחות 15 שנה. כותבת על תקשורת, ריבים טובים והקשבה."},
+  tal:{name:"טל אביטל",role:"מאמן כושר ותזונאי קליני",bio:"מאמין בשלושה אימונים קצרים בשבוע ובצלחת מאוזנת, בלי דיאטות קיצון."},
+  shir:{name:"שיר נחום",role:"מאיירת ומעצבת",bio:"מאיירת ספרי ילדים ומותגים. אוהבת עפרון רך ומחברת זולה."},
+  eli:{name:"אלי מזרחי",role:"יועץ כלכלי למשפחות",bio:"עזר לאלפי משפחות לצאת מהמינוס ולבנות חיסכון ראשון, צעד אחרי צעד."}
+};
+
+const COURSES = [
+  {id:"c1",title:"שיווק באינסטגרם מאפס",sub:"מהפוסט הראשון ועד לקוחות שחוזרים, בלי תקציב פרסום",cat:"שיווק ועסקים",by:"noam",price:349,old:590,rating:4.9,students:3240,hours:8.5,level:"מתחילים",tag:"רב מכר",cv:["#F25C3B","#FFF4E8","#FFC21A"],sh:"sun",
+   learn:["לבנות פרופיל שנראה מקצועי ב-30 דקות","לתכנן חודש תוכן בערב אחד","לכתוב כיתוב שגורם לאנשים לענות","להפוך עוקבים להודעות פרטיות ומכירות"],
+   mods:["הבסיס: פרופיל, ביו ותמונה","תוכן שעובד: רילס, סטוריז ופוסטים","כתיבה שמוכרת","מעוקבים ללקוחות","מדידה ושיפור"]},
+  {id:"c2",title:"בוקר טוב לעצמי",sub:"שגרת בוקר של 20 דקות שמשנה את כל היום",cat:"התפתחות אישית",by:"yael",price:189,old:290,rating:4.8,students:5110,hours:3,level:"לכולם",tag:"חדש",cv:["#FFE27A","#2A2140","#FF8A5B"],sh:"half",
+   learn:["לבנות שגרת בוקר שמחזיקה גם בימים עמוסים","תרגילי נשימה של 3 דקות","יומן תודה שלא מרגיש מאולץ","להתחיל את היום בלי טלפון"],
+   mods:["למה הבוקר קובע","20 הדקות הראשונות","גוף ונשימה","הראש: כתיבה וכוונה","להחזיק לאורך זמן"]},
+  {id:"c3",title:"בישול ביתי ברמת מסעדה",sub:"12 מנות, 5 טכניקות, אפס לחץ",cat:"בישול ואוכל",by:"amit",price:420,old:690,rating:4.9,students:2280,hours:11,level:"מתחילים",tag:"רב מכר",cv:["#1F4D3A","#F6EFD9","#E8A23A"],sh:"ring",
+   learn:["לחתוך כמו שף, מהר ובטוח","רטבים בסיסיים שהופכים כל מנה","לצלות בשר ודג בדיוק במידה","להגיש צלחת שנראית כמו במסעדה"],
+   mods:["סכינים וחיתוכים","רטבים אם","צלייה וטיגון","ירקות שאוהבים לאכול","קינוחים מהירים","ערב אירוח מלא"]},
+  {id:"c4",title:"צילום בטלפון כמו מקצוען",sub:"אור, קומפוזיציה ועריכה, רק עם המכשיר שבכיס",cat:"יצירה ועיצוב",by:"dana",price:259,old:420,rating:4.7,students:4020,hours:6,level:"מתחילים",cv:["#14213D","#FCA311","#E5E5E5"],sh:"dot",
+   learn:["למצוא את האור הכי טוב בכל חדר","חוק השליש ומתי לשבור אותו","פורטרט שאנשים אוהבים לראות","עריכה מהירה באפליקציות חינמיות"],
+   mods:["להכיר את המצלמה","אור טבעי","קומפוזיציה","אנשים ופורטרטים","עריכה וסגנון"]},
+  {id:"c5",title:"בינה מלאכותית לעסק קטן",sub:"לחסוך 10 שעות בשבוע עם כלים שכבר קיימים",cat:"טכנולוגיה",by:"ron",price:390,old:640,rating:4.8,students:1870,hours:7,level:"לכולם",tag:"חם עכשיו",cv:["#2F55F0","#FFFFFF","#7EE0C3"],sh:"bars",
+   learn:["לכתוב מיילים והצעות מחיר בדקה","לסכם פגישות אוטומטית","ליצור תמונות לשיווק","לבנות עוזר אישי לשאלות לקוחות"],
+   mods:["מה זה בכלל ומה זה לא","כתיבה ותקשורת","שיווק ותמונות","אוטומציות פשוטות","בטיחות ופרטיות"]},
+  {id:"c6",title:"לדבר כדי שיקשיבו",sub:"תקשורת זוגית בלי ריבים מיותרים",cat:"זוגיות ומשפחה",by:"maya",price:290,old:450,rating:4.9,students:2650,hours:5,level:"לכולם",cv:["#B5446E","#FFF0F5","#F7B2C4"],sh:"half",
+   learn:["להגיד דבר קשה בלי לפגוע","להקשיב באמת, לא רק לחכות לתור","לסגור ריב לפני השינה","לבנות טקסים קטנים של קרבה"],
+   mods:["איך אנחנו מדברים היום","הקשבה פעילה","ריב טוב","אינטימיות ביום יום"]},
+  {id:"c7",title:"כושר ב-20 דקות ביום",sub:"אימונים בבית, בלי ציוד, לכל רמה",cat:"בריאות וכושר",by:"tal",price:199,old:320,rating:4.6,students:6300,hours:9,level:"כל הרמות",tag:"רב מכר",cv:["#0B7A75","#F0FFFD","#FFD23F"],sh:"sun",
+   learn:["תוכנית של 8 שבועות מוכנה","לבנות כוח בלי משקולות","למנוע כאבי גב","לאכול נכון סביב אימון"],
+   mods:["הערכה ונקודת פתיחה","שבועות 1–2","שבועות 3–5","שבועות 6–8","תזונה ומנוחה"]},
+  {id:"c8",title:"איור בעפרון לכל אחד",sub:"מקו ראשון ועד דמות שלמה",cat:"יצירה ועיצוב",by:"shir",price:229,old:360,rating:4.8,students:1540,hours:6.5,level:"מתחילים",cv:["#F6EFD9","#2B2B2B","#E86A4A"],sh:"dot",
+   learn:["לצייר צורות בסיסיות בביטחון","פרופורציות של פנים וגוף","הצללה עם עפרון אחד","לפתח סגנון אישי"],
+   mods:["קווים וצורות","פנים","גוף ותנועה","אור וצל","הסגנון שלך"]},
+  {id:"c9",title:"לצאת מהמינוס ב-90 יום",sub:"תקציב משפחתי שבאמת עובד",cat:"כסף וכלכלה",by:"eli",price:249,old:400,rating:4.9,students:3980,hours:4.5,level:"לכולם",cv:["#173F5F","#F2F7FB","#3CAEA3"],sh:"ring",
+   learn:["לדעת לאן הולך כל שקל","לבנות תקציב בטבלה אחת","לסגור חובות לפי סדר נכון","להתחיל קרן חירום"],
+   mods:["תמונת מצב","התקציב","חובות","חיסכון ראשון","להחזיק את זה"]},
+  {id:"c10",title:"מותג אישי בלינקדאין",sub:"להפוך ניסיון לפניות עבודה ולקוחות",cat:"שיווק ועסקים",by:"noam",price:310,old:490,rating:4.7,students:1210,hours:5,level:"מתקדמים",cv:["#0E1A2B","#FFC21A","#3B5B92"],sh:"bars",
+   learn:["פרופיל שמגייסים מחפשים","פוסט שבועי שמביא חשיפה","שיחות שהופכות לפגישות","לבנות סמכות בתחום"],
+   mods:["פרופיל","כתיבה","רשת קשרים","מפגישה לעסקה"]},
+  {id:"c11",title:"אפייה ביתית: לחם ומאפים",sub:"מחמצת, חלות וקרואסונים במטבח רגיל",cat:"בישול ואוכל",by:"amit",price:280,old:430,rating:4.8,students:2090,hours:7.5,level:"מתחילים",tag:"חדש",cv:["#C8763B","#FFF7EC","#F3D2A2"],sh:"half",
+   learn:["לגדל מחמצת מאפס","לש ותפיחה בלי מיקסר","חלה קלועה ל-6","בצק עלים ביתי"],
+   mods:["קמח, מים ומלח","מחמצת","לחמים","חלות","מאפים מתוקים"]},
+  {id:"c12",title:"שינה טובה יותר",sub:"להירדם מהר ולקום עם כוח",cat:"בריאות וכושר",by:"yael",price:169,old:260,rating:4.7,students:4400,hours:2.5,level:"לכולם",cv:["#1E1B4B","#E0E7FF","#FFC21A"],sh:"sun",
+   learn:["שגרת ערב של 15 דקות","מה לעשות כשמתעוררים בלילה","אור, קפה ומסכים","לישון טוב גם עם ילדים קטנים"],
+   mods:["איך שינה עובדת","הערב","הלילה","הבוקר שאחרי"]}
+];
+
+const BOOKS = [
+  {id:"b1",title:"100 רעיונות לפוסטים",sub:"מחברת עבודה לשנה שלמה של תוכן",cat:"שיווק ועסקים",by:"noam",price:59,old:89,rating:4.8,sold:5200,pages:124,mb:6.2,year:2025,tag:"רב מכר",cv:["#F25C3B","#FFF4E8","#FFC21A"],sh:"bars",
+   ch:["איך משתמשים במחברת","רעיונות למכירה","רעיונות לקהילה","רעיונות מאחורי הקלעים","לוח תכנון שנתי"],
+   ex:"הכלל הראשון של תוכן הוא שאף אחד לא מחכה לפוסט שלך. אנשים גוללים, עייפים, בין שתי משימות. לכן כל פוסט צריך לענות על שאלה אחת בשורה הראשונה: למה לעצור דווקא כאן? במחברת הזאת תמצאו מאה תשובות מוכנות לשאלה הזאת, מסודרות לפי חודשים."},
+  {id:"b2",title:"מחברת התודה",sub:"5 דקות ביום, 90 יום של כתיבה מודרכת",cat:"התפתחות אישית",by:"yael",price:39,old:59,rating:4.9,sold:8100,pages:96,mb:3.4,year:2026,tag:"רב מכר",cv:["#FFE27A","#2A2140","#FF8A5B"],sh:"sun",
+   ch:["למה תודה","שבועות 1–4","שבועות 5–8","שבועות 9–13","מה השתנה"],
+   ex:"בבוקר הראשון כתבתי שלושה דברים: קפה חם, הודעה מאחותי, ושלא ירד גשם בדרך לגן. זה נראה קטן ומטופש. ביום העשרים כבר חיפשתי אותם במהלך היום, כמו מי שאוסף אבנים יפות על החוף."},
+  {id:"b3",title:"המטבח של אמא, מדויק",sub:"40 מתכונים ביתיים עם טכניקה של שף",cat:"בישול ואוכל",by:"amit",price:79,old:120,rating:4.9,sold:3400,pages:212,mb:28,year:2025,cv:["#1F4D3A","#F6EFD9","#E8A23A"],sh:"half",
+   ch:["המזווה","מרקים","תבשילים","מהתנור","מתוקים של שישי"],
+   ex:"אמא שלי מעולם לא מדדה כלום. קורט, חופן, \"עד שזה נראה נכון\". לקח לי עשר שנים במטבחים מקצועיים להבין שהיא צדקה, ועוד שנה לתרגם את זה לגרמים כדי שגם אתם תצליחו מהפעם הראשונה."},
+  {id:"b4",title:"תקציב בדף אחד",sub:"המדריך המעשי לכסף של המשפחה",cat:"כסף וכלכלה",by:"eli",price:49,old:79,rating:4.8,sold:4700,pages:88,mb:4.1,year:2026,tag:"חדש",cv:["#173F5F","#F2F7FB","#3CAEA3"],sh:"ring",
+   ch:["הדף","הכנסות","הוצאות קבועות","הוצאות משתנות","היעד הראשון"],
+   ex:"רוב התקציבים נכשלים כי הם מסובכים מדי. עשרים קטגוריות, שלוש אפליקציות, ובחודש השני אף אחד לא פותח אותן. כאן יש דף אחד, ארבע שורות, ועשר דקות בשבוע. זה הכל."},
+  {id:"b5",title:"ריב טוב",sub:"איך לריב בלי לאבד אחד את השני",cat:"זוגיות ומשפחה",by:"maya",price:59,old:89,rating:4.9,sold:3900,pages:164,mb:5.0,year:2025,cv:["#B5446E","#FFF0F5","#F7B2C4"],sh:"dot",
+   ch:["כולם רבים","מה באמת רבנו עליו","המילים שמחריפות","להתקרב אחרי","הסכמים קטנים"],
+   ex:"זוגות טובים לא רבים פחות. הם רבים אחרת. הם יודעים לעצור באמצע, להגיד \"רגע, אני מוצף\", ולחזור אחרי עשרים דקות. את המשפט הזה, ועוד שישה כמוהו, נלמד בפרק השלישי."},
+  {id:"b6",title:"מדריך הפרומפטים",sub:"200 פקודות מוכנות לבינה מלאכותית בעברית",cat:"טכנולוגיה",by:"ron",price:69,old:99,rating:4.7,sold:2600,pages:140,mb:7.8,year:2026,tag:"חם עכשיו",cv:["#2F55F0","#FFFFFF","#7EE0C3"],sh:"bars",
+   ch:["איך לבקש נכון","כתיבה","עסקים ומכירות","לימודים","יצירה ותמונות"],
+   ex:"הטעות הנפוצה היא לבקש כמו מחפשים בגוגל: שלוש מילים ומקווים לטוב. בינה מלאכותית עובדת טוב יותר כשמסבירים לה כמו לעובד חדש ביום הראשון: מי אתה, מה המטרה, ואיך נראית תוצאה טובה."},
+  {id:"b7",title:"8 שבועות לגוף חזק",sub:"תוכנית אימונים מודפסת עם יומן מעקב",cat:"בריאות וכושר",by:"tal",price:45,old:69,rating:4.6,sold:3100,pages:72,mb:9.5,year:2025,cv:["#0B7A75","#F0FFFD","#FFD23F"],sh:"half",
+   ch:["לפני שמתחילים","שלב א׳","שלב ב׳","שלב ג׳","יומן מעקב"],
+   ex:"אתם לא צריכים מוטיבציה. אתם צריכים תאריך ושעה. תכתבו עכשיו בלוח השנה שלושה אימונים לשבוע הקרוב, עשרים דקות כל אחד, ותתייחסו אליהם כמו לתור לרופא."},
+  {id:"b8",title:"מחברת סקיצות",sub:"60 תרגילי איור יומיים",cat:"יצירה ועיצוב",by:"shir",price:39,old:55,rating:4.8,sold:1900,pages:120,mb:14,year:2026,cv:["#F6EFD9","#2B2B2B","#E86A4A"],sh:"sun",
+   ch:["חימום","חפצים","צמחים","אנשים","דמויות שלכם"],
+   ex:"תרגיל היום: ציירו את הספל שלכם חמש פעמים, כל פעם בדקה אחת בלבד. אל תמחקו. הספל החמישי יהיה טוב יותר מהראשון, ובזה כל הסוד."},
+  {id:"b9",title:"לישון כמו תינוק",sub:"המדריך הקצר לשינה טובה למבוגרים",cat:"בריאות וכושר",by:"yael",price:35,old:49,rating:4.7,sold:2800,pages:64,mb:2.6,year:2025,cv:["#1E1B4B","#E0E7FF","#FFC21A"],sh:"ring",
+   ch:["השעון הפנימי","החדר","הערב","הלילה","מתי לפנות לרופא"],
+   ex:"הדבר הראשון שאני שואלת כל מי שמתקשה לישון הוא לא כמה קפה הוא שותה, אלא באיזו שעה הוא קם. השעון של הגוף מתכוונן בבוקר, לא בלילה."},
+  {id:"b10",title:"הסיפור שלך מוכר",sub:"כתיבה שיווקית לבעלי עסקים",cat:"שיווק ועסקים",by:"noam",price:65,old:95,rating:4.8,sold:2200,pages:150,mb:4.4,year:2026,cv:["#0E1A2B","#FFC21A","#3B5B92"],sh:"dot",
+   ch:["למה סיפור","הלקוח הוא הגיבור","מבנה של שלוש שורות","דף נחיתה","מיילים"],
+   ex:"אף אחד לא קונה ממך כי יש לך עשר שנות ניסיון. קונים ממך כי הבינו שאת מבינה אותם. הספר הזה עוסק בדבר אחד: איך להראות את זה במילים."},
+  {id:"b11",title:"לחם בבית",sub:"מחמצת צעד אחר צעד, עם תמונות",cat:"בישול ואוכל",by:"amit",price:55,old:79,rating:4.9,sold:2500,pages:98,mb:22,year:2025,tag:"חדש",cv:["#C8763B","#FFF7EC","#F3D2A2"],sh:"sun",
+   ch:["המחמצת","הבצק","הקיפול","האפייה","תקלות נפוצות"],
+   ex:"ביום השלישי המחמצת שלכם תריח כמו גבינה ישנה ותחשבו שהרסתם הכל. לא הרסתם. זה בדיוק השלב שבו רוב האנשים זורקים אותה, יום אחד לפני שהיא מתעוררת."},
+  {id:"b12",title:"הורים רגועים",sub:"כלים קצרים לרגעים הכי עמוסים בבית",cat:"זוגיות ומשפחה",by:"maya",price:49,old:75,rating:4.8,sold:3300,pages:110,mb:3.9,year:2026,cv:["#6A994E","#F7FBEF","#F2E8CF"],sh:"half",
+   ch:["הבוקר","ארוחת ערב","מקלחת ושינה","ריבים בין אחים","לשמור על עצמכם"],
+   ex:"שבע וחצי בבוקר, שלושה ילדים, נעל אחת חסרה. ברגע הזה אף ספר הורות לא עוזר, כי אין זמן לקרוא. לכן כל כלי כאן קצר ממשפט אחד ואפשר לזכור אותו גם כשכולם צועקים."}
+];
+
+const REVIEWS = [
+  {n:"מיכל ר.",s:5,t:"הסברים ברורים בלי חפירות. ראיתי שינוי כבר בשבוע הראשון."},
+  {n:"אורי ד.",s:5,t:"קניתי בשביל אשתי ובסוף אני זה שסיימתי ראשון. ממליץ בחום."},
+  {n:"שני ל.",s:4,t:"תוכן מעולה, הייתי שמחה לעוד כמה דוגמאות בפרק האחרון."},
+  {n:"יוסי מ.",s:5,t:"הכי שווה כסף שהוצאתי השנה. חוזר לזה כל כמה ימים."},
+  {n:"הילה ג.",s:5,t:"נעים, חם ומקצועי. מרגישים שמי שמלמד באמת עושה את זה."},
+  {n:"נדב ש.",s:4,t:"התחלתי סקפטי. אחרי שלושה שיעורים כבר שלחתי לחברים."},
+  {n:"רותם א.",s:5,t:"פורמט נוח, צופה בנייד ברכבת. סוף סוף משהו שאני מסיים."},
+  {n:"גלית ב.",s:5,t:"הקבצים להורדה שווים לבד את המחיר."}
+];
+
+const FAQ = [
+  ["לכמה זמן יש גישה לקורס?","לכל החיים. קונים פעם אחת וחוזרים מתי שרוצים, כולל עדכונים עתידיים."],
+  ["איך מקבלים את הספר הדיגיטלי?","מיד אחרי התשלום הספר מופיע בספרייה שלכם ונשלח קישור למייל. קובץ PDF שנפתח בכל טלפון, טאבלט ומחשב."],
+  ["אפשר לצפות בטלפון?","כן. האתר והנגן מותאמים לנייד, ואפשר להמשיך בדיוק מאיפה שעצרתם."],
+  ["מה אם זה לא מתאים לי?","יש 14 יום להחזר מלא בקורסים, בלי שאלות. בספרים דיגיטליים יש הצצה חינם לפני הקנייה."],
+  ["מקבלים חשבונית?","כן, חשבונית נשלחת למייל אוטומטית בכל רכישה."]
+];
+
+const COUPONS = { YMD10:{kind:"pct",v:10,label:"10% הנחה"}, DAY50:{kind:"fix",v:50,min:300,label:"50 ₪ הנחה מעל 300 ₪"} };
+const ALL = Object.fromEntries([...COURSES,...BOOKS].map(x=>[x.id,x]));
+const isCourse = x => x.id[0]==="c";
+const FREE_LESSONS = 2;
+
+/* ---------- state (per-viewer, browser only) ---------- */
+const store = {
+  get(k,d){ try{ const v=localStorage.getItem("ymd-"+k); return v?JSON.parse(v):d }catch{ return d } },
+  set(k,v){ try{ localStorage.setItem("ymd-"+k,JSON.stringify(v)) }catch{ /* storage blocked: state stays in memory */ } }
+};
+const S = {
+  cart: store.get("cart",["c1","b2"]),
+  wish: store.get("wish",["c3"]),
+  owned: store.get("owned",["c2","b4"]),
+  coupon: null,
+  q:"",
+  f:{ courses:{cat:"הכל",level:"הכל",max:700,sort:"pop"}, books:{cat:"הכל",level:"הכל",max:150,sort:"pop"} },
+  libTab:"courses",
+  billing:"year",
+  cancelSent:null,
+  goCancel:false
+};
+const save = () => { store.set("cart",S.cart); store.set("wish",S.wish); store.set("owned",S.owned); };
+
+/* ---------- helpers ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ils = n => `${Math.round(n).toLocaleString("he-IL")} ₪`;
+const fmt = n => n.toLocaleString("he-IL");
+const pctOff = x => Math.round((1 - x.price/x.old)*100);
+const hoursLabel = h => Number.isInteger(h) ? `${h} שעות` : `${Math.floor(h)}.${String(h).split(".")[1]} שעות`;
+const seed = (id,i,j) => (Number(id.slice(1))*5 + i*7 + j*13) % 19;
+const lessonCount = c => c.mods.reduce((a,_,i)=>a+3+((i+Number(c.id.slice(1)))%3),0);
+const initials = name => name.split(" ").map(w=>w[0]).join("").slice(0,2);
+
+function cover(x,{lg=false}={}){
+  const kind = isCourse(x) ? "קורס וידאו" : "ספר PDF";
+  return `<div class="cover ${isCourse(x)?"":"book"} s-${x.sh} ${lg?"lg":""}" style="--c1:${x.cv[0]};--c2:${x.cv[1]};--c3:${x.cv[2]}" aria-hidden="true">
+    <span class="cv-kind">${kind}</span><i class="cv-shape"></i><b class="cv-title">${esc(x.title)}</b>${isCourse(x)?"":`<span class="cv-by">${esc(PEOPLE[x.by].name)}</span>`}</div>`;
+}
+function card(x){
+  const p = PEOPLE[x.by]; const w = S.wish.includes(x.id);
+  const meta = isCourse(x)
+    ? `<span class="rating">${x.rating}</span><span>${fmt(x.students)} תלמידים</span><span>${hoursLabel(x.hours)}</span>`
+    : `<span class="rating">${x.rating}</span><span>${x.pages} עמ׳</span><span>PDF</span>`;
+  return `<a class="card" href="#${x.id}">
+    ${x.tag?`<span class="tag tag-sun flag">${x.tag}</span>`:""}
+    <button class="wish ${w?"on":""}" data-act="wish" data-id="${x.id}" aria-label="${w?"הסרה מהמועדפים":"הוספה למועדפים"}" aria-pressed="${w}">${heart(w)}</button>
+    ${cover(x)}
+    <div class="card-body"><h3>${esc(x.title)}</h3><span class="by">${esc(p.name)}</span>
+    <div class="meta">${meta}</div>
+    <div class="price-row"><span class="price">${ils(x.price)}</span><span class="old">${ils(x.old)}</span></div></div></a>`;
+}
+const heart = on => `<svg width="18" height="18" viewBox="0 0 24 24" fill="${on?"currentColor":"none"}" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg>`;
+
+function toast(msg){
+  const t=$("#toast"); t.textContent=msg; t.hidden=false;
+  clearTimeout(toast.h); toast.h=setTimeout(()=>{t.hidden=true},2400);
+}
+function syncBadges(){
+  $("#cartN").textContent=S.cart.length; $("#cartN").dataset.n=S.cart.length;
+  $("#wishN").textContent=S.wish.length; $("#wishN").dataset.n=S.wish.length;
+}
+
+/* ---------- pricing ---------- */
+function totals(ids, coupon){
+  const items = ids.map(id=>ALL[id]);
+  const sub = items.reduce((a,x)=>a+x.price,0);
+  const listSum = items.reduce((a,x)=>a+x.old,0);
+  const books = items.filter(x=>!isCourse(x));
+  // demo rule: 3+ books in the cart -> the cheapest one is free
+  const bundle = books.length>=3 ? Math.min(...books.map(b=>b.price)) : 0;
+  let cdisc = 0;
+  if(coupon){ const c=COUPONS[coupon];
+    if(c.kind==="pct") cdisc = (sub-bundle)*c.v/100;
+    else if(sub-bundle >= c.min) cdisc = c.v; }
+  return {sub, listSum, bundle, cdisc, total:Math.max(0,sub-bundle-cdisc)};
+}
+
+/* ---------- views ---------- */
+function viewHome(){
+  const best = [...COURSES].sort((a,b)=>b.students-a.students).slice(0,4);
+  const newB = BOOKS.slice(0,6);
+  const cats = [...new Set([...COURSES,...BOOKS].map(x=>x.cat))].map(c=>({c,n:[...COURSES,...BOOKS].filter(x=>x.cat===c).length}));
+  const totalStudents = COURSES.reduce((a,c)=>a+c.students,0);
+  return `
+  <section class="hero"><div class="wrap hero-in">
+    <div>
+      <h1>משהו קטן<br>שיעשה לך<br><em>את היום.</em></h1>
+      <p class="lead">קורסים מצולמים וספרים דיגיטליים מאנשים שעושים את זה באמת. לומדים מתי שנוח, מכל מכשיר, עם גישה לכל החיים.</p>
+      <div class="hero-ctas"><a class="btn btn-ink" href="#courses">לכל הקורסים</a><a class="btn btn-ghost" href="#books">לחנות הספרים</a></div>
+      <div class="hero-stats num">
+        <div><b>${fmt(totalStudents)}</b><span>תלמידים</span></div>
+        <div><b>${COURSES.length}</b><span>קורסים</span></div>
+        <div><b>${BOOKS.length}</b><span>ספרים דיגיטליים</span></div>
+        <div><b>4.8★</b><span>דירוג ממוצע</span></div>
+      </div>
+    </div>
+    <div class="hero-stack" aria-hidden="true">${cover(BOOKS[1])}${cover(COURSES[2])}${cover(BOOKS[0])}</div>
+  </div></section>
+
+  <section class="block"><div class="wrap">
+    <div class="sec-head"><div><h2>הכי נמכרים</h2><p class="muted">הקורסים שהכי הרבה אנשים מסיימים וממליצים עליהם</p></div><a class="more" href="#courses">לכל הקורסים</a></div>
+    <div class="grid courses-g">${best.map(card).join("")}</div>
+  </div></section>
+
+  <section class="block" style="padding-top:0"><div class="wrap">
+    <div class="sec-head"><h2>לפי נושא</h2></div>
+    <div class="cats">${cats.map(({c,n})=>`<a class="cat" href="#courses" data-act="pick-cat" data-cat="${esc(c)}">${esc(c)}<span>${n} פריטים</span></a>`).join("")}</div>
+  </div></section>
+
+  <section class="block" style="padding-top:0"><div class="wrap">
+    <div class="sec-head"><div><h2>ספרים דיגיטליים</h2><p class="muted">PDF שנפתח בכל מכשיר. מגיע למייל ולספרייה מיד אחרי התשלום</p></div><a class="more" href="#books">לכל הספרים</a></div>
+    <div class="grid books">${newB.map(card).join("")}</div>
+  </div></section>
+
+  <section class="block" style="padding-top:0"><div class="wrap">
+    <div class="bundle">
+      <div><h2>3 ספרים? השלישי עלינו.</h2><p>מכניסים לסל שלושה ספרים דיגיטליים או יותר, והזול מביניהם יוצא בחינם. ההנחה נכנסת לבד בסל.</p></div>
+      <a class="btn btn-sun" href="#books">לבחור ספרים</a>
+    </div>
+  </div></section>
+
+  <section class="block" style="padding-top:0"><div class="wrap">
+    <div class="sec-head"><h2>מה אומרים עלינו</h2></div>
+    <div class="quotes">${REVIEWS.slice(0,3).map(r=>`<figure class="quote" style="margin:0"><p>״${esc(r.t)}״</p><footer><span class="ava">${initials(r.n)}</span><span><b>${esc(r.n)}</b><br><span class="muted">${"★".repeat(r.s)}</span></span></footer></figure>`).join("")}</div>
+  </div></section>
+
+  <section class="block" style="padding-top:0"><div class="wrap">
+    <div class="sec-head"><h2>שאלות נפוצות</h2></div>
+    <div class="faq">${FAQ.map(([q,a])=>`<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("")}</div>
+  </div></section>
+
+  <section class="block" style="padding-top:0"><div class="wrap">
+    <div class="news"><div><h2>מייל אחד בשבוע<br>שיעשה לך את היום</h2><p class="muted" style="margin:8px 0 0">טיפ קצר, פרק חינם ומבצעים לפני כולם.</p></div>
+      <form data-form="news"><input id="newsEmail" type="email" placeholder="כתובת מייל" aria-label="כתובת מייל" required><button class="btn btn-ink">להירשם</button></form></div>
+  </div></section>`;
+}
+
+function viewCatalog(type){
+  const list = type==="courses"?COURSES:BOOKS;
+  const f = S.f[type];
+  const cats = ["הכל",...new Set(list.map(x=>x.cat))];
+  const levels = ["הכל",...new Set(COURSES.map(x=>x.level))];
+  const maxP = type==="courses"?700:150;
+  return `
+  <div class="wrap page-head"><h1>${type==="courses"?"קורסים":"ספרים דיגיטליים"}</h1>
+    <p class="muted" style="margin:6px 0 0">${type==="courses"?"קורסי וידאו מצולמים, גישה לכל החיים, תעודת סיום":"קובצי PDF להורדה מיידית, נקראים בכל מכשיר"}</p></div>
+  <div class="wrap catalog">
+    <aside class="filters">
+      <div><h4>נושא</h4><div class="chips">${cats.map(c=>`<button class="chip ${f.cat===c?"on":""}" data-act="f-cat" data-type="${type}" data-v="${esc(c)}">${esc(c)}<small>${c==="הכל"?list.length:list.filter(x=>x.cat===c).length}</small></button>`).join("")}</div></div>
+      ${type==="courses"?`<div><h4>רמה</h4><div class="chips">${levels.map(l=>`<button class="chip ${f.level===l?"on":""}" data-act="f-level" data-v="${esc(l)}">${esc(l)}</button>`).join("")}</div></div>`:""}
+      <div class="field"><label for="maxPrice">מחיר עד: <span id="maxLbl" class="num">${ils(f.max)}</span></label>
+        <input id="maxPrice" type="range" min="${type==="courses"?150:30}" max="${maxP}" step="${type==="courses"?10:5}" value="${f.max}" data-type="${type}"></div>
+    </aside>
+    <div style="min-width:0">
+      <div class="toolbar"><span class="muted" id="countLbl"></span>
+        <select id="sort" aria-label="מיון" data-type="${type}">
+          <option value="pop" ${f.sort==="pop"?"selected":""}>הכי פופולרי</option>
+          <option value="rating" ${f.sort==="rating"?"selected":""}>דירוג גבוה</option>
+          <option value="low" ${f.sort==="low"?"selected":""}>מחיר: נמוך לגבוה</option>
+          <option value="high" ${f.sort==="high"?"selected":""}>מחיר: גבוה לנמוך</option>
+          <option value="deal" ${f.sort==="deal"?"selected":""}>ההנחה הגדולה</option>
+        </select></div>
+      <div id="grid" class="grid ${type==="books"?"books":"courses-g"}"></div>
+    </div>
+  </div>`;
+}
+function fillGrid(type){
+  const list = type==="courses"?COURSES:BOOKS; const f=S.f[type];
+  const pop = x => isCourse(x)?x.students:x.sold;
+  let r = list.filter(x=>(f.cat==="הכל"||x.cat===f.cat) && (type!=="courses"||f.level==="הכל"||x.level===f.level) && x.price<=f.max);
+  const sorters = {pop:(a,b)=>pop(b)-pop(a), rating:(a,b)=>b.rating-a.rating, low:(a,b)=>a.price-b.price, high:(a,b)=>b.price-a.price, deal:(a,b)=>pctOff(b)-pctOff(a)};
+  r.sort(sorters[f.sort]);
+  $("#countLbl").textContent = `${r.length} ${type==="courses"?"קורסים":"ספרים"}`;
+  $("#grid").innerHTML = r.length ? r.map(card).join("") : `<div class="empty" style="grid-column:1/-1">אין תוצאות לסינון הזה. נסו להרחיב את טווח המחיר או לבחור ״הכל״.</div>`;
+}
+
+function viewSearch(){
+  const q = S.q.trim();
+  const hit = x => [x.title,x.sub,x.cat,PEOPLE[x.by].name].join(" ").includes(q);
+  const c = COURSES.filter(hit), b = BOOKS.filter(hit);
+  return `<div class="wrap page-head"><h1>חיפוש</h1><p class="muted" style="margin:6px 0 0">${q?`${c.length+b.length} תוצאות עבור ״${esc(q)}״`:"כתבו מילה בחיפוש למעלה"}</p></div>
+  <div class="wrap" style="padding-bottom:40px;display:flex;flex-direction:column;gap:30px">
+    ${c.length?`<div><h2 style="margin-bottom:14px">קורסים</h2><div class="grid courses-g">${c.map(card).join("")}</div></div>`:""}
+    ${b.length?`<div><h2 style="margin-bottom:14px">ספרים</h2><div class="grid books">${b.map(card).join("")}</div></div>`:""}
+    ${q&&!c.length&&!b.length?`<div class="empty">לא מצאנו. נסו ״בישול״, ״שיווק״ או שם של מרצה.</div>`:""}
+  </div>`;
+}
+
+function reviewsBlock(x){
+  const dist = x.rating>=4.85?[84,11,3,1,1]:x.rating>=4.75?[74,18,5,2,1]:[62,24,9,3,2];
+  const count = Math.round((isCourse(x)?x.students:x.sold)*0.11);
+  const start = Number(x.id.slice(1))%REVIEWS.length;
+  const picks = [0,1,2,3].map(i=>REVIEWS[(start+i)%REVIEWS.length]);
+  return `<div class="panel"><h2>ביקורות</h2>
+    <div class="rev-top"><div class="rev-avg"><b class="num">${x.rating}</b><span class="muted">${fmt(count)} ביקורות</span></div>
+    <div class="bars num">${dist.map((p,i)=>`<div><span>${5-i}★</span><i style="--w:${p}%"></i><span class="muted">${p}%</span></div>`).join("")}</div></div>
+    ${picks.map((r,i)=>`<div class="rev"><div class="who"><b>${esc(r.n)}</b><span>${"★".repeat(r.s)} · לפני ${i*3+2} ימים</span></div><p>${esc(r.t)}</p></div>`).join("")}
+  </div>`;
+}
+function buyBox(x){
+  const owned = S.owned.includes(x.id), inCart = S.cart.includes(x.id);
+  const incl = isCourse(x)
+    ? [`${hoursLabel(x.hours)} וידאו ב-HD`,`${lessonCount(x)} שיעורים`,"קבצי עבודה להורדה","צפייה בנייד ובמחשב","תעודת סיום","גישה לכל החיים","14 יום להחזר מלא"]
+    : [`${x.pages} עמודים`,`קובץ PDF, ${x.mb} MB`,"נשלח למייל מיד","נפתח בכל מכשיר","עדכונים עתידיים בחינם"];
+  return `<aside class="buybox">
+    ${owned?`<div class="owned-note">כבר שלך. נמצא בספרייה שלך.</div>`:""}
+    <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><span class="big num">${ils(x.price)}</span><span class="old num">${ils(x.old)}</span><span class="save">${pctOff(x)}% הנחה</span></div>
+    <div class="countdown"><span>המחיר הזה נגמר בעוד</span><b class="cd">--:--:--</b></div>
+    ${owned?`<a class="btn btn-ink btn-block" href="#library">${isCourse(x)?"להמשיך ללמוד":"להורדה"}</a>`:`
+      <button class="btn btn-sun btn-block" data-act="buy-now" data-id="${x.id}">לקנות עכשיו</button>
+      <button class="btn btn-ghost btn-block" data-act="${inCart?"open-cart":"add"}" data-id="${x.id}">${inCart?"בסל, לצפייה בסל":"להוסיף לסל"}</button>`}
+    <button class="btn btn-ghost btn-sm" data-act="wish" data-id="${x.id}" aria-pressed="${S.wish.includes(x.id)}">${heart(S.wish.includes(x.id))} ${S.wish.includes(x.id)?"במועדפים":"לשמור למועדפים"}</button>
+    <ul class="incl">${incl.map(i=>`<li>${esc(i)}</li>`).join("")}</ul>
+  </aside>`;
+}
+function viewItem(id){
+  const x = ALL[id]; if(!x) return viewHome();
+  const p = PEOPLE[x.by];
+  const related = [...COURSES,...BOOKS].filter(y=>y.id!==x.id && (y.cat===x.cat||y.by===x.by)).slice(0,4);
+  const listHref = isCourse(x)?"#courses":"#books";
+  const main = isCourse(x) ? `
+    <div class="item-hero">${cover(x,{lg:true})}
+      <div><div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap">${x.tag?`<span class="tag tag-sun">${x.tag}</span>`:""}<span class="tag">${esc(x.cat)}</span><span class="tag">${esc(x.level)}</span></div>
+      <h1>${esc(x.title)}</h1><p class="sub">${esc(x.sub)}</p></div>
+      <div class="facts num"><span class="rating">${x.rating}</span><span><b>${fmt(x.students)}</b> תלמידים</span><span><b>${hoursLabel(x.hours)}</b></span><span><b>${lessonCount(x)}</b> שיעורים</span><span>מרצה: <b>${esc(p.name)}</b></span><span>עודכן: אוקטובר 2026</span></div>
+    </div>
+    <div class="panel"><h2>מה תדעו לעשות בסוף</h2><ul class="learn">${x.learn.map(l=>`<li>${esc(l)}</li>`).join("")}</ul></div>
+    <div class="panel"><h2>תוכנית הקורס</h2><p class="muted" style="margin:-6px 0 10px">${x.mods.length} פרקים · ${lessonCount(x)} שיעורים · ${hoursLabel(x.hours)}. ${FREE_LESSONS} השיעורים הראשונים פתוחים לצפייה חינם.</p>
+      ${x.mods.map((m,i)=>{ const n=3+((i+Number(x.id.slice(1)))%3); let k=0;
+        const lessons=[...Array(n)].map((_,j)=>{ const mins=6+seed(x.id,i,j); k++; const free=i===0&&j<FREE_LESSONS;
+          return `<li><span>${i+1}.${j+1} ${esc(m)}${j?` · חלק ${j+1}`:""}</span><span class="num">${free?`<span class="free">צפייה חינם</span> · `:""}${mins} דק׳</span></li>`}).join("");
+        return `<details class="mod" ${i===0?"open":""}><summary>פרק ${i+1}: ${esc(m)}<span>${n} שיעורים</span></summary><ol>${lessons}</ol></details>`}).join("")}
+    </div>` : `
+    <div class="item-hero book">${cover(x,{lg:true})}
+      <div><div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap">${x.tag?`<span class="tag tag-sun">${x.tag}</span>`:""}<span class="tag">${esc(x.cat)}</span><span class="tag">PDF</span></div>
+      <h1>${esc(x.title)}</h1><p class="sub">${esc(x.sub)}</p>
+      <div class="facts num" style="margin-top:14px"><span class="rating">${x.rating}</span><span>מאת <b>${esc(p.name)}</b></span><span><b>${x.pages}</b> עמודים</span><span><b>${x.mb} MB</b></span><span>עברית · ${x.year}</span><span><b>${fmt(x.sold)}</b> עותקים</span></div></div>
+    </div>
+    <div class="panel"><h2>הצצה לספר</h2><div class="paper"><h3>פרק 1: ${esc(x.ch[0])}</h3><p>${esc(x.ex)}</p><span class="pg">עמוד 7</span></div></div>
+    <div class="panel"><h2>תוכן העניינים</h2><ol class="toc">${x.ch.map((c,i)=>`<li><span>${esc(c)}</span><em>${7+Math.round(i*x.pages/x.ch.length)}</em></li>`).join("")}</ol></div>`;
+  return `<div class="wrap"><div class="crumbs"><a href="#home">ראשי</a> / <a href="${listHref}">${isCourse(x)?"קורסים":"ספרים"}</a> / <span>${esc(x.title)}</span></div></div>
+  <div class="wrap item"><div class="item-main">${main}
+    <div class="panel"><h2>${isCourse(x)?"המרצה":"על הכותבת"}</h2><div class="person"><span class="ava">${initials(p.name)}</span><div><b>${esc(p.name)}</b><div class="muted" style="font-size:14px">${esc(p.role)}</div><p>${esc(p.bio)}</p></div></div></div>
+    ${reviewsBlock(x)}
+    ${related.length?`<div><h2 style="margin-bottom:14px">עוד שאולי תאהבו</h2><div class="grid ${isCourse(x)?"courses-g":"books"}">${related.map(card).join("")}</div></div>`:""}
+  </div>${buyBox(x)}</div>`;
+}
+
+function summaryHtml(){
+  const t = totals(S.cart,S.coupon);
+  return `<div class="sum"><span>מחיר מחירון</span><span class="old num">${ils(t.listSum)}</span></div>
+    <div class="sum"><span>סכום ביניים</span><span class="num">${ils(t.sub)}</span></div>
+    ${t.bundle?`<div class="sum" style="color:var(--ok)"><span>מבצע 3 ספרים</span><span class="num">−${ils(t.bundle)}</span></div>`:""}
+    ${S.coupon?`<div class="sum" style="color:var(--ok)"><span>קופון ${S.coupon}</span><span class="num">${t.cdisc?`−${ils(t.cdisc)}`:"לא חל על הסל"}</span></div>`:""}
+    <div class="sum total"><span>לתשלום</span><span class="num">${ils(t.total)}</span></div>`;
+}
+function viewCheckout(){
+  if(!S.cart.length) return `<div class="wrap success"><h1>הסל ריק</h1><p class="muted">עוד לא בחרתם כלום. יש לנו כמה רעיונות.</p><a class="btn btn-ink" href="#courses">לקורסים</a></div>`;
+  return `<div class="wrap page-head"><h1>תשלום</h1><p class="muted" style="margin:6px 0 0">דמו. שום תשלום לא מתבצע, כרטיס לא נשמר.</p></div>
+  <div class="wrap checkout">
+    <form data-form="checkout" novalidate>
+      <div class="panel" style="display:flex;flex-direction:column;gap:12px"><h2 style="margin:0">הפרטים שלך</h2>
+        <div class="two"><div class="field"><label for="coName">שם מלא</label><input id="coName" autocomplete="name" value="ישראל ישראלי"></div>
+        <div class="field"><label for="coPhone">טלפון</label><input id="coPhone" inputmode="tel" value="050-0000000"></div></div>
+        <div class="field"><label for="coEmail">מייל (לשם נשלחים הקבצים)</label><input id="coEmail" type="email" autocomplete="email" value="demo@example.com"><span class="err" id="emailErr" hidden>צריך כתובת מייל תקינה, למשל name@gmail.com</span></div>
+      </div>
+      <div class="panel" style="display:flex;flex-direction:column;gap:12px"><h2 style="margin:0">אמצעי תשלום</h2>
+        <div class="pay-opts"><label><input type="radio" name="pay" value="card" checked> כרטיס אשראי</label><label><input type="radio" name="pay" value="wallet"> ארנק דיגיטלי</label><label><input type="radio" name="pay" value="split"> תשלומים</label></div>
+        <div class="field"><label for="coCard">מספר כרטיס</label><input id="coCard" inputmode="numeric" placeholder="0000 0000 0000 0000" value="4580 0000 0000 0000"></div>
+        <div class="two"><div class="field"><label for="coExp">תוקף</label><input id="coExp" placeholder="MM/YY" value="12/28"></div><div class="field"><label for="coCvv">CVV</label><input id="coCvv" inputmode="numeric" value="123"></div></div>
+      </div>
+      <button class="btn btn-sun" style="height:54px;font-size:18px">לשלם ${ils(totals(S.cart,S.coupon).total)}</button>
+    </form>
+    <aside class="buybox"><h2 style="margin:0;font-size:22px">ההזמנה שלך</h2>
+      <div style="display:flex;flex-direction:column;gap:10px">${S.cart.map(lineHtml).join("")}</div>
+      <div class="coupon"><input id="couponIn" placeholder="קוד קופון" aria-label="קוד קופון" value="${S.coupon||""}"><button class="btn btn-ghost btn-sm" data-act="coupon">להחיל</button></div>
+      <div id="sumBox" style="display:flex;flex-direction:column;gap:8px">${summaryHtml()}</div>
+    </aside>
+  </div>`;
+}
+function viewSuccess(n){
+  return `<div class="wrap success"><svg width="90" height="90" viewBox="0 0 38 38" aria-hidden="true"><rect width="38" height="38" rx="10" fill="var(--sun)"/><path d="M8 25a11 11 0 0 1 22 0Z" fill="var(--sun-ink)"/><rect x="6" y="27" width="26" height="3" rx="1.5" fill="var(--sun-ink)"/></svg>
+    <h1>עשית לעצמך את היום.</h1><p class="muted" style="max-width:46ch">${n} פריטים נוספו לספרייה שלך. שלחנו אישור וקישורים למייל.</p>
+    <a class="btn btn-ink" href="#library">לספרייה שלי</a></div>`;
+}
+function viewLibrary(){
+  const mine = S.owned.map(id=>ALL[id]).filter(Boolean);
+  const c = mine.filter(isCourse), b = mine.filter(x=>!isCourse(x));
+  const tab = S.libTab;
+  const rows = tab==="courses"
+    ? (c.length?c.map(x=>{const prog=(Number(x.id.slice(1))*23)%85+5; return `<div class="lib-row">${cover(x)}<div style="min-width:0"><b>${esc(x.title)}</b><div class="muted" style="font-size:14px">${esc(PEOPLE[x.by].name)} · ${lessonCount(x)} שיעורים</div><div class="prog"><i style="--w:${prog}%"></i></div><small class="muted num">${prog}% הושלם</small></div><a class="btn btn-ink btn-sm" href="#${x.id}">להמשיך ללמוד</a></div>`}).join(""):`<div class="empty">אין עדיין קורסים. <a href="#courses">לקורסים</a></div>`)
+    : (b.length?b.map(x=>`<div class="lib-row book">${cover(x)}<div style="min-width:0"><b>${esc(x.title)}</b><div class="muted" style="font-size:14px">${esc(PEOPLE[x.by].name)} · PDF · ${x.mb} MB</div></div><button class="btn btn-ink btn-sm" data-act="download">להורדה</button></div>`).join(""):`<div class="empty">אין עדיין ספרים. <a href="#books">לספרים</a></div>`);
+  return `<div class="wrap page-head"><h1>הספרייה שלי</h1><p class="muted" style="margin:6px 0 0">כל מה שקניתם, במקום אחד. דוגמה: מה שתקנו בדמו יופיע כאן.</p></div>
+  <div class="wrap" style="padding-bottom:40px">
+    <div class="tabs" role="tablist"><button role="tab" class="${tab==="courses"?"on":""}" data-act="lib-tab" data-v="courses" aria-selected="${tab==="courses"}">קורסים (${c.length})</button><button role="tab" class="${tab==="books"?"on":""}" data-act="lib-tab" data-v="books" aria-selected="${tab==="books"}">ספרים (${b.length})</button></div>
+    <div class="lib-list">${rows}</div>
+  </div>`;
+}
+
+/* ---------- pricing + legal pages ---------- */
+// Business identity is not decided yet: every [placeholder] is filled by the owner before launch.
+const BIZ = { name:"[שם העסק בע״מ]", id:"[ח.פ. 000000000]", addr:"[כתובת רשומה]", email:"[support@youmademyday.co.il]", phone:"[03-0000000]", city:"[עיר]" };
+const ph = s => `<span class="ph">${esc(s)}</span>`;
+const UPDATED = "1 בנובמבר 2026";
+const PLAN = { month:79, year:690 };
+const INSTALLMENTS = [{min:300,n:3},{min:600,n:6}];
+
+function legalShell({title,lead,sections,extraTop=""}){
+  return `<div class="wrap page-head"><h1>${title}</h1><p class="muted" style="margin:6px 0 0;max-width:60ch">${lead}</p>
+    <div class="legal-meta"><span class="tag">עודכן לאחרונה: ${UPDATED}</span><span class="tag">נוסח לדמו. לפני עלייה לאוויר: בדיקה של עו״ד</span></div></div>
+  <div class="wrap legal">
+    <nav class="legal-toc" aria-label="תוכן העמוד"><h4>בעמוד הזה</h4>${sections.map(s=>`<button data-act="jump" data-to="${s.id}">${esc(s.h)}</button>`).join("")}</nav>
+    <article>${extraTop}${sections.map(s=>`<section id="${s.id}"><h2>${esc(s.h)}</h2>${s.b}</section>`).join("")}</article>
+  </div>`;
+}
+
+function viewPricing(){
+  const yr = S.billing==="year";
+  const monthlyEq = Math.round(PLAN.year/12);
+  const saving = Math.round((1-PLAN.year/(PLAN.month*12))*100);
+  const cheapC = Math.min(...COURSES.map(c=>c.price)), cheapB = Math.min(...BOOKS.map(b=>b.price));
+  const rows = list => list.map(x=>`<tr><td><a href="#${x.id}">${esc(x.title)}</a></td><td>${esc(x.cat)}</td><td class="num old">${ils(x.old)}</td><td class="num"><b>${ils(x.price)}</b></td><td class="num">${pctOff(x)}%</td></tr>`).join("");
+  const table = (h,list) => `<h3 style="margin:18px 0 10px">${h}</h3><div class="tbl-wrap"><table class="tbl"><thead><tr><th>שם</th><th>נושא</th><th class="num">מחיר מחירון</th><th class="num">מחיר היום</th><th class="num">הנחה</th></tr></thead><tbody>${rows(list)}</tbody></table></div>`;
+  return `<div class="wrap page-head"><h1>מחירים</h1><p class="muted" style="margin:6px 0 0;max-width:60ch">משלמים פעם אחת על מה שרוצים, או מנוי אחד לכל מה שיש. כל המחירים בשקלים וכוללים מע״מ.</p></div>
+  <div class="wrap" style="display:flex;flex-direction:column;gap:40px;padding-bottom:48px">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <div class="billing" role="group" aria-label="תקופת מנוי"><button class="${yr?"":"on"}" data-act="billing" data-v="month" aria-pressed="${!yr}">חודשי</button><button class="${yr?"on":""}" data-act="billing" data-v="year" aria-pressed="${yr}">שנתי · חיסכון ${saving}%</button></div>
+      <div class="plans">
+        <div class="plan"><h3>קנייה בודדת</h3><div class="big num">${cheapB}<small> ₪ ומעלה</small></div>
+          <p class="muted" style="margin:0">קורס או ספר אחד, שלך לתמיד.</p>
+          <ul class="incl"><li>קורסים מ-${ils(cheapC)}, ספרים מ-${ils(cheapB)}</li><li>גישה לכל החיים לקורס שקניתם</li><li>ספר PDF להורדה מיידית</li><li>עדכונים עתידיים בחינם</li><li>קורסים: 14 יום להחזר מלא</li></ul>
+          <a class="btn btn-ghost btn-block" href="#courses">לבחור קורס</a></div>
+        <div class="plan hot"><span class="tag tag-sun">הכי משתלם</span><h3>מנוי כל הגישה</h3>
+          <div class="big num">${yr?PLAN.year:PLAN.month}<small> ₪ ל${yr?"שנה":"חודש"}</small></div>
+          <p class="muted" style="margin:0">${yr?`יוצא ${ils(monthlyEq)} לחודש, תשלום אחד לשנה.`:"מתחדש כל חודש. מבטלים מתי שרוצים."}</p>
+          <ul class="incl"><li>כל ${COURSES.length} הקורסים, וכל קורס חדש שיעלה</li><li>כל ${BOOKS.length} הספרים הדיגיטליים</li><li>תעודת סיום לכל קורס</li><li>ביטול בכל רגע, בלי דמי ביטול</li><li>14 יום ראשונים: החזר מלא</li></ul>
+          <button class="btn btn-sun btn-block" data-act="plan">להצטרף למנוי</button></div>
+        <div class="plan"><h3>חבילת ספרים</h3><div class="big num">3=2</div>
+          <p class="muted" style="margin:0">שלושה ספרים או יותר בסל, הזול מביניהם חינם.</p>
+          <ul class="incl"><li>נכנס לבד בסל, בלי קוד</li><li>אפשר לשלב עם קופון</li><li>כל הספרים בחבילה נשלחים יחד</li><li>מתאים במיוחד למתנה</li></ul>
+          <a class="btn btn-ghost btn-block" href="#books">לבחור ספרים</a></div>
+      </div>
+    </div>
+
+    <div><div class="sec-head" style="margin-bottom:0"><h2>כל המחירים</h2></div>
+      ${table("קורסים",COURSES)}${table("ספרים דיגיטליים",BOOKS)}</div>
+
+    <div class="panel"><h2>איך משלמים</h2>
+      <ul class="incl">
+        <li>כרטיס אשראי, ארנק דיגיטלי או העברה מהנייד. התשלום עובר דרך ספק סליקה מאובטח, ואנחנו לא שומרים את מספר הכרטיס.</li>
+        ${INSTALLMENTS.map(i=>`<li>הזמנה מעל ${ils(i.min)}: עד ${i.n} תשלומים בלי ריבית</li>`).join("")}
+        <li>חשבונית מס/קבלה נשלחת למייל מיד אחרי התשלום</li>
+        <li>המחיר שמחייב הוא המחיר שהופיע ברגע ההזמנה</li>
+        <li>מנוי מתחדש אוטומטית. במנוי שנתי נשלחת תזכורת במייל 7 ימים לפני החידוש</li>
+      </ul></div>
+
+    <div class="panel"><h2>קופונים ומבצעים</h2>
+      <ul class="incl"><li>קופון אחד להזמנה</li><li>מבצע 3 ספרים נכנס לבד ואפשר לשלב איתו קופון</li><li>לקופון אין ערך כספי ואי אפשר להמיר אותו לכסף</li><li>מבצע עם שעון נגמר בשעה שמופיעה בעמוד</li><li>בהחזר מחזירים את מה ששולם בפועל, אחרי ההנחה</li></ul></div>
+
+    <div><div class="sec-head"><h2>שאלות על מחירים</h2></div><div class="faq">
+      <details><summary>המחיר כולל מע״מ?</summary><p>כן. כל מחיר באתר הוא המחיר הסופי בשקלים, כולל מע״מ. אין עמלות נוספות בתשלום.</p></details>
+      <details><summary>מה ההבדל בין קנייה למנוי?</summary><p>קורס שקניתם נשאר שלכם לתמיד. במנוי יש גישה לכל התוכן כל עוד המנוי פעיל. ספרים שהורדתם במהלך המנוי נשארים אצלכם.</p></details>
+      <details><summary>אפשר לבטל את המנוי?</summary><p>כן, בכל רגע, מהאזור האישי, במייל או בטלפון. בלי דמי ביטול. כל הפרטים ב<a href="#refunds">מדיניות ההחזרים</a>.</p></details>
+      <details><summary>המחיר ירד אחרי שקניתי. מה עושים?</summary><p>אם המחיר ירד בתוך 7 ימים מהקנייה, כתבו לנו ונחזיר את ההפרש.</p></details>
+      <details><summary>יש הנחה לסטודנטים ולחיילים?</summary><p>כן, 15% עם אישור בתוקף. שולחים אישור למייל השירות ומקבלים קוד אישי.</p></details>
+    </div></div>
+  </div>`;
+}
+
+function viewTerms(){
+  const s = [
+    {id:"t-general",h:"כללי",b:`<p>האתר You Made My Day (״האתר״) מופעל בידי ${ph(BIZ.name)}, ${ph(BIZ.id)}, ${ph(BIZ.addr)} (״אנחנו״). התקנון חל על כל שימוש באתר ועל כל רכישה בו. גלישה באתר או רכישה בו הן הסכמה לתקנון.</p>
+      <p>התקנון כתוב לנוחות בלשון אחת ופונה לכל המגדרים. בנושאי פרטיות והחזרים חלים גם <a href="#privacy">מדיניות הפרטיות</a> ו<a href="#refunds">מדיניות ההחזרים</a>. אם יש סתירה, המסמך הייעודי לנושא גובר.</p>`},
+    {id:"t-products",h:"מה נמכר באתר",b:`<ul><li><b>קורסי וידאו:</b> שיעורים מצולמים מראש, עם קבצי עבודה, לצפייה באתר ובנייד.</li><li><b>ספרים דיגיטליים:</b> קובצי PDF להורדה ולקריאה בכל מכשיר.</li><li><b>מנוי כל הגישה:</b> גישה לכל הקורסים והספרים, בחיוב חודשי או שנתי שמתחדש אוטומטית.</li></ul>
+      <p>בעמוד של כל מוצר מופיעים תיאור, היקף (שעות, שיעורים או עמודים), המרצה או הכותב והמחיר. התמונות והכריכות להמחשה.</p>`},
+    {id:"t-price",h:"מחירים ותשלום",b:`<ul><li>המחירים בשקלים וכוללים מע״מ.</li><li>המחיר שמחייב הוא המחיר שהופיע ברגע ביצוע ההזמנה. אנחנו רשאים לשנות מחירים בכל עת, והשינוי לא חל על הזמנה שכבר בוצעה.</li><li>אם נפלה טעות ברורה וגסה במחיר (למשל ספר שמופיע ב-0.40 ₪), נודיע לכם, נבטל את ההזמנה ונחזיר את מלוא הסכום.</li><li>התשלום מתבצע דרך ספק סליקה חיצוני מאובטח. פרטי הכרטיס לא נשמרים אצלנו.</li><li>תשלומים בלי ריבית לפי המפורט ב<a href="#pricing">עמוד המחירים</a>.</li><li>חשבונית מס/קבלה נשלחת למייל שמסרתם.</li></ul>`},
+    {id:"t-delivery",h:"הזמנה ואספקה",b:`<p>מיד אחרי אישור התשלום המוצר נפתח ב״הספרייה שלי״ ונשלח מייל עם פרטי העסקה וקישור. המייל הזה הוא גם מסמך הגילוי שהחוק מחייב, ובו פרטי העסק, תיאור המוצר, המחיר ותנאי הביטול.</p>
+      <p>לא קיבלתם גישה או מייל תוך 24 שעות? כתבו ל-${ph(BIZ.email)} ונטפל.</p>
+      <p class="law">לפי סעיף 14ג לחוק הגנת הצרכן, התשמ״א-1981.</p>`},
+    {id:"t-license",h:"רישיון שימוש בתוכן",b:`<p>רכישה נותנת לכם רישיון אישי, לא בלעדי ולא ניתן להעברה, לצפות בקורס או לקרוא בספר לשימוש פרטי. אסור:</p>
+      <ul><li>לשתף את פרטי החשבון או לתת לאחרים לצפות דרכו</li><li>להעתיק, להקליט, להוריד את הסרטונים או להפיץ אותם</li><li>להעביר, למכור או לפרסם את קובצי ה-PDF, כולם או חלקם</li><li>להשתמש בתוכן לקורס, סדנה או מוצר מסחרי משלכם</li></ul>
+      <p>קובצי PDF עשויים לשאת סימון אישי של הקונה. שימוש אסור יכול להוביל לחסימת הגישה בלי החזר, ולצעדים משפטיים.</p>`},
+    {id:"t-account",h:"החשבון שלכם",b:`<ul><li>חשבון אחד לאדם אחד. שמרו על הסיסמה.</li><li>הפרטים שמסרתם צריכים להיות נכונים. מייל שגוי יכול לעכב את קבלת המוצר.</li><li>חשדתם שמישהו נכנס לחשבון? הודיעו לנו מיד.</li></ul>`},
+    {id:"t-lifetime",h:"״גישה לכל החיים״ ושינויים בתוכן",b:`<p>״גישה לכל החיים״ פירושה גישה כל עוד האתר פעיל. אנחנו מעדכנים ומשפרים קורסים מדי פעם, והעדכונים פתוחים לכם בחינם.</p>
+      <p>אם נחליט להוריד קורס שקניתם, תישאר לכם גישה אליו לפחות 12 חודשים מההודעה. אם האתר ייסגר, נודיע במייל לפחות 60 יום מראש.</p>`},
+    {id:"t-sub",h:"מנוי",b:`<ul><li>המנוי מתחדש אוטומטית בסוף כל תקופה (חודש או שנה) באותו אמצעי תשלום.</li><li>במנוי שנתי נשלחת תזכורת במייל 7 ימים לפני החידוש.</li><li>ביטול בכל עת, בלי דמי ביטול, כמפורט ב<a href="#refunds">מדיניות ההחזרים</a>.</li><li>שינוי במחיר המנוי יחול רק מהחידוש הבא, אחרי הודעה מראש במייל.</li></ul>`},
+    {id:"t-coupons",h:"קופונים ומבצעים",b:`<ul><li>קופון אחד להזמנה, אלא אם נכתב אחרת.</li><li>לקופון אין ערך כספי, ואי אפשר להמיר אותו לכסף או להעביר אותו.</li><li>מבצע עם מועד סיום נגמר במועד שמופיע באתר.</li><li>אנחנו רשאים להפסיק מבצע בכל עת. הזמנות שבוצעו לפני כן לא ייפגעו.</li></ul>`},
+    {id:"t-liability",h:"אחריות",b:`<p>התוכן באתר נועד ללימוד והעשרה. הוא לא תחליף לייעוץ מקצועי אישי: רפואי, תזונתי, פסיכולוגי, משפטי או פיננסי. לפני שינוי משמעותי בבריאות, בתזונה או בכסף, התייעצו עם איש מקצוע.</p>
+      <p>אנחנו עושים מאמץ שהאתר יעבוד בלי תקלות, אבל ייתכנו הפסקות לתחזוקה. ככל שהחוק מתיר, האחריות שלנו מוגבלת לסכום ששילמתם על המוצר.</p>`},
+    {id:"t-ip",h:"קניין רוחני",b:`<p>כל התוכן באתר, כולל סרטונים, טקסטים, ספרים, עיצוב, שם וסימן מסחרי, שייך לנו או למרצים ולכותבים, ומוגן בחוק זכות יוצרים, התשס״ח-2007.</p>`},
+    {id:"t-refunds",h:"ביטול והחזרים",b:`<p>זכות הביטול, המועדים והסכומים מפורטים ב<a href="#refunds">מדיניות ההחזרים</a>, לפי חוק הגנת הצרכן. קישור ״ביטול עסקה״ מופיע בתחתית כל עמוד.</p>`},
+    {id:"t-privacy",h:"פרטיות",b:`<p>איך אנחנו אוספים ושומרים מידע, ומה הזכויות שלכם, מפורט ב<a href="#privacy">מדיניות הפרטיות</a>.</p>`},
+    {id:"t-law",h:"דין וסמכות שיפוט",b:`<p>על התקנון ועל כל רכישה באתר חלים דיני מדינת ישראל. סמכות השיפוט נתונה לבתי המשפט המוסמכים בישראל, בכפוף לזכויות הצרכן לפי כל דין.</p>`},
+    {id:"t-contact",h:"יצירת קשר",b:`<p>${ph(BIZ.name)} · ${ph(BIZ.addr)}<br>מייל: ${ph(BIZ.email)} · טלפון: ${ph(BIZ.phone)}<br>מענה בימים א׳–ה׳, 9:00–17:00.</p>`}
+  ];
+  return legalShell({title:"תקנון ותנאי שימוש",lead:"מה אתם מקבלים, כמה זה עולה, מה מותר לעשות עם התוכן ומה האחריות של כל צד.",sections:s});
+}
+
+function viewPrivacy(){
+  const s = [
+    {id:"p-who",h:"מי אחראי על המידע",b:`<p>${ph(BIZ.name)}, ${ph(BIZ.id)}, הוא בעל השליטה במאגר המידע של האתר. שאלות ובקשות בנושא פרטיות: ${ph("[privacy@youmademyday.co.il]")}.</p>`},
+    {id:"p-what",h:"איזה מידע אנחנו אוספים",b:`<p><b>מידע שאתם מוסרים:</b></p><ul><li>שם, מייל וטלפון</li><li>פרטים לחשבונית, אם ביקשתם</li><li>תוכן הפניות שלכם לשירות</li></ul>
+      <p><b>מידע שנוצר מהשימוש:</b></p><ul><li>רכישות, מנויים והיסטוריית תשלומים (בלי מספר כרטיס מלא)</li><li>התקדמות בקורסים והורדות של ספרים</li><li>כתובת IP, סוג דפדפן ומכשיר, ועוגיות (ראו בהמשך)</li></ul>
+      <p><b>פרטי תשלום:</b> מספר הכרטיס עובר ישירות לספק הסליקה, שעומד בתקן אבטחה בינלאומי לכרטיסי אשראי (PCI DSS). אנחנו לא רואים ולא שומרים אותו.</p>`},
+    {id:"p-why",h:"למה אנחנו משתמשים במידע",b:`<ul><li>לספק את מה שקניתם ולפתוח לכם גישה</li><li>להפיק חשבוניות ולעמוד בחובות לפי חוקי המס</li><li>לענות לפניות ולתת תמיכה</li><li>לאבטח את האתר ולמנוע הונאות ושיתוף חשבונות</li><li>לשפר את האתר ואת הקורסים, לפי נתונים מצטברים</li><li>לשלוח דיוור שיווקי, רק אם הסכמתם לכך</li></ul>`},
+    {id:"p-duty",h:"האם חובה למסור מידע",b:`<p>אין חובה חוקית למסור לנו מידע. בלי שם, מייל ואמצעי תשלום אי אפשר לבצע רכישה ולשלוח לכם את המוצר.</p><p class="law">ההודעה הזאת ניתנת לפי סעיף 11 לחוק הגנת הפרטיות, התשמ״א-1981.</p>`},
+    {id:"p-share",h:"עם מי המידע משותף",b:`<p>אנחנו לא מוכרים מידע אישי. נעביר מידע רק במידה הנדרשת:</p>
+      <ul><li><b>ספקי שירות שעובדים בשבילנו:</b> סליקה, אחסון ענן, שליחת מיילים, הנהלת חשבונות. הם מחויבים בחוזה לשמור על המידע ולהשתמש בו רק בשבילנו.</li><li><b>רשויות:</b> כשהחוק מחייב או לפי צו.</li><li><b>מכירת העסק:</b> אם העסק יימכר או יתמזג, המידע יעבור לבעלים החדשים באותם תנאים.</li></ul>
+      <p>חלק מהספקים שומרים מידע בשרתים מחוץ לישראל. ההעברה נעשית לפי תקנות הגנת הפרטיות (העברת מידע למאגרי מידע שמחוץ לגבולות המדינה), התשס״א-2001.</p>`},
+    {id:"p-cookies",h:"עוגיות (Cookies)",b:`<div class="tbl-wrap"><table class="tbl"><thead><tr><th>סוג</th><th>בשביל מה</th><th>צריך הסכמה?</th></tr></thead><tbody>
+      <tr><td>הכרחיות</td><td>התחברות, סל קניות, אבטחה</td><td>לא, האתר לא עובד בלעדיהן</td></tr>
+      <tr><td>מדידה</td><td>אילו עמודים נצפים ואיפה נתקעים</td><td>כן</td></tr>
+      <tr><td>שיווק</td><td>מודעות מותאמות ברשתות</td><td>כן</td></tr></tbody></table></div>
+      <p style="margin-top:10px">אפשר לשנות את הבחירה בכל עת בבאנר העוגיות או בהגדרות הדפדפן.</p>`},
+    {id:"p-mail",h:"דיוור ומיילים שיווקיים",b:`<ul><li>נשלח דיוור שיווקי רק אם הסכמתם במפורש, למשל בסימון בהרשמה.</li><li>בכל מייל שיווקי יש קישור הסרה. אפשר גם לכתוב לנו ״הסירו אותי״.</li><li>מיילי שירות, כמו קבלה, גישה לקורס או תזכורת חידוש, יישלחו גם בלי הסכמה לדיוור.</li></ul><p class="law">לפי סעיף 30א לחוק התקשורת (בזק ושידורים), התשמ״ב-1982.</p>`},
+    {id:"p-security",h:"אבטחת מידע",b:`<p>האתר מוצפן (HTTPS). הגישה למידע מוגבלת לעובדים ולספקים שצריכים אותו, עם סיסמאות חזקות ואימות דו-שלבי, ואנחנו מגבים את המידע. נוהלי האבטחה בנויים לפי תקנות הגנת הפרטיות (אבטחת מידע), התשע״ז-2017.</p>
+      <p>אין מערכת חסינה לגמרי. אם יקרה אירוע אבטחה חמור, נדווח עליו לרשות להגנת הפרטיות כנדרש ונעדכן אתכם כשזה נדרש.</p>`},
+    {id:"p-keep",h:"כמה זמן שומרים מידע",b:`<ul><li>פרטי החשבון וההתקדמות: כל עוד החשבון פעיל</li><li>חשבוניות ותיעוד תשלומים: 7 שנים, כנדרש בחוקי המס</li><li>פניות שירות: עד 3 שנים</li><li>אחרי מחיקת חשבון, נמחק או נהפוך לאנונימי כל מידע שאין חובה לשמור</li></ul>`},
+    {id:"p-rights",h:"הזכויות שלכם",b:`<ul><li><b>לעיין</b> במידע שיש עלינו עליכם (סעיף 13 לחוק)</li><li><b>לבקש תיקון או מחיקה</b> של מידע לא נכון, לא שלם או לא מעודכן (סעיף 14)</li><li><b>להימחק מרשימות דיוור ישיר</b> (סעיף 17ו)</li><li><b>לבקש למחוק את החשבון</b> כולו</li></ul>
+      <p>שולחים בקשה ל-${ph("[privacy@youmademyday.co.il]")} ועונים לכם תוך 30 יום. לפני הטיפול נבקש לוודא שאתם בעלי החשבון. לא קיבלתם מענה? אפשר לפנות לרשות להגנת הפרטיות במשרד המשפטים.</p>`},
+    {id:"p-changes",h:"שינויים במדיניות",b:`<p>נעדכן את המדיניות מדי פעם. על שינוי מהותי נודיע במייל ובאתר לפני שייכנס לתוקף. תאריך העדכון האחרון מופיע בראש העמוד.</p>`}
+  ];
+  return legalShell({title:"מדיניות פרטיות",lead:"איזה מידע אנחנו אוספים, למה, עם מי הוא משותף ואיך שולטים בו.",sections:s});
+}
+
+function viewRefunds(){
+  const mine = S.owned.map(id=>ALL[id]).filter(Boolean);
+  const form = `<div class="panel" id="cancelForm"><h2>ביטול עסקה</h2>
+    <p class="muted" style="margin:-6px 0 12px">שולחים כאן, במייל ${ph(BIZ.email)} או בטלפון ${ph(BIZ.phone)}. אישור עם מספר פנייה יישלח למייל.</p>
+    ${S.cancelSent?`<div class="owned-note">הבקשה התקבלה. מספר פנייה: ${S.cancelSent}. ההחזר יגיע לאמצעי התשלום המקורי תוך 14 יום לכל המאוחר.</div>`:`
+    <form data-form="cancel" novalidate style="display:flex;flex-direction:column;gap:12px">
+      <div class="two"><div class="field"><label for="cnName">שם מלא</label><input id="cnName" autocomplete="name"></div><div class="field"><label for="cnEmail">מייל ההזמנה</label><input id="cnEmail" type="email" autocomplete="email"></div></div>
+      <div class="two"><div class="field"><label for="cnItem">מה מבטלים</label><select id="cnItem">${mine.length?mine.map(x=>`<option value="${x.id}">${esc(x.title)}</option>`).join(""):`<option value="">אין רכישות בדמו</option>`}<option value="sub">מנוי כל הגישה</option></select></div>
+      <div class="field"><label for="cnOrder">מספר הזמנה (לא חובה)</label><input id="cnOrder" placeholder="YMD-10234"></div></div>
+      <div class="field"><label for="cnWhy">סיבה (לא חובה)</label><select id="cnWhy"><option>לא מה שציפיתי</option><option>אין לי זמן עכשיו</option><option>בעיה טכנית</option><option>קניתי בטעות</option><option>אחר</option></select></div>
+      <span class="err" id="cnErr" hidden>צריך שם ומייל תקין כדי שנמצא את ההזמנה</span>
+      <button class="btn btn-ink" style="align-self:flex-start">לשלוח בקשת ביטול</button>
+    </form>`}</div>`;
+  const s = [
+    {id:"r-summary",h:"בקצרה",b:`<div class="tbl-wrap"><table class="tbl"><thead><tr><th>מוצר</th><th>עד מתי מבטלים</th><th>כמה חוזר</th></tr></thead><tbody>
+      <tr><td><b>קורס וידאו</b></td><td>14 יום מהרכישה</td><td>החזר מלא, בלי דמי ביטול ובלי שאלות</td></tr>
+      <tr><td><b>ספר PDF, לפני הורדה</b></td><td>14 יום מהרכישה</td><td>החזר מלא</td></tr>
+      <tr><td><b>ספר PDF, אחרי הורדה</b></td><td>אין ביטול</td><td>רק אם הקובץ פגום ולא תיקנו אותו</td></tr>
+      <tr><td><b>מנוי, 14 הימים הראשונים</b></td><td>14 יום מהתשלום הראשון</td><td>החזר מלא</td></tr>
+      <tr><td><b>מנוי חודשי, אחר כך</b></td><td>בכל רגע</td><td>אין חיוב נוסף. הגישה נשארת עד סוף החודש ששולם</td></tr>
+      <tr><td><b>מנוי שנתי, אחר כך</b></td><td>בכל רגע</td><td>החזר יחסי על החודשים המלאים שנשארו</td></tr></tbody></table></div>
+      <p style="margin-top:10px">החוק מתיר לגבות דמי ביטול של 5% מהמחיר או 100 ₪, הנמוך מביניהם. <b>אנחנו לא גובים דמי ביטול בכלל.</b></p>`},
+    {id:"r-courses",h:"קורסי וידאו",b:`<p>אפשר לבטל קורס בתוך 14 יום מיום הרכישה, או מהיום שקיבלתם את מייל פרטי העסקה אם הגיע מאוחר יותר, ולקבל את כל הכסף. לא משנה כמה צפיתם. עם הביטול הגישה לקורס נסגרת.</p>
+      <p>כדי שהמדיניות תישאר נדיבה לכולם: החזר אחד לכל קורס. מי שקונה ומבטל שוב ושוב עלול לאבד את האפשרות לקבל החזר.</p>`},
+    {id:"r-books",h:"ספרים דיגיטליים (PDF)",b:`<p>ספר דיגיטלי הוא מידע ממוחשב, ולפי החוק אין זכות לבטל רכישה של מידע כזה אחרי שהוא נמסר. לכן:</p>
+      <ul><li><b>לפני ההורדה הראשונה:</b> אפשר לבטל בתוך 14 יום ולקבל החזר מלא.</li><li><b>אחרי שהקובץ הורד או נפתח:</b> אי אפשר לבטל.</li><li><b>קובץ פגום, חסר או לא תואם לתיאור:</b> נתקן או נחליף מיד. אם לא הצלחנו, החזר מלא.</li></ul>
+      <p>לכל ספר יש הצצה חינם בעמוד שלו, כדי שתדעו מה מקבלים לפני שקונים.</p>
+      <p class="law">החריג למידע ממוחשב: סעיף 14ג(ד) לחוק הגנת הצרכן, התשמ״א-1981.</p>`},
+    {id:"r-sub",h:"מנוי כל הגישה",b:`<ul><li>מבטלים בכל רגע: מהאזור האישי, בטופס בעמוד הזה, במייל או בטלפון.</li><li>הביטול נכנס לתוקף לכל המאוחר תוך 3 ימי עסקים, ואין שום חיוב אחריו.</li><li>בתוך 14 יום מהתשלום הראשון: החזר מלא.</li><li>מנוי חודשי: הגישה נשארת עד סוף החודש ששולם, בלי חיוב נוסף.</li><li>מנוי שנתי: מחזירים את החלק היחסי על כל חודש מלא שנשאר.</li><li>ספרים שהורדתם במהלך המנוי נשארים אצלכם.</li></ul>
+      <p class="law">לפי סעיף 13ד לחוק הגנת הצרכן (ביטול עסקה מתמשכת).</p>`},
+    {id:"r-bundles",h:"חבילות, מבצעים וקופונים",b:`<p>מחזירים את מה ששולם בפועל. בחבילה (למשל 3 ספרים, השלישי חינם) ההנחה מתחלקת באופן יחסי בין הפריטים. אם ביטלתם חלק מהחבילה וההנחה כבר לא חלה, ההחזר יקוזז בהתאם.</p>`},
+    {id:"r-how",h:"איך מבטלים",b:`<p>בכל אחת מהדרכים, בעל פה או בכתב:</p>
+      <ul><li>הטופס בעמוד הזה (יש קישור ״ביטול עסקה״ בתחתית כל עמוד)</li><li>מייל ל-${ph(BIZ.email)}</li><li>טלפון ${ph(BIZ.phone)}, בימים א׳–ה׳ 9:00–17:00</li><li>מהאזור האישי, בלחצן ״ביטול״ ליד המוצר</li></ul>
+      <p>צריך רק שם ומייל או טלפון שאיתם קניתם. מספר הזמנה עוזר אבל לא חובה. על כל ביטול נשלח אישור במייל.</p>`},
+    {id:"r-money",h:"מתי הכסף חוזר",b:`<ul><li>ההחזר יוצא תוך 14 יום לכל המאוחר מקבלת הודעת הביטול. בדרך כלל תוך 2–3 ימי עסקים.</li><li>הכסף חוזר לאותו אמצעי תשלום.</li><li>בעסקה בתשלומים, התשלומים שעוד לא חויבו מתבטלים.</li><li>חברת האשראי מציגה את הזיכוי בחשבון לפי מועדי החיוב שלה.</li></ul>`},
+    {id:"r-extended",h:"זכות מורחבת: אזרחים ותיקים, אנשים עם מוגבלות ועולים חדשים",b:`<p>אם אתם בני 65 ומעלה, אנשים עם מוגבלות, או עולים חדשים (עד 5 שנים מקבלת תעודת עולה או זכאות), ובמהלך הרכישה דיברתם עם נציג שלנו בטלפון או בצ׳אט, אפשר לבטל בתוך <b>4 חודשים</b> במקום 14 יום.</p>
+      <p>החריג לספר דיגיטלי שכבר הורד חל גם כאן. נבקש תעודה מתאימה, למשל תעודת אזרח ותיק, תעודת עולה או מסמך שמעיד על המוגבלות.</p>
+      <p class="law">לפי סעיף 14ג1 לחוק הגנת הצרכן.</p>`},
+    {id:"r-nofee",h:"מתי אף פעם לא גובים כלום",b:`<p>אם יש פגם במוצר, הוא לא תואם למה שתואר, לא קיבלתם גישה בזמן, או שהפרנו משהו אחר: ביטול בכל מקרה, החזר מלא, בלי דמי ביטול.</p>`},
+    {id:"r-law",h:"החוק שעליו המדיניות בנויה",b:`<ul><li>חוק הגנת הצרכן, התשמ״א-1981: סעיפים 13ד, 14ג, 14ג1, 14ה</li><li>תקנות הגנת הצרכן (ביטול עסקה), התשע״א-2010</li></ul>
+      <p>אם יש סתירה בין המדיניות לחוק, החוק גובר. אם המדיניות שלנו טובה לכם יותר מהחוק, היא זו שחלה.</p>`}
+  ];
+  return legalShell({title:"מדיניות החזרים",lead:"מה אפשר לבטל, עד מתי, כמה כסף חוזר ואיך עושים את זה. לפי חוק הגנת הצרכן, ובכמה מקומות נדיב יותר ממנו.",sections:s,extraTop:form});
+}
+
+/* ---------- cart drawer ---------- */
+function lineHtml(id){
+  const x=ALL[id];
+  return `<div class="line">${cover(x)}<div style="min-width:0"><h4>${esc(x.title)}</h4><small>${isCourse(x)?"קורס וידאו":"ספר PDF"}</small><br><button class="x" data-act="remove" data-id="${id}">הסרה</button></div><b class="num">${ils(x.price)}</b></div>`;
+}
+function openDrawer(kind){
+  const ids = kind==="wish"?S.wish:S.cart;
+  const isCart = kind!=="wish";
+  const books = S.cart.filter(id=>!isCourse(ALL[id])).length;
+  $("#drawerRoot").innerHTML = `<div class="overlay" data-act="close"></div>
+  <aside class="drawer" role="dialog" aria-modal="true" aria-label="${isCart?"סל קניות":"מועדפים"}">
+    <header><h2>${isCart?"הסל שלך":"מועדפים"}</h2><button class="icon-btn" data-act="close" aria-label="סגירה">✕</button></header>
+    <div class="list">${ids.length? ids.map(id=> isCart?lineHtml(id):`<div class="line">${cover(ALL[id])}<div style="min-width:0"><h4>${esc(ALL[id].title)}</h4><small>${ils(ALL[id].price)}</small></div><button class="btn btn-ghost btn-sm" data-act="wish-to-cart" data-id="${id}">לסל</button></div>`).join("")
+      : `<div class="empty">${isCart?"הסל ריק כרגע.":"עוד לא שמרתם כלום. לחצו על הלב בכל מוצר."}</div>`}
+      ${isCart&&books>0&&books<3?`<div class="tag tag-ok" style="padding:8px 12px;font-size:13px">עוד ${3-books} ${3-books===1?"ספר":"ספרים"} והזול מביניהם בחינם</div>`:""}
+    </div>
+    ${isCart&&ids.length?`<div class="foot">${summaryHtml()}<a class="btn btn-sun btn-block" href="#checkout" data-act="close-go">לתשלום</a></div>`:""}
+  </aside>`;
+  $("#drawerRoot .drawer button").focus();
+}
+const closeDrawer = () => { $("#drawerRoot").innerHTML=""; };
+
+/* ---------- router ---------- */
+function route(){
+  // Live site also answers clean slugs (/pricing, /terms…); the hash wins when present.
+  const h = location.hash.slice(1) || location.pathname.replace(/^\/+|\/+$/g,"") || "home";
+  let html;
+  if(h==="courses"||h==="books") html=viewCatalog(h);
+  else if(h==="checkout") html=viewCheckout();
+  else if(h==="library") html=viewLibrary();
+  else if(h==="search") html=viewSearch();
+  else if(h==="pricing") html=viewPricing();
+  else if(h==="terms") html=viewTerms();
+  else if(h==="privacy") html=viewPrivacy();
+  else if(h==="refunds") html=viewRefunds();
+  else if(ALL[h]) html=viewItem(h);
+  else html=viewHome();
+  $("#view").innerHTML = html;
+  if(h==="courses"||h==="books") fillGrid(h);
+  document.querySelectorAll("#nav a").forEach(a=>a.classList.toggle("on",a.dataset.nav===h||(ALL[h]&&a.dataset.nav===(isCourse(ALL[h])?"courses":"books"))));
+  syncBadges(); tick();
+  window.scrollTo(0,0);
+  if(h==="refunds"&&S.goCancel){ S.goCancel=false; $("#cancelForm")?.scrollIntoView({block:"start"}); }
+}
+function rerender(){ const y=window.scrollY; route(); window.scrollTo(0,y); }
+
+/* ---------- countdown to local midnight ---------- */
+function tick(){
+  const now=new Date(), end=new Date(now); end.setHours(24,0,0,0);
+  const s=Math.floor((end-now)/1000), p=n=>String(n).padStart(2,"0");
+  const txt=`${p(Math.floor(s/3600))}:${p(Math.floor(s%3600/60))}:${p(s%60)}`;
+  document.querySelectorAll(".cd").forEach(el=>{el.textContent=txt});
+}
+setInterval(tick,1000);
+
+/* ---------- events ---------- */
+function toggleWish(id){
+  const i=S.wish.indexOf(id);
+  if(i>=0){ S.wish.splice(i,1); toast("הוסר מהמועדפים"); } else { S.wish.push(id); toast("נשמר במועדפים"); }
+  save();
+}
+function addToCart(id){
+  if(S.owned.includes(id)){ toast("זה כבר בספרייה שלך"); return false; }
+  if(!S.cart.includes(id)){ S.cart.push(id); save(); }
+  return true;
+}
+document.addEventListener("click",e=>{
+  const el=e.target.closest("[data-act]"); if(!el) return;
+  const {act,id}=el.dataset;
+  if(act!=="close-go"&&act!=="pick-cat") e.preventDefault();
+  if(act==="wish"){ e.stopPropagation(); toggleWish(id); const h=location.hash.slice(1)||"home"; if(h==="courses"||h==="books") fillGrid(h); else rerender(); syncBadges(); }
+  else if(act==="add"){ if(addToCart(id)){ toast("נוסף לסל"); rerender(); openDrawer("cart"); } }
+  else if(act==="buy-now"){ if(addToCart(id)) location.hash="checkout"; }
+  else if(act==="open-cart") openDrawer("cart");
+  else if(act==="open-wish") openDrawer("wish");
+  else if(act==="close") closeDrawer();
+  else if(act==="close-go") closeDrawer();
+  else if(act==="remove"){ S.cart=S.cart.filter(x=>x!==id); save(); syncBadges();
+    if($("#drawerRoot").innerHTML) openDrawer("cart"); if(location.hash==="#checkout") rerender(); }
+  else if(act==="wish-to-cart"){ if(addToCart(id)){ S.wish=S.wish.filter(x=>x!==id); save(); syncBadges(); openDrawer("cart"); toast("הועבר לסל"); } }
+  else if(act==="f-cat"){ S.f[el.dataset.type].cat=el.dataset.v; el.parentElement.querySelectorAll(".chip").forEach(c=>c.classList.toggle("on",c===el)); fillGrid(el.dataset.type); }
+  else if(act==="f-level"){ S.f.courses.level=el.dataset.v; el.parentElement.querySelectorAll(".chip").forEach(c=>c.classList.toggle("on",c===el)); fillGrid("courses"); }
+  else if(act==="pick-cat"){ const c=el.dataset.cat; const inCourses=COURSES.some(x=>x.cat===c); S.f.courses.cat=inCourses?c:"הכל"; if(!inCourses){ S.f.books.cat=c; location.hash="books"; e.preventDefault(); } }
+  else if(act==="coupon"){ const code=$("#couponIn").value.trim().toUpperCase();
+    if(!code){ S.coupon=null; } else if(COUPONS[code]){ S.coupon=code; toast(`הקופון הוחל: ${COUPONS[code].label}`); } else { toast("הקוד לא קיים. בדמו: YMD10 או DAY50"); return; }
+    rerender(); }
+  else if(act==="lib-tab"){ S.libTab=el.dataset.v; rerender(); }
+  else if(act==="download") toast("בדמו ההורדה לא פעילה. באתר האמיתי ייפתח קובץ ה-PDF");
+  else if(act==="billing"){ S.billing=el.dataset.v; rerender(); }
+  else if(act==="plan") toast("בדמו המנוי עוד לא פעיל");
+  else if(act==="jump"){ document.getElementById(el.dataset.to)?.scrollIntoView({behavior:"smooth",block:"start"}); }
+  else if(act==="go-cancel"){ S.goCancel=true; if(location.hash==="#refunds") $("#cancelForm")?.scrollIntoView({block:"start"}); else location.hash="refunds"; }
+});
+document.addEventListener("input",e=>{
+  if(e.target.id==="maxPrice"){ const t=e.target.dataset.type; S.f[t].max=Number(e.target.value); $("#maxLbl").textContent=ils(S.f[t].max); fillGrid(t); }
+});
+document.addEventListener("change",e=>{
+  if(e.target.id==="sort"){ const t=e.target.dataset.type; S.f[t].sort=e.target.value; fillGrid(t); }
+});
+document.addEventListener("submit",e=>{
+  e.preventDefault();
+  const f=e.target;
+  if(f.id==="topSearch"){ S.q=$("#q").value; if(location.hash==="#search") route(); else location.hash="search"; return; }
+  if(f.dataset.form==="cancel"){
+    const ok = $("#cnName").value.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($("#cnEmail").value.trim());
+    $("#cnErr").hidden=!!ok; if(!ok) return;
+    S.cancelSent = "CN-" + String(Date.now()).slice(-5); rerender(); return;
+  }
+  if(f.dataset.form==="news"){ toast("נרשמת. (בדמו לא נשלח מייל)"); f.reset(); return; }
+  if(f.dataset.form==="checkout"){
+    const email=$("#coEmail").value.trim(); const ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    $("#emailErr").hidden=ok; if(!ok){ $("#coEmail").focus(); return; }
+    const n=S.cart.length; S.owned=[...new Set([...S.owned,...S.cart])]; S.cart=[]; S.coupon=null; save(); syncBadges();
+    $("#view").innerHTML=viewSuccess(n); window.scrollTo(0,0);
+  }
+});
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"&&$("#drawerRoot").innerHTML) closeDrawer(); });
+window.addEventListener("hashchange",()=>{ closeDrawer(); route(); });
+route();
+</script>
