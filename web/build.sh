@@ -6,7 +6,7 @@ set -euo pipefail
 cd "$(dirname "$0")"
 SRC="../mockup/index.html"
 OUT_DIR="public"
-DOMAIN="youmademyday.online"
+DOMAIN="youmademyday.store"
 SLUGS=(courses books pricing terms privacy refunds library checkout search)
 ITEM_IDS=$(grep -oE '\{id:"[cb][0-9]+"' "$SRC" | grep -oE '[cb][0-9]+')
 
