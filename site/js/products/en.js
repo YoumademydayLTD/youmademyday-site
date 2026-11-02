@@ -651,8 +651,8 @@ export const PRODUCTS = [
    "Printable Summary Sheet"
   ],
   "excerpt": "This book grew out of a simple question that comes up again and again: \"What exactly do I type?\" Tools like ChatGPT, Claude and Gemini can do a lot, but the answer you get is only as good as the request you send. A vague request brings back a vague answer. A clear request brings back something you can work with. The good news is that you don't need to be a tech person to write a good request. You need to know what to ask for, who to ask it from, and in what form, and that is exactly what you'll find in the pages ahead.",
-  "pages": 17,
-  "mb": 1.0
+  "pages": 22,
+  "mb": 0.7
  },
  {
   "id": "b10",
@@ -683,8 +683,8 @@ export const PRODUCTS = [
    "Summary Page"
   ],
   "excerpt": "A small business owner does ten jobs at once: service, sales, marketing, bookkeeping, hiring, and at the end of the day there's still the actual work to do. ChatGPT and similar tools won't run your business for you, but they can take the first draft of almost any text off your hands, help you think, and save time on tasks that repeat every week. This book shows you how, through 30 situations every business owner in Israel knows.",
-  "pages": 14,
-  "mb": 1.0
+  "pages": 22,
+  "mb": 0.7
  },
  {
   "id": "b11",
@@ -713,8 +713,8 @@ export const PRODUCTS = [
    "Summary Sheet"
   ],
   "excerpt": "The problem most small businesses have on social media isn't that they have nothing to say. The problem is that every time they open the app, they start from zero. This book gives you a bank of 100 post ideas that fit almost any field, and a calendar that ties them to the holidays and seasons in Israel, so you know in advance what's coming up each week. Instead of sitting in front of a blank screen waiting for inspiration, you'll open the calendar, pick an idea and start writing.",
-  "pages": 14,
-  "mb": 1.0
+  "pages": 16,
+  "mb": 0.8
  },
  {
   "id": "b12",
@@ -745,8 +745,8 @@ export const PRODUCTS = [
    "Final Checklist"
   ],
   "excerpt": "Most small-business landing pages fail for the same reasons: a vague headline, too many goals, copy that talks about the business instead of the customer, and a button where it isn't clear what happens after you click it. This book deals only with the copy, because that's where most of the difference lies. Design matters, but a beautiful page with weak copy doesn't work, and a simple page with clear copy often works brilliantly, even with no budget.",
-  "pages": 14,
-  "mb": 1.0
+  "pages": 21,
+  "mb": 0.7
  },
  {
   "id": "b13",
@@ -780,8 +780,8 @@ export const PRODUCTS = [
    "Checklist Before Every Send"
   ],
   "excerpt": "Someone who subscribes today hasn't seen the ten emails you've already sent. They arrive curious, but without context. A short series of three automated emails, sent in the first days after signing up, introduces you and prepares them for the regular weekly email. Most email tools let you set up a sequence like this, usually under a name like \"automation\" or \"sequence\". The names and screens vary between tools, so look it up in your tool's help pages.",
-  "pages": 14,
-  "mb": 1.0
+  "pages": 24,
+  "mb": 0.8
  },
  {
   "id": "b14",
@@ -813,8 +813,41 @@ export const PRODUCTS = [
    "Checklist"
   ],
   "excerpt": "Personal branding sounds like something for influencers. In practice, it's simple: people should quickly understand what you do, what you're good at, and why it's worth talking to you. You don't need to be a well-known personality, you don't need to post every day, and you don't need to reinvent yourself. You need a clear profile, a posting pace you can keep up, and real conversations with the right people. When those three work together, inquiries start coming in without you having to chase them.",
-  "pages": 14,
-  "mb": 1.0
+  "pages": 21,
+  "mb": 0.7
+ },
+ {
+  "id": "b15",
+  "n": 15,
+  "type": "ebook",
+  "title": "A CV That Gets Through Screening",
+  "sub": "Structure, wording and 12 examples by field",
+  "cat": "Career",
+  "price": 45,
+  "cv": [
+   "#3B2A5C",
+   "#FFFFFF",
+   "#F48FB8"
+  ],
+  "sh": "sun",
+  "description": [
+   "How to write a CV that is clear to a person and readable by screening systems: structure, a summary, phrasing achievements instead of responsibilities, and tailoring to each job in ten minutes. Includes 12 fictional examples by field, a short cover letter, a table of common mistakes, a worksheet and a checklist before sending."
+  ],
+  "chapters": [
+   "Before You Start",
+   "The Structure",
+   "The Wording",
+   "Tailoring to the Job",
+   "Readability for Screening Systems",
+   "12 Examples by Field",
+   "A Short Cover Letter",
+   "Common Mistakes",
+   "Worksheet",
+   "Checklist Before Sending"
+  ],
+  "excerpt": "CVs aren't read, they're scanned. A recruiter who opens a position often receives dozens or hundreds of applications, and gives each one a few moments at first glance. At many companies, before a human being even sees the document, it passes through an applicant tracking system that sorts, filters or searches for keywords. The goal of your CV is to get through both these stages: to be readable by the system, and clear to a person within a few seconds.",
+  "pages": 21,
+  "mb": 0.8
  },
  {
   "id": "b16",
@@ -845,8 +878,8 @@ export const PRODUCTS = [
    "Checklist"
   ],
   "excerpt": "The goal of this book is not to give you answers to memorize. A memorized answer sounds memorized, and interviewers spot it fast. The goal is for you to understand what each question is really testing, and to build an answer of your own, from your own experience, that you can say naturally. When you know what lies behind the question, you no longer need to guess what the interviewer wants to hear. You can simply tell them what you did, in a clear, organized and honest way.",
-  "pages": 14,
-  "mb": 1.0
+  "pages": 19,
+  "mb": 0.8
  },
  {
   "id": "b17",
@@ -881,8 +914,8 @@ export const PRODUCTS = [
    "Summary: The Freelancer's Checklist"
   ],
   "excerpt": "A full working week doesn't equal a week of billable hours. A large part of your time goes on things no client pays for directly: answering emails, introductory calls, preparing quotes, bookkeeping, marketing and learning. On top of that there are public holidays, vacations and sick days. So the calculation starts with an honest question: how many hours a month can I really bill a client, on average? Most beginners discover that the answer is much lower than they thought. Better to estimate low and be pleasantly surprised.",
-  "pages": 14,
-  "mb": 1.0
+  "pages": 33,
+  "mb": 0.8
  },
  {
   "id": "b18",
@@ -917,8 +950,8 @@ export const PRODUCTS = [
    "Before you send: a checklist"
   ],
   "excerpt": "A good price quote does two things: it shows the client you understood what they need, and it prevents arguments later. In this kit you will find 10 ready-made templates, each for a different kind of work: a one-off service, a project in stages, an hourly retainer, selling a product, an event, design, a consultation, maintenance, a workshop and a contract renewal. You can copy any of them into Word or Google Docs, fill it in within a few minutes and send it to the client as a tidy PDF.",
-  "pages": 7,
-  "mb": 1.0
+  "pages": 27,
+  "mb": 0.9
  },
  {
   "id": "b19",
@@ -953,8 +986,8 @@ export const PRODUCTS = [
    "Page 12: Checklist Before Every Post and Every Month"
   ],
   "excerpt": "Most small businesses don't get stuck for lack of talent. They get stuck because every morning they start from zero: \"What do I post today?\" This planner moves that decision to once a month. You sit down for an hour, fill it in, and from then on you just carry it out. Without having to think afresh every day, your posts go out on time, your topics rotate, and at the end of the month you have real data on what worked and what didn't. That way every month starts from a better place than the one before.",
-  "pages": 5,
-  "mb": 1.0
+  "pages": 24,
+  "mb": 0.8
  },
  {
   "id": "b20",
@@ -988,8 +1021,8 @@ export const PRODUCTS = [
    "Summary page: the weekly checklist"
   ],
   "excerpt": "This is a simple weekly planner, with no decorations and no complicated system. It has what you need to see your week in front of you, decide what really matters, and close the week feeling it was yours. You can print the pages and fill them in with a pen, or open them on a tablet and write on them with a stylus. Each week you start from one page, fill it in within ten minutes, and come back to it every morning to choose up to three important tasks for the day.",
-  "pages": 3,
-  "mb": 1.0
+  "pages": 21,
+  "mb": 0.7
  },
  {
   "id": "b21",
@@ -1024,8 +1057,8 @@ export const PRODUCTS = [
    "Summary: The Half Hour on One Page"
   ],
   "excerpt": "Half an hour is short enough that starting isn't hard, and long enough to see results. When it's fixed, it becomes a habit rather than a decision. You don't ask yourself \"Should I tidy today?\" You simply do your half hour, like brushing your teeth. And there's another advantage: half an hour a day adds up to three and a half hours a week. That's more time than most people spend on a big clean-up, only spread out in a way your body and mind can keep up with.",
-  "pages": 13,
-  "mb": 1.0
+  "pages": 30,
+  "mb": 0.9
  },
  {
   "id": "b22",
@@ -1058,8 +1091,8 @@ export const PRODUCTS = [
    "Wrap-Up: 30 Days, and What Comes Next"
   ],
   "excerpt": "The most common mistake when starting a habit is choosing its final version. Someone who wants to run starts with five kilometres. Someone who wants to read starts with a chapter every evening. Someone who wants a tidy home starts with a full spring clean. The problem is that the big version needs a good mood, free time and energy. And those three aren't always there. On an ordinary day you have enough of them. On a hard day you don't. And a habit that doesn't survive the hard days never becomes a habit.",
-  "pages": 15,
-  "mb": 1.0
+  "pages": 82,
+  "mb": 0.9
  },
  {
   "id": "b23",
@@ -1096,8 +1129,8 @@ export const PRODUCTS = [
    "The 90-day review"
   ],
   "excerpt": "90 short writing pages, one for each day, and a review page at the end of each week. Every day has a different question, so you don't find yourself writing \"family, health, coffee\" three months in a row. The questions are arranged in 13 weeks. Each week focuses on one theme: people, the body, home, little things, hard moments, and more. That way your eye trains itself to notice the good even in places you don't usually look, and each time it finds something new there.",
-  "pages": 11,
-  "mb": 1.0
+  "pages": 56,
+  "mb": 0.8
  },
  {
   "id": "b24",
@@ -1122,8 +1155,44 @@ export const PRODUCTS = [
    "After 100 Mornings"
   ],
   "excerpt": "Each page holds one question, different every day. Some are light, and some invite you to think a little more. There are no right answers, and there is no need to write a lot. One honest line is worth more than a full page written out of duty. Try to open the journal at the same moment each morning, for example with your first coffee, and give it a few minutes before the phone enters the picture. If you miss a day, simply carry on with the next page.",
-  "pages": 19,
-  "mb": 1.0
+  "pages": 122,
+  "mb": 0.9
+ },
+ {
+  "id": "b25",
+  "n": 25,
+  "type": "ebook",
+  "title": "Writing a Short Story",
+  "sub": "A Practical Guide with 20 Exercises",
+  "cat": "Writing",
+  "price": 49,
+  "cv": [
+   "#FFF4EA",
+   "#2B1E40",
+   "#F7B9A0"
+  ],
+  "sh": "sun",
+  "description": [
+   "A practical guide that takes one idea and carries it all the way to a finished short story: character, structure, point of view, scene, dialogue, opening and ending. Each chapter explains one idea in plain language and ends with exercises, 20 in all, with worksheets and a printable checklist."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Chapter 1: The Idea",
+   "Chapter 2: The Character",
+   "Chapter 3: Structure",
+   "Chapter 4: Point of View and Voice",
+   "Chapter 5: Scene and Description",
+   "Chapter 6: Dialogue",
+   "Chapter 7: Opening and Ending",
+   "Chapter 8: The First Draft",
+   "Chapter 9: Editing",
+   "Chapter 10: What to Do with the Story",
+   "Appendix: Worksheet for a New Story",
+   "Summary: A Short Story Checklist"
+  ],
+  "excerpt": "Most stories don't start with a big idea. They start with a small detail that raises a question. An elderly woman holding two cinema tickets and sitting alone. A boy waiting outside the supermarket with a dog that isn't his. A WhatsApp message sent by mistake to the wrong group. The detail itself isn't the story. The story is the question it raises: why is she alone? Whose dog is it? What will happen tomorrow morning when everyone reads the message? Each of these questions could be the start of a whole story.",
+  "pages": 25,
+  "mb": 0.7
  },
  {
   "id": "b26",
@@ -1155,8 +1224,8 @@ export const PRODUCTS = [
    "Summary: Tracking Table and Checklist"
   ],
   "excerpt": "A sketch is a quick drawing meant to capture something: a shape, a movement, light. It doesn't have to be clean or accurate, and it's fine for guidelines, doubled lines and mistakes to stay in it. Those very lines show how you were thinking while you drew. That's why in these exercises you hardly ever erase. If a line comes out in the wrong place, draw the right line next to it, pressing harder. The viewer's eye will pick out the right line by itself. You also learn faster this way, because you can see both the mistake and its correction on the page.",
-  "pages": 14,
-  "mb": 1.0
+  "pages": 20,
+  "mb": 0.7
  },
  {
   "id": "b27",
@@ -1189,8 +1258,8 @@ export const PRODUCTS = [
    "Summary: A Checklist Before Every Page"
   ],
   "excerpt": "The rule: the space should look equal, even if it is not equal on a ruler. Two downstrokes facing each other, for example between ו (Vav) and ו (Vav), should be further apart than an open letter next to an open letter, such as ל (Lamed) next to ר (Resh). The eye measures the white area between the letters, not the distance between the strokes. A good exercise: write a word, turn the page upside down and look only at the white. Wherever there is a \"hole\" that is too big, or wherever the letters are crammed together, correct it the next time you write.",
-  "pages": 15,
-  "mb": 1.0
+  "pages": 25,
+  "mb": 0.8
  },
  {
   "id": "b28",
@@ -1221,8 +1290,8 @@ export const PRODUCTS = [
    "Summary: The Checklist Before You Tap"
   ],
   "excerpt": "The phone in your pocket can take very beautiful photos. Most of the time, what separates a forgettable shot from one you want to keep isn't the device. It's the light, where you stand, and one second of thought before you tap. This book is made of 50 short tips. Each tip stands on its own: what to do, why it works and how to practise it. Next to every tip is a pair of photos, before and after, so you can see the difference with your own eyes instead of only reading about it.",
-  "pages": 14,
-  "mb": 1.0
+  "pages": 25,
+  "mb": 0.7
  },
  {
   "id": "b29",
@@ -1260,8 +1329,8 @@ export const PRODUCTS = [
    "Summary: A Checklist for Every Video"
   ],
   "excerpt": "On social media, viewers decide very quickly whether to keep watching. That's why the opening has to be strong: movement, a face, a question, the final result shown up front. Don't open with a logo, silence or a long introduction. Open with something that makes people want to see what comes next. For example, in a video about baking challah (braided Shabbat bread), a weak opening is an empty bowl. A strong opening is the finished challah, golden and glossy, and only then do you go back to the beginning. The difference is that the viewer already knows where the video is heading, and stays to see how you get there.",
-  "pages": 13,
-  "mb": 1.0
+  "pages": 27,
+  "mb": 0.7
  },
  {
   "id": "b30",
@@ -1293,8 +1362,8 @@ export const PRODUCTS = [
    "Summary: Pantry, Shopping and Weekly Planning"
   ],
   "excerpt": "This book was written for anyone who wants to cook good food at home, without a restaurant and without special equipment. Here you'll find 40 home recipes: breakfasts, soups, salads, mains, vegetarian dishes, fish and simple desserts. All of them were built for an ordinary Israeli kitchen, with ingredients you can find in any supermarket. There are no complicated techniques or expensive gadgets here, just a pot, a frying pan, a baking tin and an oven. The goal is simple: that you can open the book any evening, pick a recipe and serve home-cooked food that everyone loves, without stress.",
-  "pages": 14,
-  "mb": 1.0
+  "pages": 29,
+  "mb": 0.9
  },
  {
   "id": "b31",
@@ -1326,8 +1395,8 @@ export const PRODUCTS = [
    "Summary: A Quick Page to Print"
   ],
   "excerpt": "A sourdough starter is a mixture of flour and water in which wild yeasts and acid-producing bacteria live together. They occur naturally in flour and in the air around us. When you feed the mixture regularly, they multiply, and the starter grows strong enough to raise bread. You don't need any special additions. Just flour, water and time. The process takes about a week, and most of that time is simply waiting. Each day you give it a few minutes: you feed it, look at it and smell it. After a week like that you have a living starter that, if you look after it, can stay with you for years.",
-  "pages": 17,
-  "mb": 1.0
+  "pages": 23,
+  "mb": 0.8
  },
  {
   "id": "b32",
@@ -1358,8 +1427,8 @@ export const PRODUCTS = [
    "Summary: Five Weeks of Evenings"
   ],
   "excerpt": "It's seven in the evening, everyone's hungry, and nobody has the energy for an hour-long recipe. This book was written for exactly that moment. It holds 30 dinners that take about 20 minutes from the moment the ingredients are on the counter to the moment they're on the plate. There's no magic here. There's an organised pantry, a few good habits and recipes built in advance so that no time is wasted. Every meal here was chosen because it's simple, filling and right for an ordinary Israeli table, with ingredients from your local supermarket.",
-  "pages": 14,
-  "mb": 1.0
+  "pages": 25,
+  "mb": 0.8
  },
  {
   "id": "b33",
@@ -1389,8 +1458,146 @@ export const PRODUCTS = [
    "Summary: A Shabbat Baking Checklist"
   ],
   "excerpt": "Every recipe follows the same layout: a short line telling you whether it is dairy or pareve, which pan you need and how long it takes. Then comes the ingredient list, numbered steps, one tip that saves you from a common mistake, and a list of allergens. That way you can scan a recipe in a few seconds and know in advance whether it suits your Shabbat and the people sitting around your table. Quantities are given in cups and spoons, because that is how most people bake at home, and where precision matters, the weight in grams is given too.",
-  "pages": 15,
-  "mb": 1.0
+  "pages": 21,
+  "mb": 0.7
+ },
+ {
+  "id": "b34",
+  "n": 34,
+  "type": "ebook",
+  "title": "The School Lunchbox",
+  "sub": "60 ideas for the mid-morning school meal",
+  "cat": "Cooking",
+  "price": 35,
+  "cv": [
+   "#FFE3D6",
+   "#3A1F1A",
+   "#FFB79C"
+  ],
+  "sh": "dot",
+  "description": [
+   "60 ideas for the mid-morning school meal, most of them ready in five minutes: sandwiches, bread-free options, cold dishes from the fridge, vegetables with dips and homemade snacks. Each idea lists its allergens, and there is an explanation of how to keep food cold and fresh until break time. At the end you'll find a weekly plan, a shopping list and a morning checklist."
+  ],
+  "chapters": [
+   "Before You Start",
+   "How to Build a Good Lunchbox",
+   "Sandwiches and Breads",
+   "No Bread: Pitas, Tortillas and Bakes",
+   "Cold Dishes from the Fridge",
+   "Vegetables, Fruit and Dips",
+   "Homemade Snacks Made Ahead",
+   "Adjustments: Allergies, Vegetarians and Picky Eaters",
+   "Weekly Planning",
+   "Special Days and Frequently Asked Questions",
+   "Summary: A Checklist for Tomorrow's Lunchbox"
+  ],
+  "excerpt": "It's twenty past seven in the morning, someone can't find a shoe, and you're standing in front of the fridge asking yourself for the hundredth time what to put in the lunchbox today. This book is made for exactly that moment. It contains 60 ideas for the mid-morning school meal, most of them ready in five minutes, and some you can make ahead on Sunday for the whole week. There are no complicated recipes or hard-to-find ingredients here. Everything is based on what you'll usually find in the fridge and pantry of an ordinary Israeli home.",
+  "pages": 24,
+  "mb": 0.8
+ },
+ {
+  "id": "b35",
+  "n": 35,
+  "type": "ebook",
+  "title": "Weekly Meal Planner",
+  "sub": "Printable menus and shopping lists",
+  "cat": "Cooking",
+  "price": 29,
+  "cv": [
+   "#FFE3D6",
+   "#3A1F1A",
+   "#FFB79C"
+  ],
+  "sh": "sun",
+  "description": [
+   "A printable planner that turns the question \"What's for dinner tonight?\" into twenty minutes of planning once a week. It includes a short method, four sample menus with shopping lists and allergens, and 12 worksheets: a weekly menu, a shopping list by aisle, pantry and freezer inventories, a meal bank, prep-ahead planning and leftovers tracking. Every sheet can be printed and used again and again."
+  ],
+  "chapters": [
+   "Before You Start",
+   "How to Plan a Week in Twenty Minutes",
+   "Four Sample Menus",
+   "Printable Planning Sheets",
+   "Summary: A Weekly Checklist"
+  ],
+  "excerpt": "The first part of the planner contains a short method for planning a week, and four sample menus with shopping lists, so you have something to start from. The second part is printable worksheets: a weekly menu chart, a shopping list by aisle, pantry and freezer inventories, your household's meal bank, prep-ahead planning, leftovers tracking and more. Each sheet stands on its own, and you can print it again and again. There's no need to use them all from day one. Start with the menu and the shopping list, and add another sheet only when you feel you're missing it.",
+  "pages": 29,
+  "mb": 0.7
+ },
+ {
+  "id": "b36",
+  "n": 36,
+  "type": "ebook",
+  "title": "A Balcony Garden",
+  "sub": "Herbs and Vegetables in Pots, Season by Season",
+  "cat": "Home",
+  "price": 45,
+  "cv": [
+   "#E2F1EA",
+   "#16302A",
+   "#A9D8C2"
+  ],
+  "sh": "half",
+  "description": [
+   "A practical guide to growing herbs and vegetables in pots on an ordinary balcony, following the seasons of the year in Israel. You'll learn to read the sun and wind on your balcony, choose a pot and soil, plant and care for your plants, and you'll get a detailed plant card for 18 herbs and vegetables. At the end there's a seasonal calendar, a table of problems and solutions, a garden journal and a checklist."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Getting to Know Your Balcony",
+   "Equipment: Pots, Soil and Tools",
+   "The First Planting",
+   "Herbs: Plant Cards",
+   "Vegetables in Pots: Plant Cards",
+   "Seasonal Calendar",
+   "Routine Care",
+   "Three Ready Plans for Your Balcony",
+   "Propagating Plants: Cuttings and Division",
+   "From the Garden to the Kitchen",
+   "Common Problems and Solutions",
+   "Summary: A Balcony Garden Checklist"
+  ],
+  "excerpt": "You don't need a garden to pick basil for a salad or a cherry tomato straight off the plant. Nor do you need previous experience, expensive equipment or green fingers from birth. An ordinary balcony, even a small one, can hold a few pots of herbs and vegetables that change your cooking and the feeling at home. This book teaches you how to start right, what to grow in each season, and how to keep your plants alive even when the Israeli summer arrives with its heat and its sharav (hot, dry desert heatwaves).",
+  "pages": 27,
+  "mb": 0.8
+ },
+ {
+  "id": "b37",
+  "n": 37,
+  "type": "ebook",
+  "title": "Home Decor on a Small Budget",
+  "sub": "Ideas for every room, with shopping lists",
+  "cat": "Home",
+  "price": 49,
+  "cv": [
+   "#E2F1EA",
+   "#16302A",
+   "#A9D8C2"
+  ],
+  "sh": "ring",
+  "description": [
+   "How to make every room in your home cosier and more beautiful without a big budget: clear out before you buy, choose a colour palette, and play with light and textiles. Each room has a chapter with practical ideas and a shopping list, plus weekend projects, a budget planner, a measurements sheet and a checklist."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Principles for Every Room",
+   "Discovering Your Style",
+   "The Living Room",
+   "The Kitchen",
+   "The Dining Area",
+   "The Bedroom",
+   "The Children's Room",
+   "The Bathroom",
+   "The Entrance, the Balcony and the Work Corner",
+   "Common Mistakes and How to Avoid Them",
+   "One Room, Three Budgets",
+   "Frequently Asked Questions",
+   "Weekend Projects",
+   "Seasons and Holidays",
+   "Budget Planner and Worksheets",
+   "Summary: A Checklist for a Designed Room"
+  ],
+  "excerpt": "A beautiful home isn't measured by the price of the sofa. It's measured by how it feels when you walk in: pleasant light, order that doesn't try too hard, a few things that say something about the people who live there. All of this can be achieved on a small budget, and sometimes with almost no budget at all, if you know what really makes a difference and what only looks good in the shop. Most of the changes in this book take an evening or a weekend, and many of them start with things you already have at home, just in a different place.",
+  "pages": 26,
+  "mb": 0.8
  },
  {
   "id": "b38",
@@ -1427,8 +1634,8 @@ export const PRODUCTS = [
    "Summary: Checklist for an Orderly Wardrobe"
   ],
   "excerpt": "This book offers one simple method, in four stages, that you can carry out gradually, shelf by shelf, even in a busy week. It doesn't require you to empty the whole wardrobe at once, it doesn't require you to buy a new storage system, and it doesn't force you to part with an item you're not ready to part with. All it takes is a few bags, a timer and a willingness to look at each item honestly. By the end of the process you'll know what you have, where it is, and what's really missing.",
-  "pages": 14,
-  "mb": 1.0
+  "pages": 25,
+  "mb": 0.8
  },
  {
   "id": "b39",
@@ -1460,8 +1667,41 @@ export const PRODUCTS = [
    "Summary: A Checklist for a Party at Home"
   ],
   "excerpt": "A birthday party at home doesn't have to be a production. What children remember isn't how much the balloons cost, but that it was fun, that there was one game everyone laughed at like crazy, and that their parent was right there with them. This book was written for parents who want to throw a good party in the living room, on the balcony or in the yard, without collapsing at the end of it. You don't need special equipment or a big budget. Most of what you need is already at home: cardboard boxes, paper, cushions, music and grown-ups who are willing to play.",
-  "pages": 14,
-  "mb": 1.0
+  "pages": 23,
+  "mb": 0.8
+ },
+ {
+  "id": "b40",
+  "n": 40,
+  "type": "ebook",
+  "title": "Screen-Free Games for Kids",
+  "sub": "80 Ideas for Indoors and Out",
+  "cat": "Family",
+  "price": 39,
+  "cv": [
+   "#FFF1DC",
+   "#3A2A10",
+   "#FFCF8A"
+  ],
+  "sh": "sun",
+  "description": [
+   "80 ideas for screen-free games, most of them with equipment you already have at home: calm games, movement indoors, making and building, word games, outdoor games and group games. Next to each idea you'll find a suitable age, the place and the equipment, and a safety note where needed. All the games are meant for parents who lead them and supervise."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Calm Games Indoors",
+   "Movement Games Indoors",
+   "Making and Building",
+   "Word and Imagination Games",
+   "Outdoor Games: Yard, Garden and Park",
+   "Group Games and Special Days",
+   "Quick Choice by Situation",
+   "How to Keep It Going Over Time",
+   "Summary: A Screen-Free Play Checklist"
+  ],
+  "excerpt": "\"I'm bored.\" Two words every parent knows, and they usually arrive just when you're in the middle of cooking, working or resting. This book is meant for that moment. It holds 80 ideas for screen-free games, most of them with equipment you already have at home, and some with no equipment at all. There are games for five minutes and games for a whole afternoon, games for one child and games for a crowd, for a small living room and for a big park. All of them were chosen by one question: can a tired parent start this right now?",
+  "pages": 24,
+  "mb": 0.8
  },
  {
   "id": "b41",
@@ -1493,8 +1733,8 @@ export const PRODUCTS = [
    "Summary: A Checklist for Parents"
   ],
   "excerpt": "The summer break is long. It has beach days and pool days, and it also has hot afternoons when everyone is stuck at home and someone is already asking, \"What do we do now?\" This book was made for exactly those moments. Inside you'll find activity pages ready to print: word puzzles, number games, art pages, simple kitchen experiments, outdoor games, games for the whole family and a summer journal. Every page stands on its own, so you can pull one out on the spot and get started.",
-  "pages": 11,
-  "mb": 1.0
+  "pages": 28,
+  "mb": 0.9
  },
  {
   "id": "b42",
@@ -1523,8 +1763,8 @@ export const PRODUCTS = [
    "Summary: The Hiking Family's Checklist"
   ],
   "excerpt": "Israel is a small country, but it has waterfalls, springs, caves, craters and beaches, often within an hour or two's drive from home. This guide brings together 20 easy trails that suit families with children, from the Galilee to Eilat. Not fitness and navigation routes, but exactly the kind where the kids run ahead, stop next to every tortoise, dip their feet in cold water and ask when they can come back. For every trail you'll find what you'll see, when to go, who it suits, and questions to ask the kids along the way.",
-  "pages": 15,
-  "mb": 1.0
+  "pages": 28,
+  "mb": 0.9
  },
  {
   "id": "b43",
@@ -1557,8 +1797,8 @@ export const PRODUCTS = [
    "Summary: The Smart Trip Checklist"
   ],
   "excerpt": "Most of the stress around a trip abroad doesn't come from the trip itself, but from the weeks before it: dozens of open tabs, lists scattered across notes, and a constant feeling that something has been forgotten. This guide turns all of that into one clear process. Instead of keeping everything in your head, you work with one timeline, ready-made packing lists and simple worksheets. Every decision comes at its proper time, and on the morning of the flight there are only three things left to check: passports, phone and a way to pay.",
-  "pages": 14,
-  "mb": 1.0
+  "pages": 27,
+  "mb": 0.9
  },
  {
   "id": "b46",
@@ -1594,8 +1834,42 @@ export const PRODUCTS = [
    "Summary: my talk on one page"
   ],
   "excerpt": "A ten-minute talk can carry one central idea, and no more. Try to get five across, and the audience will remember none. That sounds like a limitation, but it is actually what will make your talk good. When there is one clear message, every story, every example and every slide serves it, and the audience leaves with one thing they truly remember. When there are five messages, they compete with each other for attention, and none of them sticks.",
-  "pages": 14,
-  "mb": 1.0
+  "pages": 26,
+  "mb": 0.8
+ },
+ {
+  "id": "b47",
+  "n": 47,
+  "type": "ebook",
+  "title": "Start Running",
+  "sub": "An 8-week walk-run plan for healthy beginners",
+  "cat": "Movement",
+  "price": 35,
+  "cv": [
+   "#E3F4EC",
+   "#123A2B",
+   "#8FD3B5"
+  ],
+  "sh": "ring",
+  "description": [
+   "A gradual 8-week walk-run plan for healthy adults who don't currently run: three sessions a week, from one minute of running up to 25–30 minutes without stopping. Inside: a tracking table for every week, strengthening and stretching exercises, how to tell muscle soreness from a warning sign, running in the Israeli summer and what to do when you miss a session."
+  ],
+  "chapters": [
+   "Foreword: What You'll Get and How to Use It",
+   "Chapter 1: Before the First Step",
+   "Chapter 2: What a Session Looks Like",
+   "Chapter 3: The Plan - 8 Weeks",
+   "Chapter 4: Strengthening and Stretching",
+   "Chapter 5: Listening to Your Body",
+   "Chapter 6: Running in the Israeli Summer",
+   "Chapter 7: When Something Goes Wrong",
+   "Chapter 8: Frequently Asked Questions",
+   "Chapter 9: After the Eight Weeks",
+   "Summary: The Beginner Runner's Checklist"
+  ],
+  "excerpt": "Almost all beginners run too fast. The right pace in this plan is a pace at which you can say a whole sentence without gasping. If you can't talk, slow down. If you need to, slow down until running feels almost like brisk walking. That's perfectly fine. Slow running isn't \"lesser\" running. It's the foundation everything is built on. Speed will come by itself, later. For the next eight weeks, speed doesn't interest us at all. What does interest us is that you finish every session feeling you could have done a little more.",
+  "pages": 24,
+  "mb": 0.8
  },
  {
   "id": "b48",
@@ -1625,8 +1899,8 @@ export const PRODUCTS = [
    "Summary: My Morning on One Page"
   ],
   "excerpt": "Morning is a special time. Your body is still a little stiff from the night, your head hasn't filled up with lists yet, and the phone hasn't started ringing. A few minutes of movement and breathing at that moment can change how the whole day feels. You don't need an hour, you don't need to be especially flexible, and you don't need expensive gear. You need a mat, a few minutes, and the willingness to breathe slowly before the day starts racing. Even on the busiest mornings, five minutes like this are a small gift you give yourself.",
-  "pages": 13,
-  "mb": 1.0
+  "pages": 24,
+  "mb": 0.8
  },
  {
   "id": "k49",
@@ -1651,6 +1925,32 @@ export const PRODUCTS = [
   ],
   "description": [
    "Five books and templates for a small business: prompts, post ideas, a landing page guide, quote templates and a content planner. One price, lower than buying them separately, and every file is emailed together the moment you pay."
+  ]
+ },
+ {
+  "id": "k50",
+  "n": 50,
+  "type": "bundle",
+  "title": "The Kitchen Bundle",
+  "sub": "Six kitchen books, from sourdough to a week of dinners",
+  "cat": "Bundles",
+  "price": 179,
+  "cv": [
+   "#1D1D1F",
+   "#FFFFFF",
+   "#C9B2FF"
+  ],
+  "sh": "sun",
+  "includes": [
+   "b30",
+   "b31",
+   "b32",
+   "b33",
+   "b34",
+   "b35"
+  ],
+  "description": [
+   "Six cooking and baking books: The Home Kitchen, Bread at Home, 20-Minute Dinners, Shabbat Baking, the Lunchbox book and the Weekly Meal Planner. One price, lower than buying them separately, and every file is emailed together the moment you pay."
   ]
  }
 ];
