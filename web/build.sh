@@ -11,9 +11,14 @@ SLUGS=(courses books pricing terms privacy refunds checkout search)
 ITEM_IDS=$(grep -oE '"id": "[cbk][0-9]+"' "$SRC/js/products.js" | grep -oE '[cbk][0-9]+')
 
 rm -rf "$OUT_DIR" && mkdir -p "$OUT_DIR"
-cp "$SRC/styles.css" "$OUT_DIR/styles.css"
-cp -R "$SRC/css" "$OUT_DIR/css"
-cp -R "$SRC/js" "$OUT_DIR/js"
+# Assets go in a folder named after the build, so a browser never mixes a new page with old cached CSS/JS
+# (GitHub Pages caches files for 10 minutes and module imports carry no version of their own).
+VER="$(git rev-parse --short HEAD 2>/dev/null || date +%s)"
+ASSETS="/a/$VER"
+mkdir -p "$OUT_DIR$ASSETS"
+cp "$SRC/styles.css" "$OUT_DIR$ASSETS/styles.css"
+cp -R "$SRC/css" "$OUT_DIR$ASSETS/css"
+cp -R "$SRC/js" "$OUT_DIR$ASSETS/js"
 {
   printf '<!doctype html>\n<html lang="he" dir="rtl">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n'
   printf '<title>You Made My Day · עשית לי את היום</title>\n<meta name="description" content="קורסים דיגיטליים וספרים מעשיים בעברית, שאנחנו כותבים ומפיקים בעצמנו. עשית לי את היום בע״מ.">\n'
@@ -21,7 +26,7 @@ cp -R "$SRC/js" "$OUT_DIR/js"
   # Apple devices use the system font (SF Hebrew); Heebo is the closest web font for everyone else.
   printf '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap">\n'
   printf '<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%%}[hidden]{display:none!important}</style>\n'
-  printf '<link rel="stylesheet" href="/styles.css">\n<link rel="stylesheet" href="/css/book3d.css">\n<link rel="stylesheet" href="/css/home.css">\n<link rel="stylesheet" href="/css/pages.css">\n<script type="module" src="/js/main.js"></script>\n</head>\n<body>\n'
+  printf '<link rel="stylesheet" href="%s/styles.css">\n<link rel="stylesheet" href="%s/css/book3d.css">\n<link rel="stylesheet" href="%s/css/home.css">\n<link rel="stylesheet" href="%s/css/pages.css">\n<script type="module" src="%s/js/main.js"></script>\n</head>\n<body>\n' "$ASSETS" "$ASSETS" "$ASSETS" "$ASSETS" "$ASSETS"
   cat "$SRC/body.html"
   printf '</body>\n</html>\n'
 } > "$OUT_DIR/index.html"
