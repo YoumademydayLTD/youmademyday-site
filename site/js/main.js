@@ -11,9 +11,11 @@ import { viewPricing } from "./views/pricing.js";
 import { viewTerms } from "./legal/terms.js";
 import { viewPrivacy } from "./legal/privacy.js";
 import { viewRefunds, CANCEL_TEXT } from "./legal/refunds.js";
+import { mount, startMotion } from "./motion.js";
 
 const PAGES = { courses: () => viewShop("courses"), books: () => viewShop("books"), checkout: viewCheckout, search: viewSearch, pricing: viewPricing, terms: viewTerms, privacy: viewPrivacy, refunds: viewRefunds };
 const SHOPS = new Set(["courses", "books"]);
+const RAIL_GAP = 20; // px, matches .rail gap in css/home.css
 
 // Clean slugs (/pricing) work on the live site; a hash wins when present.
 const currentRoute = () => location.hash.slice(1) || location.pathname.replace(/^\/+|\/+$/g, "") || "home";
@@ -28,6 +30,7 @@ function route() {
   const r = currentRoute();
   $("#view").innerHTML = PAGES[r] ? PAGES[r]() : ALL[r] ? viewItem(r) : viewHome();
   if (SHOPS.has(r)) fillGrid(r);
+  mount($("#view"));
   const section = ALL[r] ? (isCourse(ALL[r]) ? "courses" : "books") : r;
   document.querySelectorAll("#nav a").forEach((a) => a.classList.toggle("on", a.dataset.nav === section));
   document.title = ALL[r] ? `${ALL[r].title} · You Made My Day` : "You Made My Day · עשית לי את היום";
@@ -65,6 +68,7 @@ const ACTIONS = {
   "wish-to-cart": (el) => { addToCart(el.dataset.id); S.wish = S.wish.filter((x) => x !== el.dataset.id); save(); syncBadges(); openDrawer("cart"); toast("הועבר לסל"); },
   "f-cat": (el) => { S.filters[el.dataset.type].cat = el.dataset.v; el.parentElement.querySelectorAll(".chip").forEach((c) => c.classList.toggle("on", c === el)); fillGrid(el.dataset.type); },
   "pick-cat": (el, e) => { const cat = el.dataset.cat; const inBooks = [...Object.values(ALL)].some((p) => !isCourse(p) && p.cat === cat); const shop = inBooks ? "books" : "courses"; S.filters[shop].cat = cat; e.preventDefault(); location.hash = shop; },
+  rail: (el) => { const rail = $("#rail"); const step = rail.firstElementChild.offsetWidth + RAIL_GAP; rail.scrollBy({ left: el.dataset.dir === "next" ? -step : step, behavior: "smooth" }); },
   jump: (el) => document.getElementById(el.dataset.to)?.scrollIntoView({ behavior: "smooth", block: "start" }),
   "go-cancel": () => { S.goCancel = true; if (currentRoute() === "refunds") { S.goCancel = false; $("#cancelForm")?.scrollIntoView({ block: "start" }); } else location.hash = "refunds"; },
   "copy-cancel": () => copyText(CANCEL_TEXT, "הנוסח הועתק. מדביקים במייל ושולחים"),
@@ -98,4 +102,5 @@ document.addEventListener("submit", (e) => {
 });
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && $("#drawerRoot").innerHTML) closeDrawer(); });
 window.addEventListener("hashchange", () => { closeDrawer(); route(); });
+startMotion();
 route();

@@ -1,8 +1,9 @@
-// Product catalog access and the shared product card / cover markup.
+// Product catalog access and the shared product card.
 import { PRODUCTS } from "./products.js";
 import { esc, ils } from "./util.js";
 import { S } from "./state.js";
-import { BRAND, BOOK_DEAL_MIN } from "./business.js";
+import { BOOK_DEAL_MIN } from "./business.js";
+import { bookStage } from "./book3d.js";
 
 export const ALL = Object.fromEntries(PRODUCTS.map((p) => [p.id, p]));
 export const COURSES = PRODUCTS.filter((p) => p.type === "course");
@@ -20,13 +21,10 @@ export const hoursLabel = (minutes) => {
   return hours < 1 ? `${minutes} דקות` : `${hours} שעות`;
 };
 
-export function cover(p, { large = false } = {}) {
-  const [c1, c2, c3] = p.cv;
-  return `<div class="cover ${isCourse(p) ? "" : "book"} s-${p.sh} ${large ? "lg" : ""}" style="--c1:${c1};--c2:${c2};--c3:${c3}" aria-hidden="true">
-    <span class="cv-kind">${kindLabel(p)}</span><i class="cv-shape"></i><b class="cv-title">${esc(p.title)}</b>${isCourse(p) ? "" : `<span class="cv-by">${BRAND}</span>`}</div>`;
-}
+// Soft glow behind a card's book, taken from the cover's motif colour.
+const glowOf = (p) => `${p.cv[2]}55`;
 
-const heartIcon = (on) => `<svg width="18" height="18" viewBox="0 0 24 24" fill="${on ? "currentColor" : "none"}" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg>`;
+const heartIcon = (on) => `<svg width="18" height="18" viewBox="0 0 24 24" fill="${on ? "currentColor" : "none"}" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg>`;
 export const heart = heartIcon;
 
 function cardMeta(p) {
@@ -37,12 +35,12 @@ function cardMeta(p) {
 
 export function card(p) {
   const saved = S.wish.includes(p.id);
-  return `<a class="card" href="#${p.id}">
+  return `<a class="card" href="#${p.id}" style="--g:${glowOf(p)}">
     <button class="wish ${saved ? "on" : ""}" data-act="wish" data-id="${p.id}" aria-label="${saved ? "הסרה מהמועדפים" : "שמירה במועדפים"}" aria-pressed="${saved}">${heartIcon(saved)}</button>
-    ${cover(p)}
-    <div class="card-body"><h3>${esc(p.title)}</h3><span class="by">${esc(p.cat)}</span>
+    ${bookStage(p, { glow: true, style: "--ry:-24deg" })}
+    <div class="card-body"><span class="by">${esc(p.cat)}</span><h3>${esc(p.title)}</h3>
     <div class="meta">${cardMeta(p)}</div>
-    <div class="price-row"><span class="price">${ils(p.price)}</span></div></div></a>`;
+    <div class="price-row"><span class="price">${ils(p.price)}</span><span class="btn btn-ink btn-sm">לפרטים</span></div></div></a>`;
 }
 
 // Cart totals: the only automatic offer is "3 books, the cheapest free".

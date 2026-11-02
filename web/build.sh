@@ -12,14 +12,16 @@ ITEM_IDS=$(grep -oE '"id": "[cbk][0-9]+"' "$SRC/js/products.js" | grep -oE '[cbk
 
 rm -rf "$OUT_DIR" && mkdir -p "$OUT_DIR"
 cp "$SRC/styles.css" "$OUT_DIR/styles.css"
+cp -R "$SRC/css" "$OUT_DIR/css"
 cp -R "$SRC/js" "$OUT_DIR/js"
 {
   printf '<!doctype html>\n<html lang="he" dir="rtl">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n'
   printf '<title>You Made My Day · עשית לי את היום</title>\n<meta name="description" content="קורסים דיגיטליים וספרים מעשיים בעברית, שאנחנו כותבים ומפיקים בעצמנו. עשית לי את היום בע״מ.">\n'
   printf '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
-  printf '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karantina:wght@400;700&family=Assistant:wght@400;600;700;800&display=swap">\n'
+  # Apple devices use the system font (SF Hebrew); Heebo is the closest web font for everyone else.
+  printf '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap">\n'
   printf '<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%%}[hidden]{display:none!important}</style>\n'
-  printf '<link rel="stylesheet" href="/styles.css">\n<script type="module" src="/js/main.js"></script>\n</head>\n<body>\n'
+  printf '<link rel="stylesheet" href="/styles.css">\n<link rel="stylesheet" href="/css/book3d.css">\n<link rel="stylesheet" href="/css/home.css">\n<link rel="stylesheet" href="/css/pages.css">\n<script type="module" src="/js/main.js"></script>\n</head>\n<body>\n'
   cat "$SRC/body.html"
   printf '</body>\n</html>\n'
 } > "$OUT_DIR/index.html"

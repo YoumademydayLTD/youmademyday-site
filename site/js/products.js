@@ -9,9 +9,9 @@ export const PRODUCTS = [
   "cat": "טכנולוגיה",
   "price": 349,
   "cv": [
-   "#2F2A6B",
+   "#2B1E40",
    "#FFFFFF",
-   "#8EC5FF"
+   "#F48FB8"
   ],
   "sh": "half",
   "description": [
@@ -104,9 +104,9 @@ export const PRODUCTS = [
   "cat": "עיצוב",
   "price": 249,
   "cv": [
-   "#FFD6E8",
-   "#2D1B46",
-   "#FF7EB6"
+   "#FFD9E8",
+   "#2B1E40",
+   "#F7A8C9"
   ],
   "sh": "ring",
   "description": [
@@ -179,9 +179,9 @@ export const PRODUCTS = [
   "cat": "טכנולוגיה",
   "price": 249,
   "cv": [
-   "#2F2A6B",
+   "#2B1E40",
    "#FFFFFF",
-   "#8EC5FF"
+   "#F48FB8"
   ],
   "sh": "bars",
   "description": [
@@ -254,9 +254,9 @@ export const PRODUCTS = [
   "cat": "שיווק",
   "price": 299,
   "cv": [
-   "#FF7EB6",
-   "#FFFFFF",
-   "#FFD6E8"
+   "#EEE6FF",
+   "#2B1E40",
+   "#C9B2FF"
   ],
   "sh": "dot",
   "description": [
@@ -329,9 +329,9 @@ export const PRODUCTS = [
   "cat": "צילום",
   "price": 219,
   "cv": [
-   "#1F2A44",
-   "#FFE9DD",
-   "#FFB199"
+   "#1D1D1F",
+   "#FFFFFF",
+   "#8E6BE8"
   ],
   "sh": "sun",
   "description": [
@@ -404,9 +404,9 @@ export const PRODUCTS = [
   "cat": "פרודוקטיביות",
   "price": 199,
   "cv": [
-   "#E8F1FF",
-   "#2D1B46",
-   "#8EC5FF"
+   "#DCEBFF",
+   "#1D2B47",
+   "#9CC6FF"
   ],
   "sh": "half",
   "description": [
@@ -480,9 +480,9 @@ export const PRODUCTS = [
   "cat": "שיווק",
   "price": 279,
   "cv": [
-   "#FF7EB6",
-   "#FFFFFF",
-   "#FFD6E8"
+   "#EEE6FF",
+   "#2B1E40",
+   "#C9B2FF"
   ],
   "sh": "ring",
   "description": [
@@ -555,9 +555,9 @@ export const PRODUCTS = [
   "cat": "טכנולוגיה",
   "price": 299,
   "cv": [
-   "#2F2A6B",
+   "#2B1E40",
    "#FFFFFF",
-   "#8EC5FF"
+   "#F48FB8"
   ],
   "sh": "bars",
   "description": [
@@ -630,9 +630,9 @@ export const PRODUCTS = [
   "cat": "טכנולוגיה",
   "price": 69,
   "cv": [
-   "#2F2A6B",
+   "#2B1E40",
    "#FFFFFF",
-   "#8EC5FF"
+   "#F48FB8"
   ],
   "sh": "dot",
   "description": [
@@ -663,9 +663,9 @@ export const PRODUCTS = [
   "cat": "טכנולוגיה",
   "price": 59,
   "cv": [
-   "#2F2A6B",
+   "#2B1E40",
    "#FFFFFF",
-   "#8EC5FF"
+   "#F48FB8"
   ],
   "sh": "sun",
   "description": [
@@ -695,9 +695,9 @@ export const PRODUCTS = [
   "cat": "שיווק",
   "price": 49,
   "cv": [
-   "#FF7EB6",
-   "#FFFFFF",
-   "#FFD6E8"
+   "#EEE6FF",
+   "#2B1E40",
+   "#C9B2FF"
   ],
   "sh": "half",
   "description": [
@@ -725,9 +725,9 @@ export const PRODUCTS = [
   "cat": "שיווק",
   "price": 59,
   "cv": [
-   "#FF7EB6",
-   "#FFFFFF",
-   "#FFD6E8"
+   "#EEE6FF",
+   "#2B1E40",
+   "#C9B2FF"
   ],
   "sh": "ring",
   "description": [
@@ -757,9 +757,9 @@ export const PRODUCTS = [
   "cat": "שיווק",
   "price": 45,
   "cv": [
-   "#FF7EB6",
-   "#FFFFFF",
-   "#FFD6E8"
+   "#EEE6FF",
+   "#2B1E40",
+   "#C9B2FF"
   ],
   "sh": "bars",
   "description": [
@@ -792,9 +792,9 @@ export const PRODUCTS = [
   "cat": "קריירה",
   "price": 55,
   "cv": [
-   "#2D1B46",
-   "#FFF9FB",
-   "#C8A8FF"
+   "#3B2A5C",
+   "#FFFFFF",
+   "#F48FB8"
   ],
   "sh": "dot",
   "description": [
@@ -825,9 +825,9 @@ export const PRODUCTS = [
   "cat": "קריירה",
   "price": 45,
   "cv": [
-   "#2D1B46",
-   "#FFF9FB",
-   "#C8A8FF"
+   "#3B2A5C",
+   "#FFFFFF",
+   "#F48FB8"
   ],
   "sh": "sun",
   "description": [
@@ -858,9 +858,9 @@ export const PRODUCTS = [
   "cat": "קריירה",
   "price": 45,
   "cv": [
-   "#2D1B46",
-   "#FFF9FB",
-   "#C8A8FF"
+   "#3B2A5C",
+   "#FFFFFF",
+   "#F48FB8"
   ],
   "sh": "half",
   "description": [
@@ -890,9 +890,9 @@ export const PRODUCTS = [
   "cat": "קריירה",
   "price": 59,
   "cv": [
-   "#2D1B46",
-   "#FFF9FB",
-   "#C8A8FF"
+   "#3B2A5C",
+   "#FFFFFF",
+   "#F48FB8"
   ],
   "sh": "ring",
   "description": [
@@ -926,9 +926,9 @@ export const PRODUCTS = [
   "cat": "עסקים",
   "price": 39,
   "cv": [
-   "#F3ECFF",
-   "#2D1B46",
-   "#8B5CF6"
+   "#F4EEFF",
+   "#2B1E40",
+   "#D7C4FF"
   ],
   "sh": "bars",
   "description": [
@@ -962,9 +962,9 @@ export const PRODUCTS = [
   "cat": "שיווק",
   "price": 29,
   "cv": [
-   "#FF7EB6",
-   "#FFFFFF",
-   "#FFD6E8"
+   "#EEE6FF",
+   "#2B1E40",
+   "#C9B2FF"
   ],
   "sh": "dot",
   "description": [
@@ -998,9 +998,9 @@ export const PRODUCTS = [
   "cat": "פרודוקטיביות",
   "price": 25,
   "cv": [
-   "#E8F1FF",
-   "#2D1B46",
-   "#8EC5FF"
+   "#DCEBFF",
+   "#1D2B47",
+   "#9CC6FF"
   ],
   "sh": "sun",
   "description": [
@@ -1033,9 +1033,9 @@ export const PRODUCTS = [
   "cat": "פרודוקטיביות",
   "price": 39,
   "cv": [
-   "#E8F1FF",
-   "#2D1B46",
-   "#8EC5FF"
+   "#DCEBFF",
+   "#1D2B47",
+   "#9CC6FF"
   ],
   "sh": "half",
   "description": [
@@ -1069,9 +1069,9 @@ export const PRODUCTS = [
   "cat": "פרודוקטיביות",
   "price": 39,
   "cv": [
-   "#E8F1FF",
-   "#2D1B46",
-   "#8EC5FF"
+   "#DCEBFF",
+   "#1D2B47",
+   "#9CC6FF"
   ],
   "sh": "ring",
   "description": [
@@ -1103,9 +1103,9 @@ export const PRODUCTS = [
   "cat": "כתיבה",
   "price": 35,
   "cv": [
-   "#FFF1E8",
-   "#2D1B46",
-   "#FFB199"
+   "#FFF4EA",
+   "#2B1E40",
+   "#F7B9A0"
   ],
   "sh": "bars",
   "description": [
@@ -1141,9 +1141,9 @@ export const PRODUCTS = [
   "cat": "כתיבה",
   "price": 35,
   "cv": [
-   "#FFF1E8",
-   "#2D1B46",
-   "#FFB199"
+   "#FFF4EA",
+   "#2B1E40",
+   "#F7B9A0"
   ],
   "sh": "dot",
   "description": [
@@ -1167,9 +1167,9 @@ export const PRODUCTS = [
   "cat": "כתיבה",
   "price": 49,
   "cv": [
-   "#FFF1E8",
-   "#2D1B46",
-   "#FFB199"
+   "#FFF4EA",
+   "#2B1E40",
+   "#F7B9A0"
   ],
   "sh": "sun",
   "description": [
@@ -1203,9 +1203,9 @@ export const PRODUCTS = [
   "cat": "יצירה",
   "price": 39,
   "cv": [
-   "#FFF9FB",
-   "#2D1B46",
-   "#FF7EB6"
+   "#FFE7F0",
+   "#2B1E40",
+   "#F48FB8"
   ],
   "sh": "half",
   "description": [
@@ -1236,9 +1236,9 @@ export const PRODUCTS = [
   "cat": "יצירה",
   "price": 45,
   "cv": [
-   "#FFF9FB",
-   "#2D1B46",
-   "#FF7EB6"
+   "#FFE7F0",
+   "#2B1E40",
+   "#F48FB8"
   ],
   "sh": "ring",
   "description": [
@@ -1270,9 +1270,9 @@ export const PRODUCTS = [
   "cat": "צילום",
   "price": 45,
   "cv": [
-   "#1F2A44",
-   "#FFE9DD",
-   "#FFB199"
+   "#1D1D1F",
+   "#FFFFFF",
+   "#8E6BE8"
   ],
   "sh": "bars",
   "description": [
@@ -1302,9 +1302,9 @@ export const PRODUCTS = [
   "cat": "צילום",
   "price": 49,
   "cv": [
-   "#1F2A44",
-   "#FFE9DD",
-   "#FFB199"
+   "#1D1D1F",
+   "#FFFFFF",
+   "#8E6BE8"
   ],
   "sh": "dot",
   "description": [
@@ -1341,9 +1341,9 @@ export const PRODUCTS = [
   "cat": "בישול",
   "price": 69,
   "cv": [
-   "#FFE2D3",
+   "#FFE3D6",
    "#3A1F1A",
-   "#FF9E7A"
+   "#FFB79C"
   ],
   "sh": "sun",
   "description": [
@@ -1374,9 +1374,9 @@ export const PRODUCTS = [
   "cat": "בישול",
   "price": 55,
   "cv": [
-   "#FFE2D3",
+   "#FFE3D6",
    "#3A1F1A",
-   "#FF9E7A"
+   "#FFB79C"
   ],
   "sh": "half",
   "description": [
@@ -1407,9 +1407,9 @@ export const PRODUCTS = [
   "cat": "בישול",
   "price": 49,
   "cv": [
-   "#FFE2D3",
+   "#FFE3D6",
    "#3A1F1A",
-   "#FF9E7A"
+   "#FFB79C"
   ],
   "sh": "ring",
   "description": [
@@ -1439,9 +1439,9 @@ export const PRODUCTS = [
   "cat": "בישול",
   "price": 49,
   "cv": [
-   "#FFE2D3",
+   "#FFE3D6",
    "#3A1F1A",
-   "#FF9E7A"
+   "#FFB79C"
   ],
   "sh": "bars",
   "description": [
@@ -1470,9 +1470,9 @@ export const PRODUCTS = [
   "cat": "בישול",
   "price": 35,
   "cv": [
-   "#FFE2D3",
+   "#FFE3D6",
    "#3A1F1A",
-   "#FF9E7A"
+   "#FFB79C"
   ],
   "sh": "dot",
   "description": [
@@ -1504,9 +1504,9 @@ export const PRODUCTS = [
   "cat": "בישול",
   "price": 29,
   "cv": [
-   "#FFE2D3",
+   "#FFE3D6",
    "#3A1F1A",
-   "#FF9E7A"
+   "#FFB79C"
   ],
   "sh": "sun",
   "description": [
@@ -1532,9 +1532,9 @@ export const PRODUCTS = [
   "cat": "בית",
   "price": 45,
   "cv": [
-   "#E9F7EF",
-   "#1E3A2B",
-   "#9BD8B4"
+   "#E2F1EA",
+   "#16302A",
+   "#A9D8C2"
   ],
   "sh": "half",
   "description": [
@@ -1568,9 +1568,9 @@ export const PRODUCTS = [
   "cat": "בית",
   "price": 49,
   "cv": [
-   "#E9F7EF",
-   "#1E3A2B",
-   "#9BD8B4"
+   "#E2F1EA",
+   "#16302A",
+   "#A9D8C2"
   ],
   "sh": "ring",
   "description": [
@@ -1608,9 +1608,9 @@ export const PRODUCTS = [
   "cat": "בית",
   "price": 35,
   "cv": [
-   "#E9F7EF",
-   "#1E3A2B",
-   "#9BD8B4"
+   "#E2F1EA",
+   "#16302A",
+   "#A9D8C2"
   ],
   "sh": "bars",
   "description": [
@@ -1646,9 +1646,9 @@ export const PRODUCTS = [
   "cat": "משפחה",
   "price": 39,
   "cv": [
-   "#FFF4D6",
+   "#FFF1DC",
    "#3A2A10",
-   "#FFC86B"
+   "#FFCF8A"
   ],
   "sh": "dot",
   "description": [
@@ -1679,9 +1679,9 @@ export const PRODUCTS = [
   "cat": "משפחה",
   "price": 39,
   "cv": [
-   "#FFF4D6",
+   "#FFF1DC",
    "#3A2A10",
-   "#FFC86B"
+   "#FFCF8A"
   ],
   "sh": "sun",
   "description": [
@@ -1712,9 +1712,9 @@ export const PRODUCTS = [
   "cat": "משפחה",
   "price": 35,
   "cv": [
-   "#FFF4D6",
+   "#FFF1DC",
    "#3A2A10",
-   "#FFC86B"
+   "#FFCF8A"
   ],
   "sh": "half",
   "description": [
@@ -1745,9 +1745,9 @@ export const PRODUCTS = [
   "cat": "טיולים",
   "price": 49,
   "cv": [
-   "#DFF1FF",
+   "#E6F2FF",
    "#13314D",
-   "#7FB8FF"
+   "#9CC6FF"
   ],
   "sh": "ring",
   "description": [
@@ -1775,9 +1775,9 @@ export const PRODUCTS = [
   "cat": "טיולים",
   "price": 39,
   "cv": [
-   "#DFF1FF",
+   "#E6F2FF",
    "#13314D",
-   "#7FB8FF"
+   "#9CC6FF"
   ],
   "sh": "bars",
   "description": [
@@ -1809,9 +1809,9 @@ export const PRODUCTS = [
   "cat": "שפות",
   "price": 45,
   "cv": [
-   "#EFE7FF",
-   "#2D1B46",
-   "#A88BFF"
+   "#E9E4FF",
+   "#2B1E40",
+   "#B9A4FF"
   ],
   "sh": "dot",
   "description": [
@@ -1850,9 +1850,9 @@ export const PRODUCTS = [
   "cat": "שפות",
   "price": 39,
   "cv": [
-   "#EFE7FF",
-   "#2D1B46",
-   "#A88BFF"
+   "#E9E4FF",
+   "#2B1E40",
+   "#B9A4FF"
   ],
   "sh": "sun",
   "description": [
@@ -1881,9 +1881,9 @@ export const PRODUCTS = [
   "cat": "קריירה",
   "price": 45,
   "cv": [
-   "#2D1B46",
-   "#FFF9FB",
-   "#C8A8FF"
+   "#3B2A5C",
+   "#FFFFFF",
+   "#F48FB8"
   ],
   "sh": "half",
   "description": [
@@ -1918,9 +1918,9 @@ export const PRODUCTS = [
   "cat": "תנועה",
   "price": 35,
   "cv": [
-   "#E6FBF6",
-   "#123A33",
-   "#6FD8C1"
+   "#E3F4EC",
+   "#123A2B",
+   "#8FD3B5"
   ],
   "sh": "ring",
   "description": [
@@ -1952,9 +1952,9 @@ export const PRODUCTS = [
   "cat": "תנועה",
   "price": 39,
   "cv": [
-   "#E6FBF6",
-   "#123A33",
-   "#6FD8C1"
+   "#E3F4EC",
+   "#123A2B",
+   "#8FD3B5"
   ],
   "sh": "bars",
   "description": [
@@ -1983,9 +1983,9 @@ export const PRODUCTS = [
   "cat": "חבילות",
   "price": 199,
   "cv": [
-   "#8B5CF6",
+   "#1D1D1F",
    "#FFFFFF",
-   "#FF7EB6"
+   "#C9B2FF"
   ],
   "sh": "dot",
   "includes": [
@@ -2008,9 +2008,9 @@ export const PRODUCTS = [
   "cat": "חבילות",
   "price": 179,
   "cv": [
-   "#8B5CF6",
+   "#1D1D1F",
    "#FFFFFF",
-   "#FF7EB6"
+   "#C9B2FF"
   ],
   "sh": "sun",
   "includes": [

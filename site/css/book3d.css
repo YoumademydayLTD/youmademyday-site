@@ -1,0 +1,30 @@
+/* The 3D book: front cover, back, spine, page block and top edge, built with CSS 3D.
+   Hebrew books bind on the right, so the spine is the right face and the page block the left one. */
+.b3{--w:200px;--h:calc(var(--w) * 1.38);--d:calc(var(--w) * .085);--bg:#2B1E40;--fg:#fff;--sh:#F48FB8;--ry:-24deg;--rx:4deg;
+  position:relative;width:var(--w);height:var(--h);transform-style:preserve-3d;transform:rotateX(var(--rx)) rotateY(var(--ry))}
+.b3 > *{position:absolute;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.b3 .fr{inset:0;transform:translateZ(calc(var(--d) / 2));border-radius:2px 7px 7px 2px;background:var(--bg);color:var(--fg);overflow:hidden}
+.b3 .bk{inset:0;transform:rotateY(180deg) translateZ(calc(var(--d) / 2));border-radius:7px 2px 2px 7px;background:color-mix(in srgb,var(--bg) 82%,#000)}
+.b3 .sp{top:0;left:calc(50% - var(--d) / 2);width:var(--d);height:100%;transform:rotateY(90deg) translateZ(calc(var(--w) / 2));background:linear-gradient(90deg,color-mix(in srgb,var(--bg) 70%,#000),var(--bg) 40%,color-mix(in srgb,var(--bg) 80%,#000))}
+.b3 .pg{top:2px;left:calc(50% - var(--d) / 2);width:calc(var(--d) - 2px);height:calc(100% - 4px);transform:rotateY(-90deg) translateZ(calc(var(--w) / 2 - 2px));background:repeating-linear-gradient(90deg,#FBF8F4 0 1.5px,#E9E3DB 1.5px 2.5px)}
+.b3 .tp{left:2px;top:calc(50% - var(--d) / 2);width:calc(100% - 6px);height:calc(var(--d) - 2px);transform:rotateX(90deg) translateZ(calc(var(--h) / 2 - 1px));background:repeating-linear-gradient(0deg,#FBF8F4 0 1.5px,#E9E3DB 1.5px 2.5px)}
+.b3 .fr::before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
+  background:linear-gradient(270deg,rgba(0,0,0,.18) 0,rgba(255,255,255,.22) 2.2%,rgba(0,0,0,.06) 4%,transparent 8%),linear-gradient(155deg,rgba(255,255,255,.35) 0%,rgba(255,255,255,0) 32%)}
+.b3 .art{position:absolute;inset:0}
+.b3 .art i{position:absolute;display:block}
+.b3 .tx{position:absolute;inset:10% 13% 9% 10%;display:flex;flex-direction:column;z-index:2}
+.b3 .kd{font-size:calc(var(--w) * .05);font-weight:600;letter-spacing:.04em;opacity:.75}
+.b3 .tt{margin-top:auto;font-size:calc(var(--w) * .112);line-height:1.08;font-weight:600;letter-spacing:-.02em;text-wrap:balance}
+.b3 .mk{display:flex;align-items:center;gap:5px;margin-top:calc(var(--w) * .06);font-size:calc(var(--w) * .046);font-weight:600;direction:ltr;justify-content:flex-end;opacity:.85;white-space:nowrap}
+.b3 .mk svg{width:1.3em;height:1.3em}
+/* cover motifs (from the product's "sh" field) */
+.m-sun i{width:80%;aspect-ratio:1;border-radius:50%;background:var(--sh);top:-24%;left:-24%}
+.m-half i{width:130%;aspect-ratio:2/1;border-radius:999px 999px 0 0;background:var(--sh);bottom:-14%;left:-15%}
+.m-ring i{width:72%;aspect-ratio:1;border-radius:50%;border:calc(var(--w) * .07) solid var(--sh);top:4%;left:-20%}
+.m-bars i{inset:0 0 50% 0;background:repeating-linear-gradient(0deg,var(--sh) 0 2px,transparent 2px 12px);opacity:.6}
+.m-dot i:nth-child(1){width:48%;aspect-ratio:1;border-radius:50%;background:var(--sh);top:9%;left:7%}
+.m-dot i:nth-child(2){width:22%;aspect-ratio:1;border-radius:50%;background:var(--sh);top:42%;left:48%;opacity:.7}
+.floor{position:absolute;left:50%;bottom:4%;width:min(240px,62%);height:34px;z-index:-1;translate:-50% 0;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.2),transparent);filter:blur(6px);pointer-events:none}
+.bookbox{position:relative;perspective:1400px;display:grid;place-items:center;isolation:isolate}
+.flat-cover{width:56px;aspect-ratio:3/4.15;border-radius:3px 7px 7px 3px;position:relative;overflow:hidden;box-shadow:0 6px 14px -6px rgba(0,0,0,.3)}
+.flat-cover i{position:absolute;width:80%;aspect-ratio:1;border-radius:50%;top:-24%;left:-24%}

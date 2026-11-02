@@ -19,16 +19,16 @@ WORDS_PER_PAGE = 260  # fallback when a PDF is not built yet
 # Bundle contents (owner-approved catalog plan, 02.11.2026).
 BUNDLES = {49: [9, 11, 12, 18, 19], 50: [30, 31, 32, 33, 34, 35]}
 
-# Soft cover colours per category: [background, text, shape].
+# Cover colours per category: [background, text, motif]. The soft brand palette (owner, 02.11.2026).
 CATEGORY_COLORS = {
-    "טכנולוגיה": ["#2F2A6B", "#FFFFFF", "#8EC5FF"], "עיצוב": ["#FFD6E8", "#2D1B46", "#FF7EB6"],
-    "שיווק": ["#FF7EB6", "#FFFFFF", "#FFD6E8"], "צילום": ["#1F2A44", "#FFE9DD", "#FFB199"],
-    "פרודוקטיביות": ["#E8F1FF", "#2D1B46", "#8EC5FF"], "קריירה": ["#2D1B46", "#FFF9FB", "#C8A8FF"],
-    "עסקים": ["#F3ECFF", "#2D1B46", "#8B5CF6"], "כתיבה": ["#FFF1E8", "#2D1B46", "#FFB199"],
-    "יצירה": ["#FFF9FB", "#2D1B46", "#FF7EB6"], "בישול": ["#FFE2D3", "#3A1F1A", "#FF9E7A"],
-    "בית": ["#E9F7EF", "#1E3A2B", "#9BD8B4"], "משפחה": ["#FFF4D6", "#3A2A10", "#FFC86B"],
-    "טיולים": ["#DFF1FF", "#13314D", "#7FB8FF"], "שפות": ["#EFE7FF", "#2D1B46", "#A88BFF"],
-    "תנועה": ["#E6FBF6", "#123A33", "#6FD8C1"], "חבילות": ["#8B5CF6", "#FFFFFF", "#FF7EB6"],
+    "טכנולוגיה": ["#2B1E40", "#FFFFFF", "#F48FB8"], "עיצוב": ["#FFD9E8", "#2B1E40", "#F7A8C9"],
+    "שיווק": ["#EEE6FF", "#2B1E40", "#C9B2FF"], "צילום": ["#1D1D1F", "#FFFFFF", "#8E6BE8"],
+    "פרודוקטיביות": ["#DCEBFF", "#1D2B47", "#9CC6FF"], "קריירה": ["#3B2A5C", "#FFFFFF", "#F48FB8"],
+    "עסקים": ["#F4EEFF", "#2B1E40", "#D7C4FF"], "כתיבה": ["#FFF4EA", "#2B1E40", "#F7B9A0"],
+    "יצירה": ["#FFE7F0", "#2B1E40", "#F48FB8"], "בישול": ["#FFE3D6", "#3A1F1A", "#FFB79C"],
+    "בית": ["#E2F1EA", "#16302A", "#A9D8C2"], "משפחה": ["#FFF1DC", "#3A2A10", "#FFCF8A"],
+    "טיולים": ["#E6F2FF", "#13314D", "#9CC6FF"], "שפות": ["#E9E4FF", "#2B1E40", "#B9A4FF"],
+    "תנועה": ["#E3F4EC", "#123A2B", "#8FD3B5"], "חבילות": ["#1D1D1F", "#FFFFFF", "#C9B2FF"],
 }
 SHAPES = ["sun", "half", "ring", "bars", "dot"]
 PAGE_RE = re.compile(rb"/Type\s*/Page[^s]")
