@@ -10,7 +10,7 @@ export const LANGS = {
 };
 export const DEFAULT_LANG = "en";
 // Languages published on the site. A language joins once its whole catalogue is translated (tools/build_site.py reads this line).
-export const LIVE = ["en", "he", "fr", "ar"];
+export const LIVE = ["en", "he", "fr", "ar", "ru"];
 
 /** Language code from a URL path: "/he/courses" → "he", "/courses" → "en". */
 export function langFromPath(pathname) {
