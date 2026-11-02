@@ -4,7 +4,7 @@ import { S } from "../state.js";
 import { esc, ils } from "../util.js";
 import { BRAND, REFUND_DAYS } from "../business.js";
 import { bookStage } from "../book3d.js";
-import { t, tList } from "../i18n/index.js";
+import { t, tList, HOME_URL } from "../i18n/index.js";
 
 const RELATED_COUNT = 4;
 const heroBook = (p) => bookStage(p, { style: "--ry:-22deg" });
@@ -63,7 +63,7 @@ export function viewItem(id) {
   const main = isCourse(p) ? courseMain(p) : p.type === "bundle" ? bundleMain(p) : bookMain(p);
   const related = [...COURSES, ...BOOKS].filter((x) => x.id !== p.id && x.cat === p.cat).slice(0, RELATED_COUNT);
   const shelf = isCourse(p) ? ["#courses", t("nav.courses")] : ["#books", t("nav.books")];
-  return `<div class="wrap"><nav class="crumbs" aria-label="breadcrumb"><a href="#home">${t("item.home")}</a> / <a href="${shelf[0]}">${shelf[1]}</a> / <span aria-current="page">${esc(p.title)}</span></nav></div>
+  return `<div class="wrap"><nav class="crumbs" aria-label="breadcrumb"><a href="${HOME_URL}" data-home>${t("item.home")}</a> / <a href="${shelf[0]}">${shelf[1]}</a> / <span aria-current="page">${esc(p.title)}</span></nav></div>
   <div class="wrap item"><div class="item-main">${main}
     <div class="panel"><h2>${t("item.author")}</h2><p>${t("item.authorText", { brand: BRAND })}</p></div>
     ${related.length ? `<div><h2 style="margin-bottom:14px">${t("item.related")}</h2><div class="grid ${isCourse(p) ? "" : "books"}">${related.map(card).join("")}</div></div>` : ""}

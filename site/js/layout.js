@@ -1,5 +1,5 @@
 // Page chrome in the active language: header capsule, footer and the language picker.
-import { t, LANG, urlIn } from "./i18n/index.js";
+import { t, LANG, urlIn, HOME_URL } from "./i18n/index.js";
 import { LANGS, LIVE } from "./i18n/config.js";
 import { BIZ_FOR } from "./business.js";
 
@@ -9,8 +9,8 @@ function header() {
   const nav = [["home", "nav.home"], ["courses", "nav.courses"], ["books", "nav.books"], ["pricing", "nav.pricing"], ["refunds", "nav.help"]];
   return `<a class="skip" href="#view">${t("skip")}</a>
   <header class="top"><div class="top-row">
-    <a class="logo" href="#home" aria-label="${t("nav.homeLabel")}">${icon("i-mark")}<span class="logo-en">You Made My Day</span></a>
-    <nav class="main" id="nav">${nav.map(([r, k]) => `<a href="#${r}" data-nav="${r}">${t(k)}</a>`).join("")}</nav>
+    <a class="logo" href="${HOME_URL}" data-home aria-label="${t("nav.homeLabel")}">${icon("i-mark")}<span class="logo-en">You Made My Day</span></a>
+    <nav class="main" id="nav">${nav.map(([r, k]) => `<a href="${r === "home" ? HOME_URL : `#${r}`}" data-nav="${r}"${r === "home" ? " data-home" : ""}>${t(k)}</a>`).join("")}</nav>
     <form class="top-search" id="topSearch" role="search">${icon("i-search")}<input id="q" type="search" placeholder="${t("nav.search")}" aria-label="${t("nav.searchLabel")}"></form>
     <div class="icons">
       <button class="icon-btn" data-act="open-wish" aria-label="${t("nav.wish")}">${icon("i-heart")}<span class="badge" id="wishN" data-n="0">0</span></button>

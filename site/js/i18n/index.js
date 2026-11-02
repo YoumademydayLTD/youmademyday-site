@@ -35,6 +35,9 @@ export function urlIn(code, route) {
   return `${prefixFor(code)}${r}` || "/";
 }
 
+/** Clean address of this language's home page ("/" or "/he/"), used instead of a #home hash. */
+export const HOME_URL = urlIn(LANG, "home").replace(/\/?$/, "/");
+
 export function applyDocumentLanguage() {
   document.documentElement.lang = LANG;
   document.documentElement.dir = L.dir;

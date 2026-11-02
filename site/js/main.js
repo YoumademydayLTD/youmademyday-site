@@ -1,5 +1,5 @@
 // Entry point: language, layout, routing (hash or clean slug) and all click / input handlers.
-import { t, applyDocumentLanguage } from "./i18n/index.js";
+import { t, applyDocumentLanguage, HOME_URL } from "./i18n/index.js";
 import { LANGS } from "./i18n/config.js";
 import { ALL, isCourse } from "./catalog.js";
 import { S, save } from "./state.js";
@@ -91,7 +91,17 @@ const KEEP_DEFAULT = new Set(["close-go"]);
 applyDocumentLanguage();
 renderLayout();
 
+// Home has a clean address (no #home): go there in place, without a reload.
+function goHome() {
+  closeDrawer();
+  history.pushState(null, "", HOME_URL);
+  route();
+}
+if (location.hash === "#home") history.replaceState(null, "", HOME_URL);
+
 document.addEventListener("click", (e) => {
+  const home = e.target.closest("a[data-home]");
+  if (home && !e.metaKey && !e.ctrlKey && !e.shiftKey) { e.preventDefault(); goHome(); return; }
   const el = e.target.closest("[data-act]");
   if (!el) return;
   const act = el.dataset.act;
@@ -117,5 +127,6 @@ document.addEventListener("submit", (e) => {
 });
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && $("#drawerRoot").innerHTML) closeDrawer(); });
 window.addEventListener("hashchange", () => { closeDrawer(); route(); });
+window.addEventListener("popstate", () => { closeDrawer(); route(); });
 startMotion();
 route();
