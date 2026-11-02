@@ -1,8 +1,7 @@
 // Markup for the CSS-3D book (styles in css/book3d.css) and the small flat cover used in lists.
 import { esc } from "./util.js";
 import { BRAND } from "./business.js";
-
-const KIND = { course: "קורס דיגיטלי", ebook: "ספר דיגיטלי", template: "תבנית להדפסה", bundle: "חבילה" };
+import { t } from "./i18n/index.js";
 const MOTIF_IDS = new Set(["sun", "half", "ring", "bars", "dot"]);
 
 const motif = (p) => `m-${MOTIF_IDS.has(p.sh) ? p.sh : "sun"}`;
@@ -12,7 +11,7 @@ const colours = (p) => { const [bg, fg, sh] = p.cv; return `--bg:${bg};--fg:${fg
 export function book3d(p, { style = "", mark = true } = {}) {
   const brand = mark ? `<span class="mk"><svg aria-hidden="true"><use href="#i-mark"/></svg>${BRAND}</span>` : "";
   return `<div class="b3 ${motif(p)}" style="${colours(p)};${style}" aria-hidden="true">
-  <div class="fr"><div class="art"><i></i><i></i></div><div class="tx"><span class="kd">${KIND[p.type]}</span><span class="tt">${esc(p.title)}</span>${brand}</div></div>
+  <div class="fr"><div class="art"><i></i><i></i></div><div class="tx"><span class="kd">${t(`kind.${p.type}`)}</span><span class="tt">${esc(p.title)}</span>${brand}</div></div>
   <div class="bk"></div><div class="sp"></div><div class="pg"></div><div class="tp"></div></div>`;
 }
 

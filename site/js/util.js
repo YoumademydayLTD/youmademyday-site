@@ -4,7 +4,7 @@ const HTML_ESCAPES = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" };
 const TOAST_MS = 2600;
 
 export const esc = (value) => String(value).replace(/[&<>"]/g, (c) => HTML_ESCAPES[c]);
-export const ils = (amount) => `${Math.round(amount).toLocaleString("he-IL")} ₪`;
+export { formatPrice as ils } from "./i18n/index.js";
 export const $ = (selector) => document.querySelector(selector);
 
 let toastTimer;

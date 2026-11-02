@@ -1,7 +1,7 @@
 /* The 3D book: front cover, back, spine, page block and top edge, built with CSS 3D.
-   Hebrew books bind on the right, so the spine is the right face and the page block the left one. */
+   RTL books bind on the right (spine = right face); LTR books bind on the left (rules at the end). */
 .b3{--w:200px;--h:calc(var(--w) * 1.38);--d:calc(var(--w) * .085);--bg:#2B1E40;--fg:#fff;--sh:#F48FB8;--ry:-24deg;--rx:4deg;
-  position:relative;width:var(--w);height:var(--h);transform-style:preserve-3d;transform:rotateX(var(--rx)) rotateY(var(--ry))}
+  position:relative;width:var(--w);height:var(--h);transform-style:preserve-3d;transform:rotateX(var(--rx)) rotateY(calc(var(--ry) * var(--s)))}
 .b3 > *{position:absolute;backface-visibility:hidden;-webkit-backface-visibility:hidden}
 .b3 .fr{inset:0;transform:translateZ(calc(var(--d) / 2));border-radius:2px 7px 7px 2px;background:var(--bg);color:var(--fg);overflow:hidden}
 .b3 .bk{inset:0;transform:rotateY(180deg) translateZ(calc(var(--d) / 2));border-radius:7px 2px 2px 7px;background:color-mix(in srgb,var(--bg) 82%,#000)}
@@ -28,3 +28,9 @@
 .bookbox{position:relative;perspective:1400px;display:grid;place-items:center;isolation:isolate}
 .flat-cover{width:56px;aspect-ratio:3/4.15;border-radius:3px 7px 7px 3px;position:relative;overflow:hidden;box-shadow:0 6px 14px -6px rgba(0,0,0,.3)}
 .flat-cover i{position:absolute;width:80%;aspect-ratio:1;border-radius:50%;top:-24%;left:-24%}
+[dir="ltr"] .b3 .sp{transform:rotateY(-90deg) translateZ(calc(var(--w) / 2))}
+[dir="ltr"] .b3 .pg{transform:rotateY(90deg) translateZ(calc(var(--w) / 2 - 2px))}
+[dir="ltr"] .b3 .fr{border-radius:7px 2px 2px 7px}
+[dir="ltr"] .b3 .bk{border-radius:2px 7px 7px 2px}
+[dir="ltr"] .b3 .fr::before{background:linear-gradient(90deg,rgba(0,0,0,.18) 0,rgba(255,255,255,.22) 2.2%,rgba(0,0,0,.06) 4%,transparent 8%),linear-gradient(205deg,rgba(255,255,255,.35) 0%,rgba(255,255,255,0) 32%)}
+[dir="ltr"] .b3 .mk{justify-content:flex-start}

@@ -1,0 +1,38 @@
+{
+  "_note": "Store text that has no source file in content/: the two bundles and categories used only by courses. Keyed by language.",
+  "he": {
+    "cats": {},
+    "bundles": {
+      "49": {"title": "חבילת העסק הקטן", "sub": "חמישה מדריכים לשיווק ולמכירה, במחיר אחד נמוך יותר", "description": "חמישה ספרים ותבניות לעסק קטן: פרומפטים, רעיונות לפוסטים, דף נחיתה, הצעות מחיר ומתכנן תוכן. במחיר אחד נמוך יותר מקנייה בנפרד, וכל הקבצים נשלחים יחד למייל מיד אחרי התשלום."},
+      "50": {"title": "חבילת המטבח", "sub": "שישה ספרי מטבח, ממחמצת ועד ארוחות לשבוע", "description": "שישה ספרי בישול ואפייה: המטבח הביתי, לחם בבית, ארוחות ב-20 דקות, מאפים לשבת, קופסת אוכל ומתכנן ארוחות. במחיר אחד נמוך יותר מקנייה בנפרד, וכל הקבצים נשלחים יחד למייל מיד אחרי התשלום."}
+    }
+  },
+  "en": {
+    "cats": {"עיצוב": "Design", "חבילות": "Bundles"},
+    "bundles": {
+      "49": {"title": "The Small Business Bundle", "sub": "Five marketing and sales guides, one lower price", "description": "Five books and templates for a small business: prompts, post ideas, a landing page guide, quote templates and a content planner. One price, lower than buying them separately, and every file is emailed together the moment you pay."},
+      "50": {"title": "The Kitchen Bundle", "sub": "Six kitchen books, from sourdough to a week of dinners", "description": "Six cooking and baking books: The Home Kitchen, Bread at Home, 20-Minute Dinners, Shabbat Baking, the Lunchbox book and the Weekly Meal Planner. One price, lower than buying them separately, and every file is emailed together the moment you pay."}
+    }
+  },
+  "fr": {
+    "cats": {"עיצוב": "Design", "חבילות": "Coffrets"},
+    "bundles": {
+      "49": {"title": "Le coffret Petite entreprise", "sub": "Cinq guides marketing et vente, à un prix plus doux", "description": "Cinq livres et modèles pour une petite entreprise : prompts, idées de publications, guide de page d'atterrissage, modèles de devis et planificateur de contenu. Un seul prix, plus bas qu'à l'unité, et tous les fichiers arrivent ensemble par e-mail dès le paiement."},
+      "50": {"title": "Le coffret Cuisine", "sub": "Six livres de cuisine, du levain aux dîners de la semaine", "description": "Six livres de cuisine et de pâtisserie : la cuisine maison, le pain maison, les dîners en 20 minutes, les douceurs du shabbat, la boîte à déjeuner et le planificateur de repas. Un seul prix, plus bas qu'à l'unité, et tous les fichiers arrivent ensemble par e-mail dès le paiement."}
+    }
+  },
+  "ar": {
+    "cats": {"עיצוב": "تصميم", "חבילות": "باقات"},
+    "bundles": {
+      "49": {"title": "باقة المشروع الصغير", "sub": "خمسة أدلة في التسويق والمبيعات بسعر واحد أقل", "description": "خمسة كتب وقوالب للمشاريع الصغيرة: أوامر جاهزة للذكاء الاصطناعي، أفكار للمنشورات، دليل صفحة الهبوط، قوالب عروض الأسعار ومخطط المحتوى. بسعر واحد أقل من شرائها منفردة، وتصلك جميع الملفات معًا بالبريد الإلكتروني فور الدفع."},
+      "50": {"title": "باقة المطبخ", "sub": "ستة كتب للمطبخ، من خميرة العجين إلى وجبات الأسبوع", "description": "ستة كتب في الطبخ والخبز: المطبخ المنزلي، الخبز في البيت، وجبات في 20 دقيقة، مخبوزات السبت، علبة الطعام ومخطط الوجبات الأسبوعي. بسعر واحد أقل من شرائها منفردة، وتصلك جميع الملفات معًا بالبريد الإلكتروني فور الدفع."}
+    }
+  },
+  "ru": {
+    "cats": {"עיצוב": "Дизайн", "חבילות": "Наборы"},
+    "bundles": {
+      "49": {"title": "Набор для малого бизнеса", "sub": "Пять руководств по маркетингу и продажам по одной выгодной цене", "description": "Пять книг и шаблонов для малого бизнеса: промпты, идеи для постов, руководство по лендингу, шаблоны коммерческих предложений и контент-план. Одна цена — ниже, чем по отдельности, и все файлы приходят вместе на почту сразу после оплаты."},
+      "50": {"title": "Кухонный набор", "sub": "Шесть книг о кухне — от закваски до ужинов на неделю", "description": "Шесть книг о кулинарии и выпечке: домашняя кухня, хлеб дома, ужины за 20 минут, выпечка к шаббату, ланчбокс и планировщик меню на неделю. Одна цена — ниже, чем по отдельности, и все файлы приходят вместе на почту сразу после оплаты."}
+    }
+  }
+}

@@ -5,47 +5,15 @@
   <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
   <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m20 20-4.2-4.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
   <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-  <symbol id="i-left" viewBox="0 0 24 24"><path d="m14 6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  <symbol id="i-right" viewBox="0 0 24 24"><path d="m10 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <!-- i-fwd / i-back point "forward" / "back" in RTL; css/home.css mirrors them for LTR pages -->
+  <symbol id="i-fwd" viewBox="0 0 24 24"><path d="m14 6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="m10 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
   <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3 5 14h6l-1 7 8-11h-6l1-7Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
   <symbol id="i-device" viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 18h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
   <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 12h17M12 3.5c2.5 2.6 3.6 5.4 3.6 8.5s-1.1 5.9-3.6 8.5c-2.5-2.6-3.6-5.4-3.6-8.5S9.5 6.1 12 3.5Z" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
 </defs></svg>
-<div id="app" lang="he">
-  <header class="top">
-    <div class="top-row">
-      <a class="logo" href="#home" aria-label="You Made My Day, לדף הבית"><svg aria-hidden="true"><use href="#i-mark"/></svg><span class="logo-en">You Made My Day</span></a>
-      <nav class="main" id="nav">
-        <a href="#home" data-nav="home">ראשי</a>
-        <a href="#courses" data-nav="courses">קורסים</a>
-        <a href="#books" data-nav="books">ספרים ותבניות</a>
-        <a href="#pricing" data-nav="pricing">מחירים</a>
-        <a href="#refunds" data-nav="refunds">עזרה</a>
-      </nav>
-      <form class="top-search" id="topSearch" role="search">
-        <svg aria-hidden="true"><use href="#i-search"/></svg>
-        <input id="q" type="search" placeholder="חיפוש" aria-label="חיפוש קורס, ספר או נושא">
-      </form>
-      <div class="icons">
-        <button class="icon-btn" data-act="open-wish" aria-label="מועדפים"><svg aria-hidden="true"><use href="#i-heart"/></svg><span class="badge" id="wishN" data-n="0">0</span></button>
-        <button class="icon-btn" data-act="open-cart" aria-label="סל קניות"><svg aria-hidden="true"><use href="#i-bag"/></svg><span class="badge" id="cartN" data-n="0">0</span></button>
-      </div>
-    </div>
-  </header>
-  <main id="view"></main>
-  <footer class="site">
-    <div class="wrap">
-      <p class="foot-note">כל המחירים בשקלים וכוללים מע״מ. קישור ההורדה נשלח למייל שהוזן בהזמנה. ביטול עסקה לפי חוק הגנת הצרכן ו<a href="#refunds" style="text-decoration:underline">מדיניות ההחזרים</a>.</p>
-      <div class="foot-grid">
-        <div><h4>החנות</h4><ul><li><a href="#courses">קורסים</a></li><li><a href="#books">ספרים ותבניות</a></li><li><a href="#pricing">מחירים</a></li></ul></div>
-        <div><h4>עזרה</h4><ul><li><a href="#pricing">מחירים ותשלום</a></li><li><a href="#refunds">מדיניות החזרים</a></li><li><a href="#refunds" data-act="go-cancel">ביטול עסקה</a></li></ul></div>
-        <div><h4>מידע</h4><ul><li><a href="#terms">תקנון ותנאי שימוש</a></li><li><a href="#privacy">מדיניות פרטיות</a></li></ul></div>
-        <div><h4>החברה</h4><ul><li>עשית לי את היום בע״מ</li><li>ח.פ. 517347712</li><li>דוד אלעזר 10, חיפה</li><li>youmademydayltd@gmail.com</li></ul></div>
-      </div>
-      <div class="foot-bottom"><span>© 2026 עשית לי את היום בע״מ. כל הזכויות שמורות.</span><span><a href="#terms">תקנון</a> · <a href="#privacy">פרטיות</a> · <a href="#refunds">החזרים</a></span></div>
-    </div>
-  </footer>
-</div>
+<div id="app"></div>
 <div id="drawerRoot"></div>
-<div id="toast" hidden></div>
+<div id="toast" role="status" aria-live="polite" hidden></div>

@@ -10,6 +10,8 @@ const BOOK_OPEN_DEG = 179;
 const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 const seg = (p, a, b) => clamp((p - a) / (b - a));
 const smooth = (t) => t * t * (3 - 2 * t);
+// 1 in RTL (books turn to show a right-hand spine), -1 in LTR.
+const side = () => (document.documentElement.dir === "rtl" ? 1 : -1);
 const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 let scene = null;            // elements of the current page; null when the page has no scenes
@@ -35,21 +37,21 @@ function measure() {
 
 function renderFan({ fanIn, books }) {
   const h = state.hero ?? 0;
-  fanIn.style.transform = `translateY(${h * 120}px) rotateX(${8 + h * 18 - state.py * 6}deg) rotateY(${state.px * 10}deg) scale(${1 - h * 0.12})`;
+  fanIn.style.transform = `translateY(${h * 120}px) rotateX(${8 + h * 18 - state.py * 6}deg) rotateY(${state.px * 10 * side()}deg) scale(${1 - h * 0.12})`;
   books.forEach((b, i) => {
     const o = i - (books.length - 1) / 2, spread = 1 + h * 0.55;
     b.style.translate = "none";
-    b.style.transform = `translate3d(calc(-50% + ${o * FAN_GAP_VW * spread}vw), calc(-50% + ${o * o * 10}px), ${-Math.abs(o) * (110 + h * 70)}px) rotateY(${o * FAN_TURN - 4}deg) rotateX(2deg) rotateZ(${o * 1.5}deg)`;
+    b.style.transform = `translate3d(calc(-50% + ${o * FAN_GAP_VW * spread}vw), calc(-50% + ${o * o * 10}px), ${-Math.abs(o) * (110 + h * 70)}px) rotateY(${(o * FAN_TURN - 4) * side()}deg) rotateX(2deg) rotateZ(${o * 1.5}deg)`;
   });
 }
 
 function renderPin({ book, lid, floor, caps, dots }) {
   const p = state.pin ?? 0;
   const face = smooth(seg(p, 0, 0.32)), open = smooth(seg(p, 0.3, 0.74));
-  const w = book.offsetWidth;
-  book.style.transform = `translateX(${(-w / 2) * open}px) rotateX(${18 - 12 * face - 2 * open}deg) rotateY(${-38 + 38 * face}deg) rotateZ(${-7 + 7 * face}deg) scale(${0.8 + 0.2 * face})`;
-  lid.style.setProperty("--open", String(BOOK_OPEN_DEG * open));
-  floor.style.transform = `translateX(${(-w / 2) * open}px) scaleX(${1 + open * 0.95})`;
+  const w = book.offsetWidth, k = side();
+  book.style.transform = `translateX(${(-w / 2) * open * k}px) rotateX(${18 - 12 * face - 2 * open}deg) rotateY(${(-38 + 38 * face) * k}deg) rotateZ(${(-7 + 7 * face) * k}deg) scale(${0.8 + 0.2 * face})`;
+  lid.style.setProperty("--open", String(BOOK_OPEN_DEG * open * k));
+  floor.style.transform = `translateX(${(-w / 2) * open * k}px) scaleX(${1 + open * 0.95})`;
   const step = p < 0.3 ? 0 : p < 0.74 ? 1 : 2;
   caps.forEach((c, i) => c.classList.toggle("on", i === step));
   dots.forEach((d, i) => d.classList.toggle("on", i === step));
@@ -65,7 +67,7 @@ function render() {
   scene.zooms.forEach((z, i) => { const t = smooth(state[`z${i}`] ?? 1); z.style.transform = `scale(${0.92 + 0.08 * t})`; });
   if (scene.shelf) {
     const k0 = smooth(state.shelf ?? 1);
-    scene.shelf.books.forEach((b, i) => { const k = smooth(clamp(k0 * 1.6 - i * 0.1)); b.style.transform = `rotateX(4deg) rotateY(${-70 + 46 * k}deg) translateY(${(1 - k) * 40}px)`; });
+    scene.shelf.books.forEach((b, i) => { const k = smooth(clamp(k0 * 1.6 - i * 0.1)); b.style.transform = `rotateX(4deg) rotateY(${(-70 + 46 * k) * side()}deg) translateY(${(1 - k) * 40}px)`; });
   }
   if (scene.pin) renderPin(scene.pin);
 }

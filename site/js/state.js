@@ -24,8 +24,8 @@ export const S = {
   wish: read("wish", []),
   query: "",
   filters: {
-    courses: { cat: "הכל", maxPrice: null, sort: "rec" },
-    books: { cat: "הכל", maxPrice: null, sort: "rec" },
+    courses: { cat: "*", maxPrice: null, sort: "rec" },
+    books: { cat: "*", maxPrice: null, sort: "rec" },
   },
   goCancel: false,
 };
