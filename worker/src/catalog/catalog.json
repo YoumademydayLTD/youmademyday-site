@@ -1,0 +1,715 @@
+{
+ "langs": [
+  "en",
+  "he",
+  "fr",
+  "ar",
+  "ru"
+ ],
+ "defaultLang": "en",
+ "homeCurrencyLang": "he",
+ "bookDealMin": 3,
+ "products": {
+  "c1": {
+   "type": "course",
+   "title": "בינה מלאכותית לעסק קטן",
+   "description": "12 שיעורים מעשיים: לחסוך שעות כל שבוע עם ChatGPT, Claude וכלים חינמיים",
+   "price": 349,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "c2": {
+   "type": "course",
+   "title": "Canva מאפס למקצוען",
+   "description": "עיצוב פוסטים, מצגות ולוגו בלי ניסיון",
+   "price": 249,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "c3": {
+   "type": "course",
+   "title": "אקסל וגוגל שיטס לחיים",
+   "description": "נוסחאות, טבלאות ודשבורד ראשון",
+   "price": 249,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "c4": {
+   "type": "course",
+   "title": "כתיבה שמוכרת",
+   "description": "קופירייטינג לבעלי עסקים קטנים, צעד אחר צעד",
+   "price": 299,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "c5": {
+   "type": "course",
+   "title": "צילום מוצרים בטלפון",
+   "description": "אור, רקע ועריכה לחנות אונליין",
+   "price": 219,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "c6": {
+   "type": "course",
+   "title": "ניהול זמן שעובד",
+   "description": "שיטות מוכחות לתכנון שבוע, בלי אפליקציות מסובכות",
+   "price": 199,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "c7": {
+   "type": "course",
+   "title": "אינסטגרם לעסק קטן",
+   "description": "תוכן, רילס ותכנון חודשי",
+   "price": 279,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "c8": {
+   "type": "course",
+   "title": "מבוא לפיתוח אתרים ב-HTML ו-CSS",
+   "description": "בונים דף נחיתה ראשון מאפס",
+   "price": 299,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b9": {
+   "type": "ebook",
+   "title": "מדריך הפרומפטים בעברית",
+   "description": "200 פקודות מוכנות לעבודה, ללימודים וליצירה",
+   "price": 69,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b10": {
+   "type": "ebook",
+   "title": "ChatGPT לבעלי עסקים",
+   "description": "30 תרחישים אמיתיים עם תבניות",
+   "price": 59,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b11": {
+   "type": "ebook",
+   "title": "100 רעיונות לפוסטים",
+   "description": "לוח תוכן לשנה שלמה",
+   "price": 49,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b12": {
+   "type": "ebook",
+   "title": "מדריך לכתיבת דף נחיתה",
+   "description": "מבנה, כותרות ודוגמאות לפני ואחרי",
+   "price": 59,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b13": {
+   "type": "ebook",
+   "title": "ניוזלטר ראשון",
+   "description": "איך לבנות רשימת תפוצה ולכתוב מייל שבועי",
+   "price": 45,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b14": {
+   "type": "ebook",
+   "title": "מיתוג אישי בלינקדאין",
+   "description": "פרופיל, פוסטים ושיחות שמביאים פניות",
+   "price": 55,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b15": {
+   "type": "ebook",
+   "title": "קורות חיים שעוברים סינון",
+   "description": "מבנה, ניסוח ו-12 דוגמאות לפי תחום",
+   "price": 45,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b16": {
+   "type": "ebook",
+   "title": "להתכונן לראיון עבודה",
+   "description": "60 שאלות נפוצות ואיך לענות עליהן",
+   "price": 45,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b17": {
+   "type": "ebook",
+   "title": "מדריך הפרילנסר המתחיל",
+   "description": "תמחור שירות, הצעת מחיר וחוזה עבודה בסיסי",
+   "price": 59,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b18": {
+   "type": "template",
+   "title": "ערכת הצעות מחיר",
+   "description": "10 תבניות מוכנות להעתקה לוורד או לגוגל דוקס",
+   "price": 39,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b19": {
+   "type": "template",
+   "title": "מתכנן תוכן חודשי",
+   "description": "גיליון מוכן לתכנון פוסטים ומעקב",
+   "price": 29,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b20": {
+   "type": "template",
+   "title": "לוח משימות שבועי",
+   "description": "מתכנן להדפסה ולטאבלט",
+   "price": 25,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b21": {
+   "type": "ebook",
+   "title": "שיטת ה-30 דקות",
+   "description": "סדר בבית ובראש בחצי שעה ביום",
+   "price": 39,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b22": {
+   "type": "ebook",
+   "title": "הרגלים קטנים",
+   "description": "חוברת עבודה ל-30 יום לבניית הרגל חדש",
+   "price": 39,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b23": {
+   "type": "ebook",
+   "title": "מחברת התודה",
+   "description": "90 יום של כתיבה מודרכת, 5 דקות ביום",
+   "price": 35,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b24": {
+   "type": "ebook",
+   "title": "יומן בוקר",
+   "description": "שאלות ליום חדש, 100 עמודים",
+   "price": 35,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b25": {
+   "type": "ebook",
+   "title": "לכתוב סיפור קצר",
+   "description": "מדריך מעשי עם 20 תרגילים",
+   "price": 49,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b26": {
+   "type": "ebook",
+   "title": "מחברת סקיצות",
+   "description": "60 תרגילי איור יומיים",
+   "price": 39,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b27": {
+   "type": "ebook",
+   "title": "קליגרפיה עברית למתחילים",
+   "description": "דפי תרגול ואותיות להעתקה",
+   "price": 45,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b28": {
+   "type": "ebook",
+   "title": "צילום בטלפון",
+   "description": "50 טיפים קצרים, וכל טיפ עם תרגיל צילום",
+   "price": 45,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b29": {
+   "type": "ebook",
+   "title": "עריכת וידאו בטלפון",
+   "description": "CapCut מאפס לסרטון ראשון",
+   "price": 49,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b30": {
+   "type": "ebook",
+   "title": "המטבח הביתי",
+   "description": "40 מתכונים ביתיים, צעד אחר צעד",
+   "price": 69,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b31": {
+   "type": "ebook",
+   "title": "לחם בבית",
+   "description": "מחמצת, חלות ולחמים במטבח רגיל",
+   "price": 55,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b32": {
+   "type": "ebook",
+   "title": "ארוחות ב-20 דקות",
+   "description": "30 ארוחות ערב מהירות לכל השבוע",
+   "price": 49,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b33": {
+   "type": "ebook",
+   "title": "מאפים לשבת",
+   "description": "25 מתכונים לעוגות ועוגיות",
+   "price": 49,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b34": {
+   "type": "ebook",
+   "title": "קופסת אוכל לבית ספר",
+   "description": "60 רעיונות לארוחות עשר",
+   "price": 35,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b35": {
+   "type": "ebook",
+   "title": "מתכנן ארוחות שבועי",
+   "description": "תפריטים ורשימות קנייה להדפסה",
+   "price": 29,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b36": {
+   "type": "ebook",
+   "title": "גינה במרפסת",
+   "description": "תבלינים וירקות בעציצים, לפי עונות",
+   "price": 45,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b37": {
+   "type": "ebook",
+   "title": "עיצוב הבית בתקציב קטן",
+   "description": "רעיונות לכל חדר, עם רשימות קנייה",
+   "price": 49,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b38": {
+   "type": "ebook",
+   "title": "סדר בארון",
+   "description": "שיטה פשוטה למיון ולארגון בגדים",
+   "price": 35,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b39": {
+   "type": "ebook",
+   "title": "מסיבת יום הולדת בבית",
+   "description": "10 קונספטים עם רשימות הכנה",
+   "price": 39,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b40": {
+   "type": "ebook",
+   "title": "משחקים לילדים בלי מסך",
+   "description": "80 רעיונות לבית ולחוץ",
+   "price": 39,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b41": {
+   "type": "ebook",
+   "title": "חוברת פעילות לחופש הגדול",
+   "description": "דפי פעילות להדפסה לגילאי 6–10",
+   "price": 35,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b42": {
+   "type": "ebook",
+   "title": "טיול בארץ",
+   "description": "20 מסלולים קלים למשפחות, עם תרשים לכל מסלול",
+   "price": 49,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b43": {
+   "type": "ebook",
+   "title": "טיול לחו״ל בתכנון חכם",
+   "description": "צ׳ק-ליסטים, אריזה ותכנון מסלול",
+   "price": 39,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b44": {
+   "type": "ebook",
+   "title": "אנגלית לשיחה",
+   "description": "300 משפטים שימושיים לעבודה ולטיולים",
+   "price": 45,
+   "langs": [
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b45": {
+   "type": "ebook",
+   "title": "אנגלית למיילים בעבודה",
+   "description": "תבניות ומשפטי מפתח",
+   "price": 39,
+   "langs": [
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b46": {
+   "type": "ebook",
+   "title": "מדריך הנואם המתחיל",
+   "description": "איך להכין ולהעביר הרצאה של 10 דקות",
+   "price": 45,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b47": {
+   "type": "ebook",
+   "title": "להתחיל לרוץ",
+   "description": "תוכנית הליכה-ריצה ל-8 שבועות, למתחילים בריאים",
+   "price": 35,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b48": {
+   "type": "ebook",
+   "title": "יוגה בבוקר",
+   "description": "3 רצפים קצרים, כל תנוחה בתיאור מדויק",
+   "price": 39,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "k49": {
+   "type": "bundle",
+   "title": "חבילת העסק הקטן",
+   "description": "חמישה מדריכים לשיווק ולמכירה, במחיר אחד נמוך יותר",
+   "price": 199,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "k50": {
+   "type": "bundle",
+   "title": "חבילת המטבח",
+   "description": "שישה ספרי מטבח, ממחמצת ועד ארוחות לשבוע",
+   "price": 179,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  },
+  "b51": {
+   "type": "ebook",
+   "title": "המקסימום שלך",
+   "description": "ספר ההתפתחות האישית שהופך אותך לגרסה הכי טובה של עצמך",
+   "price": 5,
+   "usd": 2,
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ]
+  }
+ },
+ "plans": {
+  "grow": {
+   "title": "מנוי צמיחה",
+   "description": "כל מה שצריך כדי להתקדם כל יום, צעד אחרי צעד.",
+   "price": 147,
+   "usd": 39,
+   "period": "week",
+   "trialDays": 1
+  },
+  "max": {
+   "title": "מנוי מקסימום",
+   "description": "ליווי אישי וצמוד, למי שרוצה להגיע הכי רחוק שאפשר.",
+   "price": 297,
+   "usd": 79,
+   "period": "week",
+   "trialDays": 1
+  },
+  "day": {
+   "title": "מנוי יום טוב",
+   "description": "בוט אישי: משימה ותזכורת בכל יום · מסלול אחד לבחירה · מעקב רצף והתקדמות · ספר דיגיטלי אחד בכל חודש",
+   "price": 29,
+   "period": "month",
+   "trialDays": 0
+  },
+  "community": {
+   "title": "מנוי קהילה",
+   "description": "כל מה שב«יום טוב» · כל המסלולים, בלי הגבלה · קבוצה פרטית לפי נושא · אתגר שבועי ומפגש לייב בכל חודש · כל הקורסים בספרייה",
+   "price": 59,
+   "period": "month",
+   "trialDays": 0
+  },
+  "mentor": {
+   "title": "מנוי ליווי",
+   "description": "כל מה שב«קהילה» · צ׳אט אישי עם מלווה מהצוות · שיחת כיוון בכל שבוע · תוכנית אישית ל-90 יום",
+   "price": 149,
+   "period": "month",
+   "trialDays": 0
+  }
+ }
+}
