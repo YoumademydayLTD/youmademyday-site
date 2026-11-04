@@ -9,6 +9,8 @@ export const LANGS = {
   ru: { name: "Русский", dir: "ltr", locale: "ru-RU", showVat: false },
 };
 export const DEFAULT_LANG = "en";
+// The site whose prices are always in shekels; the others show dollars for items that have a dollar price.
+export const HOME_CURRENCY_LANG = "he";
 // Languages published on the site. A language joins once its whole catalogue is translated (tools/build_site.py reads this line).
 export const LIVE = ["en", "he", "fr", "ar", "ru"];
 
