@@ -20,7 +20,8 @@ import { isDirectOffer, buyHref } from "./money.js";
 
 const PAGES = { courses: () => viewShop("courses"), books: () => viewShop("books"), checkout: viewCheckout, search: viewSearch, pricing: viewPricing, plans: viewPlans, login: viewLogin, terms: viewTerms, privacy: viewPrivacy, refunds: viewRefunds, cookies: viewCookies, accessibility: viewAccessibility };
 const SHOPS = new Set(["courses", "books"]);
-const BUY_PREFIX = "buy-";
+// Routes that carry an id after a prefix: #buy-<item>.
+const PREFIX_VIEWS = { "buy-": viewBuy };
 const RAIL_GAP = 20; // px, matches .rail gap in css/home.css
 
 // Clean slugs (/he/pricing) work on the live site; a hash wins when present. The language prefix is not a route.
@@ -28,6 +29,11 @@ function currentRoute() {
   if (location.hash.length > 1) return location.hash.slice(1);
   const parts = location.pathname.split("/").filter(Boolean).filter((s, i) => !(i === 0 && s in LANGS));
   return parts[0] || "home";
+}
+
+function prefixView(r) {
+  const prefix = Object.keys(PREFIX_VIEWS).find((p) => r.startsWith(p));
+  return prefix ? PREFIX_VIEWS[prefix](r.slice(prefix.length)) : null;
 }
 
 function syncBadges() {
@@ -38,7 +44,7 @@ function syncBadges() {
 
 function route() {
   const r = currentRoute();
-  $("#view").innerHTML = PAGES[r] ? PAGES[r]() : r.startsWith(BUY_PREFIX) ? viewBuy(r.slice(BUY_PREFIX.length)) : ALL[r] ? viewItem(r) : viewHome();
+  $("#view").innerHTML = PAGES[r] ? PAGES[r]() : prefixView(r) ?? (ALL[r] ? viewItem(r) : viewHome());
   if (SHOPS.has(r)) fillGrid(r);
   mount($("#view"));
   const section = ALL[r] ? (isCourse(ALL[r]) ? "courses" : "books") : r;
