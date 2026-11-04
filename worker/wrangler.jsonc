@@ -18,7 +18,7 @@
     "EXTRA_ORIGINS": "http://127.0.0.1:4322",
     "POLAR_API": "https://api.polar.sh/v1",
     "BOT_URL": "https://ymd-bot.crx-platform-website.workers.dev",
-    // Checkout kinds the site may open. Plans stay closed until the Telegram bot that delivers them exists.
-    "LIVE_KINDS": "cart,product"
+    // Checkout kinds the site may open (owner opened memberships on 04.11.2026).
+    "LIVE_KINDS": "cart,product,plan"
   }
 }
