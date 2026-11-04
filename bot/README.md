@@ -50,6 +50,13 @@ D1 "ymd-store": store tables read-only + bot_* tables · R2 "ymd-files" · servi
 - The user card shows the internal customer number (`ym` from the store's `customers` table); the inbox has a customer
   search: `GET /api/admin/customers?q=` (ym number, name, @username or Telegram id) → `{results: [{id, name, username, ym, threadId}]}`.
 
+## Daily companion on the site
+
+With the site session (Bearer): `GET /api/companion` → `{track, tracks: [{id, isFree, canJoin}], today: {dayN, text,
+lessonUrl, lessonLabel} | null, history: [{dayN, text}], streak, doneToday, settings: {dailyHour, timeZone, paused, silent}}`;
+`POST /api/companion/done`, `POST /api/companion/settings {dailyHour?, paused?, silent?}`, `POST /api/companion/track {track}`.
+It uses the same `bot_users` row as the bot, so the streak, track and reminder settings are one.
+
 ## Secrets (values in `Site/.env.bot`, gitignored; never printed)
 
 | Name | What |

@@ -11,6 +11,9 @@ Live at **https://ymd-store.crx-platform-website.workers.dev** (workers.dev, bec
 | `GET /api/account` | the personal area (Bearer session) | `{library: DownloadItem[], memberships: [{id, planId, status, isTrial, currentPeriodEnd, cancelAtPeriodEnd, canCancel, amount, currency}], invoices: [{orderId, createdAt, total, currency, status, items, url}]}`. Library files come in the user's language (fallback English, then Hebrew); invoice `url` is a 30-minute signed `/api/invoice` link. The ym number is never in a reply. |
 | `POST /api/account/subscriptions/:id/cancel` | the personal area (Bearer session) | Cancels one of the user's memberships: at once during the free trial (no charge), else at period end. `{membership}`; 404 not theirs, 409 already ending. |
 | `GET /api/invoice?t=<token>` | the buyer's browser | The order's invoice PDF from Polar (generated on first request), passed through so no Polar URL or token reaches the browser. |
+| `GET /api/read/:id` | the personal area's reader (Bearer session) | `{id, kind, title, lang, units: [{n, title, minutes, done}], done, total}` for an item the user bought or whose running membership includes it; 403 `not_entitled`. |
+| `GET /api/read/:id/:n` | the reader | `{id, kind, n, title, minutes, html, prev, next, done, doneCount, total}`; `html` is sanitized at build time. |
+| `POST /api/read/:id/:n/done` | the reader | `{done: boolean}` → `{done, doneCount, total}` (table `reading_progress`, per Telegram user). |
 | `GET /api/order-doc?t=<token>` | the buyer (bot button, thanks page, personal area) | The order details document (the disclosure document the terms promise): a printable HTML page in the buyer's language with our company details, order number and date, items and prices, total, membership terms (period, renewal, free day, how to cancel), delivery and the refund rights with a link to the refunds page. Links are signed for a year. `GET /api/downloads` returns it as `documentUrl`; `/api/account` invoices carry `documentUrl`. |
 | `POST /api/internal/subscriptions/cancel` | the bot (service binding, header `X-Internal-Secret`) | `{telegramId, subscriptionId}` → `{membership}`; the bot's cancel button and `/delete`. |
 | `POST /api/polar/webhook` | Polar | Verifies the Standard Webhooks signature, stores the event once (dedupe on `webhook-id`), replies at once, then updates `checkouts` / `orders` / `subscriptions`. |
@@ -71,6 +74,14 @@ checkout also passes `customer_ip_address` from `CF-Connecting-IP`. `/api/links`
 
 When an order is paid and its checkout has a customer, the store tells the bot (`POST /api/internal/orders/paid`)
 so the files go to the buyer's Telegram chat right away.
+
+## Reader
+
+`tools/.venv/bin/python tools/build_reader.py` renders every lesson (with its worksheet) and e-book chapter to sanitized
+HTML (same Markdown rules as the PDFs, then an allowlist sanitizer), one JSON per item and language in `content/view`.
+`node tools/upload_reader.ts` uploads them to R2 as `view/<lang>/<id>.json` and writes `src/view/index.json`; then
+`npm run deploy`. Membership libraries (`src/view/plan-library.ts`): Growth and Maximum open every course and book,
+Companion and Mentor every course; Good Day's monthly e-book is chosen by hand.
 
 ## Delivery
 
