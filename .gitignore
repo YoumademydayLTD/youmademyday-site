@@ -5,3 +5,6 @@ docs/
 content/
 brand/catalog.json
 tools/.venv/
+.env
+.env.*
+.dev.vars
