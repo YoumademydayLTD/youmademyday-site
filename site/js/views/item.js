@@ -5,6 +5,7 @@ import { esc, ils } from "../util.js";
 import { BRAND, REFUND_DAYS } from "../business.js";
 import { bookStage } from "../book3d.js";
 import { t, tList, HOME_URL } from "../i18n/index.js";
+import { isDirectOffer, priceLabel, buyHref } from "../money.js";
 
 const RELATED_COUNT = 4;
 const heroBook = (p) => bookStage(p, { style: "--ry:-22deg" });
@@ -20,10 +21,13 @@ function buyBox(p) {
   const inCart = S.cart.includes(p.id);
   const saved = S.wish.includes(p.id);
   const vat = t("item.inclVat");
+  const buttons = isDirectOffer(p)
+    ? `<a class="btn btn-tg btn-block" href="${buyHref(p.id)}">${t("item.buyFor", { price: priceLabel(p) })}</a>`
+    : `<button class="btn btn-ink btn-block" data-act="buy-now" data-id="${p.id}">${t("item.buyNow")}</button>
+    <button class="btn btn-ghost btn-block" data-act="${inCart ? "open-cart" : "add"}" data-id="${p.id}">${t(inCart ? "item.inCart" : "item.addCart")}</button>`;
   return `<aside class="buybox">
-    <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><span class="big num">${ils(p.price)}</span>${vat ? `<span class="muted">${vat}</span>` : ""}</div>
-    <button class="btn btn-ink btn-block" data-act="buy-now" data-id="${p.id}">${t("item.buyNow")}</button>
-    <button class="btn btn-ghost btn-block" data-act="${inCart ? "open-cart" : "add"}" data-id="${p.id}">${t(inCart ? "item.inCart" : "item.addCart")}</button>
+    <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap"><span class="big num">${priceLabel(p)}</span>${vat ? `<span class="muted">${vat}</span>` : ""}</div>
+    ${buttons}
     <button class="btn btn-ghost btn-sm" style="align-self:flex-start" data-act="wish" data-id="${p.id}" aria-pressed="${saved}">${heart(saved)} ${t(saved ? "item.saved" : "item.save")}</button>
     <ul class="incl">${includedList(p).map((i) => `<li>${esc(i)}</li>`).join("")}</ul>
   </aside>`;

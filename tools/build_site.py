@@ -63,7 +63,7 @@ def head(lang: str, slug: str, assets: str) -> str:
     path = f"/{slug}" if slug else "/"
     alternates = "".join(f'<link rel="alternate" hreflang="{c}" href="https://{DOMAIN}{prefix(c)}{path}">' for c in live_langs())
     alternates += f'<link rel="alternate" hreflang="x-default" href="https://{DOMAIN}{path}">'
-    css = "".join(f'<link rel="stylesheet" href="{assets}/{f}">' for f in ["fonts/fonts.css", "styles.css", "css/book3d.css", "css/home.css", "css/pages.css", "css/telegram.css"])
+    css = "".join(f'<link rel="stylesheet" href="{assets}/{f}">' for f in ["fonts/fonts.css", "styles.css", "css/book3d.css", "css/home.css", "css/pages.css", "css/telegram.css", "css/offers.css"])
     return f"""<!doctype html>
 <html lang="{lang}" dir="{LANGS[lang]}">
 <head>

@@ -36,6 +36,7 @@ CATEGORY_COLORS = {
     "בית": ["#E2F1EA", "#16302A", "#A9D8C2"], "משפחה": ["#FFF1DC", "#3A2A10", "#FFCF8A"],
     "טיולים": ["#E6F2FF", "#13314D", "#9CC6FF"], "שפות": ["#E9E4FF", "#2B1E40", "#B9A4FF"],
     "תנועה": ["#E3F4EC", "#123A2B", "#8FD3B5"], "חבילות": ["#1D1D1F", "#FFFFFF", "#C9B2FF"],
+    "התפתחות אישית": ["#0E0B12", "#FFFFFF", "#F48FB8"],
 }
 SHAPES = ["sun", "half", "ring", "bars", "dot"]
 PAGE_RE = re.compile(rb"/Type\s*/Page[^s]")
@@ -101,7 +102,7 @@ def build(lang: str) -> tuple[list[dict], list[int]]:
     for p in plan:
         n = p["n"]
         base = {"id": product_id(p), "n": n, "type": p["type"], "title": p["title"], "sub": p["sub"], "cat": cats.get(p["cat"], p["cat"]),
-                "price": p["price"], "cv": CATEGORY_COLORS.get(p["cat"], CATEGORY_COLORS["חבילות"]), "sh": SHAPES[n % len(SHAPES)]}
+                "price": p["price"], **({"usd": p["usd"]} if "usd" in p else {}), "cv": CATEGORY_COLORS.get(p["cat"], CATEGORY_COLORS["חבילות"]), "sh": SHAPES[n % len(SHAPES)]}
         if p["type"] == "course":
             c = find_course(lang, n, p["title"])
             if not c:

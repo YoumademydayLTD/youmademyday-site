@@ -1,6 +1,7 @@
 // Fixed copy and picks for the home page. Product ids refer to site/js/products/<lang>.js.
 
-export const HERO_FAN = ["b31", "c4", "c1", "b9", "b23"]; // left to right on screen; the middle one faces forward
+export const HERO_FAN = ["b31", "c4", "b51", "b9", "c1"]; // left to right on screen; the middle one (the flagship) faces forward
+export const FLAGSHIP_BOOK = "b51"; // the 5 ₪ / $2 book, the store's main hook (owner, 04.11.2026)
 export const TILE_COURSE = "c1";
 export const TILE_BOOKS = ["b28", "b9", "b31"];
 export const TILE_DEAL = ["b23", "b32", "b28"];

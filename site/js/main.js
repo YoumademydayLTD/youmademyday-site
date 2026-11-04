@@ -13,10 +13,14 @@ import { openDrawer, closeDrawer, viewCheckout } from "./views/cart.js";
 import { viewPricing } from "./views/pricing.js";
 import { viewTerms, viewPrivacy, viewRefunds, viewCookies, viewAccessibility, cancelText } from "./legal/pages.js";
 import { mount, startMotion } from "./motion.js";
-import { viewPlans, viewLogin } from "./views/telegram.js";
+import { viewLogin } from "./views/telegram.js";
+import { viewPlans } from "./views/plans.js";
+import { viewBuy } from "./views/buy.js";
+import { isDirectOffer, buyHref } from "./money.js";
 
 const PAGES = { courses: () => viewShop("courses"), books: () => viewShop("books"), checkout: viewCheckout, search: viewSearch, pricing: viewPricing, plans: viewPlans, login: viewLogin, terms: viewTerms, privacy: viewPrivacy, refunds: viewRefunds, cookies: viewCookies, accessibility: viewAccessibility };
 const SHOPS = new Set(["courses", "books"]);
+const BUY_PREFIX = "buy-";
 const RAIL_GAP = 20; // px, matches .rail gap in css/home.css
 
 // Clean slugs (/he/pricing) work on the live site; a hash wins when present. The language prefix is not a route.
@@ -34,7 +38,7 @@ function syncBadges() {
 
 function route() {
   const r = currentRoute();
-  $("#view").innerHTML = PAGES[r] ? PAGES[r]() : ALL[r] ? viewItem(r) : viewHome();
+  $("#view").innerHTML = PAGES[r] ? PAGES[r]() : r.startsWith(BUY_PREFIX) ? viewBuy(r.slice(BUY_PREFIX.length)) : ALL[r] ? viewItem(r) : viewHome();
   if (SHOPS.has(r)) fillGrid(r);
   mount($("#view"));
   const section = ALL[r] ? (isCourse(ALL[r]) ? "courses" : "books") : r;
@@ -58,8 +62,11 @@ function toggleWish(id) {
   save();
 }
 
+// A direct offer is bought alone on its own page, so it never enters the cart. Returns whether it was added.
 function addToCart(id) {
+  if (isDirectOffer(ALL[id])) { location.hash = buyHref(id).slice(1); return false; }
   if (!S.cart.includes(id)) { S.cart.push(id); save(); }
+  return true;
 }
 
 function scrollRail(dir) {
@@ -71,14 +78,14 @@ function scrollRail(dir) {
 
 const ACTIONS = {
   wish: (el) => { toggleWish(el.dataset.id); const r = currentRoute(); SHOPS.has(r) ? fillGrid(r) : rerender(); syncBadges(); },
-  add: (el) => { addToCart(el.dataset.id); toast(t("toast.added")); rerender(); openDrawer("cart"); },
-  "buy-now": (el) => { addToCart(el.dataset.id); location.hash = "checkout"; },
+  add: (el) => { if (!addToCart(el.dataset.id)) return; toast(t("toast.added")); rerender(); openDrawer("cart"); },
+  "buy-now": (el) => { if (addToCart(el.dataset.id)) location.hash = "checkout"; },
   "open-cart": () => openDrawer("cart"),
   "open-wish": () => openDrawer("wish"),
   close: closeDrawer,
   "close-go": closeDrawer,
   remove: (el) => { S.cart = S.cart.filter((x) => x !== el.dataset.id); save(); syncBadges(); if ($("#drawerRoot").innerHTML) openDrawer("cart"); if (currentRoute() === "checkout") rerender(); },
-  "wish-to-cart": (el) => { addToCart(el.dataset.id); S.wish = S.wish.filter((x) => x !== el.dataset.id); save(); syncBadges(); openDrawer("cart"); toast(t("toast.moved")); },
+  "wish-to-cart": (el) => { if (!addToCart(el.dataset.id)) { closeDrawer(); return; } S.wish = S.wish.filter((x) => x !== el.dataset.id); save(); syncBadges(); openDrawer("cart"); toast(t("toast.moved")); },
   "f-cat": (el) => { S.filters[el.dataset.type].cat = el.dataset.v; el.parentElement.querySelectorAll(".chip").forEach((c) => c.classList.toggle("on", c === el)); fillGrid(el.dataset.type); },
   "pick-cat": (el, e) => { const cat = el.dataset.cat; const inBooks = Object.values(ALL).some((p) => !isCourse(p) && p.cat === cat); const shop = inBooks ? "books" : "courses"; S.filters[shop].cat = cat; e.preventDefault(); location.hash = shop; },
   rail: (el) => scrollRail(el.dataset.dir),

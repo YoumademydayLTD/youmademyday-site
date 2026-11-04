@@ -1,11 +1,13 @@
 // Home page markup. Motion for these scenes lives in ../motion.js.
 import { ALL, COURSES, BOOKS, card } from "../catalog.js";
-import { esc, ils } from "../util.js";
+import { esc } from "../util.js";
 import { REFUND_DAYS, BOOK_DEAL_MIN } from "../business.js";
 import { book3d, bookStage } from "../book3d.js";
 import { t, tList } from "../i18n/index.js";
 import * as D from "./home-data.js";
-import { telegramScene, plansGrid, supportBand, tgButton, tgPill } from "./telegram.js";
+import { telegramScene, supportBand, tgButton, tgPill } from "./telegram.js";
+import { featuredPlans, plansGrid } from "./plans.js";
+import { priceLabel, buyHref } from "../money.js";
 
 const icon = (id) => `<svg aria-hidden="true"><use href="#${id}"/></svg>`;
 const link = (href, text) => `<a class="lnk" href="${href}"><span>${text}</span></a>`;
@@ -27,6 +29,19 @@ const hero = () => `
 
 const stack = (ids, turns, style = "") => `<div class="stack">${pick(ids).map((p, i) => `<div>${book3d(p, { style: `--w:clamp(120px,11.5vw,165px);--ry:${turns[i]}deg;${style}` })}</div>`).join("")}</div>`;
 const sheet = (n, style) => `<div class="sheet" style="${style}">${"<i></i>".repeat(n)}</div>`;
+
+// The flagship offer: the 5 ₪ book, then the two weekly plans. The owner wants these to get the most room.
+function offer() {
+  const p = ALL[D.FLAGSHIP_BOOK];
+  const book = p ? `<div class="tile full dark offer" data-zoom><div class="glow" style="background:radial-gradient(45% 60% at 50% 85%,rgba(244,143,184,.42),transparent 70%),radial-gradient(35% 50% at 20% 30%,rgba(42,171,238,.28),transparent 70%)"></div>
+      <span class="offer-badge">${t("home.offerBadge")}</span>
+      <h2>${esc(p.title)}. <span class="grad">${t("home.offerB", { price: priceLabel(p) })}</span></h2><p class="kicker">${t("home.offerSub")}</p>
+      <div class="ctas"><a class="btn btn-tg" href="${buyHref(p.id)}">${t("item.buyFor", { price: priceLabel(p) })}</a>${link(`#${p.id}`, t("home.freePeek"))}</div>
+      <div class="obj"><div class="bookbox">${book3d(p, { style: "--w:clamp(190px,19vw,260px);--ry:-20deg;--rx:6deg" })}<div class="floor" style="background:radial-gradient(closest-side,rgba(0,0,0,.6),transparent)"></div></div></div></div>` : "";
+  return `<section class="offer-sec">${book}
+    <div class="wrap feats-wrap"><div class="sec-title"><h2 class="rv">${t("home.featA")} <span>${t("home.featB")}</span></h2>${link("#plans", t("home.allPlans"))}</div>${featuredPlans()}</div>
+  </section>`;
+}
 
 const tiles = () => `
   <section class="tiles">
@@ -81,7 +96,7 @@ function openBook() {
 const shelf = () => `
   <section class="sec" style="padding-top:0"><div class="wrap">
     <div class="sec-title"><h2 class="rv">${t("home.shelfA")} <span>${t("home.shelfB")}</span></h2>${link("#books", t("home.allBooks"))}</div>
-    <div class="shelf" data-shelf>${pick(D.HOME_SHELF).map((p) => `<a class="it" href="#${p.id}">${bookStage(p)}<div><b>${esc(p.title)}</b><small>${t(`kind.short.${p.type}`)} · ${ils(p.price)}</small></div></a>`).join("")}</div>
+    <div class="shelf" data-shelf>${pick(D.HOME_SHELF).map((p) => `<a class="it" href="#${p.id}">${bookStage(p)}<div><b>${esc(p.title)}</b><small>${t(`kind.short.${p.type}`)} · ${priceLabel(p)}</small></div></a>`).join("")}</div>
   </div></section>`;
 
 const promises = () => tList("home.promises").map(([b, s], i) => `<div class="promise rv d${i}"><div class="ic">${icon(D.PROMISE_ICONS[i])}</div><b>${fill(b, { days: REFUND_DAYS })}</b><p>${s}</p></div>`).join("");
@@ -90,14 +105,14 @@ const faq = () => tList("home.faqList").map(([q, a], i) => `<details${i ? "" : "
 export function viewHome() {
   return `${hero()}
   <section class="statement"><div class="wrap"><p data-words>${esc(t("home.statement"))}</p></div></section>
-  ${tiles()}${telegramScene()}${worlds()}${openBook()}
+  ${offer()}${tiles()}${telegramScene()}${worlds()}${openBook()}
   <section class="sec" style="padding-top:40px"><div class="wrap">
     <div class="sec-title"><h2 class="rv">${t("home.coursesA")} <span>${t("home.coursesB")}</span></h2>${link("#courses", t("home.allCoursesN", { n: COURSES.length }))}</div>
     <div class="grid">${pick(D.HOME_COURSES).map(card).join("")}</div>
   </div></section>
   ${shelf()}
   <section class="sec" style="padding-top:0"><div class="wrap">
-    <div class="sec-title"><h2 class="rv">${t("home.plansA")} <span>${t("home.plansB")}</span></h2>${link("#plans", t("home.allPlans"))}</div>
+    <div class="sec-title"><h2 class="rv">${t("plans.moreA")} <span>${t("plans.moreB")}</span></h2>${link("#plans", t("home.allPlans"))}</div>
     ${plansGrid()}
   </div></section>
   <section class="sec" style="padding-top:0"><div class="wrap">

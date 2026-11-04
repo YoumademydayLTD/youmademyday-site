@@ -3,10 +3,11 @@ import { LANG, t } from "./i18n/index.js";
 
 // Products in the active language; a language without its own file yet shows the Hebrew catalogue.
 const { PRODUCTS } = await import(`./products/${LANG}.js`).catch(() => import("./products/he.js"));
-import { esc, ils } from "./util.js";
+import { esc } from "./util.js";
 import { S } from "./state.js";
 import { BOOK_DEAL_MIN } from "./business.js";
 import { bookStage } from "./book3d.js";
+import { priceLabel } from "./money.js";
 
 export const ALL = Object.fromEntries(PRODUCTS.map((p) => [p.id, p]));
 export const COURSES = PRODUCTS.filter((p) => p.type === "course");
@@ -43,7 +44,7 @@ export function card(p) {
     ${bookStage(p, { glow: true, style: "--ry:-24deg" })}
     <div class="card-body"><span class="by">${esc(p.cat)}</span><h3>${esc(p.title)}</h3>
     <div class="meta">${cardMeta(p)}</div>
-    <div class="price-row"><span class="price">${ils(p.price)}</span><span class="btn btn-ink btn-sm">${t("card.details")}</span></div></div></a>`;
+    <div class="price-row"><span class="price">${priceLabel(p)}</span><span class="btn btn-ink btn-sm">${t("card.details")}</span></div></div></a>`;
 }
 
 // Cart totals: the only automatic offer is "3 books, the cheapest free".
