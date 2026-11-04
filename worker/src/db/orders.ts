@@ -1,0 +1,29 @@
+// The orders table: paid, refunded and pending orders as Polar reports them.
+export interface OrderRow {
+  id: string;
+  checkoutId: string | null;
+  customerId: string | null;
+  customerEmail: string | null;
+  productId: string | null;
+  subscriptionId: string | null;
+  status: string;
+  billingReason: string | null;
+  currency: string;
+  totalAmount: number;
+  refundedAmount: number;
+  itemIds: string[];
+  lang: string | null;
+  needsReview: boolean;
+  metadata: Record<string, string>;
+}
+
+export async function upsertOrder(db: D1Database, row: OrderRow, now: string): Promise<void> {
+  await db.prepare(
+    `INSERT INTO orders (id, checkout_id, customer_id, customer_email, product_id, subscription_id, status, billing_reason, currency,
+       total_amount, refunded_amount, item_ids, lang, needs_review, metadata, created_at, updated_at)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+     ON CONFLICT(id) DO UPDATE SET status = excluded.status, refunded_amount = excluded.refunded_amount,
+       customer_email = COALESCE(excluded.customer_email, orders.customer_email), updated_at = excluded.updated_at`,
+  ).bind(row.id, row.checkoutId, row.customerId, row.customerEmail, row.productId, row.subscriptionId, row.status, row.billingReason, row.currency,
+    row.totalAmount, row.refundedAmount, row.itemIds.join(","), row.lang, row.needsReview ? 1 : 0, JSON.stringify(row.metadata), now, now).run();
+}

@@ -1,0 +1,20 @@
+// Cloudflare Worker for the store's payments (Polar). Deploy: npm run deploy. Secrets: see README.md.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ymd-store",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": true,
+  "observability": { "enabled": true },
+  "d1_databases": [
+    { "binding": "DB", "database_name": "ymd-store", "database_id": "fb9e52b2-421d-45cb-84d7-7589feacbcc0", "migrations_dir": "migrations" }
+  ],
+  "vars": {
+    "SITE_URL": "https://youmademyday.store",
+    // Extra browser origins allowed to call the API (the local preview server).
+    "EXTRA_ORIGINS": "http://127.0.0.1:4322",
+    "POLAR_API": "https://api.polar.sh/v1",
+    // Checkout kinds the site may open. Plans stay closed until the Telegram bot that delivers them exists.
+    "LIVE_KINDS": "cart,product"
+  }
+}

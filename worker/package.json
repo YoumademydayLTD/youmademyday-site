@@ -1,0 +1,21 @@
+{
+  "name": "ymd-store-worker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "catalog": "node ../tools/build_catalog.ts",
+    "sync": "node ../tools/polar_sync.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.tools.json",
+    "test": "vitest run",
+    "dev": "wrangler dev",
+    "deploy": "npm run catalog && npm run typecheck && npm test && wrangler deploy",
+    "db:migrate": "wrangler d1 migrations apply ymd-store --remote"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261104.1",
+    "@types/node": "^22.20.5",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0",
+    "wrangler": "^4.157.0"
+  }
+}
