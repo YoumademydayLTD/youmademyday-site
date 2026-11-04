@@ -12,10 +12,20 @@ export const CATALOG_PATH = join(ROOT, "worker", "src", "catalog", "catalog.json
 // Hebrew is the source catalogue: its titles name the Polar products and it lists every item.
 const SOURCE_LANG = "he";
 
-interface SiteProduct { id: string; type: string; title: string; sub: string; price: number; usd?: number }
+interface SiteProduct { id: string; n: number; type: string; title: string; sub: string; price: number; usd?: number; includes?: string[] }
 interface SitePlan { id: string; price: number; usd?: number; period: "week" | "month"; trialDays?: number }
 
-export interface CatalogProduct { type: string; title: string; description: string; price: number; usd?: number; langs: string[] }
+export interface CatalogProduct {
+  n: number; // the file number: content/dist/<NN>-*.pdf
+  type: string;
+  title: string;
+  description: string;
+  price: number;
+  usd?: number;
+  langs: string[];
+  titles: Record<string, string>; // title on each site that sells it
+  includes?: string[]; // bundles: the items delivered
+}
 export interface CatalogPlan { title: string; description: string; price: number; usd?: number; period: "week" | "month"; trialDays: number }
 export interface Catalog { langs: string[]; defaultLang: string; homeCurrencyLang: string; bookDealMin: number; products: Record<string, CatalogProduct>; plans: Record<string, CatalogPlan> }
 
@@ -26,12 +36,16 @@ async function productsOf(lang: string): Promise<SiteProduct[]> {
 }
 
 async function buildProducts(langs: string[]): Promise<Record<string, CatalogProduct>> {
-  const byLang = new Map<string, Set<string>>();
-  for (const lang of langs) byLang.set(lang, new Set((await productsOf(lang)).map((p) => p.id)));
+  const byLang = new Map<string, Map<string, SiteProduct>>();
+  for (const lang of langs) byLang.set(lang, new Map((await productsOf(lang)).map((p) => [p.id, p])));
   const products: Record<string, CatalogProduct> = {};
   for (const p of await productsOf(SOURCE_LANG)) {
     const sellsIn = langs.filter((lang) => byLang.get(lang)?.has(p.id));
-    products[p.id] = { type: p.type, title: p.title, description: p.sub, price: p.price, ...(p.usd != null ? { usd: p.usd } : {}), langs: sellsIn };
+    const titles = Object.fromEntries(sellsIn.map((lang) => [lang, byLang.get(lang)?.get(p.id)?.title ?? p.title]));
+    products[p.id] = {
+      n: p.n, type: p.type, title: p.title, description: p.sub, price: p.price, ...(p.usd != null ? { usd: p.usd } : {}),
+      langs: sellsIn, titles, ...(p.includes ? { includes: p.includes } : {}),
+    };
   }
   return products;
 }

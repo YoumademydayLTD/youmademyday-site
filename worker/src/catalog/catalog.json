@@ -11,6 +11,7 @@
  "bookDealMin": 3,
  "products": {
   "c1": {
+   "n": 1,
    "type": "course",
    "title": "בינה מלאכותית לעסק קטן",
    "description": "12 שיעורים מעשיים: לחסוך שעות כל שבוע עם ChatGPT, Claude וכלים חינמיים",
@@ -21,9 +22,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "AI for Small Business",
+    "he": "בינה מלאכותית לעסק קטן",
+    "fr": "L'intelligence artificielle pour la petite entreprise",
+    "ar": "الذكاء الاصطناعي للمشاريع الصغيرة",
+    "ru": "Искусственный интеллект для малого бизнеса"
+   }
   },
   "c2": {
+   "n": 2,
    "type": "course",
    "title": "Canva מאפס למקצוען",
    "description": "עיצוב פוסטים, מצגות ולוגו בלי ניסיון",
@@ -34,9 +43,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Canva from Zero to Pro",
+    "he": "Canva מאפס למקצוען",
+    "fr": "Canva, de zéro à pro",
+    "ar": "Canva من الصفر إلى الاحتراف",
+    "ru": "Canva с нуля до уверенного уровня"
+   }
   },
   "c3": {
+   "n": 3,
    "type": "course",
    "title": "אקסל וגוגל שיטס לחיים",
    "description": "נוסחאות, טבלאות ודשבורד ראשון",
@@ -47,9 +64,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Excel and Google Sheets for Everyday Life",
+    "he": "אקסל וגוגל שיטס לחיים",
+    "fr": "Excel et Google Sheets au quotidien",
+    "ar": "Excel وGoogle Sheets للحياة اليومية",
+    "ru": "Excel и Google Sheets для жизни"
+   }
   },
   "c4": {
+   "n": 4,
    "type": "course",
    "title": "כתיבה שמוכרת",
    "description": "קופירייטינג לבעלי עסקים קטנים, צעד אחר צעד",
@@ -60,9 +85,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Writing That Sells",
+    "he": "כתיבה שמוכרת",
+    "fr": "Écrire pour vendre",
+    "ar": "كتابة تبيع",
+    "ru": "Тексты, которые продают"
+   }
   },
   "c5": {
+   "n": 5,
    "type": "course",
    "title": "צילום מוצרים בטלפון",
    "description": "אור, רקע ועריכה לחנות אונליין",
@@ -73,9 +106,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Product Photography on Your Phone",
+    "he": "צילום מוצרים בטלפון",
+    "fr": "Photographier ses produits au téléphone",
+    "ar": "تصوير المنتجات بالهاتف",
+    "ru": "Предметная съёмка на телефон"
+   }
   },
   "c6": {
+   "n": 6,
    "type": "course",
    "title": "ניהול זמן שעובד",
    "description": "שיטות מוכחות לתכנון שבוע, בלי אפליקציות מסובכות",
@@ -86,9 +127,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Time Management That Works",
+    "he": "ניהול זמן שעובד",
+    "fr": "Une gestion du temps qui fonctionne",
+    "ar": "إدارة وقت تنجح فعلًا",
+    "ru": "Тайм-менеджмент, который работает"
+   }
   },
   "c7": {
+   "n": 7,
    "type": "course",
    "title": "אינסטגרם לעסק קטן",
    "description": "תוכן, רילס ותכנון חודשי",
@@ -99,9 +148,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Instagram for Small Business",
+    "he": "אינסטגרם לעסק קטן",
+    "fr": "Instagram pour petite entreprise",
+    "ar": "إنستغرام للأعمال الصغيرة",
+    "ru": "Instagram для малого бизнеса"
+   }
   },
   "c8": {
+   "n": 8,
    "type": "course",
    "title": "מבוא לפיתוח אתרים ב-HTML ו-CSS",
    "description": "בונים דף נחיתה ראשון מאפס",
@@ -112,9 +169,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Introduction to Web Development with HTML and CSS",
+    "he": "מבוא לפיתוח אתרים ב-HTML ו-CSS",
+    "fr": "Initiation au développement web en HTML et CSS",
+    "ar": "مدخل إلى تطوير المواقع بـ HTML وCSS",
+    "ru": "Введение в веб-разработку на HTML и CSS"
+   }
   },
   "b9": {
+   "n": 9,
    "type": "ebook",
    "title": "מדריך הפרומפטים בעברית",
    "description": "200 פקודות מוכנות לעבודה, ללימודים וליצירה",
@@ -125,9 +190,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "The Prompt Guide",
+    "he": "מדריך הפרומפטים בעברית",
+    "fr": "Le guide des prompts",
+    "ar": "دليل الأوامر",
+    "ru": "Путеводитель по промптам"
+   }
   },
   "b10": {
+   "n": 10,
    "type": "ebook",
    "title": "ChatGPT לבעלי עסקים",
    "description": "30 תרחישים אמיתיים עם תבניות",
@@ -138,9 +211,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "ChatGPT for Business Owners",
+    "he": "ChatGPT לבעלי עסקים",
+    "fr": "ChatGPT pour les chefs d'entreprise",
+    "ar": "ChatGPT لأصحاب الأعمال",
+    "ru": "ChatGPT для владельцев бизнеса"
+   }
   },
   "b11": {
+   "n": 11,
    "type": "ebook",
    "title": "100 רעיונות לפוסטים",
    "description": "לוח תוכן לשנה שלמה",
@@ -151,9 +232,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "100 Post Ideas",
+    "he": "100 רעיונות לפוסטים",
+    "fr": "100 idées de posts",
+    "ar": "100 فكرة للمنشورات",
+    "ru": "100 идей для постов"
+   }
   },
   "b12": {
+   "n": 12,
    "type": "ebook",
    "title": "מדריך לכתיבת דף נחיתה",
    "description": "מבנה, כותרות ודוגמאות לפני ואחרי",
@@ -164,9 +253,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "How to Write a Landing Page",
+    "he": "מדריך לכתיבת דף נחיתה",
+    "fr": "Guide de rédaction d'une page de destination",
+    "ar": "دليل كتابة صفحة الهبوط",
+    "ru": "Как написать лендинг"
+   }
   },
   "b13": {
+   "n": 13,
    "type": "ebook",
    "title": "ניוזלטר ראשון",
    "description": "איך לבנות רשימת תפוצה ולכתוב מייל שבועי",
@@ -177,9 +274,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Your First Newsletter",
+    "he": "ניוזלטר ראשון",
+    "fr": "Ma première newsletter",
+    "ar": "نشرتك البريدية الأولى",
+    "ru": "Первая рассылка"
+   }
   },
   "b14": {
+   "n": 14,
    "type": "ebook",
    "title": "מיתוג אישי בלינקדאין",
    "description": "פרופיל, פוסטים ושיחות שמביאים פניות",
@@ -190,9 +295,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Personal Branding on LinkedIn",
+    "he": "מיתוג אישי בלינקדאין",
+    "fr": "Votre marque personnelle sur LinkedIn",
+    "ar": "العلامة الشخصية على LinkedIn",
+    "ru": "Личный бренд в LinkedIn"
+   }
   },
   "b15": {
+   "n": 15,
    "type": "ebook",
    "title": "קורות חיים שעוברים סינון",
    "description": "מבנה, ניסוח ו-12 דוגמאות לפי תחום",
@@ -203,9 +316,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "A CV That Gets Through Screening",
+    "he": "קורות חיים שעוברים סינון",
+    "fr": "Un CV qui passe le filtrage",
+    "ar": "سيرة ذاتية تجتاز الفرز",
+    "ru": "Резюме, которое проходит отбор"
+   }
   },
   "b16": {
+   "n": 16,
    "type": "ebook",
    "title": "להתכונן לראיון עבודה",
    "description": "60 שאלות נפוצות ואיך לענות עליהן",
@@ -216,9 +337,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Preparing for a Job Interview",
+    "he": "להתכונן לראיון עבודה",
+    "fr": "Se préparer à un entretien d'embauche",
+    "ar": "الاستعداد لمقابلة العمل",
+    "ru": "Подготовка к собеседованию"
+   }
   },
   "b17": {
+   "n": 17,
    "type": "ebook",
    "title": "מדריך הפרילנסר המתחיל",
    "description": "תמחור שירות, הצעת מחיר וחוזה עבודה בסיסי",
@@ -229,9 +358,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "The Freelancer's Starter Guide",
+    "he": "מדריך הפרילנסר המתחיל",
+    "fr": "Le guide du freelance débutant",
+    "ar": "دليل المستقل المبتدئ",
+    "ru": "Руководство начинающего фрилансера"
+   }
   },
   "b18": {
+   "n": 18,
    "type": "template",
    "title": "ערכת הצעות מחיר",
    "description": "10 תבניות מוכנות להעתקה לוורד או לגוגל דוקס",
@@ -242,9 +379,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "The Price Quote Kit",
+    "he": "ערכת הצעות מחיר",
+    "fr": "Le kit de devis",
+    "ar": "مجموعة عروض الأسعار",
+    "ru": "Набор коммерческих предложений"
+   }
   },
   "b19": {
+   "n": 19,
    "type": "template",
    "title": "מתכנן תוכן חודשי",
    "description": "גיליון מוכן לתכנון פוסטים ומעקב",
@@ -255,9 +400,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Monthly Content Planner",
+    "he": "מתכנן תוכן חודשי",
+    "fr": "Planificateur de contenu mensuel",
+    "ar": "مخطِّط المحتوى الشهري",
+    "ru": "Ежемесячный контент-планер"
+   }
   },
   "b20": {
+   "n": 20,
    "type": "template",
    "title": "לוח משימות שבועי",
    "description": "מתכנן להדפסה ולטאבלט",
@@ -268,9 +421,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Weekly Task Board",
+    "he": "לוח משימות שבועי",
+    "fr": "Tableau de tâches hebdomadaire",
+    "ar": "لوحة المهام الأسبوعية",
+    "ru": "Еженедельная доска задач"
+   }
   },
   "b21": {
+   "n": 21,
    "type": "ebook",
    "title": "שיטת ה-30 דקות",
    "description": "סדר בבית ובראש בחצי שעה ביום",
@@ -281,9 +442,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "The 30-Minute Method",
+    "he": "שיטת ה-30 דקות",
+    "fr": "La méthode des 30 minutes",
+    "ar": "طريقة الثلاثين دقيقة",
+    "ru": "Метод 30 минут"
+   }
   },
   "b22": {
+   "n": 22,
    "type": "ebook",
    "title": "הרגלים קטנים",
    "description": "חוברת עבודה ל-30 יום לבניית הרגל חדש",
@@ -294,9 +463,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Small Habits",
+    "he": "הרגלים קטנים",
+    "fr": "Petites habitudes",
+    "ar": "عادات صغيرة",
+    "ru": "Маленькие привычки"
+   }
   },
   "b23": {
+   "n": 23,
    "type": "ebook",
    "title": "מחברת התודה",
    "description": "90 יום של כתיבה מודרכת, 5 דקות ביום",
@@ -307,9 +484,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "The Gratitude Notebook",
+    "he": "מחברת התודה",
+    "fr": "Le carnet de gratitude",
+    "ar": "دفتر الامتنان",
+    "ru": "Тетрадь благодарности"
+   }
   },
   "b24": {
+   "n": 24,
    "type": "ebook",
    "title": "יומן בוקר",
    "description": "שאלות ליום חדש, 100 עמודים",
@@ -320,9 +505,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Morning Journal",
+    "he": "יומן בוקר",
+    "fr": "Journal du matin",
+    "ar": "دفتر الصباح",
+    "ru": "Утренний дневник"
+   }
   },
   "b25": {
+   "n": 25,
    "type": "ebook",
    "title": "לכתוב סיפור קצר",
    "description": "מדריך מעשי עם 20 תרגילים",
@@ -333,9 +526,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Writing a Short Story",
+    "he": "לכתוב סיפור קצר",
+    "fr": "Écrire une nouvelle",
+    "ar": "اكتبوا قصة قصيرة",
+    "ru": "Пишем короткий рассказ"
+   }
   },
   "b26": {
+   "n": 26,
    "type": "ebook",
    "title": "מחברת סקיצות",
    "description": "60 תרגילי איור יומיים",
@@ -346,9 +547,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "The Sketchbook",
+    "he": "מחברת סקיצות",
+    "fr": "Carnet de croquis",
+    "ar": "دفتر الاسكتشات",
+    "ru": "Скетчбук"
+   }
   },
   "b27": {
+   "n": 27,
    "type": "ebook",
    "title": "קליגרפיה עברית למתחילים",
    "description": "דפי תרגול ואותיות להעתקה",
@@ -359,9 +568,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Hebrew Calligraphy for Beginners",
+    "he": "קליגרפיה עברית למתחילים",
+    "fr": "Calligraphie hébraïque pour débutants",
+    "ar": "الخط العبري للمبتدئين",
+    "ru": "Еврейская каллиграфия для начинающих"
+   }
   },
   "b28": {
+   "n": 28,
    "type": "ebook",
    "title": "צילום בטלפון",
    "description": "50 טיפים קצרים, וכל טיפ עם תרגיל צילום",
@@ -372,9 +589,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Phone Photography",
+    "he": "צילום בטלפון",
+    "fr": "La photo au téléphone",
+    "ar": "التصوير بالهاتف",
+    "ru": "Фотография на телефон"
+   }
   },
   "b29": {
+   "n": 29,
    "type": "ebook",
    "title": "עריכת וידאו בטלפון",
    "description": "CapCut מאפס לסרטון ראשון",
@@ -385,9 +610,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Video Editing on Your Phone",
+    "he": "עריכת וידאו בטלפון",
+    "fr": "Le montage vidéo sur téléphone",
+    "ar": "مونتاج الفيديو على الهاتف",
+    "ru": "Монтаж видео на телефоне"
+   }
   },
   "b30": {
+   "n": 30,
    "type": "ebook",
    "title": "המטבח הביתי",
    "description": "40 מתכונים ביתיים, צעד אחר צעד",
@@ -398,9 +631,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "The Home Kitchen",
+    "he": "המטבח הביתי",
+    "fr": "La cuisine de la maison",
+    "ar": "المطبخ المنزلي",
+    "ru": "Домашняя кухня"
+   }
   },
   "b31": {
+   "n": 31,
    "type": "ebook",
    "title": "לחם בבית",
    "description": "מחמצת, חלות ולחמים במטבח רגיל",
@@ -411,9 +652,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Bread at Home",
+    "he": "לחם בבית",
+    "fr": "Du pain à la maison",
+    "ar": "الخبز في البيت",
+    "ru": "Хлеб дома"
+   }
   },
   "b32": {
+   "n": 32,
    "type": "ebook",
    "title": "ארוחות ב-20 דקות",
    "description": "30 ארוחות ערב מהירות לכל השבוע",
@@ -424,9 +673,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "20-Minute Meals",
+    "he": "ארוחות ב-20 דקות",
+    "fr": "Dîners en 20 minutes",
+    "ar": "وجبات في 20 دقيقة",
+    "ru": "Ужин за 20 минут"
+   }
   },
   "b33": {
+   "n": 33,
    "type": "ebook",
    "title": "מאפים לשבת",
    "description": "25 מתכונים לעוגות ועוגיות",
@@ -437,9 +694,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Shabbat Baking",
+    "he": "מאפים לשבת",
+    "fr": "Pâtisseries pour Shabbat",
+    "ar": "مخبوزات السبت",
+    "ru": "Выпечка к Шаббату"
+   }
   },
   "b34": {
+   "n": 34,
    "type": "ebook",
    "title": "קופסת אוכל לבית ספר",
    "description": "60 רעיונות לארוחות עשר",
@@ -450,9 +715,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "The School Lunchbox",
+    "he": "קופסת אוכל לבית ספר",
+    "fr": "La boîte à repas pour l’école",
+    "ar": "علبة الطعام المدرسية",
+    "ru": "Ланчбокс в школу"
+   }
   },
   "b35": {
+   "n": 35,
    "type": "ebook",
    "title": "מתכנן ארוחות שבועי",
    "description": "תפריטים ורשימות קנייה להדפסה",
@@ -463,9 +736,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Weekly Meal Planner",
+    "he": "מתכנן ארוחות שבועי",
+    "fr": "Planificateur de repas hebdomadaire",
+    "ar": "مخطِّط الوجبات الأسبوعي",
+    "ru": "Планировщик меню на неделю"
+   }
   },
   "b36": {
+   "n": 36,
    "type": "ebook",
    "title": "גינה במרפסת",
    "description": "תבלינים וירקות בעציצים, לפי עונות",
@@ -476,9 +757,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "A Balcony Garden",
+    "he": "גינה במרפסת",
+    "fr": "Un jardin sur le balcon",
+    "ar": "حديقة على الشرفة",
+    "ru": "Сад на балконе"
+   }
   },
   "b37": {
+   "n": 37,
    "type": "ebook",
    "title": "עיצוב הבית בתקציב קטן",
    "description": "רעיונות לכל חדר, עם רשימות קנייה",
@@ -489,9 +778,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Home Decor on a Small Budget",
+    "he": "עיצוב הבית בתקציב קטן",
+    "fr": "Décorer sa maison avec un petit budget",
+    "ar": "تزيين البيت بميزانية صغيرة",
+    "ru": "Уютный дом на скромный бюджет"
+   }
   },
   "b38": {
+   "n": 38,
    "type": "ebook",
    "title": "סדר בארון",
    "description": "שיטה פשוטה למיון ולארגון בגדים",
@@ -502,9 +799,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "An Orderly Wardrobe",
+    "he": "סדר בארון",
+    "fr": "De l'ordre dans le placard",
+    "ar": "خزانة مرتّبة",
+    "ru": "Порядок в шкафу"
+   }
   },
   "b39": {
+   "n": 39,
    "type": "ebook",
    "title": "מסיבת יום הולדת בבית",
    "description": "10 קונספטים עם רשימות הכנה",
@@ -515,9 +820,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "A Birthday Party at Home",
+    "he": "מסיבת יום הולדת בבית",
+    "fr": "Un anniversaire à la maison",
+    "ar": "حفلة عيد ميلاد في البيت",
+    "ru": "День рождения дома"
+   }
   },
   "b40": {
+   "n": 40,
    "type": "ebook",
    "title": "משחקים לילדים בלי מסך",
    "description": "80 רעיונות לבית ולחוץ",
@@ -528,9 +841,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Screen-Free Games for Kids",
+    "he": "משחקים לילדים בלי מסך",
+    "fr": "Jeux sans écran pour les enfants",
+    "ar": "ألعاب للأطفال بلا شاشات",
+    "ru": "Игры для детей без экрана"
+   }
   },
   "b41": {
+   "n": 41,
    "type": "ebook",
    "title": "חוברת פעילות לחופש הגדול",
    "description": "דפי פעילות להדפסה לגילאי 6–10",
@@ -541,9 +862,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "The Summer Break Activity Book",
+    "he": "חוברת פעילות לחופש הגדול",
+    "fr": "Cahier d'activités pour les grandes vacances",
+    "ar": "دفتر أنشطة للعطلة الصيفية",
+    "ru": "Тетрадь занятий на летние каникулы"
+   }
   },
   "b42": {
+   "n": 42,
    "type": "ebook",
    "title": "טיול בארץ",
    "description": "20 מסלולים קלים למשפחות, עם תרשים לכל מסלול",
@@ -554,9 +883,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Hiking in Israel",
+    "he": "טיול בארץ",
+    "fr": "Balades en Israël",
+    "ar": "رحلة في البلاد",
+    "ru": "Путешествия по Израилю"
+   }
   },
   "b43": {
+   "n": 43,
    "type": "ebook",
    "title": "טיול לחו״ל בתכנון חכם",
    "description": "צ׳ק-ליסטים, אריזה ותכנון מסלול",
@@ -567,9 +904,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Smart Planning for a Trip Abroad",
+    "he": "טיול לחו״ל בתכנון חכם",
+    "fr": "Voyager à l'étranger, bien préparé",
+    "ar": "رحلة إلى الخارج بتخطيط ذكي",
+    "ru": "Умное планирование поездки за границу"
+   }
   },
   "b44": {
+   "n": 44,
    "type": "ebook",
    "title": "אנגלית לשיחה",
    "description": "300 משפטים שימושיים לעבודה ולטיולים",
@@ -579,9 +924,16 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "he": "אנגלית לשיחה",
+    "fr": "L'anglais de la conversation",
+    "ar": "الإنجليزية للمحادثة",
+    "ru": "Разговорный английский"
+   }
   },
   "b45": {
+   "n": 45,
    "type": "ebook",
    "title": "אנגלית למיילים בעבודה",
    "description": "תבניות ומשפטי מפתח",
@@ -591,9 +943,16 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "he": "אנגלית למיילים בעבודה",
+    "fr": "L'anglais des e-mails professionnels",
+    "ar": "الإنجليزية لرسائل البريد الإلكتروني في العمل",
+    "ru": "Английский для рабочих писем"
+   }
   },
   "b46": {
+   "n": 46,
    "type": "ebook",
    "title": "מדריך הנואם המתחיל",
    "description": "איך להכין ולהעביר הרצאה של 10 דקות",
@@ -604,9 +963,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "The Beginner Speaker's Guide",
+    "he": "מדריך הנואם המתחיל",
+    "fr": "Le guide de l'orateur débutant",
+    "ar": "دليل الخطيب المبتدئ",
+    "ru": "Пособие для начинающего оратора"
+   }
   },
   "b47": {
+   "n": 47,
    "type": "ebook",
    "title": "להתחיל לרוץ",
    "description": "תוכנית הליכה-ריצה ל-8 שבועות, למתחילים בריאים",
@@ -617,9 +984,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Start Running",
+    "he": "להתחיל לרוץ",
+    "fr": "Se mettre à courir",
+    "ar": "ابدأ الجري",
+    "ru": "Начните бегать"
+   }
   },
   "b48": {
+   "n": 48,
    "type": "ebook",
    "title": "יוגה בבוקר",
    "description": "3 רצפים קצרים, כל תנוחה בתיאור מדויק",
@@ -630,9 +1005,17 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Morning Yoga",
+    "he": "יוגה בבוקר",
+    "fr": "Le yoga du matin",
+    "ar": "يوغا الصباح",
+    "ru": "Утренняя йога"
+   }
   },
   "k49": {
+   "n": 49,
    "type": "bundle",
    "title": "חבילת העסק הקטן",
    "description": "חמישה מדריכים לשיווק ולמכירה, במחיר אחד נמוך יותר",
@@ -643,9 +1026,24 @@
     "fr",
     "ar",
     "ru"
+   ],
+   "titles": {
+    "en": "The Small Business Bundle",
+    "he": "חבילת העסק הקטן",
+    "fr": "Le coffret Petite entreprise",
+    "ar": "باقة المشروع الصغير",
+    "ru": "Набор для малого бизнеса"
+   },
+   "includes": [
+    "b9",
+    "b11",
+    "b12",
+    "b18",
+    "b19"
    ]
   },
   "k50": {
+   "n": 50,
    "type": "bundle",
    "title": "חבילת המטבח",
    "description": "שישה ספרי מטבח, ממחמצת ועד ארוחות לשבוע",
@@ -656,9 +1054,25 @@
     "fr",
     "ar",
     "ru"
+   ],
+   "titles": {
+    "en": "The Kitchen Bundle",
+    "he": "חבילת המטבח",
+    "fr": "Le coffret Cuisine",
+    "ar": "باقة المطبخ",
+    "ru": "Кухонный набор"
+   },
+   "includes": [
+    "b30",
+    "b31",
+    "b32",
+    "b33",
+    "b34",
+    "b35"
    ]
   },
   "b51": {
+   "n": 51,
    "type": "ebook",
    "title": "המקסימום שלך",
    "description": "ספר ההתפתחות האישית שהופך אותך לגרסה הכי טובה של עצמך",
@@ -670,7 +1084,14 @@
     "fr",
     "ar",
     "ru"
-   ]
+   ],
+   "titles": {
+    "en": "Your Maximum",
+    "he": "המקסימום שלך",
+    "fr": "Votre maximum",
+    "ar": "أقصى ما فيك",
+    "ru": "Ваш максимум"
+   }
   }
  },
  "plans": {
