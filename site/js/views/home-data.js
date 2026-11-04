@@ -19,4 +19,4 @@ export const WORLDS = [
   { nums: [39, 40, 41, 42, 43, 44, 45, 47, 48], book: "b42", glow: "#E3F4EC,#EEF7FF" },
 ];
 
-export const PROMISE_ICONS = ["i-pen", "i-bolt", "i-device", "i-shield"];
+export const PROMISE_ICONS = ["i-pen", "i-plane", "i-device", "i-shield"];

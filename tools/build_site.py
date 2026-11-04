@@ -21,7 +21,7 @@ OUT = ROOT / "web" / "public"
 DOMAIN = "youmademyday.store"
 LANGS = {"en": "ltr", "he": "rtl", "fr": "ltr", "ar": "rtl", "ru": "ltr"}  # English first: it is the root site
 DEFAULT = "en"
-SLUGS = ["courses", "books", "pricing", "terms", "privacy", "refunds", "cookies", "accessibility", "checkout", "search"]
+SLUGS = ["courses", "books", "plans", "login", "pricing", "terms", "privacy", "refunds", "cookies", "accessibility", "checkout", "search"]
 OG_LOCALE = {"en": "en_US", "he": "he_IL", "fr": "fr_FR", "ar": "ar_AR", "ru": "ru_RU"}
 
 
@@ -63,7 +63,7 @@ def head(lang: str, slug: str, assets: str) -> str:
     path = f"/{slug}" if slug else "/"
     alternates = "".join(f'<link rel="alternate" hreflang="{c}" href="https://{DOMAIN}{prefix(c)}{path}">' for c in live_langs())
     alternates += f'<link rel="alternate" hreflang="x-default" href="https://{DOMAIN}{path}">'
-    css = "".join(f'<link rel="stylesheet" href="{assets}/{f}">' for f in ["fonts/fonts.css", "styles.css", "css/book3d.css", "css/home.css", "css/pages.css"])
+    css = "".join(f'<link rel="stylesheet" href="{assets}/{f}">' for f in ["fonts/fonts.css", "styles.css", "css/book3d.css", "css/home.css", "css/pages.css", "css/telegram.css"])
     return f"""<!doctype html>
 <html lang="{lang}" dir="{LANGS[lang]}">
 <head>

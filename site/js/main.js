@@ -13,8 +13,9 @@ import { openDrawer, closeDrawer, viewCheckout } from "./views/cart.js";
 import { viewPricing } from "./views/pricing.js";
 import { viewTerms, viewPrivacy, viewRefunds, viewCookies, viewAccessibility, cancelText } from "./legal/pages.js";
 import { mount, startMotion } from "./motion.js";
+import { viewPlans, viewLogin } from "./views/telegram.js";
 
-const PAGES = { courses: () => viewShop("courses"), books: () => viewShop("books"), checkout: viewCheckout, search: viewSearch, pricing: viewPricing, terms: viewTerms, privacy: viewPrivacy, refunds: viewRefunds, cookies: viewCookies, accessibility: viewAccessibility };
+const PAGES = { courses: () => viewShop("courses"), books: () => viewShop("books"), checkout: viewCheckout, search: viewSearch, pricing: viewPricing, plans: viewPlans, login: viewLogin, terms: viewTerms, privacy: viewPrivacy, refunds: viewRefunds, cookies: viewCookies, accessibility: viewAccessibility };
 const SHOPS = new Set(["courses", "books"]);
 const RAIL_GAP = 20; // px, matches .rail gap in css/home.css
 

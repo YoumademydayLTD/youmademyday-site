@@ -5,6 +5,7 @@ import { REFUND_DAYS, BOOK_DEAL_MIN } from "../business.js";
 import { book3d, bookStage } from "../book3d.js";
 import { t, tList } from "../i18n/index.js";
 import * as D from "./home-data.js";
+import { telegramScene, plansGrid, supportBand, tgButton, tgPill } from "./telegram.js";
 
 const icon = (id) => `<svg aria-hidden="true"><use href="#${id}"/></svg>`;
 const link = (href, text) => `<a class="lnk" href="${href}"><span>${text}</span></a>`;
@@ -16,10 +17,10 @@ const countIn = (nums) => [...COURSES, ...BOOKS].filter((p) => nums.includes(p.n
 const hero = () => `
   <header class="hero" id="hero"><div class="wash"></div>
     <div class="wrap center">
-      <div class="kicker load">${t("home.kicker")}</div>
+      <div class="load">${tgPill(t("home.kicker"))}</div>
       <h1 class="load d1">${t("home.h1a")}<br><span class="grad">${t("home.h1b")}</span></h1>
       <p class="sub load d2">${t("home.sub")}</p>
-      <div class="ctas load d3"><a class="btn btn-ink" href="#courses">${t("home.ctaCourses")}</a>${link("#books", t("home.ctaBooks"))}</div>
+      <div class="ctas load d3">${tgButton(t("home.ctaJoin"), "home")}<a class="btn btn-ink" href="#courses">${t("home.ctaCourses")}</a>${link("#books", t("home.ctaBooks"))}</div>
     </div>
     <div class="fan" data-fan><div class="fan-in">${pick(D.HERO_FAN).map((p, i) => `<div class="slot" style="animation-delay:${0.25 + Math.abs(i - 2) * 0.12}s">${book3d(p)}</div>`).join("")}</div><div class="floor"></div></div>
   </header>`;
@@ -89,16 +90,21 @@ const faq = () => tList("home.faqList").map(([q, a], i) => `<details${i ? "" : "
 export function viewHome() {
   return `${hero()}
   <section class="statement"><div class="wrap"><p data-words>${esc(t("home.statement"))}</p></div></section>
-  ${tiles()}${worlds()}${openBook()}
+  ${tiles()}${telegramScene()}${worlds()}${openBook()}
   <section class="sec" style="padding-top:40px"><div class="wrap">
     <div class="sec-title"><h2 class="rv">${t("home.coursesA")} <span>${t("home.coursesB")}</span></h2>${link("#courses", t("home.allCoursesN", { n: COURSES.length }))}</div>
     <div class="grid">${pick(D.HOME_COURSES).map(card).join("")}</div>
   </div></section>
   ${shelf()}
   <section class="sec" style="padding-top:0"><div class="wrap">
+    <div class="sec-title"><h2 class="rv">${t("home.plansA")} <span>${t("home.plansB")}</span></h2>${link("#plans", t("home.allPlans"))}</div>
+    ${plansGrid()}
+  </div></section>
+  <section class="sec" style="padding-top:0"><div class="wrap">
     <h2 class="rv center" style="font-size:clamp(32px,3.8vw,50px);margin-bottom:60px">${t("home.why")}</h2>
     <div class="promises">${promises()}</div>
   </div></section>
+  ${supportBand()}
   <section class="sec" style="padding-top:0"><div class="wrap">
     <h2 class="rv center" style="font-size:clamp(32px,3.8vw,50px);margin-bottom:36px">${t("home.faq")}</h2>
     <div class="faq rv d1">${faq()}</div>
