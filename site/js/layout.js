@@ -3,6 +3,7 @@ import { t, LANG, urlIn, HOME_URL } from "./i18n/index.js";
 import { LANGS, LIVE } from "./i18n/config.js";
 import { BIZ_FOR } from "./business.js";
 import { botUrl } from "./telegram/bot.js";
+import { accountSlot } from "./telegram/account.js";
 
 const icon = (id) => `<svg aria-hidden="true"><use href="#${id}"/></svg>`;
 
@@ -17,7 +18,7 @@ function header() {
       <button class="icon-btn" data-act="open-wish" aria-label="${t("nav.wish")}">${icon("i-heart")}<span class="badge" id="wishN" data-n="0">0</span></button>
       <button class="icon-btn" data-act="open-cart" aria-label="${t("nav.cart")}">${icon("i-bag")}<span class="badge" id="cartN" data-n="0">0</span></button>
     </div>
-    <a class="btn btn-tg tg-login" href="#login" aria-label="${t("nav.loginLabel")}">${icon("i-plane")}<span>${t("nav.login")}</span></a>
+    ${accountSlot()}
   </div></header>`;
 }
 

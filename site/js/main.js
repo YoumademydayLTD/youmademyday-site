@@ -19,6 +19,9 @@ import { viewBuy } from "./views/buy.js";
 import { viewThanks, showDownloads } from "./views/thanks.js";
 import { startPayment } from "./checkout/pay.js";
 import { isDirectOffer, buyHref } from "./money.js";
+import { mountLogin } from "./views/login-page.js";
+import { fetchMe, logout, SESSION_EVENT } from "./telegram/session.js";
+import { watchAccount } from "./telegram/account.js";
 
 const PAGES = { courses: () => viewShop("courses"), books: () => viewShop("books"), checkout: viewCheckout, search: viewSearch, pricing: viewPricing, plans: viewPlans, login: viewLogin, terms: viewTerms, privacy: viewPrivacy, refunds: viewRefunds, cookies: viewCookies, accessibility: viewAccessibility };
 const SHOPS = new Set(["courses", "books"]);
@@ -26,6 +29,8 @@ const SHOPS = new Set(["courses", "books"]);
 const PREFIX_VIEWS = { "buy-": viewBuy, "thanks-": viewThanks };
 // Work a prefixed page starts once it is on screen.
 const PREFIX_AFTER = { "thanks-": showDownloads };
+// Work a plain page starts once it is on screen.
+const PAGE_AFTER = { login: mountLogin };
 const RAIL_GAP = 20; // px, matches .rail gap in css/home.css
 
 // Clean slugs (/he/pricing) work on the live site; a hash wins when present. The language prefix is not a route.
@@ -55,6 +60,7 @@ function route() {
   mount($("#view"));
   const prefix = prefixOf(r);
   if (prefix) PREFIX_AFTER[prefix]?.(r.slice(prefix.length));
+  PAGE_AFTER[r]?.();
   const section = ALL[r] ? (isCourse(ALL[r]) ? "courses" : "books") : r;
   document.querySelectorAll("#nav a").forEach((a) => a.classList.toggle("on", a.dataset.nav === section));
   document.title = ALL[r] ? t("meta.itemTitle", { title: ALL[r].title }) : t("meta.title");
@@ -90,6 +96,14 @@ function scrollRail(dir) {
   rail.scrollBy({ left: (dir === "next" ? forward : -forward) * step, behavior: "smooth" });
 }
 
+// Signing out removes the button that had focus, so focus moves to the header's «log in» link.
+async function signOut() {
+  const done = logout();
+  document.querySelector("#acctSlot .tg-login")?.focus();
+  toast(t("toast.loggedOut"));
+  await done;
+}
+
 const ACTIONS = {
   wish: (el) => { toggleWish(el.dataset.id); const r = currentRoute(); SHOPS.has(r) ? fillGrid(r) : rerender(); syncBadges(); },
   add: (el) => { if (!addToCart(el.dataset.id)) return; toast(t("toast.added")); rerender(); openDrawer("cart"); },
@@ -108,11 +122,14 @@ const ACTIONS = {
   "copy-cancel": () => copyText(cancelText(), t("toast.copied")),
   "copy-email": () => copyText(BIZ.email, t("toast.emailCopied")),
   pay: (el) => startPayment(el),
+  logout: signOut,
 };
 const KEEP_DEFAULT = new Set(["close-go"]);
 
 applyDocumentLanguage();
 renderLayout();
+watchAccount();
+fetchMe();
 
 // Home has a clean address (no #home): go there in place, without a reload.
 function goHome() {
@@ -150,6 +167,8 @@ document.addEventListener("submit", (e) => {
 });
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && $("#drawerRoot").innerHTML) closeDrawer(); });
 window.addEventListener("hashchange", () => { closeDrawer(); route(); });
+// Signing in or out redraws the login page into its other state.
+window.addEventListener(SESSION_EVENT, () => { if (currentRoute() === "login") rerender(); });
 window.addEventListener("popstate", () => { closeDrawer(); route(); });
 startMotion();
 route();

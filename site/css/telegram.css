@@ -17,6 +17,10 @@
 .tg-dot svg{width:8px!important;height:8px!important}
 .tg-login{height:36px;padding-inline:12px 15px;font-size:14px;margin-inline-start:4px}
 .tg-login svg{width:15px;height:15px}
+/* header account spot: «log in», or the name plus a sign-out button */
+.acct-slot{display:flex;align-items:center;gap:2px;flex:none;min-width:0}
+.tg-name{max-width:14ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+[dir="ltr"] .acct-slot .icon-btn svg{transform:scaleX(-1)}
 
 /* home scene: phone + steps */
 .tg-scene{position:relative;overflow:hidden;isolation:isolate}
@@ -80,10 +84,16 @@
 .login-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .login-card{background:var(--tile);border-radius:var(--r-tile);padding:clamp(30px,4vw,44px);display:flex;flex-direction:column;gap:16px;align-items:flex-start}
 .login-card h3{font-size:28px}
-.code{display:flex;gap:9px}
-.code input{width:48px;height:58px;border-radius:15px;border:0;background:#fff;box-shadow:var(--shadow);text-align:center;font:inherit;font-size:26px;font-weight:600;color:var(--ink)}
+.login-grid > *{min-width:0}
+.code{display:flex;gap:9px;width:100%}
+/* cells shrink on narrow phones instead of pushing the card past the screen */
+.code input{flex:0 1 48px;min-width:0;height:58px;border-radius:15px;border:0;background:#fff;box-shadow:var(--shadow);text-align:center;font:inherit;font-size:26px;font-weight:600;color:var(--ink)}
 .code input:focus-visible{outline:2px solid var(--tg)}
 .fine{font-size:13px;color:var(--muted);max-width:46ch}
+.login-status{font-size:14.5px;color:var(--ink-2);max-width:46ch}
+.login-status:empty{display:none}
+.login-status.err{color:var(--danger)}
+#loginLink[aria-disabled="true"]{opacity:.55}
 .acct{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .acct > div{background:var(--tile);border-radius:24px;padding:24px}
 .acct b{display:block;font-size:18px;font-weight:600;margin:14px 0 4px}

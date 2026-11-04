@@ -1,9 +1,11 @@
 // Telegram pieces: the bot chat phone, the three steps, the support band and the login page.
-import { t, tList } from "../i18n/index.js";
+import { t, tList, HOME_URL } from "../i18n/index.js";
+import { esc } from "../util.js";
 import { botUrl, isBotLive } from "../telegram/bot.js";
+import { isSignedIn, getUser } from "../telegram/session.js";
+import { CODE_LENGTH } from "../telegram/code-digits.js";
 
 const icon = (id) => `<svg aria-hidden="true"><use href="#${id}"/></svg>`;
-const LOGIN_CODE_LENGTH = 6;
 
 /** A pill button that opens the bot (or the login page while the bot is not live). */
 export const tgButton = (label, payload = "", extra = "") =>
@@ -49,17 +51,33 @@ const ACCOUNT_ICONS = ["i-book", "i-bell", "i-lock", "i-chat"];
 const accountPoints = () => tList("login.points").map(([b, p], i) =>
   `<div><span class="ic">${icon(ACCOUNT_ICONS[i])}</span><b>${b}</b><p>${p}</p></div>`).join("");
 
-export function viewLogin() {
-  const cells = Array.from({ length: LOGIN_CODE_LENGTH }, (_, i) => `<input${i ? "" : ' id="code0"'} inputmode="numeric" maxlength="1" aria-label="${t("login.digit", { n: i + 1 })}" disabled>`).join("");
-  return `<div class="wrap page-head center">${tgPill(t("tg.pill"))}<h1 style="margin-top:14px">${t("login.title")}</h1><p class="muted" style="margin:10px auto 0;max-width:52ch">${t("login.lead")}</p></div>
-  <div class="wrap" style="display:flex;flex-direction:column;gap:60px;padding-bottom:60px">
-    ${isBotLive() ? "" : `<p class="tg-soon">${t("login.soon")}</p>`}
-    <div class="login-grid">
-      <div class="login-card"><h3>${t("login.phoneH")}</h3><p class="muted">${t("login.phoneP")}</p>${tgButton(t("login.btn"), "login")}<p class="fine">${t("login.privacy")}</p></div>
-      <div class="login-card"><h3>${t("login.deskH")}</h3><p class="muted">${t("login.deskP")}</p>
+// Phone: a real link to the bot, so iOS opens Telegram straight from the tap; js/views/login-page.js fills its
+// address with a fresh login token once the page is on screen. Computer: the code from /login in the bot.
+function loginCards() {
+  const live = isBotLive();
+  const cells = Array.from({ length: CODE_LENGTH }, (_, i) => `<input${i ? "" : ' id="code0" autocomplete="one-time-code"'} inputmode="numeric" pattern="[0-9]*" aria-label="${t("login.digit", { n: i + 1 })}"${live ? "" : " disabled"}>`).join("");
+  return `<div class="login-grid">
+      <div class="login-card"><h3>${t("login.phoneH")}</h3><p class="muted">${t("login.phoneP")}</p>
+        <a class="btn btn-tg" id="loginLink" role="link" aria-disabled="true">${icon("i-plane")}<span>${t("login.btn")}</span></a>
+        <p class="login-status" id="phoneStatus" role="status" aria-live="polite"></p><p class="fine">${t("login.privacy")}</p></div>
+      <form class="login-card" id="codeForm" novalidate><h3>${t("login.deskH")}</h3><p class="muted">${t("login.deskP")}</p>
         <label class="fine" for="code0">${t("login.codeLabel")}</label><div class="code" dir="ltr">${cells}</div>
-        <button class="btn btn-ink" disabled>${t("login.verify")}</button><p class="fine">${t("login.codeNote")}</p></div>
-    </div>
+        <button class="btn btn-ink" type="submit"${live ? "" : " disabled"}>${t("login.verify")}</button>
+        <p class="login-status" id="codeStatus" role="status" aria-live="polite"></p><p class="fine">${t("login.codeNote")}</p></form>
+    </div>`;
+}
+
+function signedInCard() {
+  const name = getUser()?.name;
+  return `<div class="login-card login-done"><h3>${t("login.doneH")}</h3>${name ? `<p class="muted">${t("login.doneP", { name: esc(name) })}</p>` : ""}
+    <div class="ctas-row" style="margin-top:4px"><a class="btn btn-ink" href="${HOME_URL}" data-home>${t("login.home")}</a><button class="btn btn-ghost" type="button" data-act="logout">${t("nav.logout")}</button></div></div>`;
+}
+
+export function viewLogin() {
+  return `<div class="wrap page-head center">${tgPill(t("tg.pill"))}<h1 style="margin-top:14px">${t("login.title")}</h1><p class="muted" style="margin:10px auto 0;max-width:52ch">${t("login.lead")}</p></div>
+  <div class="wrap" id="loginRoot" style="display:flex;flex-direction:column;gap:60px;padding-bottom:60px">
+    ${isBotLive() ? "" : `<p class="tg-soon">${t("login.soon")}</p>`}
+    ${isSignedIn() ? signedInCard() : loginCards()}
     <div><div class="sec-title"><h2>${t("login.acctA")} <span>${t("login.acctB")}</span></h2></div><div class="acct">${accountPoints()}</div></div>
   </div>`;
 }
