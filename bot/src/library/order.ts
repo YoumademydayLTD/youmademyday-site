@@ -21,10 +21,12 @@ type DeliveryResult = "sent" | "pending" | "refunded";
 async function deliver(ctx: AppContext, user: BotUser, checkoutId: string): Promise<DeliveryResult> {
   const downloads = await fetchDownloads(ctx, checkoutId);
   if (downloads.status !== "ready") return downloads.status;
-  await sendText(ctx, user.telegramId, t(user.lang, "orderThanks"));
-  await sendFiles(ctx, user.telegramId, user.lang, downloads.items);
+  // Marked first: a bundle is several uploads, and if the run is cut short the cron must not send it all twice.
+  // Anything missing can be sent again from 📚 My library.
   const order = await findStoreOrder(ctx.db, checkoutId);
   await markDelivered(ctx.db, checkoutId, order?.id ?? "", ctx.nowIso);
+  await sendText(ctx, user.telegramId, t(user.lang, "orderThanks"));
+  await sendFiles(ctx, user.telegramId, user.lang, downloads.items);
   return "sent";
 }
 
