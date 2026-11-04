@@ -110,6 +110,13 @@ export default {
     "Vous payez dans la devise affichée au moment du paiement. Votre banque peut appliquer des frais de conversion.",
   ],
   "checkout.order": "Votre commande", "checkout.soonBtn": "Paiement bientôt disponible",
+  "pay.title": "Paiement sécurisé par carte",
+  "pay.text": "Le bouton vous mène à la page sécurisée de notre prestataire de paiement. Vous saisissez vos données de carte uniquement là-bas, et nous ne les voyons jamais. Une fois le paiement terminé, vous revenez ici.",
+  "pay.btn": "Continuer vers le paiement sécurisé", "pay.opening": "Ouverture de la page de paiement…",
+  "pay.error": "Impossible d’ouvrir la page de paiement. Réessayez dans un instant ou écrivez-nous à {email}.",
+  "thanks.title": "Merci ! Votre paiement est bien passé",
+  "thanks.text": "Un reçu arrive à l’adresse e-mail utilisée lors du paiement. Nous vous envoyons votre achat très bientôt. Une question ? Écrivez-nous à {email}.",
+  "thanks.ref": "Référence de commande : {id}", "thanks.back": "Retour à la boutique",
 
   "pricing.title": "Tarifs", "pricing.lead": "Cours et livres : vous payez une fois, les fichiers sont à vous pour toujours. Abonnements : renouvelés chaque semaine ou chaque mois, selon la formule, et résiliables à tout moment. Les prix sont indiqués en shekels israéliens (ILS), sauf lorsqu’ils sont affichés en dollars américains.",
   "pricing.course": "Cours", "pricing.book": "Livre ou modèle", "pricing.bundles": "Coffrets", "pricing.from": "₪ et plus", "pricing.bundlesN": "coffrets",

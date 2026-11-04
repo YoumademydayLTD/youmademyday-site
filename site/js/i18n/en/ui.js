@@ -110,6 +110,13 @@ export default {
     "You pay in the currency shown at checkout. Your card issuer may add a conversion fee.",
   ],
   "checkout.order": "Your order", "checkout.soonBtn": "Checkout opens soon",
+  "pay.title": "Secure card payment",
+  "pay.text": "The button takes you to our payment provider's secure page. You enter your card details only there, and we never see them. When you're done, you'll come back here.",
+  "pay.btn": "Continue to secure payment", "pay.opening": "Opening the payment page…",
+  "pay.error": "We couldn't open the payment page. Please try again in a moment, or email us at {email}.",
+  "thanks.title": "Thank you! Your payment went through",
+  "thanks.text": "A receipt is on its way to the email you used at checkout. We'll send you your purchase shortly. Any questions? Email {email}.",
+  "thanks.ref": "Order reference: {id}", "thanks.back": "Back to the store",
 
   "pricing.title": "Pricing", "pricing.lead": "Courses and books: pay once and the files are yours forever. Memberships: renew weekly or monthly, as each plan says, and cancel any time. Prices are in Israeli shekels (ILS), except where shown in US dollars.",
   "pricing.course": "Course", "pricing.book": "Book or template", "pricing.bundles": "Bundles", "pricing.from": "₪ and up", "pricing.bundlesN": "bundles",

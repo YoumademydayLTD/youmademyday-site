@@ -3,8 +3,9 @@ import { ALL, kindLabel, totals, isPdf } from "../catalog.js";
 import { flatCover } from "../book3d.js";
 import { S } from "../state.js";
 import { esc, ils, $ } from "../util.js";
-import { BIZ, BOOK_DEAL_MIN } from "../business.js";
+import { BOOK_DEAL_MIN } from "../business.js";
 import { t, tList } from "../i18n/index.js";
+import { payPanel, payButton } from "../checkout/panel.js";
 
 export function lineHtml(id) {
   const p = ALL[id];
@@ -38,23 +39,18 @@ export function openDrawer(kind) {
 
 export const closeDrawer = () => { $("#drawerRoot").innerHTML = ""; };
 
-// Card payment opens once the payment provider approves the store; until then the page says so plainly.
+// Card payment for the cart; while the cart switch is off (checkout/config.js) the page says it opens soon.
 export function viewCheckout() {
   if (!S.cart.length) {
     return `<div class="wrap success"><h1>${t("checkout.emptyTitle")}</h1><p class="muted">${t("checkout.emptyText")}</p><a class="btn btn-ink" href="#courses">${t("home.ctaCourses")}</a></div>`;
   }
   return `<div class="wrap page-head"><h1>${t("checkout.title")}</h1></div>
   <div class="wrap checkout">
-    <div class="panel" style="display:flex;flex-direction:column;gap:12px">
-      <h2 style="margin:0">${t("checkout.soonTitle")}</h2>
-      <p>${t("checkout.soon1")}</p>
-      <p>${t("checkout.soon2", { email: `<b>${BIZ.email}</b>` })}</p>
-      <ul class="incl">${tList("checkout.points").map((x) => `<li>${x}</li>`).join("")}</ul>
-    </div>
+    ${payPanel("cart", tList("checkout.points"))}
     <aside class="buybox"><h2 style="margin:0;font-size:22px">${t("checkout.order")}</h2>
       <div style="display:flex;flex-direction:column;gap:10px">${S.cart.filter((id) => ALL[id]).map(lineHtml).join("")}</div>
       <div style="display:flex;flex-direction:column;gap:8px">${summaryHtml()}</div>
-      <button class="btn btn-ink btn-block" disabled aria-disabled="true">${t("checkout.soonBtn")}</button>
+      ${payButton("cart")}
     </aside>
   </div>`;
 }

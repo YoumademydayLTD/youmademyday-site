@@ -1,11 +1,11 @@
 // Single-item checkout for direct offers (the flagship book) and memberships: one item, one price,
-// one currency. Payment opens once the payment provider is connected; until then the page says so.
+// one currency. Each kind opens by its switch in checkout/config.js; while off, the page says it opens soon.
 import { ALL } from "../catalog.js";
 import { ALL_PLANS } from "../telegram/plans.js";
 import { flatCover } from "../book3d.js";
 import { esc } from "../util.js";
-import { BIZ } from "../business.js";
 import { t, tList } from "../i18n/index.js";
+import { payPanel, payButton } from "../checkout/panel.js";
 import { priceLabel } from "../money.js";
 
 const PLAN_PREFIX = "plan-";
@@ -35,16 +35,11 @@ export function viewBuy(id) {
   const points = tList(isPlan ? "buy.planPoints" : "checkout.points").map((x) => x.replace("{price}", priceLabel(target.item)));
   return `<div class="wrap page-head"><h1>${t("checkout.title")}</h1></div>
   <div class="wrap checkout">
-    <div class="panel" style="display:flex;flex-direction:column;gap:12px">
-      <h2 style="margin:0">${t("checkout.soonTitle")}</h2>
-      <p>${t("checkout.soon1")}</p>
-      <p>${t("checkout.soon2", { email: `<b>${BIZ.email}</b>` })}</p>
-      <ul class="incl">${points.map((x) => `<li>${x}</li>`).join("")}</ul>
-    </div>
+    ${payPanel(target.kind, points)}
     <aside class="buybox"><h2 style="margin:0;font-size:22px">${t("checkout.order")}</h2>
       ${isPlan ? planLine(target.item) : productLine(target.item)}
       <div class="sum total"><span>${t("buy.today")}</span><span class="num">${isPlan && target.item.trialDays ? t("plan.free") : priceLabel(target.item)}</span></div>
-      <button class="btn btn-ink btn-block" disabled aria-disabled="true">${t("checkout.soonBtn")}</button>
+      ${payButton(target.kind, target.item.id)}
     </aside>
   </div>`;
 }

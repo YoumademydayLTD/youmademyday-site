@@ -16,12 +16,14 @@ import { mount, startMotion } from "./motion.js";
 import { viewLogin } from "./views/telegram.js";
 import { viewPlans } from "./views/plans.js";
 import { viewBuy } from "./views/buy.js";
+import { viewThanks } from "./views/thanks.js";
+import { startPayment } from "./checkout/pay.js";
 import { isDirectOffer, buyHref } from "./money.js";
 
 const PAGES = { courses: () => viewShop("courses"), books: () => viewShop("books"), checkout: viewCheckout, search: viewSearch, pricing: viewPricing, plans: viewPlans, login: viewLogin, terms: viewTerms, privacy: viewPrivacy, refunds: viewRefunds, cookies: viewCookies, accessibility: viewAccessibility };
 const SHOPS = new Set(["courses", "books"]);
-// Routes that carry an id after a prefix: #buy-<item>.
-const PREFIX_VIEWS = { "buy-": viewBuy };
+// Routes that carry an id after a prefix: #buy-<item>, #thanks-<checkout id>.
+const PREFIX_VIEWS = { "buy-": viewBuy, "thanks-": viewThanks };
 const RAIL_GAP = 20; // px, matches .rail gap in css/home.css
 
 // Clean slugs (/he/pricing) work on the live site; a hash wins when present. The language prefix is not a route.
@@ -99,6 +101,7 @@ const ACTIONS = {
   "go-cancel": () => { S.goCancel = true; if (currentRoute() === "refunds") { S.goCancel = false; $("#cancelForm")?.scrollIntoView({ block: "start" }); } else location.hash = "refunds"; },
   "copy-cancel": () => copyText(cancelText(), t("toast.copied")),
   "copy-email": () => copyText(BIZ.email, t("toast.emailCopied")),
+  pay: (el) => startPayment(el),
 };
 const KEEP_DEFAULT = new Set(["close-go"]);
 

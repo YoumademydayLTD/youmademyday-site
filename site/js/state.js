@@ -28,9 +28,11 @@ export const S = {
     books: { cat: "*", maxPrice: null, sort: "rec" },
   },
   goCancel: false,
+  pending: read("pending", null), // what was sent to the payment page: "cart", "product" or "plan"
 };
 
 export function save() {
   write("cart", S.cart);
   write("wish", S.wish);
+  write("pending", S.pending);
 }
