@@ -8,7 +8,7 @@ export default {
   "nav.search": "Search", "nav.searchLabel": "Search courses, books or topics", "nav.wish": "Saved", "nav.cart": "Bag", "nav.homeLabel": "You Made My Day, home",
   "skip": "Skip to content",
 
-  "foot.note": "Prices are in Israeli shekels (ILS), except where a price is shown in US dollars. Your files are sent to our Telegram bot, with a copy to the email you enter at checkout. You may cancel under our refund policy and applicable consumer law.",
+  "foot.note": "Prices are in Israeli shekels (ILS), except where a price is shown in US dollars. You buy after logging in with Telegram. Your files are sent to our Telegram bot and saved in your account on the site, together with your receipt. You may cancel under our refund policy and applicable consumer law.",
   "foot.shop": "Shop", "foot.help": "Help", "foot.legal": "Legal", "foot.company": "Company",
   "foot.pricing": "Pricing & payment", "foot.refunds": "Refund policy", "foot.cancel": "Cancel an order",
   "foot.terms": "Terms of use", "foot.privacy": "Privacy policy", "foot.cookies": "Cookie policy", "foot.a11y": "Accessibility",
@@ -48,12 +48,12 @@ export default {
   ],
   "home.promises": [
     ["Written by us", "Every course and book is written and produced in-house."],
-    ["Instantly on Telegram", "Your files and receipt are waiting in the bot a minute after you pay."],
+    ["Instantly on Telegram", "A minute after you pay, your files are waiting in the bot and in your account on the site."],
     ["Yours to keep", "A course or book you buy stays yours, on any device, with no expiry date."],
     ["{days}-day refund", "Full refund on courses, no questions asked."],
   ],
   "home.faqList": [
-    ["How do I get what I bought?", "Right after payment you get a personal link to our Telegram bot, and your files are already there. Books and templates arrive as PDF files; a course arrives as written lessons with worksheets. A copy is emailed to you too."],
+    ["How do I get what I bought?", "You buy after logging in with Telegram, so there's no email to fill in. Right after payment your files are sent to our Telegram bot and saved in the library in your account on the site. Books and templates arrive as PDF files; a course arrives as written lessons with worksheets. Your receipt is waiting in your account."],
     ["Why Telegram?", "Because it's already on your phone. No extra app to download, no password to remember, and your reminders arrive where you already are."],
     ["What does a membership include?", "A bot that keeps you company every day with a short task at the time you choose, and a private group for the topic you pick. Every plan lists exactly what's included."],
     ["How do I cancel a membership?", "Send the bot a message or cancel on the site, any time, no reason needed. The next charge simply won't happen."],
@@ -80,19 +80,19 @@ export default {
     "{n} written lessons",
     "About {h} of learning and practice",
     "A worksheet for every lesson",
-    "Sent to your Telegram as PDF files",
+    "PDF files, in your Telegram and your account",
     "Opens on any device, printable",
     "{days}-day full refund",
   ],
   "incl.bundle": [
     "{n} books as PDF files",
-    "Sent to your Telegram right after payment",
+    "In your Telegram and your account right after payment",
     "Opens on any device",
   ],
   "incl.book": [
     "{n} pages",
     "PDF file, {mb} MB",
-    "Sent to your Telegram right after payment",
+    "In your Telegram and your account right after payment",
     "Opens on any device, printable",
   ],
 
@@ -136,7 +136,7 @@ export default {
   "pricing.howTitle": "How payment works",
   "pricing.how": [
     "By card, through a secure payment provider. We never see or store your card number.",
-    "Your files go to our Telegram bot, and your receipt to your email, right after payment.",
+    "Right after payment your files are sent to our Telegram bot and saved in your account on the site, where your receipt is waiting too.",
     "The price you pay is the price shown when you ordered.",
     "Refunds are explained in our <a href=\"#refunds\">refund policy</a>.",
   ],
@@ -330,7 +330,7 @@ export default {
     "Payment goes through a secure payment provider. We never store card details.",
     "Your first day is free. Then {price} a week, on the same card, until you cancel.",
     "The bot reminds you before every charge, and you can cancel any time on the site or by messaging the bot.",
-    "Right after you join you get a personal link to the bot and the groups.",
+    "Right after you join you get a personal link to the bot and the groups. Your receipts are in your account on the site.",
   ],
 
   // Telegram-only buying and the personal area (04.11.2026)

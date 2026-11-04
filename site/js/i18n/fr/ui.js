@@ -8,7 +8,7 @@ export default {
   "nav.search": "Rechercher", "nav.searchLabel": "Rechercher un cours, un livre ou un sujet", "nav.wish": "Favoris", "nav.cart": "Panier", "nav.homeLabel": "You Made My Day, accueil",
   "skip": "Aller au contenu",
 
-  "foot.note": "Les prix sont indiqués en shekels israéliens (ILS), sauf lorsqu’un prix est affiché en dollars américains. Vos fichiers sont envoyés à notre bot Telegram, avec une copie à l’adresse e-mail saisie lors du paiement. Vous pouvez annuler selon notre politique de remboursement et le droit de la consommation applicable.",
+  "foot.note": "Les prix sont indiqués en shekels israéliens (ILS), sauf lorsqu’un prix est affiché en dollars américains. L’achat se fait après connexion avec Telegram. Vos fichiers sont envoyés à notre bot Telegram et enregistrés dans votre espace personnel sur le site, avec votre reçu. Vous pouvez annuler selon notre politique de remboursement et le droit de la consommation applicable.",
   "foot.shop": "Boutique", "foot.help": "Aide", "foot.legal": "Mentions légales", "foot.company": "Entreprise",
   "foot.pricing": "Tarifs et paiement", "foot.refunds": "Politique de remboursement", "foot.cancel": "Annuler une commande",
   "foot.terms": "Conditions d’utilisation", "foot.privacy": "Politique de confidentialité", "foot.cookies": "Politique relative aux cookies", "foot.a11y": "Accessibilité",
@@ -48,12 +48,12 @@ export default {
   ],
   "home.promises": [
     ["Écrit par nous", "Chaque cours et chaque livre est écrit et produit par nos soins."],
-    ["Aussitôt sur Telegram", "Vos fichiers et votre reçu vous attendent dans le bot une minute après le paiement."],
+    ["Aussitôt sur Telegram", "Une minute après le paiement, vos fichiers vous attendent dans le bot et dans votre espace personnel."],
     ["À vous pour toujours", "Un cours ou un livre acheté reste à vous, sur tous vos appareils, sans date d’expiration."],
     ["Remboursé sous {days} jours", "Remboursement intégral des cours, sans justification."],
   ],
   "home.faqList": [
-    ["Comment recevoir mon achat ?", "Dès le paiement, vous recevez un lien personnel vers notre bot Telegram, où vos fichiers vous attendent déjà. Les livres et modèles arrivent en PDF ; un cours arrive sous forme de leçons écrites accompagnées de fiches d’exercices. Une copie vous est aussi envoyée par e-mail."],
+    ["Comment recevoir mon achat ?", "Vous achetez après vous être connecté avec Telegram : aucune adresse e-mail à saisir. Dès le paiement, vos fichiers sont envoyés à notre bot Telegram et enregistrés dans la bibliothèque de votre espace personnel sur le site. Les livres et modèles arrivent en PDF ; un cours arrive sous forme de leçons écrites accompagnées de fiches d’exercices. Votre reçu vous attend dans votre espace personnel."],
     ["Pourquoi Telegram ?", "Parce qu’il est déjà sur votre téléphone. Aucune appli à télécharger, aucun mot de passe à retenir, et vos rappels arrivent là où vous êtes déjà."],
     ["Que comprend un abonnement ?", "Un bot qui vous accompagne chaque jour avec une courte mission à l’heure de votre choix, et un groupe privé sur le thème que vous choisissez. Chaque formule détaille précisément ce qu’elle inclut."],
     ["Comment résilier un abonnement ?", "Envoyez un message au bot ou résiliez sur le site, à tout moment et sans justification. Le prochain prélèvement n’aura tout simplement pas lieu."],
@@ -80,19 +80,19 @@ export default {
     "{n} leçons écrites",
     "Environ {h} d’apprentissage et de pratique",
     "Une fiche d’exercices par leçon",
-    "Envoyé dans votre Telegram en PDF",
+    "En PDF, dans votre Telegram et votre espace personnel",
     "Sur tous vos appareils, imprimable",
     "Remboursement intégral sous {days} jours",
   ],
   "incl.bundle": [
     "{n} livres en PDF",
-    "Envoyés dans votre Telegram dès le paiement",
+    "Dans votre Telegram et votre espace personnel dès le paiement",
     "Sur tous vos appareils",
   ],
   "incl.book": [
     "{n} pages",
     "Fichier PDF, {mb} Mo",
-    "Envoyé dans votre Telegram dès le paiement",
+    "Dans votre Telegram et votre espace personnel dès le paiement",
     "Sur tous vos appareils, imprimable",
   ],
 
@@ -136,7 +136,7 @@ export default {
   "pricing.howTitle": "Comment se passe le paiement",
   "pricing.how": [
     "Par carte, via un prestataire de paiement sécurisé. Nous ne voyons ni ne conservons jamais votre numéro de carte.",
-    "Vos fichiers arrivent dans notre bot Telegram, et votre reçu par e-mail, dès le paiement.",
+    "Dès le paiement, vos fichiers sont envoyés à notre bot Telegram et enregistrés dans votre espace personnel, où votre reçu vous attend aussi.",
     "Le prix payé est celui affiché au moment de la commande.",
     "Les remboursements sont détaillés dans notre <a href=\"#refunds\">politique de remboursement</a>.",
   ],
@@ -330,7 +330,7 @@ export default {
     "Le paiement passe par un prestataire sécurisé. Nous ne conservons jamais vos données de carte.",
     "Le premier jour est gratuit. Ensuite {price} par semaine, sur la même carte, jusqu’à ce que vous résiliiez.",
     "Le bot vous prévient avant chaque prélèvement, et vous pouvez résilier à tout moment sur le site ou par un message au bot.",
-    "Dès votre inscription, vous recevez un lien personnel vers le bot et les groupes.",
+    "Dès votre inscription, vous recevez un lien personnel vers le bot et les groupes. Vos reçus sont dans votre espace personnel sur le site.",
   ],
 
   // Telegram-only buying and the personal area (04.11.2026)
