@@ -16,7 +16,7 @@ import { mount, startMotion } from "./motion.js";
 import { viewLogin } from "./views/telegram.js";
 import { viewPlans } from "./views/plans.js";
 import { viewBuy } from "./views/buy.js";
-import { viewThanks } from "./views/thanks.js";
+import { viewThanks, showDownloads } from "./views/thanks.js";
 import { startPayment } from "./checkout/pay.js";
 import { isDirectOffer, buyHref } from "./money.js";
 
@@ -24,6 +24,8 @@ const PAGES = { courses: () => viewShop("courses"), books: () => viewShop("books
 const SHOPS = new Set(["courses", "books"]);
 // Routes that carry an id after a prefix: #buy-<item>, #thanks-<checkout id>.
 const PREFIX_VIEWS = { "buy-": viewBuy, "thanks-": viewThanks };
+// Work a prefixed page starts once it is on screen.
+const PREFIX_AFTER = { "thanks-": showDownloads };
 const RAIL_GAP = 20; // px, matches .rail gap in css/home.css
 
 // Clean slugs (/he/pricing) work on the live site; a hash wins when present. The language prefix is not a route.
@@ -33,8 +35,10 @@ function currentRoute() {
   return parts[0] || "home";
 }
 
+const prefixOf = (r) => Object.keys(PREFIX_VIEWS).find((p) => r.startsWith(p));
+
 function prefixView(r) {
-  const prefix = Object.keys(PREFIX_VIEWS).find((p) => r.startsWith(p));
+  const prefix = prefixOf(r);
   return prefix ? PREFIX_VIEWS[prefix](r.slice(prefix.length)) : null;
 }
 
@@ -49,6 +53,8 @@ function route() {
   $("#view").innerHTML = PAGES[r] ? PAGES[r]() : prefixView(r) ?? (ALL[r] ? viewItem(r) : viewHome());
   if (SHOPS.has(r)) fillGrid(r);
   mount($("#view"));
+  const prefix = prefixOf(r);
+  if (prefix) PREFIX_AFTER[prefix]?.(r.slice(prefix.length));
   const section = ALL[r] ? (isCourse(ALL[r]) ? "courses" : "books") : r;
   document.querySelectorAll("#nav a").forEach((a) => a.classList.toggle("on", a.dataset.nav === section));
   document.title = ALL[r] ? t("meta.itemTitle", { title: ALL[r].title }) : t("meta.title");
