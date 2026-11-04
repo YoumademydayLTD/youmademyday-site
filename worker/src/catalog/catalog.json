@@ -1144,13 +1144,13 @@
    "trialDays": 1
   },
   "max": {
-   "title": "מנוי מקסימום",
+   "title": "המקסימום",
    "titles": {
-    "en": "Maximum membership",
-    "he": "מנוי מקסימום",
-    "fr": "Abonnement Maximum",
-    "ar": "اشتراك القمّة",
-    "ru": "Подписка «Максимум»"
+    "en": "The Maximum",
+    "he": "המקסימום",
+    "fr": "Le Maximum",
+    "ar": "القمّة",
+    "ru": "«Максимум»"
    },
    "description": "השותף בבוט, ועוד מלווה אישי מהצוות, למי שרוצה להגיע הכי רחוק שאפשר.",
    "price": 297,

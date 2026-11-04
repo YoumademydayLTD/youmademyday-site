@@ -8,6 +8,13 @@ import { formatMoney } from "../money.js";
 import { cancelMembership } from "./api.js";
 import { formatDate, isTrialMembership, membershipState, moneyOf } from "./status.js";
 
+// A plan's own full title wins over the "membership of {name}" template (owner 04.11: the Maximum is «המקסימום»).
+function planTitle(id, name) {
+  const own = t(`plan.${id}.title`);
+  return own && own !== `plan.${id}.title` ? own : t("buy.planTitle", { name });
+}
+
+
 // The memberships on screen, by id: the one copy the cancel buttons read and the cancel reply replaces.
 const shown = new Map();
 
@@ -36,7 +43,7 @@ function cardInner(m, notice = "") {
   const cancel = m.canCancel
     ? `<button class="btn btn-ghost btn-sm" type="button" data-act="cancel-ask" data-id="${esc(m.id)}" aria-label="${t("acct.cancelLabel", { name })}">${t("acct.cancel")}</button>`
     : "";
-  return `<div class="me-head"><h3 tabindex="-1">${t("buy.planTitle", { name })}</h3>${stateTag(state)}</div>
+  return `<div class="me-head"><h3 tabindex="-1">${planTitle(m.planId, name)}</h3>${stateTag(state)}</div>
     ${nextChargeLine(m, state)}
     <div class="me-actions">${cancel}</div>
     <p class="login-status" role="status" aria-live="polite">${notice}</p>`;

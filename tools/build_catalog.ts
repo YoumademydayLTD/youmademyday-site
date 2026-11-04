@@ -60,13 +60,16 @@ async function buildPlans(langs: string[]): Promise<Record<string, CatalogPlan>>
   for (const lang of langs) uiOf.set(lang, (await importSite<{ default: Record<string, unknown> }>(`i18n/${lang}/ui.js`)).default);
   const titleIn = (lang: string, id: string): string => {
     const dict = uiOf.get(lang) ?? {};
+    // A plan's own full title wins over the "membership of {name}" template (owner 04.11: the Maximum is «המקסימום»).
+    const own = dict[`plan.${id}.title`];
+    if (typeof own === "string" && own) return own;
     return String(dict["buy.planTitle"] ?? "{name}").replace("{name}", String(dict[`plan.${id}.name`] ?? id));
   };
   const plans: Record<string, CatalogPlan> = {};
   for (const plan of Object.values(ALL_PLANS)) {
     if (!plan.price) continue; // free plans are not sold
     plans[plan.id] = {
-      title: text("buy.planTitle").replace("{name}", text(`plan.${plan.id}.name`)),
+      title: titleIn(SOURCE_LANG, plan.id),
       titles: Object.fromEntries(langs.map((lang) => [lang, titleIn(lang, plan.id)])),
       description: text(`plan.${plan.id}.sub`) || list(`plan.${plan.id}.items`).join(" · "),
       price: plan.price,

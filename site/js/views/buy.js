@@ -8,6 +8,13 @@ import { t, tList } from "../i18n/index.js";
 import { payPanel, payButton } from "../checkout/panel.js";
 import { priceLabel } from "../money.js";
 
+// A plan's own full title wins over the "membership of {name}" template (owner 04.11: the Maximum is «המקסימום»).
+function planTitle(id, name) {
+  const own = t(`plan.${id}.title`);
+  return own && own !== `plan.${id}.title` ? own : t("buy.planTitle", { name });
+}
+
+
 const PLAN_PREFIX = "plan-";
 
 /** The product or plan a #buy-<id> page sells, or null for an unknown id. */
@@ -23,7 +30,7 @@ function planLine(plan) {
   const name = t(`plan.${plan.id}.name`);
   const per = t(plan.period === "week" ? "plan.perWeek" : "plan.perMonth");
   const today = plan.trialDays ? t("buy.trialToday", { days: plan.trialDays }) : priceLabel(plan);
-  return `<div class="line"><div class="plan-chip">${name.slice(0, 1)}</div><div style="min-width:0"><h4>${t("buy.planTitle", { name })}</h4><small>${priceLabel(plan)} ${per}</small></div><b class="num">${today}</b></div>`;
+  return `<div class="line"><div class="plan-chip">${name.slice(0, 1)}</div><div style="min-width:0"><h4>${planTitle(plan.id, name)}</h4><small>${priceLabel(plan)} ${per}</small></div><b class="num">${today}</b></div>`;
 }
 
 const productLine = (p) => `<div class="line">${flatCover(p)}<div style="min-width:0"><h4>${esc(p.title)}</h4><small>${esc(p.sub)}</small></div><b class="num">${priceLabel(p)}</b></div>`;

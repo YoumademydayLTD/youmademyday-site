@@ -303,6 +303,7 @@ export default {
     "Every course and book in the library, including “Your Maximum”",
     "A live session and a challenge every week, plus groups by topic",
   ],
+  "plan.max.title": "The Maximum",
   "plan.max.name": "Maximum",
   "plan.max.tag": "The advanced plan",
   "plan.max.cta": "Reach your maximum",
