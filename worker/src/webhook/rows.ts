@@ -73,5 +73,6 @@ export function subscriptionRow(data: Json, map: ProductMap): SubscriptionRow {
     amount: typeof data.amount === "number" ? data.amount : null,
     currency: str(data, "currency"),
     metadata: metadataOf(data),
+    checkoutId: str(data, "checkout_id"),
   };
 }

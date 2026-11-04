@@ -24,6 +24,7 @@ export const CATALOG: Catalog = {
   },
   plans: {
     grow: { title: "grow", titles: { en: "Growth membership", he: "מנוי צמיחה" }, description: "", price: 147, usd: 39, period: "week", trialDays: 1 },
+    max: { title: "max", titles: { en: "Maximum membership", he: "מנוי מקסימום" }, description: "", price: 297, usd: 79, period: "week", trialDays: 1 },
     day: { title: "day", titles: { en: "Good Day membership" }, description: "", price: 29, period: "month", trialDays: 0 },
   },
 };
@@ -41,6 +42,7 @@ export const MAP: ProductMap = {
   c1: one("p-c1", 34900),
   b51: one("p-b51", 500, 200),
   "plan-grow": { ...one("p-grow", 14700, 3900), recurring: "week" },
+  "plan-max": { ...one("p-max", 29700, 7900), recurring: "week" },
   "plan-day": { ...one("p-day", 2900), recurring: "month" },
   k49: one("p-k49", 9900),
   "store-order": one("p-store", 10000),
