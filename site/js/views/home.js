@@ -37,7 +37,7 @@ function offer() {
       <span class="offer-badge">${t("home.offerBadge")}</span>
       <h2>${esc(p.title)}. <span class="grad">${t("home.offerB", { price: priceLabel(p) })}</span></h2><p class="kicker">${t("home.offerSub")}</p>
       <div class="ctas"><a class="btn btn-tg" href="${buyHref(p.id)}">${t("item.buyFor", { price: priceLabel(p) })}</a>${link(`#${p.id}`, t("home.freePeek"))}</div>
-      <div class="obj"><div class="bookbox">${book3d(p, { style: "--w:clamp(190px,19vw,260px);--ry:-20deg;--rx:6deg" })}<div class="floor" style="background:radial-gradient(closest-side,rgba(0,0,0,.6),transparent)"></div></div></div></div>` : "";
+      <div class="obj"><div class="bookbox">${book3d(p, { style: "--w:clamp(150px,14vw,200px);--ry:-20deg;--rx:6deg" })}<div class="floor" style="background:radial-gradient(closest-side,rgba(0,0,0,.6),transparent)"></div></div></div></div>` : "";
   return `<section class="offer-sec">${book}
     <div class="wrap feats-wrap"><div class="sec-title"><h2 class="rv">${t("home.featA")} <span>${t("home.featB")}</span></h2>${link("#plans", t("home.allPlans"))}</div>${featuredPlans()}</div>
   </section>`;

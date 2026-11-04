@@ -2024,5 +2024,42 @@ export const PRODUCTS = [
   "description": [
    "Six livres de cuisine et de pâtisserie : la cuisine maison, le pain maison, les dîners en 20 minutes, les douceurs du shabbat, la boîte à déjeuner et le planificateur de repas. Un seul prix, plus bas qu'à l'unité, et tous les fichiers arrivent ensemble par e-mail dès le paiement."
   ]
+ },
+ {
+  "id": "b51",
+  "n": 51,
+  "type": "ebook",
+  "title": "Votre maximum",
+  "sub": "Le livre de développement personnel qui fait de vous la meilleure version de vous-même",
+  "cat": "Développement personnel",
+  "price": 5,
+  "usd": 2,
+  "cv": [
+   "#0E0B12",
+   "#FFFFFF",
+   "#F48FB8"
+  ],
+  "sh": "half",
+  "description": [
+   "Le livre de développement personnel de You Made My Day : un guide pratique et sincère qui vous accompagne depuis un vrai état des lieux de votre situation, en passant par les valeurs, la voix intérieure, les habitudes, l'énergie, la concentration, la confiance, les autres et l'argent, jusqu'à la façon de vous relever vite après une chute. Dans chaque chapitre, des pages d'exercices, des tableaux et des lignes à remplir, et à la fin un programme de 30 jours avec une petite tâche par jour et une page de synthèse à afficher sous vos yeux."
+  ],
+  "chapters": [
+   "Avant de commencer",
+   "Chapitre 1 : où vous en êtes",
+   "Chapitre 2 : ce qui compte vraiment pour vous",
+   "Chapitre 3 : ce que vous vous dites",
+   "Chapitre 4 : des habitudes qui tiennent",
+   "Chapitre 5 : sommeil, corps et attention",
+   "Chapitre 6 : concentration et temps",
+   "Chapitre 7 : une confiance qui se construit en agissant",
+   "Chapitre 8 : les personnes autour de vous",
+   "Chapitre 9 : l'argent et la tête",
+   "Chapitre 10 : quand on tombe",
+   "Chapitre 11 : le programme maximum de 30 jours",
+   "Résumé : la page unique"
+  ],
+  "excerpt": "La plupart des gens ne vivent pas en dessous de leur potentiel par manque de talent ou de volonté. Ils vivent en dessous parce qu'ils essaient de tout changer d'un coup, craquent au bout d'une semaine et en concluent que le problème, c'est eux. Ce livre est construit à l'inverse. Il ne vous demande pas de devenir quelqu'un d'autre. Il vous demande de regarder honnêtement où vous en êtes, de décider où il compte pour vous d'arriver, puis d'avancer dans cette direction par des pas assez petits pour tenir même pendant une semaine chargée.",
+  "pages": 55,
+  "mb": 1.1
  }
 ];

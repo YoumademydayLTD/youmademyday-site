@@ -1952,5 +1952,42 @@ export const PRODUCTS = [
   "description": [
    "Six cooking and baking books: The Home Kitchen, Bread at Home, 20-Minute Dinners, Shabbat Baking, the Lunchbox book and the Weekly Meal Planner. One price, lower than buying them separately, and every file is emailed together the moment you pay."
   ]
+ },
+ {
+  "id": "b51",
+  "n": 51,
+  "type": "ebook",
+  "title": "Your Maximum",
+  "sub": "The personal growth book that helps you become the best version of yourself",
+  "cat": "Personal growth",
+  "price": 5,
+  "usd": 2,
+  "cv": [
+   "#0E0B12",
+   "#FFFFFF",
+   "#F48FB8"
+  ],
+  "sh": "half",
+  "description": [
+   "The You Made My Day personal growth book: a practical, honest guide that takes you from a real look at where you stand, through values, your inner voice, habits, energy, focus, confidence, people and money, to coming back quickly after setbacks. Every chapter has worksheets, tables and lines to fill in, and it ends with a 30-day plan of one small task a day and a one-page summary to keep in sight."
+  ],
+  "chapters": [
+   "Before You Begin",
+   "Chapter 1: Where You Stand",
+   "Chapter 2: What Really Matters to You",
+   "Chapter 3: What You Tell Yourself",
+   "Chapter 4: Habits That Hold",
+   "Chapter 5: Sleep, Body and Attention",
+   "Chapter 6: Focus and Time",
+   "Chapter 7: Confidence Built by Doing",
+   "Chapter 8: The People Around You",
+   "Chapter 9: Money and Mindset",
+   "Chapter 10: When You Fall",
+   "Chapter 11: The 30-Day Maximum Plan",
+   "Summary: The One Page"
+  ],
+  "excerpt": "Most people don't live below their potential because they lack talent or desire. They live below it because they try to change everything at once, break down after a week, and conclude that the problem is them. This book is built the other way around. It doesn't ask you to become a different person. It asks you to look honestly at where you are, decide where it matters to you to go, and then move there in steps small enough to hold up even in a busy week.",
+  "pages": 52,
+  "mb": 1.0
  }
 ];
