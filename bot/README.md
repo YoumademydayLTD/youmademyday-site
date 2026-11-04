@@ -3,6 +3,87 @@
 Cloudflare Worker behind **@youmademydaystore_bot**, live at **https://ymd-bot.crx-platform-website.workers.dev**.
 It also serves the owner's support center at **/admin** (Hebrew, RTL, works on iPhone).
 
+## What it does
+
+- **/start payloads** from the site: `home`, `support`, `login-<token>` (confirm sign-in with a button), `plan-<id>`
+  (`plan-spark` joins the free morning track; paid plans point to the site), `order-<checkout id>` (from the thanks page:
+  links the paid order to this Telegram user — first link wins — and sends the PDFs as documents straight from R2;
+  if a document fails, buttons with the store's signed download links; a still-pending payment is delivered by the cron).
+- **Commands** (per language): start, library, plans, reminders, support, login, settings, terms, privacy, delete, plus
+  the hidden `/admin <code>`.
+- **Daily messages**: `bot_content` rows per track/day/language; users pick the hour and time zone, pause or mute.
+  Buttons «✓ done» (streak), «remind me tonight» (re-sent at 20:00 local), and the lesson link when the day has one.
+  Spark is free; the topic tracks need an active subscription row (written by the store worker).
+- **Reminder before each membership charge**, 24 h ahead, from the store's `subscriptions` table.
+- **Support**: any free text, photo or file from a customer goes into their thread, gets one auto-ack per thread, is
+  pushed live to /admin and announced to the admin in Telegram. Replying to that notice in Telegram answers the customer.
+- **/delete**: removes every `bot_*` row of the user; store order and payment rows stay (law), only unlinked. An active
+  membership is announced to the admin to end without further charges.
+
+## Architecture
+
+```
+Telegram ──webhook──▶ /telegram/webhook ─▶ bot/dispatch ─▶ features (start, login, library, daily, settings, support, privacy)
+site (youmademyday.store) ──CORS──▶ /api/login/*, /api/me, /api/logout
+/admin (static, public/admin) ──cookie──▶ /api/admin/*  ◀──WebSocket── AdminHub (Durable Object, hibernation)
+cron */15 ─▶ daily queue · charge reminders · pending orders · paced outbox drain · cleanup
+D1 "ymd-store": store tables read-only + bot_* tables · R2 "ymd-files" · service binding STORE → ymd-store /api/downloads
+```
+
+- `src/<feature>/` holds each area; pure rules (`start/payload`, `login/lifecycle`, `daily/clock`, `daily/streak`,
+  `outbox/pacer`, `support/routing`, `admin/guard`, `webhook/secret`) are unit-tested in `test/`.
+- Updates are handled once (`bot_updates` dedupe on `update_id`), answered 200 at once and processed in `waitUntil`.
+- The outbox drain keeps to 25 msg/s overall and 1 msg/s per chat, waits out a 429 `retry_after`, marks users who
+  blocked the bot, and retries other failures up to 5 times.
+- What an order delivers comes from the store worker (`GET /api/downloads` over the service binding). The R2 key rule
+  `<lang>/<id>.pdf` and the catalogue JSON (plan prices, titles) are read from `worker/src` as data at deploy time:
+  **redeploy the bot after a price or catalogue change**.
+- Own migrations in `migrations/`, tracked in `bot_migrations` (not the store's `d1_migrations`).
+
+## Secrets (values in `Site/.env.bot`, gitignored; never printed)
+
+| Name | What |
+| --- | --- |
+| `TELEGRAM_BOT_TOKEN` | the bot's token from @BotFather |
+| `TELEGRAM_WEBHOOK_SECRET` | sent by Telegram in `X-Telegram-Bot-Api-Secret-Token` (made by `tools/make_secrets.ts`) |
+| `ADMIN_CLAIM_CODE` | one-time code for `/admin <code>` (made by `tools/make_secrets.ts`) |
+
+Put one: `grep '^NAME=' ../.env.bot | cut -d= -f2- | tr -d '\n' | npx wrangler secret put NAME`
+
+Variables in `wrangler.jsonc`: `SITE_URL`, `STORE_URL`, `PUBLIC_URL`, `EXTRA_ORIGINS`, `BOT_USERNAME`.
+
+## Deploy
+
+Run `~/.claude/bin/load-check` first on the shared Mac.
+
+```sh
+cd bot && npm install
+npx wrangler d1 migrations list ymd-store --remote   # only bot_* files should be listed
+npm run db:migrate
+npm run deploy                                       # typecheck + tests + wrangler deploy
+node tools/make_secrets.ts                           # once; then put the three secrets (above)
+node tools/setup_telegram.ts --photo                 # names, descriptions, commands, menu, photo, webhook
+```
+
+`setup_telegram.ts` is safe to re-run (drop `--photo` to keep the current picture; the picture is
+`brand/bot-avatar.jpg`, drawn from `brand/bot-avatar.html`).
+
+## The owner claims the support center (once)
+
+1. In Telegram, open @youmademydaystore_bot and send `/admin <code>` with the `ADMIN_CLAIM_CODE` value from `Site/.env.bot`.
+2. The bot answers that you are the support admin. The code then stops working for anyone.
+3. Open https://ymd-bot.crx-platform-website.workers.dev/admin/ and sign in with Telegram (or with a `/login` code).
+
+New customer messages arrive in that chat with a button to the thread; reply to the notice to answer from Telegram.
+
+## Decisions (ADR)
+
+- **04.11.2026 — A separate bot worker on the store's database.** The bot owns only `bot_*` tables and reads the store
+  tables; delivery details stay in the store worker (service binding), so there is one source of truth for what an
+  order gives. Sign-in sessions are random tokens stored hashed; the site keeps its token in `localStorage["ymd-session"]`,
+  the support center an HttpOnly cookie. Live updates use one Durable Object WebSocket hub, never polling.
+  Time zone default Asia/Jerusalem (French: Europe/Paris), language from Telegram, English by default (owner).
+
 ## HTTP API
 
 Errors are JSON `{error, message}` with codes `bad_request` 400, `unauthorized` 401, `forbidden` 403, `not_found` 404,
