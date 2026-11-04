@@ -69,7 +69,7 @@ export function diffProduct(spec: ProductSpec, existing: PolarProduct | undefine
   }
   const body: Record<string, unknown> = {};
   if (existing.name !== spec.name) body.name = spec.name;
-  if ((existing.description ?? "") !== spec.description) body.description = spec.description;
+  if ((existing.description || null) !== spec.description) body.description = spec.description;
   if (existing.visibility !== spec.visibility) body.visibility = spec.visibility;
   if (spec.recurring) {
     const trial = trialFields(spec);

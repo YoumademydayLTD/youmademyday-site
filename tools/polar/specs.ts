@@ -9,7 +9,7 @@ export interface PriceSpec { currency: Currency; amount: number }
 export interface ProductSpec {
   ymdId: string;
   name: string;
-  description: string;
+  description: string | null; // null: owner wants only the product name on the payment page (04.11.2026)
   visibility: "public" | "private";
   recurring: Interval | null;
   trialDays: number;
@@ -34,15 +34,15 @@ function pricesOf(item: { price: number; usd?: number }): PriceSpec[] {
 
 export function productSpecs(catalog: Catalog): ProductSpec[] {
   const products = Object.entries(catalog.products).map(([id, p]): ProductSpec => ({
-    ymdId: id, name: p.title, description: p.description, visibility: "public", recurring: null, trialDays: 0, prices: pricesOf(p),
+    ymdId: id, name: p.title, description: null, visibility: "public", recurring: null, trialDays: 0, prices: pricesOf(p),
   }));
   const plans = Object.entries(catalog.plans).map(([id, p]): ProductSpec => ({
-    ymdId: `${PLAN_ID_PREFIX}${id}`, name: p.title, description: p.description, visibility: "public", recurring: p.period, trialDays: p.trialDays, prices: pricesOf(p),
+    ymdId: `${PLAN_ID_PREFIX}${id}`, name: p.title, description: null, visibility: "public", recurring: p.period, trialDays: p.trialDays, prices: pricesOf(p),
   }));
   const storeOrder: ProductSpec = {
     ymdId: STORE_ORDER_ID,
     name: "הזמנה מהחנות / Store order",
-    description: "הזמנה של כמה מוצרים מהחנות · An order of several items from the store",
+    description: null,
     visibility: "private",
     recurring: null,
     trialDays: 0,
