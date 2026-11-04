@@ -11,6 +11,7 @@ import { handleDownloads, handleFile } from "./delivery/handler.ts";
 import { handleAccount, handleAccountCancel } from "./account/handler.ts";
 import { handleInvoice } from "./account/invoice.ts";
 import { handleOrderDoc } from "./orderdoc/handler.ts";
+import { handleReadDone, handleReadItem, handleReadUnit } from "./view/handler.ts";
 import { handleInternalCancel } from "./internal/handler.ts";
 import { matchRoute, type Route } from "./http/router.ts";
 
@@ -25,13 +26,17 @@ const ROUTES: Route<Handler>[] = [
   route("GET", "/api/file", (request, env) => handleFile(request, env, new Date())),
   route("GET", "/api/account", (request, env) => handleAccount(request, env, new Date())),
   route("POST", "/api/account/subscriptions/:id/cancel", (request, env, _ctx, p) => handleAccountCancel(request, env, p.id ?? "", new Date())),
+  route("GET", "/api/read/:id", (request, env, _ctx, p) => handleReadItem(request, env, p.id ?? "", new Date())),
+  route("GET", "/api/read/:id/:n", (request, env, _ctx, p) => handleReadUnit(request, env, p.id ?? "", p.n ?? "", new Date())),
+  route("POST", "/api/read/:id/:n/done", (request, env, _ctx, p) => handleReadDone(request, env, p.id ?? "", p.n ?? "", new Date())),
   route("GET", "/api/invoice", (request, env) => handleInvoice(request, env, new Date())),
   route("GET", "/api/order-doc", (request, env) => handleOrderDoc(request, env, new Date())),
   route("POST", "/api/internal/subscriptions/cancel", (request, env) => handleInternalCancel(request, env, new Date())),
   route("GET", "/api/health", (_request, env) => handleHealth(env)),
 ];
 // Endpoints the site's own pages call from a browser: other origins are refused.
-const BROWSER_ROUTES = new Set(["POST /api/checkout", "GET /api/downloads", "GET /api/account", "POST /api/account/subscriptions/:id/cancel"]);
+const BROWSER_ROUTES = new Set(["POST /api/checkout", "GET /api/downloads", "GET /api/account", "POST /api/account/subscriptions/:id/cancel",
+  "GET /api/read/:id", "GET /api/read/:id/:n", "POST /api/read/:id/:n/done"]);
 const NO_CONTENT = 204;
 
 export default {
