@@ -9,6 +9,7 @@
   "d1_databases": [
     { "binding": "DB", "database_name": "ymd-store", "database_id": "fb9e52b2-421d-45cb-84d7-7589feacbcc0", "migrations_dir": "migrations" }
   ],
+  "r2_buckets": [{ "binding": "FILES", "bucket_name": "ymd-files" }],
   "vars": {
     "SITE_URL": "https://youmademyday.store",
     // Extra browser origins allowed to call the API (the local preview server).

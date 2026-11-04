@@ -4,12 +4,12 @@ import { HttpError } from "../http/errors.ts";
 import { readText } from "../http/response.ts";
 import { PRODUCT_MAP } from "../polar/mapping.ts";
 import { recordEvent, markProcessed } from "../db/events.ts";
-import { findCheckoutItems, upsertCheckoutStatus } from "../db/checkouts.ts";
-import { upsertOrder } from "../db/orders.ts";
+import { upsertCheckoutStatus } from "../db/checkouts.ts";
 import { upsertSubscription } from "../db/subscriptions.ts";
 import { verifyWebhook } from "./verify.ts";
 import { isObject, str, type Json } from "./read.ts";
-import { checkoutRow, orderRow, subscriptionRow, withCheckoutItems } from "./rows.ts";
+import { checkoutRow, subscriptionRow } from "./rows.ts";
+import { applyOrder } from "./order.ts";
 
 const MAX_WEBHOOK_BYTES = 1024 * 1024;
 const MS_PER_SECOND = 1000;
@@ -17,11 +17,7 @@ const MS_PER_SECOND = 1000;
 /** Which table an event type updates, by its prefix. */
 async function project(db: D1Database, type: string, data: Json, now: string): Promise<void> {
   if (type.startsWith("checkout.")) await upsertCheckoutStatus(db, checkoutRow(data, PRODUCT_MAP), now);
-  else if (type.startsWith("order.")) {
-    const order = orderRow(data, PRODUCT_MAP);
-    const checkout = order.checkoutId ? await findCheckoutItems(db, order.checkoutId) : null;
-    await upsertOrder(db, withCheckoutItems(order, checkout), now);
-  }
+  else if (type.startsWith("order.")) await applyOrder(db, data, now);
   else if (type.startsWith("subscription.")) await upsertSubscription(db, subscriptionRow(data, PRODUCT_MAP), now);
 }
 

@@ -11,6 +11,6 @@ export async function handleHealth(env: Env): Promise<Record<string, unknown>> {
     database,
     liveKinds: [...liveKinds(env.LIVE_KINDS)],
     products: Object.keys(PRODUCT_MAP).length,
-    secrets: { polar: Boolean(env.POLAR_ACCESS_TOKEN), webhook: Boolean(env.POLAR_WEBHOOK_SECRET), links: Boolean(env.YMD_LINKS_SECRET) },
+    secrets: { polar: Boolean(env.POLAR_ACCESS_TOKEN), webhook: Boolean(env.POLAR_WEBHOOK_SECRET), links: Boolean(env.YMD_LINKS_SECRET), files: Boolean(env.FILES_SIGNING_SECRET) },
   };
 }
