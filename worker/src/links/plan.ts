@@ -11,6 +11,9 @@ export interface LinkContext { map: ProductMap; catalog: Catalog; buyerYm?: stri
 export interface LinkPlan { body: PolarCheckoutBody; amount: number; productId: string; itemIds: string[] }
 
 const TRIAL_UNIT = "day";
+// Polar rejects ad-hoc prices that leave out the organization's default presentment currency (live check 04.11.2026),
+// so a link in another currency also carries the product's own price in the default one; the buyer sees `currency`.
+const DEFAULT_CURRENCY = "ils";
 
 interface LinkPrice { amount: number; isAdHoc: boolean }
 
@@ -34,6 +37,17 @@ function trialFields(storeId: string, catalog: Catalog): Pick<PolarCheckoutBody,
   return trialDays > 0 ? { trial_interval: TRIAL_UNIT, trial_interval_count: trialDays } : {};
 }
 
+/** The ad-hoc price list: the link's price, plus the default-currency price Polar requires when they differ. */
+function adHocPrices(amount: number, currency: LinkRequest["currency"], mapped: ProductMap[string]) {
+  const prices = [adHocPrice(amount, currency)];
+  if (currency !== DEFAULT_CURRENCY) {
+    const base = mapped.prices[DEFAULT_CURRENCY];
+    if (!base) throw new HttpError("bad_request", `the product has no ${DEFAULT_CURRENCY} price, which Polar requires next to ${currency}`);
+    prices.push(adHocPrice(base.amount, DEFAULT_CURRENCY));
+  }
+  return prices;
+}
+
 export function planLink(request: LinkRequest, context: LinkContext): LinkPlan {
   const mapped = context.map[request.storeId];
   if (!mapped) throw new HttpError("unknown_item", `unknown product ${request.storeId}`);
@@ -45,7 +59,7 @@ export function planLink(request: LinkRequest, context: LinkContext): LinkPlan {
   const body: PolarCheckoutBody = {
     products: [mapped.productId],
     currency: request.currency,
-    ...(price.isAdHoc ? { prices: { [mapped.productId]: [adHocPrice(price.amount, request.currency)] } } : {}),
+    ...(price.isAdHoc ? { prices: { [mapped.productId]: adHocPrices(price.amount, request.currency, mapped) } } : {}),
     ...(mapped.recurring ? trialFields(request.storeId, context.catalog) : {}),
     allow_discount_codes: false,
     metadata: {

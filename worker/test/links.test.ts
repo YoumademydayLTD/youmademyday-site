@@ -70,7 +70,11 @@ describe("GEL links", () => {
     expect(parseLinkRequest({ product: "b51", currency: "gel", amount: 2 }, MAP)).toMatchObject({ currency: "gel", amount: 200 });
     expect(() => planLink({ storeId: "b51", currency: "gel", metadata: {} }, CONTEXT)).toThrow(/no gel price/);
     const { body } = planLink({ storeId: "b51", currency: "gel", amount: 200, metadata: {} }, CONTEXT);
-    expect(body).toMatchObject({ currency: "gel", prices: { "p-b51": [{ amount_type: "fixed", price_amount: 200, price_currency: "gel", tax_behavior: "inclusive" }] } });
+    // Polar also needs the default (ILS) price next to a GEL one; the buyer is shown GEL.
+    expect(body).toMatchObject({ currency: "gel", prices: { "p-b51": [
+      { amount_type: "fixed", price_amount: 200, price_currency: "gel", tax_behavior: "inclusive" },
+      { amount_type: "fixed", price_amount: 500, price_currency: "ils", tax_behavior: "inclusive" },
+    ] } });
     expect(body.trial_interval).toBeUndefined();
   });
   it("still sells the 5 ₪ product at its catalogue price, with no ad-hoc price", () => {
@@ -88,7 +92,10 @@ describe("Maximum membership weekly at 100 GEL", () => {
     expect(productId).toBe("p-max");
     expect(amount).toBe(10_000);
     expect(body.products).toEqual(["p-max"]);
-    expect(body.prices).toEqual({ "p-max": [{ amount_type: "fixed", price_amount: 10_000, price_currency: "gel", tax_behavior: "inclusive" }] });
+    expect(body.prices).toEqual({ "p-max": [
+      { amount_type: "fixed", price_amount: 10_000, price_currency: "gel", tax_behavior: "inclusive" },
+      { amount_type: "fixed", price_amount: 29_700, price_currency: "ils", tax_behavior: "inclusive" },
+    ] });
   });
   it("starts with the plan's free day, set on the checkout", () => {
     expect(plan().body).toMatchObject({ trial_interval: "day", trial_interval_count: 1 });
