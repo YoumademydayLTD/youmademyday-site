@@ -49,6 +49,13 @@ export function orderRow(data: Json, map: ProductMap): OrderRow {
   };
 }
 
+/** Fill an order's items from our own checkout row when Polar did not copy the checkout metadata onto the order. */
+export function withCheckoutItems(row: OrderRow, checkout: { itemIds: string[]; lang: string | null } | null): OrderRow {
+  const isMissingItems = row.needsReview || row.itemIds.length === 0;
+  if (!isMissingItems || !checkout || checkout.itemIds.length === 0) return row;
+  return { ...row, itemIds: checkout.itemIds, lang: row.lang ?? checkout.lang, needsReview: false };
+}
+
 export function subscriptionRow(data: Json, map: ProductMap): SubscriptionRow {
   const productId = str(data, "product_id");
   const storeId = productId ? storeIdOf(map, productId) : undefined;

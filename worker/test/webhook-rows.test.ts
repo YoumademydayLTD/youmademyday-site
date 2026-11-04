@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { orderRow, subscriptionRow, checkoutRow } from "../src/webhook/rows.ts";
+import { orderRow, subscriptionRow, checkoutRow, withCheckoutItems } from "../src/webhook/rows.ts";
 import { MAP } from "./fixtures.ts";
 
 describe("webhook rows", () => {
@@ -16,6 +16,13 @@ describe("webhook rows", () => {
   });
   it("leaves the owner's own products unmapped", () => {
     expect(orderRow({ id: "o4", status: "paid", product_id: "owner-test" }, MAP)).toMatchObject({ itemIds: [], needsReview: false });
+  });
+  it("takes the items from our checkout row when the order has no metadata", () => {
+    const bare = orderRow({ id: "o5", status: "paid", product_id: "p-store", checkout_id: "ch9" }, MAP);
+    expect(withCheckoutItems(bare, { itemIds: ["b9", "b10"], lang: "fr" })).toMatchObject({ itemIds: ["b9", "b10"], lang: "fr", needsReview: false });
+    expect(withCheckoutItems(bare, null).needsReview).toBe(true);
+    const full = orderRow({ id: "o6", status: "paid", product_id: "p-store", metadata: { ymd_ids: "b11" } }, MAP);
+    expect(withCheckoutItems(full, { itemIds: ["b9"], lang: "he" }).itemIds).toEqual(["b11"]);
   });
   it("reads a subscription's plan and cancel state", () => {
     expect(subscriptionRow({ id: "s1", status: "active", product_id: "p-grow", cancel_at_period_end: true, current_period_end: "2026-11-11T00:00:00Z" }, MAP))

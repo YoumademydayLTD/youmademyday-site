@@ -18,6 +18,12 @@ const INSERT = `INSERT INTO checkouts (id, source, kind, item_ids, lang, currenc
 const values = (row: CheckoutRow, now: string) =>
   [row.id, row.source, row.kind, row.itemIds.join(","), row.lang, row.currency, row.amount, row.polarProductId, row.status, JSON.stringify(row.metadata), now, now];
 
+/** The items and language we recorded for a checkout, if we opened it. */
+export async function findCheckoutItems(db: D1Database, id: string): Promise<{ itemIds: string[]; lang: string | null } | null> {
+  const row = await db.prepare("SELECT item_ids, lang FROM checkouts WHERE id = ?").bind(id).first<{ item_ids: string; lang: string | null }>();
+  return row ? { itemIds: row.item_ids.split(",").filter(Boolean), lang: row.lang } : null;
+}
+
 /** Our own record of a checkout we opened. Polar's checkout.created webhook can land first; our details then win, its status stays. */
 export async function insertCheckout(db: D1Database, row: CheckoutRow, now: string): Promise<void> {
   await db.prepare(`${INSERT} ON CONFLICT(id) DO UPDATE SET source = excluded.source, kind = excluded.kind, item_ids = excluded.item_ids,
