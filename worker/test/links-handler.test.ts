@@ -70,6 +70,13 @@ describe("POST /api/links with telegram_user_id", () => {
     expect(polar.map((c) => c.path)).toEqual(["/checkouts/"]);
     expect(calls.find((c) => c.sql.includes("INSERT INTO checkouts"))?.args[10]).toBeNull();
   });
+  it("creates no customer for a link it cannot price", async () => {
+    const polar = stubPolar();
+    const { env, calls } = envWith(() => undefined);
+    await expect(handleLink(linkRequest({ product: "b51", currency: "gel", telegram_user_id: TELEGRAM_ID }), env, NOW)).rejects.toThrow(/no gel price/);
+    expect(calls).toHaveLength(0);
+    expect(polar).toHaveLength(0);
+  });
   it("refuses a wrong secret before doing anything", async () => {
     const polar = stubPolar();
     const { env, calls } = envWith(() => undefined);

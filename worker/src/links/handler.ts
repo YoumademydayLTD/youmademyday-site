@@ -32,6 +32,8 @@ async function buyerOf(env: Env, request: LinkRequest, now: Date): Promise<Custo
 export async function handleLink(request: Request, env: Env, now: Date): Promise<{ url: string; id: string; expires_at: string }> {
   assertAuthorized(request.headers.get("Authorization"), env.YMD_LINKS_SECRET);
   const parsed = parseLinkRequest(await readJsonObject(request), PRODUCT_MAP);
+  // Price check first (pure): a request that cannot be sold must not create a customer here or on Polar.
+  planLink(parsed, { map: PRODUCT_MAP, catalog: CATALOG });
   const buyer = await buyerOf(env, parsed, now);
   // The caller's country wins (it may know where the buyer is now); else the one saved on his account.
   const withCountry: LinkRequest = !parsed.country && buyer?.country ? { ...parsed, country: buyer.country } : parsed;
