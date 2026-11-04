@@ -1,17 +1,17 @@
 // The bot_logins and bot_login_attempts tables.
 import { FAILED_CODE_WINDOW_SECONDS, type LoginRecord } from "./lifecycle.ts";
 
-interface Row { id: string; kind: "link" | "code"; telegram_id: number | null; status: "pending" | "confirmed" | "used"; expires_at: number }
-const fromRow = (row: Row): LoginRecord => ({ id: row.id, kind: row.kind, telegramId: row.telegram_id, status: row.status, expiresAt: row.expires_at });
+interface Row { id: string; kind: "link" | "code"; scope: "site" | "admin"; telegram_id: number | null; status: "pending" | "confirmed" | "used"; expires_at: number }
+const fromRow = (row: Row): LoginRecord => ({ id: row.id, kind: row.kind, scope: row.scope, telegramId: row.telegram_id, status: row.status, expiresAt: row.expires_at });
 
 export async function insertLogin(db: D1Database, record: LoginRecord, now: string): Promise<boolean> {
-  const result = await db.prepare("INSERT OR IGNORE INTO bot_logins (id, kind, telegram_id, status, expires_at, created_at) VALUES (?, ?, ?, ?, ?, ?)")
-    .bind(record.id, record.kind, record.telegramId, record.status, record.expiresAt, now).run();
+  const result = await db.prepare("INSERT OR IGNORE INTO bot_logins (id, kind, scope, telegram_id, status, expires_at, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)")
+    .bind(record.id, record.kind, record.scope, record.telegramId, record.status, record.expiresAt, now).run();
   return result.meta.changes === 1;
 }
 
 export async function findLogin(db: D1Database, id: string): Promise<LoginRecord | null> {
-  const row = await db.prepare("SELECT id, kind, telegram_id, status, expires_at FROM bot_logins WHERE id = ?").bind(id).first<Row>();
+  const row = await db.prepare("SELECT id, kind, scope, telegram_id, status, expires_at FROM bot_logins WHERE id = ?").bind(id).first<Row>();
   return row ? fromRow(row) : null;
 }
 

@@ -1,6 +1,7 @@
 // Support-center endpoints for threads, replies, user cards, quick replies and the media proxy.
 import type { AppContext } from "../app/context.ts";
 import { HttpError } from "../http/errors.ts";
+import { TelegramError } from "../telegram/api.ts";
 import { readJsonObject, requireString } from "../http/response.ts";
 import { findUser } from "../users/repo.ts";
 import { findFile, findThread, listMessages, listThreads, markRead, setStatus, type ThreadStatus } from "../support/repo.ts";
@@ -54,7 +55,15 @@ async function readReply(request: Request): Promise<{ text: string; photo: File 
 
 export async function postReply(request: Request, ctx: AppContext, id: number): Promise<unknown> {
   const thread = await threadOr404(ctx, id);
-  const saved = await replyFromAdmin(ctx, thread, await readReply(request));
+  const reply = await readReply(request);
+  let saved;
+  try {
+    saved = await replyFromAdmin(ctx, thread, reply);
+  } catch (error) {
+    if (!(error instanceof TelegramError)) throw error;
+    console.error("support: reply failed", id, error.message);
+    throw new HttpError("upstream_error", error.isBlocked ? "the customer blocked the bot, so the reply was not delivered" : "Telegram did not accept the reply; try again in a moment");
+  }
   return { message: messageJson(saved.message), thread: threadJson(saved.thread, await findUser(ctx.db, thread.telegramId)) };
 }
 

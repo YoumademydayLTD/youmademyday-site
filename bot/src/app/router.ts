@@ -21,12 +21,12 @@ const id = (params: Params, name = "id"): number => {
 
 export const ROUTES: readonly Route[] = [
   { method: "POST", pattern: "/telegram/webhook", access: "public", handler: (r, c) => handleWebhook(r, c) },
-  { method: "POST", pattern: "/api/login/start", access: "site", handler: (_r, c) => startLogin(c) },
+  { method: "POST", pattern: "/api/login/start", access: "site", handler: (_r, c) => startLogin(c, "site") },
   { method: "POST", pattern: "/api/login/wait", access: "site", handler: (r, c) => waitLogin(r, c, "site") },
   { method: "POST", pattern: "/api/login/verify", access: "site", handler: (r, c) => verifyCode(r, c, "site") },
   { method: "GET", pattern: "/api/me", access: "site", handler: (r, c) => getMe(r, c) },
   { method: "POST", pattern: "/api/logout", access: "site", handler: (r, c) => postLogout(r, c) },
-  { method: "POST", pattern: "/api/admin/login/start", access: "public", handler: (_r, c) => startLogin(c) },
+  { method: "POST", pattern: "/api/admin/login/start", access: "public", handler: (_r, c) => startLogin(c, "admin") },
   { method: "POST", pattern: "/api/admin/login/wait", access: "public", handler: (r, c) => adminWait(r, c) },
   { method: "POST", pattern: "/api/admin/login/verify", access: "public", handler: (r, c) => adminVerify(r, c) },
   { method: "POST", pattern: "/api/admin/logout", access: "public", handler: (r, c) => adminLogout(r, c) },

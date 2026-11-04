@@ -12,6 +12,8 @@ import { findLogin, insertLogin, transitionLogin } from "./repo.ts";
 // A fresh code collides with a live one about once in 10^6; a few tries are plenty.
 const CODE_TRIES = 5;
 const CONFIRM_PREFIX = "login:";
+// The support center is the owner's only (Hebrew); the prompt names it so a forwarded link cannot fool him.
+const ADMIN_LOGIN_ASK = "להיכנס למרכז התמיכה?\nאם לא אתה פתחת עכשיו את הכניסה, אל תלחץ.";
 
 export async function sendLoginCode(ctx: AppContext, user: BotUser): Promise<void> {
   for (let i = 0; i < CODE_TRIES; i += 1) {
@@ -32,7 +34,8 @@ export async function askLoginConfirm(ctx: AppContext, user: BotUser, token: str
     await sendText(ctx, user.telegramId, t(user.lang, "loginExpired"), { keyboard: siteButton(ctx, user) });
     return;
   }
-  await sendText(ctx, user.telegramId, t(user.lang, "loginAsk"), { keyboard: { inline_keyboard: [[button(t(user.lang, "loginConfirm"), `${CONFIRM_PREFIX}${token}`)]] } });
+  const ask = record.scope === "admin" ? ADMIN_LOGIN_ASK : t(user.lang, "loginAsk");
+  await sendText(ctx, user.telegramId, ask, { keyboard: { inline_keyboard: [[button(t(user.lang, "loginConfirm"), `${CONFIRM_PREFIX}${token}`)]] } });
 }
 
 /** Callback "login:<token>". */

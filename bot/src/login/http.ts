@@ -27,8 +27,8 @@ export async function publicUser(db: D1Database, telegramId: number): Promise<Pu
   return { id: user.telegramId, name: displayName(user), username: user.username, lang: user.lang };
 }
 
-export async function startLogin(ctx: AppContext): Promise<{ token: string; deepLink: string; expiresAt: number }> {
-  const record = newLink(randomToken(), ctx.nowSeconds);
+export async function startLogin(ctx: AppContext, scope: Scope): Promise<{ token: string; deepLink: string; expiresAt: number }> {
+  const record = newLink(randomToken(), scope, ctx.nowSeconds);
   if (!(await insertLogin(ctx.db, record, ctx.nowIso))) throw new HttpError("internal", "could not start the sign-in, please try again");
   const deepLink = `https://t.me/${ctx.env.BOT_USERNAME}?start=${buildPayload("login", record.id)}`;
   return { token: record.id, deepLink, expiresAt: record.expiresAt };
@@ -45,7 +45,7 @@ export async function waitLogin(request: Request, ctx: AppContext, scope: Scope)
   const token = requireString(await readJsonObject(request), "token", MAX_TOKEN_LENGTH);
   const started = Date.now();
   for (let now = ctx; ; now = tick(ctx)) {
-    const state = linkState(await findLogin(now.db, token), now.nowSeconds);
+    const state = linkState(await findLogin(now.db, token), scope, now.nowSeconds);
     if (state.status === "ready") {
       // Only one waiter turns a confirmed link into a session.
       if (!(await transitionLogin(now.db, token, "confirmed", "used", null))) return { status: "expired" };

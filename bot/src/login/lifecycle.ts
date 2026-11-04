@@ -11,18 +11,20 @@ export const FAILED_CODE_WINDOW_SECONDS = 10 * SECONDS_PER_MINUTE;
 
 export type LoginKind = "link" | "code";
 export type LoginStatus = "pending" | "confirmed" | "used";
-export interface LoginRecord { id: string; kind: LoginKind; telegramId: number | null; status: LoginStatus; expiresAt: number }
+// A deep link is made for one sign-in; codes from /login are typed by the user into their own browser, so they serve both.
+export type LoginScope = "site" | "admin";
+export interface LoginRecord { id: string; kind: LoginKind; scope: LoginScope; telegramId: number | null; status: LoginStatus; expiresAt: number }
 
 export const isValidCode = (code: string): boolean => new RegExp(`^\\d{${CODE_LENGTH}}$`).test(code);
 export const codeId = (code: string): string => `${CODE_PREFIX}${code}`;
 
-export function newLink(token: string, nowSeconds: number): LoginRecord {
-  return { id: token, kind: "link", telegramId: null, status: "pending", expiresAt: nowSeconds + LOGIN_TTL_SECONDS };
+export function newLink(token: string, scope: LoginScope, nowSeconds: number): LoginRecord {
+  return { id: token, kind: "link", scope, telegramId: null, status: "pending", expiresAt: nowSeconds + LOGIN_TTL_SECONDS };
 }
 
 /** A code is created already bound to the Telegram user who asked for it. */
 export function newCode(code: string, telegramId: number, nowSeconds: number): LoginRecord {
-  return { id: codeId(code), kind: "code", telegramId, status: "confirmed", expiresAt: nowSeconds + LOGIN_TTL_SECONDS };
+  return { id: codeId(code), kind: "code", scope: "site", telegramId, status: "confirmed", expiresAt: nowSeconds + LOGIN_TTL_SECONDS };
 }
 
 export const isExpired = (record: LoginRecord, nowSeconds: number): boolean => record.expiresAt <= nowSeconds;
@@ -35,9 +37,9 @@ export function confirmLink(record: LoginRecord, telegramId: number, nowSeconds:
 
 export type WaitResult = { status: "pending" } | { status: "expired" } | { status: "ready"; telegramId: number };
 
-/** What the site's long-poll sees for a link. A used link reads as expired: it cannot open a second session. */
-export function linkState(record: LoginRecord | null, nowSeconds: number): WaitResult {
-  if (!record || record.kind !== "link" || record.status === "used") return { status: "expired" };
+/** What a long-poll of this scope sees for a link. A used link, or one made for the other scope, reads as expired. */
+export function linkState(record: LoginRecord | null, scope: LoginScope, nowSeconds: number): WaitResult {
+  if (!record || record.kind !== "link" || record.scope !== scope || record.status === "used") return { status: "expired" };
   if (record.status === "confirmed" && record.telegramId !== null) return { status: "ready", telegramId: record.telegramId };
   return isExpired(record, nowSeconds) ? { status: "expired" } : { status: "pending" };
 }

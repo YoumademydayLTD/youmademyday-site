@@ -7,21 +7,31 @@ const USER = 42;
 
 describe("deep-link login", () => {
   it("is pending until confirmed, then ready once", () => {
-    const link = newLink("token", NOW);
-    expect(linkState(link, NOW)).toEqual({ status: "pending" });
+    const link = newLink("token", "site", NOW);
+    expect(linkState(link, "site", NOW)).toEqual({ status: "pending" });
     const confirmed = confirmLink(link, USER, NOW + 10);
     expect(confirmed).not.toBeNull();
-    expect(linkState(confirmed, NOW + 11)).toEqual({ status: "ready", telegramId: USER });
-    expect(linkState(confirmed && { ...confirmed, status: "used" }, NOW + 12)).toEqual({ status: "expired" });
+    expect(linkState(confirmed, "site", NOW + 11)).toEqual({ status: "ready", telegramId: USER });
+    expect(linkState(confirmed && { ...confirmed, status: "used" }, "site", NOW + 12)).toEqual({ status: "expired" });
   });
 
   it("expires after 5 minutes and cannot be confirmed late or twice", () => {
-    const link = newLink("token", NOW);
-    expect(linkState(link, NOW + LOGIN_TTL_SECONDS)).toEqual({ status: "expired" });
+    const link = newLink("token", "site", NOW);
+    expect(linkState(link, "site", NOW + LOGIN_TTL_SECONDS)).toEqual({ status: "expired" });
     expect(confirmLink(link, USER, NOW + LOGIN_TTL_SECONDS)).toBeNull();
     const confirmed = confirmLink(link, USER, NOW);
     expect(confirmed && confirmLink(confirmed, 7, NOW)).toBeNull();
-    expect(linkState(null, NOW)).toEqual({ status: "expired" });
+    expect(linkState(null, "site", NOW)).toEqual({ status: "expired" });
+  });
+});
+
+describe("link scope", () => {
+  it("never lets a site link open the support center, or the reverse", () => {
+    const site = confirmLink(newLink("t", "site", NOW), USER, NOW);
+    const admin = confirmLink(newLink("t", "admin", NOW), USER, NOW);
+    expect(linkState(site, "admin", NOW)).toEqual({ status: "expired" });
+    expect(linkState(admin, "site", NOW)).toEqual({ status: "expired" });
+    expect(linkState(admin, "admin", NOW)).toEqual({ status: "ready", telegramId: USER });
   });
 });
 
@@ -36,7 +46,7 @@ describe("6-digit code", () => {
     const code = newCode("123456", USER, NOW);
     expect(redeemCode({ ...code, status: "used" }, NOW)).toBeNull();
     expect(redeemCode(null, NOW)).toBeNull();
-    expect(redeemCode(newLink("x", NOW), NOW)).toBeNull();
+    expect(redeemCode(newLink("x", "site", NOW), NOW)).toBeNull();
   });
 
   it("accepts only six digits, and random codes are six digits", () => {
