@@ -44,10 +44,11 @@ export async function handleSupportMessage(ctx: AppContext, user: BotUser, messa
   const content = extractMedia(message);
   const thread = await openThreadFor(ctx.db, user.telegramId, ctx.nowIso);
   const saved = await addMessage(ctx.db, thread.id, { direction: "in", ...content, telegramMessageId: message.message_id }, preview(content.text, content.mediaKind, PREVIEW_LENGTH), ctx.nowIso);
+  // The team hears about it first, so a failed auto-ack can never hide a customer's message.
+  await publish(ctx.env, { type: "message", thread: threadJson(saved.thread, user), message: messageJson(saved.message) });
+  await notifyAdmins(ctx, user, saved.thread, message, content);
   if (needsAck(thread)) {
     await markAcked(ctx.db, thread.id);
     await sendText(ctx, user.telegramId, t(user.lang, "supportAck"));
   }
-  await publish(ctx.env, { type: "message", thread: threadJson(saved.thread, user), message: messageJson(saved.message) });
-  await notifyAdmins(ctx, user, saved.thread, message, content);
 }

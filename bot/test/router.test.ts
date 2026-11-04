@@ -80,3 +80,13 @@ describe("helpers", () => {
     expect(sitePage("https://youmademyday.store", "en", "privacy")).toBe("https://youmademyday.store/#privacy");
   });
 });
+
+describe("media proxy types", async () => {
+  const { mediaType, attachment } = await import("../src/admin/media-type.ts");
+  it("types files by message kind and extension", () => {
+    expect(mediaType({ mediaKind: "photo", fileName: null })).toBe("image/jpeg");
+    expect(mediaType({ mediaKind: "document", fileName: "Receipt.PDF" })).toBe("application/pdf");
+    expect(mediaType({ mediaKind: "document", fileName: "x.unknown" })).toBe("application/octet-stream");
+    expect(attachment("קבלה.pdf")).toContain("filename*=UTF-8''");
+  });
+});

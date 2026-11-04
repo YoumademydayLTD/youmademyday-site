@@ -75,7 +75,8 @@ export async function threadForNotice(db: D1Database, adminChatId: number, messa
   return row?.thread_id ?? null;
 }
 
-/** Whether a file id belongs to a stored support message (the media proxy serves nothing else). */
-export async function isKnownFile(db: D1Database, fileId: string): Promise<boolean> {
-  return (await db.prepare("SELECT 1 AS x FROM bot_messages WHERE file_id = ? LIMIT 1").bind(fileId).first()) !== null;
+/** The kind and name of a stored support file (the media proxy serves nothing else). */
+export async function findFile(db: D1Database, fileId: string): Promise<{ mediaKind: MediaKind; fileName: string | null } | null> {
+  const row = await db.prepare("SELECT media_kind, file_name FROM bot_messages WHERE file_id = ? LIMIT 1").bind(fileId).first<{ media_kind: MediaKind; file_name: string | null }>();
+  return row ? { mediaKind: row.media_kind, fileName: row.file_name } : null;
 }

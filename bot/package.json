@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.tools.json",
-    "test": "vitest run",
+    "test": "vitest run && node --test test/ui/*.test.mjs",
     "dev": "wrangler dev",
     "deploy": "npm run typecheck && npm test && wrangler deploy",
     "db:migrate": "wrangler d1 migrations apply ymd-store --remote",

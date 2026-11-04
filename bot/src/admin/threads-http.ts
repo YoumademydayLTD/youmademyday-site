@@ -3,12 +3,13 @@ import type { AppContext } from "../app/context.ts";
 import { HttpError } from "../http/errors.ts";
 import { readJsonObject, requireString } from "../http/response.ts";
 import { findUser } from "../users/repo.ts";
-import { findThread, isKnownFile, listMessages, listThreads, markRead, setStatus, type ThreadStatus } from "../support/repo.ts";
+import { findFile, findThread, listMessages, listThreads, markRead, setStatus, type ThreadStatus } from "../support/repo.ts";
 import { replyFromAdmin } from "../support/outbound.ts";
 import { publish } from "../live/hub.ts";
 import { listUserSubscriptions } from "../billing/subscriptions.ts";
 import { listPurchases } from "./purchases.ts";
 import { messageJson, threadJson, userCard } from "./present.ts";
+import { attachment, mediaType } from "./media-type.ts";
 
 const INBOX_LIMIT = 200;
 const MAX_REPLY_LENGTH = 4000; // Telegram's text limit is 4096; a caption is 1024 (checked below)
@@ -77,10 +78,20 @@ export async function getUserCard(ctx: AppContext, telegramId: number): Promise<
 
 /** GET /admin/file/:fileId — a customer's photo or file, streamed from Telegram so the bot token stays here. */
 export async function getMedia(ctx: AppContext, fileId: string): Promise<Response> {
-  if (!(await isKnownFile(ctx.db, fileId))) throw new HttpError("not_found", "no such file");
+  const file = await findFile(ctx.db, fileId);
+  if (!file) throw new HttpError("not_found", "no such file");
   const upstream = await ctx.tg.download(fileId);
   if (!upstream.ok || !upstream.body) throw new HttpError("upstream_error", "Telegram did not return the file");
-  return new Response(upstream.body, {
-    headers: { "Content-Type": upstream.headers.get("Content-Type") ?? "application/octet-stream", "Cache-Control": "private, max-age=3600", "X-Content-Type-Options": "nosniff" },
-  });
+  // Telegram's file server answers application/octet-stream, so the type comes from what the message was.
+  const headers: Record<string, string> = { "Content-Type": mediaType(file), "Cache-Control": "private, max-age=3600", "X-Content-Type-Options": "nosniff" };
+  if (file.mediaKind === "document") headers["Content-Disposition"] = attachment(file.fileName ?? "file");
+  return new Response(upstream.body, { headers });
+}
+
+export async function postRead(ctx: AppContext, id: number): Promise<unknown> {
+  const thread = await markRead(ctx.db, id);
+  if (!thread) throw new HttpError("not_found", "no such thread");
+  const json = threadJson(thread, await findUser(ctx.db, thread.telegramId));
+  await publish(ctx.env, { type: "thread", thread: json });
+  return { thread: json };
 }

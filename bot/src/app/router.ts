@@ -5,7 +5,7 @@ import { startLogin, verifyCode, waitLogin } from "../login/http.ts";
 import { getMe, postLogout } from "../login/site-http.ts";
 import { handleWebhook } from "../webhook/handler.ts";
 import { adminLogout, adminMe, adminVerify, adminWait, requireAdmin } from "../admin/auth.ts";
-import { getMedia, getThread, getThreads, getUserCard, postReply, postStatus } from "../admin/threads-http.ts";
+import { getMedia, getThread, getThreads, getUserCard, postRead, postReply, postStatus } from "../admin/threads-http.ts";
 import { getContent, getQuickReplies, postContent, postContentDelete, postQuickReply, postQuickReplyDelete } from "../admin/content-http.ts";
 import { connect } from "../live/hub.ts";
 
@@ -35,6 +35,7 @@ export const ROUTES: readonly Route[] = [
   { method: "GET", pattern: "/api/admin/threads", access: "admin", handler: (r, c) => getThreads(r, c) },
   { method: "GET", pattern: "/api/admin/threads/:id", access: "admin", handler: (_r, c, p) => getThread(c, id(p)) },
   { method: "POST", pattern: "/api/admin/threads/:id/reply", access: "admin", handler: (r, c, p) => postReply(r, c, id(p)) },
+  { method: "POST", pattern: "/api/admin/threads/:id/read", access: "admin", handler: (_r, c, p) => postRead(c, id(p)) },
   { method: "POST", pattern: "/api/admin/threads/:id/status", access: "admin", handler: (r, c, p) => postStatus(r, c, id(p)) },
   { method: "GET", pattern: "/api/admin/users/:id", access: "admin", handler: (_r, c, p) => getUserCard(c, id(p)) },
   { method: "GET", pattern: "/api/admin/quick-replies", access: "admin", handler: (_r, c) => getQuickReplies(c) },
