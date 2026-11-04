@@ -24,6 +24,7 @@ export const en: Copy = {
   toSite: "To the site",
 
   orderThanks: "Thank you for your order 💛 Here are your files:",
+  orderDocButton: "📄 Order details document",
   orderPending: "Your payment is still on its way. As soon as it's confirmed, your files will arrive here by themselves.",
   orderNotFound: "We couldn't find this order. If you paid, write to us here and we'll sort it out.",
   orderOtherUser: "This order is already linked to another Telegram account. If that's a mistake, write to us here and we'll help.",

@@ -10,6 +10,7 @@ import { handleHealth } from "./health.ts";
 import { handleDownloads, handleFile } from "./delivery/handler.ts";
 import { handleAccount, handleAccountCancel } from "./account/handler.ts";
 import { handleInvoice } from "./account/invoice.ts";
+import { handleOrderDoc } from "./orderdoc/handler.ts";
 import { handleInternalCancel } from "./internal/handler.ts";
 import { matchRoute, type Route } from "./http/router.ts";
 
@@ -25,6 +26,7 @@ const ROUTES: Route<Handler>[] = [
   route("GET", "/api/account", (request, env) => handleAccount(request, env, new Date())),
   route("POST", "/api/account/subscriptions/:id/cancel", (request, env, _ctx, p) => handleAccountCancel(request, env, p.id ?? "", new Date())),
   route("GET", "/api/invoice", (request, env) => handleInvoice(request, env, new Date())),
+  route("GET", "/api/order-doc", (request, env) => handleOrderDoc(request, env, new Date())),
   route("POST", "/api/internal/subscriptions/cancel", (request, env) => handleInternalCancel(request, env, new Date())),
   route("GET", "/api/health", (_request, env) => handleHealth(env)),
 ];

@@ -27,3 +27,10 @@ export async function upsertOrder(db: D1Database, row: OrderRow, now: string): P
   ).bind(row.id, row.checkoutId, row.customerId, row.customerEmail, row.productId, row.subscriptionId, row.status, row.billingReason, row.currency,
     row.totalAmount, row.refundedAmount, row.itemIds.join(","), row.lang, row.needsReview ? 1 : 0, JSON.stringify(row.metadata), now, now).run();
 }
+
+/** A completed sale (paid or refunded) by its Polar order id, for the order details document. */
+export async function findSoldOrder(db: D1Database, orderId: string): Promise<{ id: string; status: string; currency: string; totalAmount: number; itemIds: string[]; lang: string | null; createdAt: string } | null> {
+  const row = await db.prepare("SELECT id, status, currency, total_amount, item_ids, lang, created_at FROM orders WHERE id = ? AND status IN ('paid', 'refunded', 'partially_refunded')")
+    .bind(orderId).first<{ id: string; status: string; currency: string; total_amount: number; item_ids: string; lang: string | null; created_at: string }>();
+  return row ? { id: row.id, status: row.status, currency: row.currency, totalAmount: row.total_amount, itemIds: row.item_ids.split(",").filter(Boolean), lang: row.lang, createdAt: row.created_at } : null;
+}

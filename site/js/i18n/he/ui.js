@@ -379,6 +379,7 @@ export default {
   "acct.inv.refunded": "זוכה",
   "acct.inv.partially_refunded": "זוכה חלקית",
   "acct.invDownload": "להורדה",
+  "acct.doc": "מסמך פרטי העסקה", "acct.docLabel": "מסמך פרטי העסקה מ-{date}", "dl.open": "פתיחה",
   "acct.invLabel": "הורדת הקבלה מ-{date}",
   "acct.invPending": "בהכנה",
 };

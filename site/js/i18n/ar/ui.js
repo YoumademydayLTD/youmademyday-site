@@ -379,6 +379,7 @@ export default {
   "acct.inv.refunded": "مُسترد",
   "acct.inv.partially_refunded": "مُسترد جزئيًا",
   "acct.invDownload": "تنزيل",
+  "acct.doc": "مستند تفاصيل الطلب", "acct.docLabel": "مستند تفاصيل الطلب بتاريخ {date}", "dl.open": "فتح",
   "acct.invLabel": "تنزيل إيصال {date}",
   "acct.invPending": "قيد التحضير",
 };

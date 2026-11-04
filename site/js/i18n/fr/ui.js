@@ -379,6 +379,7 @@ export default {
   "acct.inv.refunded": "Remboursé",
   "acct.inv.partially_refunded": "Remboursé en partie",
   "acct.invDownload": "Télécharger",
+  "acct.doc": "Document récapitulatif de la commande", "acct.docLabel": "Document récapitulatif de la commande du {date}", "dl.open": "Ouvrir",
   "acct.invLabel": "Télécharger le reçu du {date}",
   "acct.invPending": "En préparation",
 };

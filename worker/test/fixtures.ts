@@ -11,6 +11,8 @@ export const CATALOG: Catalog = {
   defaultLang: "en",
   homeCurrencyLang: "he",
   bookDealMin: 3,
+  refundDays: 14,
+  business: { en: { name: "You Made My Day Ltd.", id: "Company no. 1", addr: "Haifa", email: "a@b.c" }, he: { name: "עשית לי את היום בע״מ", id: "ח.פ. 1", addr: "חיפה", email: "a@b.c" } },
   products: {
     b9: product(9, "ebook", "a", 45, ["en", "he", "fr"]),
     b10: product(10, "ebook", "b", 29, ["en", "he", "fr"]),
@@ -21,8 +23,8 @@ export const CATALOG: Catalog = {
     k49: { ...product(49, "bundle", "bundle", 99, ["en", "he", "fr"]), includes: ["b9", "b10"] },
   },
   plans: {
-    grow: { title: "grow", description: "", price: 147, usd: 39, period: "week", trialDays: 1 },
-    day: { title: "day", description: "", price: 29, period: "month", trialDays: 0 },
+    grow: { title: "grow", titles: { en: "Growth membership", he: "מנוי צמיחה" }, description: "", price: 147, usd: 39, period: "week", trialDays: 1 },
+    day: { title: "day", titles: { en: "Good Day membership" }, description: "", price: 29, period: "month", trialDays: 0 },
   },
 };
 

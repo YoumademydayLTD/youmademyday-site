@@ -8,12 +8,12 @@ import { TRIAL_STATUS } from "../polar/subscriptions.ts";
 const CANCELLABLE = new Set(["active", TRIAL_STATUS]);
 
 export interface MembershipView extends AccountSubscription { isTrial: boolean; canCancel: boolean }
-export interface InvoiceView { orderId: string; createdAt: string; total: number; currency: string; status: string; items: { id: string; title: string }[]; url: string }
+export interface InvoiceView { orderId: string; createdAt: string; total: number; currency: string; status: string; items: { id: string; title: string }[]; url: string; documentUrl: string }
 
 export const membershipView = (s: AccountSubscription): MembershipView =>
   ({ ...s, isTrial: s.status === TRIAL_STATUS, canCancel: CANCELLABLE.has(s.status) && !s.cancelAtPeriodEnd });
 
-export const invoiceView = (order: AccountOrder, catalog: Catalog, lang: string, url: string): InvoiceView => ({
+export const invoiceView = (order: AccountOrder, catalog: Catalog, lang: string, url: string, documentUrl: string): InvoiceView => ({
   orderId: order.id, createdAt: order.createdAt, total: order.totalAmount, currency: order.currency, status: order.status,
-  items: order.itemIds.map((id) => ({ id, title: titleFor(id, lang, catalog) })), url,
+  items: order.itemIds.map((id) => ({ id, title: catalog.plans[id]?.titles[lang] ?? titleFor(id, lang, catalog) })), url, documentUrl,
 });

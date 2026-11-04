@@ -53,8 +53,8 @@ describe("memberships", () => {
 
 describe("invoiceView", () => {
   it("names the items in the buyer's language and never shows the customer number", () => {
-    const view = invoiceView({ id: "o1", status: "paid", currency: "ils", totalAmount: 8400, itemIds: ["b9", "b10"], createdAt: "2026-11-04T10:00:00Z" }, CATALOG, "fr", "https://w/api/invoice?t=x");
-    expect(view).toEqual({ orderId: "o1", createdAt: "2026-11-04T10:00:00Z", total: 8400, currency: "ils", status: "paid", items: [{ id: "b9", title: "a (fr)" }, { id: "b10", title: "b (fr)" }], url: "https://w/api/invoice?t=x" });
+    const view = invoiceView({ id: "o1", status: "paid", currency: "ils", totalAmount: 8400, itemIds: ["b9", "b10"], createdAt: "2026-11-04T10:00:00Z" }, CATALOG, "fr", "https://w/api/invoice?t=x", "https://w/api/order-doc?t=y");
+    expect(view).toEqual({ orderId: "o1", createdAt: "2026-11-04T10:00:00Z", total: 8400, currency: "ils", status: "paid", items: [{ id: "b9", title: "a (fr)" }, { id: "b10", title: "b (fr)" }], url: "https://w/api/invoice?t=x", documentUrl: "https://w/api/order-doc?t=y" });
     expect(JSON.stringify(view)).not.toMatch(/ym\d/);
   });
 });
@@ -80,5 +80,18 @@ describe("assertInternal", () => {
 describe("cors", () => {
   it("lets the site send its session header", () => {
     expect(corsHeaders("https://youmademyday.store", new Set(["https://youmademyday.store"]))["Access-Control-Allow-Headers"]).toContain("Authorization");
+  });
+});
+
+describe("chooseCountry", () => {
+  it("prefers the saved country, then the location, then the site language", async () => {
+    const { chooseCountry, visitorOf } = await import("../src/customers/country.ts");
+    expect(chooseCountry({ saved: "FR", located: "IL", lang: "he" })).toBe("FR");
+    expect(chooseCountry({ saved: null, located: "DE", lang: "he" })).toBe("DE");
+    expect(chooseCountry({ saved: null, located: "XX", lang: "he" })).toBe("IL");
+    expect(chooseCountry({ saved: null, located: "T1", lang: "en" })).toBeNull();
+    expect(chooseCountry({ saved: "israel", located: undefined, lang: "ru" })).toBeNull();
+    const request = Object.assign(new Request("https://w", { headers: { "CF-Connecting-IP": "203.0.113.7" } }), { cf: { country: "IL" } });
+    expect(visitorOf(request)).toEqual({ country: "IL", ip: "203.0.113.7" });
   });
 });

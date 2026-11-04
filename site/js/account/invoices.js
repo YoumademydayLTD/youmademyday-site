@@ -1,5 +1,6 @@
 // «My receipts» in the personal area: one row per order with its date, items, total, status and the
-// receipt or invoice to download. The payment provider no longer emails them, so this is where they live.
+// receipt or invoice to download, and the order details document (the disclosure the law requires, per the terms).
+// The payment provider no longer emails them, so this is where they live.
 import { esc } from "../util.js";
 import { t, L } from "../i18n/index.js";
 import { formatMoney } from "../money.js";
@@ -20,7 +21,9 @@ function invoiceRow(invoice) {
   const link = typeof invoice.url === "string" && invoice.url
     ? `<a class="lnk" href="${esc(invoice.url)}" target="_blank" rel="noopener" aria-label="${t("acct.invLabel", { date })}"><span>${t("acct.invDownload")}</span></a>`
     : `<span class="muted">${t("acct.invPending")}</span>`;
-  return `<tr><td class="num">${date}</td><td>${items}</td><td class="num">${totalOf(invoice)}</td><td>${statusLabel(invoice.status)}</td><td>${link}</td></tr>`;
+  const doc = typeof invoice.documentUrl === "string" && invoice.documentUrl
+    ? `<a class="lnk" href="${esc(invoice.documentUrl)}" target="_blank" rel="noopener" aria-label="${t("acct.docLabel", { date })}"><span>${t("acct.doc")}</span></a>` : "";
+  return `<tr><td class="num">${date}</td><td>${items}</td><td class="num">${totalOf(invoice)}</td><td>${statusLabel(invoice.status)}</td><td><div class="me-docs">${link}${doc}</div></td></tr>`;
 }
 
 export function invoicesSection(invoices) {

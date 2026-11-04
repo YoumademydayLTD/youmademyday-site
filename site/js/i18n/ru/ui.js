@@ -379,6 +379,7 @@ export default {
   "acct.inv.refunded": "Возвращён",
   "acct.inv.partially_refunded": "Возвращён частично",
   "acct.invDownload": "Скачать",
+  "acct.doc": "Документ с деталями заказа", "acct.docLabel": "Документ с деталями заказа от {date}", "dl.open": "Открыть",
   "acct.invLabel": "Скачать чек от {date}",
   "acct.invPending": "Готовится",
 };

@@ -9,6 +9,39 @@
  "defaultLang": "en",
  "homeCurrencyLang": "he",
  "bookDealMin": 3,
+ "refundDays": 14,
+ "business": {
+  "en": {
+   "name": "You Made My Day Ltd. (עשית לי את היום בע״מ)",
+   "id": "Company no. 517347712 (Israel)",
+   "addr": "10 David Elazar St., Haifa, Israel",
+   "email": "youmademydayltd@gmail.com"
+  },
+  "he": {
+   "name": "עשית לי את היום בע״מ",
+   "id": "ח.פ. 517347712",
+   "addr": "דוד אלעזר 10, חיפה",
+   "email": "youmademydayltd@gmail.com"
+  },
+  "fr": {
+   "name": "You Made My Day Ltd. (עשית לי את היום בע״מ)",
+   "id": "N° de société 517347712 (Israël)",
+   "addr": "10 David Elazar St., Haifa, Israel",
+   "email": "youmademydayltd@gmail.com"
+  },
+  "ar": {
+   "name": "You Made My Day Ltd. (עשית לי את היום בע״מ)",
+   "id": "رقم الشركة 517347712 (إسرائيل)",
+   "addr": "10 David Elazar St., Haifa, Israel",
+   "email": "youmademydayltd@gmail.com"
+  },
+  "ru": {
+   "name": "You Made My Day Ltd. (עשית לי את היום בע״מ)",
+   "id": "Рег. номер компании 517347712 (Израиль)",
+   "addr": "10 David Elazar St., Haifa, Israel",
+   "email": "youmademydayltd@gmail.com"
+  }
+ },
  "products": {
   "c1": {
    "n": 1,
@@ -1097,6 +1130,13 @@
  "plans": {
   "grow": {
    "title": "מנוי צמיחה",
+   "titles": {
+    "en": "Growth membership",
+    "he": "מנוי צמיחה",
+    "fr": "Abonnement Croissance",
+    "ar": "اشتراك النموّ",
+    "ru": "Подписка «Рост»"
+   },
    "description": "כל מה שצריך כדי להתקדם כל יום, צעד אחרי צעד.",
    "price": 147,
    "usd": 39,
@@ -1105,6 +1145,13 @@
   },
   "max": {
    "title": "מנוי מקסימום",
+   "titles": {
+    "en": "Maximum membership",
+    "he": "מנוי מקסימום",
+    "fr": "Abonnement Maximum",
+    "ar": "اشتراك القمّة",
+    "ru": "Подписка «Максимум»"
+   },
    "description": "ליווי אישי וצמוד, למי שרוצה להגיע הכי רחוק שאפשר.",
    "price": 297,
    "usd": 79,
@@ -1113,6 +1160,13 @@
   },
   "day": {
    "title": "מנוי יום טוב",
+   "titles": {
+    "en": "Good Day membership",
+    "he": "מנוי יום טוב",
+    "fr": "Abonnement Belle journée",
+    "ar": "اشتراك يوم جميل",
+    "ru": "Подписка «Хороший день»"
+   },
    "description": "בוט אישי: משימה ותזכורת בכל יום · מסלול אחד לבחירה · מעקב רצף והתקדמות · ספר דיגיטלי אחד בכל חודש",
    "price": 29,
    "period": "month",
@@ -1120,6 +1174,13 @@
   },
   "community": {
    "title": "מנוי קהילה",
+   "titles": {
+    "en": "Community membership",
+    "he": "מנוי קהילה",
+    "fr": "Abonnement Communauté",
+    "ar": "اشتراك المجتمع",
+    "ru": "Подписка «Сообщество»"
+   },
    "description": "כל מה שב«יום טוב» · כל המסלולים, בלי הגבלה · קבוצה פרטית לפי נושא · אתגר שבועי ומפגש לייב בכל חודש · כל הקורסים בספרייה",
    "price": 59,
    "period": "month",
@@ -1127,6 +1188,13 @@
   },
   "mentor": {
    "title": "מנוי ליווי",
+   "titles": {
+    "en": "Mentor membership",
+    "he": "מנוי ליווי",
+    "fr": "Abonnement Mentor",
+    "ar": "اشتراك المرافقة",
+    "ru": "Подписка «Наставник»"
+   },
    "description": "כל מה שב«קהילה» · צ׳אט אישי עם מלווה מהצוות · שיחת כיוון בכל שבוע · תוכנית אישית ל-90 יום",
    "price": 149,
    "period": "month",

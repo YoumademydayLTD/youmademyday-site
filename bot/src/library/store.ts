@@ -3,7 +3,7 @@
 import type { AppContext } from "../app/context.ts";
 
 export interface DownloadItem { id: string; title: string; url: string; filename: string; lang: string; size: number }
-export type Downloads = { status: "pending" } | { status: "refunded" } | { status: "ready"; items: DownloadItem[] };
+export type Downloads = { status: "pending" } | { status: "refunded" } | { status: "ready"; items: DownloadItem[]; documentUrl: string };
 
 export async function fetchDownloads(ctx: AppContext, checkoutId: string): Promise<Downloads> {
   // The store builds its signed links from the request origin, so the URL carries its public address (STORE_URL).

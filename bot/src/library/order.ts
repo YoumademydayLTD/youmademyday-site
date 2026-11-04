@@ -4,7 +4,7 @@ import type { AppContext } from "../app/context.ts";
 import type { BotUser } from "../users/repo.ts";
 import { t } from "../i18n/index.ts";
 import { sendText } from "../telegram/send.ts";
-import { mainMenu } from "../menu/keyboards.ts";
+import { link, mainMenu } from "../menu/keyboards.ts";
 import { fetchDownloads } from "./store.ts";
 import { linkOrder, listUndelivered, markDelivered, type OrderLink } from "./links.ts";
 import { sendFiles } from "./send-files.ts";
@@ -25,7 +25,8 @@ export async function deliver(ctx: AppContext, user: BotUser, checkoutId: string
   // Anything missing can be sent again from 📚 My library.
   const order = await findStoreOrder(ctx.db, checkoutId);
   await markDelivered(ctx.db, checkoutId, order?.id ?? "", ctx.nowIso);
-  await sendText(ctx, user.telegramId, t(user.lang, "orderThanks"));
+  // The confirmation carries the order details document, the disclosure the law requires (see the terms).
+  await sendText(ctx, user.telegramId, t(user.lang, "orderThanks"), { keyboard: { inline_keyboard: [[link(t(user.lang, "orderDocButton"), downloads.documentUrl)]] } });
   await sendFiles(ctx, user.telegramId, user.lang, downloads.items);
   return "sent";
 }

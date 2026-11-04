@@ -46,7 +46,9 @@ function showResult(result) {
     status.innerHTML = `<p>${MESSAGES[isEmpty ? "none" : result.status]()}</p>`;
     return;
   }
-  $("#dlList").innerHTML = result.items.map(itemLine).join("");
+  const doc = typeof result.documentUrl === "string" && result.documentUrl
+    ? `<div class="line"><div style="min-width:0"><h4>${t("acct.doc")}</h4></div><a class="btn btn-ghost btn-sm" href="${esc(result.documentUrl)}" target="_blank" rel="noopener">${t("dl.open")}</a></div>` : "";
+  $("#dlList").innerHTML = result.items.map(itemLine).join("") + doc;
   status.innerHTML = `<p class="muted">${t("dl.note")}</p>`;
 }
 

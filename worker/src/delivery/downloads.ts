@@ -5,6 +5,8 @@ import { findOrder, findOrderByCheckout, listEntitlements, type Entitlement, typ
 import type { FileManifest } from "./manifest.ts";
 import { pickFile, titleFor } from "./items.ts";
 import { createFileToken, FILE_LINK_TTL_SECONDS } from "./token.ts";
+import { orderDocUrl } from "../orderdoc/link.ts";
+import { docLang } from "../orderdoc/data.ts";
 
 export interface DeliveryContext {
   db: D1Database;
@@ -16,7 +18,8 @@ export interface DeliveryContext {
 }
 export type OrderRef = { checkoutId: string } | { orderId: string };
 export interface DownloadItem { id: string; title: string; url: string; filename: string; lang: string; size: number; expiresAt: number }
-export type Downloads = { status: "pending" } | { status: "refunded" } | { status: "ready"; items: DownloadItem[] };
+// documentUrl: the order details document (the disclosure the law requires), in the language of the purchase.
+export type Downloads = { status: "pending" } | { status: "refunded" } | { status: "ready"; items: DownloadItem[]; documentUrl: string };
 
 const DELIVERING = new Set(["paid", "partially_refunded"]);
 
@@ -41,5 +44,6 @@ export async function listDownloads(ctx: DeliveryContext, ref: OrderRef): Promis
   const order = "checkoutId" in ref ? await findOrderByCheckout(ctx.db, ref.checkoutId) : await findOrder(ctx.db, ref.orderId);
   const status = statusOf(order);
   if (status !== "ready" || !order) return { status: status === "refunded" ? "refunded" : "pending" };
-  return { status: "ready", items: await buildItems(await listEntitlements(ctx.db, order.id), ctx) };
+  const documentUrl = await orderDocUrl(new URL(ctx.fileUrl).origin, ctx.secret, order.id, docLang(order.lang, ctx.catalog), ctx.nowSeconds);
+  return { status: "ready", items: await buildItems(await listEntitlements(ctx.db, order.id), ctx), documentUrl };
 }

@@ -23,6 +23,7 @@ export interface Copy {
   toSite: string;
 
   orderThanks: string;
+  orderDocButton: string;
   orderPending: string;
   orderNotFound: string;
   orderOtherUser: string;

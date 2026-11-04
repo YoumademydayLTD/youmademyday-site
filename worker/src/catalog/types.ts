@@ -12,12 +12,15 @@ export interface CatalogProduct {
   titles: Record<string, string>;
   includes?: string[];
 }
-export interface CatalogPlan { title: string; description: string; price: number; usd?: number; period: "week" | "month"; trialDays: number }
+export interface CatalogPlan { title: string; titles: Record<string, string>; description: string; price: number; usd?: number; period: "week" | "month"; trialDays: number }
+export interface Business { name: string; id: string; addr: string; email: string }
 export interface Catalog {
   langs: string[];
   defaultLang: string;
   homeCurrencyLang: string;
   bookDealMin: number;
+  refundDays: number;
+  business: Record<string, Business>;
   products: Record<string, CatalogProduct>;
   plans: Record<string, CatalogPlan>;
 }

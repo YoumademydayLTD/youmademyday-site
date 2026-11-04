@@ -129,3 +129,4 @@ input[type=range]{accent-color:var(--ink);padding:0;height:auto;background:none}
 .me-confirm p{font-size:15px;color:var(--ink-2);max-width:60ch}
 .me-confirm .ctas-row{gap:8px;margin-top:0}
 .me-tbl{width:100%;background:#fff}
+.me-docs{display:flex;flex-direction:column;gap:4px}

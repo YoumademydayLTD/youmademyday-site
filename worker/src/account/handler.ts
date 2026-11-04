@@ -10,6 +10,8 @@ import { requireUser } from "./session.ts";
 import { invoiceView, membershipView, type InvoiceView, type MembershipView } from "./present.ts";
 import { cancelMembership } from "./membership.ts";
 import { INVOICE_KEY_PREFIX } from "./invoice.ts";
+import { orderDocUrl } from "../orderdoc/link.ts";
+import { docLang } from "../orderdoc/data.ts";
 
 const MS_PER_SECOND = 1000;
 export interface Account { library: DownloadItem[]; memberships: MembershipView[]; invoices: InvoiceView[] }
@@ -33,7 +35,9 @@ export async function handleAccount(request: Request, env: Env, now: Date): Prom
   const [products, subscriptions, orders] = await Promise.all([listOwnedProducts(env.DB, owner), listSubscriptions(env.DB, customer.polarCustomerId), listOrders(env.DB, owner)]);
   const library = await buildItems(products.map((productId) => ({ productId, lang })),
     { catalog: CATALOG, manifest: FILE_MANIFEST, secret: env.FILES_SIGNING_SECRET, fileUrl: `${origin(request)}/api/file`, nowSeconds });
-  const invoices = await Promise.all(orders.map(async (o) => invoiceView(o, CATALOG, lang, await invoiceUrl(request, env, o.id, nowSeconds))));
+  const docIn = docLang(lang, CATALOG);
+  const invoices = await Promise.all(orders.map(async (o) => invoiceView(o, CATALOG, lang, await invoiceUrl(request, env, o.id, nowSeconds),
+    await orderDocUrl(origin(request), env.FILES_SIGNING_SECRET, o.id, docIn, nowSeconds))));
   return { library, memberships: subscriptions.map(membershipView), invoices };
 }
 

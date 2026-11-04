@@ -379,6 +379,7 @@ export default {
   "acct.inv.refunded": "Refunded",
   "acct.inv.partially_refunded": "Partly refunded",
   "acct.invDownload": "Download",
+  "acct.doc": "Order details document", "acct.docLabel": "Order details document of {date}", "dl.open": "Open",
   "acct.invLabel": "Download the receipt from {date}",
   "acct.invPending": "Being prepared",
 };

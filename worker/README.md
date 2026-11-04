@@ -11,6 +11,7 @@ Live at **https://ymd-store.crx-platform-website.workers.dev** (workers.dev, bec
 | `GET /api/account` | the personal area (Bearer session) | `{library: DownloadItem[], memberships: [{id, planId, status, isTrial, currentPeriodEnd, cancelAtPeriodEnd, canCancel, amount, currency}], invoices: [{orderId, createdAt, total, currency, status, items, url}]}`. Library files come in the user's language (fallback English, then Hebrew); invoice `url` is a 30-minute signed `/api/invoice` link. The ym number is never in a reply. |
 | `POST /api/account/subscriptions/:id/cancel` | the personal area (Bearer session) | Cancels one of the user's memberships: at once during the free trial (no charge), else at period end. `{membership}`; 404 not theirs, 409 already ending. |
 | `GET /api/invoice?t=<token>` | the buyer's browser | The order's invoice PDF from Polar (generated on first request), passed through so no Polar URL or token reaches the browser. |
+| `GET /api/order-doc?t=<token>` | the buyer (bot button, thanks page, personal area) | The order details document (the disclosure document the terms promise): a printable HTML page in the buyer's language with our company details, order number and date, items and prices, total, membership terms (period, renewal, free day, how to cancel), delivery and the refund rights with a link to the refunds page. Links are signed for a year. `GET /api/downloads` returns it as `documentUrl`; `/api/account` invoices carry `documentUrl`. |
 | `POST /api/internal/subscriptions/cancel` | the bot (service binding, header `X-Internal-Secret`) | `{telegramId, subscriptionId}` → `{membership}`; the bot's cancel button and `/delete`. |
 | `POST /api/polar/webhook` | Polar | Verifies the Standard Webhooks signature, stores the event once (dedupe on `webhook-id`), replies at once, then updates `checkouts` / `orders` / `subscriptions`. |
 | `POST /api/links` | CRX Platform (server to server) | Header `Authorization: Bearer $YMD_LINKS_SECRET`. Body `{product, amount?, currency?, metadata?, customer_email?, external_customer_id?, lang?}`. `product` is a store id (`b51`, `plan-grow`, `store-order`, …); `amount` is in currency units (5 = 5 ₪), optional (default: the catalogue price); `currency` `ils` (default) or `usd`; `metadata` up to 40 string keys, `ymd_*` reserved. No success URL: the buyer ends on Polar's confirmation page. Returns `{url, id, expires_at}`. |
@@ -51,7 +52,7 @@ Errors are JSON `{error, message}`: `bad_request` 400, `unauthorized` 401, `kind
 
 Put one without printing it: `grep '^NAME=' ../.env | cut -d= -f2- | tr -d '\n' | npx wrangler secret put NAME`
 
-Variables (in `wrangler.jsonc`): `SITE_URL`, `EXTRA_ORIGINS`, `POLAR_API`, `LIVE_KINDS` (`cart,product`; add `plan` when the membership bot exists — and set `plan: true` in `site/js/checkout/config.js`).
+Variables (in `wrangler.jsonc`): `SITE_URL`, `EXTRA_ORIGINS`, `POLAR_API`, `LIVE_KINDS` (`cart,product,plan`; a kind must also be on in `site/js/checkout/config.js`).
 
 ## Customers
 
@@ -62,6 +63,11 @@ shows it on the customer card and can search by it. On the first purchase the Po
 `external_id` = the ym number and email `ymmdpayments+<ym>@gmail.com` (one inbox). `ym0000` is a demo customer on
 Polar and is not ours. Polar's own customer emails are switched off for the organization (owner, 04.11.2026): receipts
 live in the personal area, files on the thanks page, in the personal area and in Telegram.
+
+Every checkout prefills the billing country (`customer_billing_address.country`): the customer's saved country (from
+their first checkout), else Cloudflare's location of the visitor, else the site language (Hebrew → IL); the site
+checkout also passes `customer_ip_address` from `CF-Connecting-IP`. `/api/links` takes an optional `country` and
+`customer_ip_address` from its caller (the caller's own location says nothing about the buyer), else the language.
 
 When an order is paid and its checkout has a customer, the store tells the bot (`POST /api/internal/orders/paid`)
 so the files go to the buyer's Telegram chat right away.
