@@ -50,6 +50,21 @@ D1 "ymd-store": store tables read-only + bot_* tables · R2 "ymd-files" · servi
 - The user card shows the internal customer number (`ym` from the store's `customers` table); the inbox has a customer
   search: `GET /api/admin/customers?q=` (ym number, name, @username or Telegram id) → `{results: [{id, name, username, ym, threadId}]}`.
 
+## Topic track texts
+
+The six paid tracks (days per track from `TRACKS` in `site/js/telegram/plans.js`) are written in
+`content/tracks/<track>/<lang>.json` as `[{day, lines}]`: a greeting, the day label (`Day 3 of 30 · …`), one small
+task with steps, and often a question. Like the books, these files are paid content and stay out of the public
+repo (`content/` is gitignored); keep a backup of them.
+
+```sh
+npm run content:tracks   # validate (days, 40–110 words, no < > &, day label, day-1 safety line) → content/tracks.sql
+npm run content:apply    # check it is up to date, then upsert every message into the remote bot_content
+```
+
+The upserts are idempotent; re-applying overwrites days that were edited in /admin with the files' text. The bot
+and the site read `bot_content` on every request, so no redeploy is needed after applying.
+
 ## Daily companion on the site
 
 With the site session (Bearer): `GET /api/companion` → `{track, tracks: [{id, isFree, canJoin}], today: {dayN, text,
