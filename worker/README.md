@@ -17,13 +17,31 @@ Live at **https://ymd-store.crx-platform-website.workers.dev** (workers.dev, bec
 | `GET /api/order-doc?t=<token>` | the buyer (bot button, thanks page, personal area) | The order details document (the disclosure document the terms promise): a printable HTML page in the buyer's language with our company details, order number and date, items and prices, total, membership terms (period, renewal, free day, how to cancel), delivery and the refund rights with a link to the refunds page. Links are signed for a year. `GET /api/downloads` returns it as `documentUrl`; `/api/account` invoices carry `documentUrl`. |
 | `POST /api/internal/subscriptions/cancel` | the bot (service binding, header `X-Internal-Secret`) | `{telegramId, subscriptionId}` → `{membership}`; the bot's cancel button and `/delete`. |
 | `POST /api/polar/webhook` | Polar | Verifies the Standard Webhooks signature, stores the event once (dedupe on `webhook-id`), replies at once, then updates `checkouts` / `orders` / `subscriptions`. |
-| `POST /api/links` | CRX Platform (server to server) | Header `Authorization: Bearer $YMD_LINKS_SECRET`. Body `{product, amount?, currency?, metadata?, customer_email?, external_customer_id?, lang?}`. `product` is a store id (`b51`, `plan-grow`, `store-order`, …); `amount` is in currency units (5 = 5 ₪), optional (default: the catalogue price); `currency` `ils` (default) or `usd`; `metadata` up to 40 string keys, `ymd_*` reserved. No success URL: the buyer ends on Polar's confirmation page. Returns `{url, id, expires_at}`. |
+| `POST /api/links` | CRX Platform (server to server) | Header `Authorization: Bearer $YMD_LINKS_SECRET`. Body `{product, amount?, currency?, telegram_user_id?, metadata?, customer_email?, external_customer_id?, lang?, country?, customer_ip_address?}`. `product` is a store id (`b51`, `plan-max`, `store-order`, …); `amount` is in currency units (5 = 5 ₪), optional (default: the catalogue price, else a link-only price from `src/catalog/link-prices.ts`); `currency` `ils` (default), `usd` or `gel`; `metadata` up to 40 string keys, `ymd_*` reserved. A plan link is a subscription with the plan's free days set on the checkout. With `telegram_user_id` (not together with `customer_email` / `external_customer_id`) the store finds or silently creates that Telegram user's customer (same row the Telegram sign-in finds, ym number, internal email, Polar customer) — nothing is sent to him — and the checkout carries his ym as `external_customer_id`, so Polar prefills and locks the email; after he signs in to the site the purchase and invoice are in his personal area. No success URL: the buyer ends on Polar's confirmation page. Returns `{url, id, expires_at}`. |
+| `GET /api/links/:id/status` | CRX Platform (same bearer) | `{id, status, product, amount, currency, telegram_user_id, checkout_status, subscription?}` for a checkout CRX opened (404 for any other). `status`: `pending` · `paid` (one-time order paid) · `refunded` (full or partial) · `trialing` · `active` (also Polar's `past_due` while it retries) · `canceled` (also `unpaid`, `incomplete_expired`, `paused`). `amount` in currency units. |
 | `GET /api/downloads?checkout=<id>[&wait=1]` | the thanks page (browser) | `{status: "pending"}` until the order is paid (with `wait=1` the server re-checks for up to 20 s), then `{status: "ready", items: [{id, title, url, filename, lang, size, expiresAt}]}`; `{status: "refunded"}` after a full refund. |
 | `GET /api/file?t=<token>` | the buyer's browser | Streams the PDF from R2 as an attachment. The token is HMAC-signed (`FILES_SIGNING_SECRET`) and expires after 30 minutes; reopening the thanks page gives fresh links. |
 | `GET /api/health` | anyone | Database reachable, open kinds, mapped products, which secrets are set (never their values). |
 
 Errors are JSON `{error, message}`: `bad_request` 400, `unauthorized` 401, `kind_closed` / `origin_forbidden` 403,
 `unknown_item` / `not_found` 404, `payload_too_large` 413, `catalog_out_of_sync` 500, `payment_provider_error` 502.
+
+## CRX Platform links
+
+CRX never talks to Polar: Polar sees one integration, the store's own organization token (owner, 04.11.2026).
+The two links CRX sells:
+
+- **One-time 5 ₪ product:** `{product: "b51"}` (catalogue price 5 ₪; `amount` may override it as an ad-hoc price).
+- **Maximum membership weekly at 100 GEL with one free day:** `{product: "plan-max", currency: "gel"}`. The 100 GEL is a
+  link-only price (`src/catalog/link-prices.ts`) sent as an ad-hoc price on the plan's own weekly Polar product, with
+  `trial_interval: day, trial_interval_count: 1` on the checkout. The subscription is the real Maximum plan (library,
+  personal area, cancel button), so no extra Polar product or sync is needed. Polar keeps an ad-hoc price on the
+  subscription (`Subscription.prices[].source = "ad_hoc"`); check the first renewal on the Polar dashboard.
+
+Paid CRX orders record entitlements like any order, but the bot is never asked to message the buyer
+(`shouldNotifyBuyer`). CRX reads `GET /api/links/:id/status`; optionally the store also pushes every order/subscription
+change of a CRX link to `CRX_STATUS_CALLBACK_URL` (POST, the same JSON, headers `X-YMD-Timestamp` and
+`X-YMD-Signature: sha256=<hex HMAC-SHA256(YMD_LINKS_SECRET, "<timestamp>.<body>")>`). A failed push is logged only.
 
 ## How a sale is built
 
@@ -40,7 +58,8 @@ Errors are JSON `{error, message}`: `bad_request` 400, `unauthorized` 401, `kind
 - `src/catalog/catalog.json` — generated by `tools/build_catalog.ts` from `site/js/products/*.js`, `site/js/telegram/plans.js`, `site/js/business.js`, `site/js/i18n/config.js`.
 - `src/polar/products.json` — store id → Polar product and price ids, written by `tools/polar_sync.ts`.
 - `src/delivery/files.json` — what is in the private R2 bucket `ymd-files` (`<lang>/<product id>.pdf` → hash, size, download name), written by `tools/upload_files.ts`.
-- `migrations/` — D1 schema (`checkouts`, `orders`, `subscriptions`, `webhook_events`, `entitlements`).
+- `migrations/` — D1 schema (`checkouts`, `orders`, `subscriptions`, `webhook_events`, `entitlements`, `customers`, `reading_progress`). `0006` adds `subscriptions.checkout_id`: apply it (`npm run db:migrate`) **before** deploying code that writes it.
+- `src/catalog/link-prices.ts` — prices only CRX links use (100 GEL a week for `plan-max`).
 - `src/<feature>/` — `checkout`, `links`, `webhook`, `delivery`, `catalog`, `polar`, `db`, `http`. Pure logic is separate from I/O and unit-tested in `test/`; `test-tools/` covers the sync tools and checks the catalogue against the site files.
 
 ## Secrets (wrangler secret put, values in Site/.env, never committed)
@@ -55,7 +74,8 @@ Errors are JSON `{error, message}`: `bad_request` 400, `unauthorized` 401, `kind
 
 Put one without printing it: `grep '^NAME=' ../.env | cut -d= -f2- | tr -d '\n' | npx wrangler secret put NAME`
 
-Variables (in `wrangler.jsonc`): `SITE_URL`, `EXTRA_ORIGINS`, `POLAR_API`, `LIVE_KINDS` (`cart,product,plan`; a kind must also be on in `site/js/checkout/config.js`).
+Variables (in `wrangler.jsonc`): `SITE_URL`, `EXTRA_ORIGINS`, `POLAR_API`, `LIVE_KINDS` (`cart,product,plan`; a kind must also be on in `site/js/checkout/config.js`),
+`CRX_STATUS_CALLBACK_URL` (optional, empty = no pushes to CRX).
 
 ## Customers
 
@@ -124,6 +144,10 @@ Run `~/.claude/bin/load-check` before installs, tests and deploys on the shared 
   the Polar customer is keyed by our ym number with a plus-addressed inbox. Sessions stay in the bot worker; the store
   checks them over a service binding instead of reading session tables. Calls between the two workers use one shared
   secret. Membership cancels go through the store (trial: revoke at once, so no charge; paid: at period end).
+- **04.11.2026 — CRX links through the store only (owner).** CRX gets payment links and their status from this worker,
+  never from Polar. GEL prices CRX needs are ad-hoc prices on our existing products, not new Polar products: Polar requires
+  a price in the organization's default currency on every product, and a separate product would split the Maximum plan
+  in two. A Telegram id from CRX creates the same customer the sign-in would, without messaging him.
 - **04.11.2026 — Delivery by short-lived signed links (owner).** Files live in a private R2 bucket per language; the
   thanks page lists them as soon as the order is paid. Links are HMAC tokens served and checked by the worker itself
   (no public bucket, no R2 API keys). Entitlements are a table so the Telegram bot can deliver the same files later.
