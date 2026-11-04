@@ -8,7 +8,9 @@
     "dev": "wrangler dev",
     "deploy": "npm run typecheck && npm test && wrangler deploy",
     "db:migrate": "wrangler d1 migrations apply ymd-store --remote",
-    "setup:telegram": "node tools/setup_telegram.ts"
+    "setup:telegram": "node tools/setup_telegram.ts",
+    "content:tracks": "node tools/build_track_content.ts",
+    "content:apply": "node tools/build_track_content.ts --check && wrangler d1 execute ymd-store --remote --file content/tracks.sql"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^5.20261104.1",
