@@ -6,7 +6,8 @@ import { adHocPrice, type PolarCheckoutBody } from "../polar/checkout-body.ts";
 import type { CheckoutRequest } from "./request.ts";
 import { langPrefix, returnUrl, successUrl } from "./site-urls.ts";
 
-export interface CheckoutContext { catalog: Catalog; map: ProductMap; siteUrl: string }
+// customerYm: our internal customer number; Polar pre-fills and locks the customer by it (external_customer_id).
+export interface CheckoutContext { catalog: Catalog; map: ProductMap; siteUrl: string; customerYm: string }
 export interface CheckoutRecord { kind: string; itemIds: string[]; lang: string; currency: Currency; amount: number; polarProductId: string }
 export interface CheckoutPlan { body: PolarCheckoutBody; record: CheckoutRecord }
 
@@ -61,7 +62,8 @@ export function planCheckout(request: CheckoutRequest, context: CheckoutContext)
     return_url: returnUrl(context.siteUrl, prefix, sale.backHash),
     locale: request.lang, // Polar falls back to English for languages it does not have
     allow_discount_codes: ALLOW_DISCOUNT_CODES,
-    metadata: { ymd_source: "site", ymd_kind: request.kind, ymd_ids: sale.itemIds.join(","), ymd_lang: request.lang },
+    metadata: { ymd_source: "site", ymd_kind: request.kind, ymd_ids: sale.itemIds.join(","), ymd_lang: request.lang, ymd_customer: context.customerYm },
+    external_customer_id: context.customerYm,
   };
   return { body, record: { kind: request.kind, itemIds: sale.itemIds, lang: request.lang, currency: sale.currency, amount: sale.amount, polarProductId: productId } };
 }

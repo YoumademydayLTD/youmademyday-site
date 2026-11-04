@@ -7,7 +7,11 @@ Live at **https://ymd-store.crx-platform-website.workers.dev** (workers.dev, bec
 
 | Method + path | Caller | What it does |
 | --- | --- | --- |
-| `POST /api/checkout` | the site (browser, CORS: `https://youmademyday.store`, `http://127.0.0.1:4322`) | Body `{kind: "cart", ids: [..], lang}` or `{kind: "product" \| "plan", id, lang}`. Returns `{url}` of the payment page. Prices come from the bundled catalogue only. |
+| `POST /api/checkout` | the site (browser, CORS: `https://youmademyday.store`, `http://127.0.0.1:4322`) | Header `Authorization: Bearer <site session>` (Telegram sign-in, checked with the bot's `GET /api/me`); without it 401 `login_required`. Body `{kind: "cart", ids: [..], lang}` or `{kind: "product" \| "plan", id, lang}`. Returns `{url}` of the payment page. Prices come from the bundled catalogue only; the checkout carries `external_customer_id` = the buyer's ym number, so Polar pre-fills and locks the email. |
+| `GET /api/account` | the personal area (Bearer session) | `{library: DownloadItem[], memberships: [{id, planId, status, isTrial, currentPeriodEnd, cancelAtPeriodEnd, canCancel, amount, currency}], invoices: [{orderId, createdAt, total, currency, status, items, url}]}`. Library files come in the user's language (fallback English, then Hebrew); invoice `url` is a 30-minute signed `/api/invoice` link. The ym number is never in a reply. |
+| `POST /api/account/subscriptions/:id/cancel` | the personal area (Bearer session) | Cancels one of the user's memberships: at once during the free trial (no charge), else at period end. `{membership}`; 404 not theirs, 409 already ending. |
+| `GET /api/invoice?t=<token>` | the buyer's browser | The order's invoice PDF from Polar (generated on first request), passed through so no Polar URL or token reaches the browser. |
+| `POST /api/internal/subscriptions/cancel` | the bot (service binding, header `X-Internal-Secret`) | `{telegramId, subscriptionId}` → `{membership}`; the bot's cancel button and `/delete`. |
 | `POST /api/polar/webhook` | Polar | Verifies the Standard Webhooks signature, stores the event once (dedupe on `webhook-id`), replies at once, then updates `checkouts` / `orders` / `subscriptions`. |
 | `POST /api/links` | CRX Platform (server to server) | Header `Authorization: Bearer $YMD_LINKS_SECRET`. Body `{product, amount?, currency?, metadata?, customer_email?, external_customer_id?, lang?}`. `product` is a store id (`b51`, `plan-grow`, `store-order`, …); `amount` is in currency units (5 = 5 ₪), optional (default: the catalogue price); `currency` `ils` (default) or `usd`; `metadata` up to 40 string keys, `ymd_*` reserved. No success URL: the buyer ends on Polar's confirmation page. Returns `{url, id, expires_at}`. |
 | `GET /api/downloads?checkout=<id>[&wait=1]` | the thanks page (browser) | `{status: "pending"}` until the order is paid (with `wait=1` the server re-checks for up to 20 s), then `{status: "ready", items: [{id, title, url, filename, lang, size, expiresAt}]}`; `{status: "refunded"}` after a full refund. |
@@ -42,11 +46,25 @@ Errors are JSON `{error, message}`: `bad_request` 400, `unauthorized` 401, `kind
 | `POLAR_ACCESS_TOKEN` | Polar production Organization Access Token |
 | `POLAR_WEBHOOK_SECRET` | signing secret of the Polar webhook endpoint (`whsec_…`, created by `tools/polar_webhook.ts`) |
 | `YMD_LINKS_SECRET` | shared secret for `POST /api/links` |
-| `FILES_SIGNING_SECRET` | signs the short-lived download links |
+| `FILES_SIGNING_SECRET` | signs the short-lived download and invoice links |
+| `YMD_INTERNAL_SECRET` | shared with the bot worker for calls between the two (`X-Internal-Secret`) |
 
 Put one without printing it: `grep '^NAME=' ../.env | cut -d= -f2- | tr -d '\n' | npx wrangler secret put NAME`
 
 Variables (in `wrangler.jsonc`): `SITE_URL`, `EXTRA_ORIGINS`, `POLAR_API`, `LIVE_KINDS` (`cart,product`; add `plan` when the membership bot exists — and set `plan: true` in `site/js/checkout/config.js`).
+
+## Customers
+
+Buyers sign in with Telegram (the bot worker owns sessions; the store asks it over the `BOT` service binding). Each
+Telegram user gets one row in `customers` with an internal running number `ym0001`, `ym0002`, … taken from the row id
+(never from a name or Telegram id). It is **internal only**: never shown on the site or in the bot; the support center
+shows it on the customer card and can search by it. On the first purchase the Polar customer is created with
+`external_id` = the ym number and email `ymmdpayments+<ym>@gmail.com` (one inbox). `ym0000` is a demo customer on
+Polar and is not ours. Polar's own customer emails are switched off for the organization (owner, 04.11.2026): receipts
+live in the personal area, files on the thanks page, in the personal area and in Telegram.
+
+When an order is paid and its checkout has a customer, the store tells the bot (`POST /api/internal/orders/paid`)
+so the files go to the buyer's Telegram chat right away.
 
 ## Delivery
 
@@ -85,6 +103,10 @@ Run `~/.claude/bin/load-check` before installs, tests and deploys on the shared 
   and USD carry two fixed prices on one Polar product (tested: Polar accepts it and `currency` on the checkout picks the
   price). The site never names the provider. Webhooks are stored raw first (dedupe on `webhook-id`) and projected into
   tables after the 200 reply.
+- **04.11.2026 — Telegram sign-in for every purchase, internal customer numbers (owner).** No customer types an email:
+  the Polar customer is keyed by our ym number with a plus-addressed inbox. Sessions stay in the bot worker; the store
+  checks them over a service binding instead of reading session tables. Calls between the two workers use one shared
+  secret. Membership cancels go through the store (trial: revoke at once, so no charge; paid: at period end).
 - **04.11.2026 — Delivery by short-lived signed links (owner).** Files live in a private R2 bucket per language; the
   thanks page lists them as soon as the order is paid. Links are HMAC tokens served and checked by the worker itself
   (no public bucket, no R2 API keys). Entitlements are a table so the Telegram bot can deliver the same files later.

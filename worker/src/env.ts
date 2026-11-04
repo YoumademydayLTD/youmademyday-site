@@ -2,6 +2,8 @@
 export interface Env {
   DB: D1Database;
   FILES: R2Bucket;
+  BOT: Fetcher;
+  BOT_URL: string;
   SITE_URL: string;
   EXTRA_ORIGINS: string;
   POLAR_API: string;
@@ -10,4 +12,5 @@ export interface Env {
   POLAR_WEBHOOK_SECRET: string;
   YMD_LINKS_SECRET: string;
   FILES_SIGNING_SECRET: string;
+  YMD_INTERNAL_SECRET: string;
 }

@@ -5,6 +5,7 @@ export interface PolarCheckout { id: string; url: string; status: string; expire
 export interface PolarConfig { apiBase: string; token: string; fetcher?: typeof fetch }
 
 const DETAIL_CHARS = 500;
+export const HTTP_NOT_FOUND = 404;
 
 export class PolarApiError extends Error {
   readonly status: number;
@@ -16,19 +17,25 @@ export class PolarApiError extends Error {
   }
 }
 
-export async function createCheckout(config: PolarConfig, body: PolarCheckoutBody): Promise<PolarCheckout> {
+/** One Polar API call; resolves the parsed JSON (null for an empty reply), throws PolarApiError otherwise. */
+export async function polarRequest<T>(config: PolarConfig, method: string, path: string, body?: unknown): Promise<T> {
   const fetcher = config.fetcher ?? fetch;
   let response: Response;
   try {
-    response = await fetcher(`${config.apiBase}/checkouts/`, {
-      method: "POST",
+    response = await fetcher(`${config.apiBase}${path}`, {
+      method,
       headers: { Authorization: `Bearer ${config.token}`, "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify(body),
+      ...(body === undefined ? {} : { body: JSON.stringify(body) }),
     });
   } catch (error) {
     throw new PolarApiError(0, `network error: ${error instanceof Error ? error.message : String(error)}`);
   }
   const text = await response.text();
   if (!response.ok) throw new PolarApiError(response.status, text.slice(0, DETAIL_CHARS));
-  return JSON.parse(text) as PolarCheckout;
+  return (text ? JSON.parse(text) : null) as T;
 }
+
+export const createCheckout = (config: PolarConfig, body: PolarCheckoutBody): Promise<PolarCheckout> =>
+  polarRequest<PolarCheckout>(config, "POST", "/checkouts/", body);
+
+export const polarConfig = (env: { POLAR_API: string; POLAR_ACCESS_TOKEN: string }): PolarConfig => ({ apiBase: env.POLAR_API, token: env.POLAR_ACCESS_TOKEN });

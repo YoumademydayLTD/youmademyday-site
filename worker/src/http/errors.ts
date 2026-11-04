@@ -5,6 +5,8 @@ export type ErrorCode =
   | "kind_closed"
   | "origin_forbidden"
   | "unauthorized"
+  | "login_required"
+  | "conflict"
   | "not_found"
   | "payload_too_large"
   | "catalog_out_of_sync"
@@ -17,6 +19,8 @@ const STATUS: Record<ErrorCode, number> = {
   kind_closed: 403,
   origin_forbidden: 403,
   unauthorized: 401,
+  login_required: 401,
+  conflict: 409,
   not_found: 404,
   payload_too_large: 413,
   catalog_out_of_sync: 500,

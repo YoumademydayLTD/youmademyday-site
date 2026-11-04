@@ -4,7 +4,7 @@ import { HttpError } from "../http/errors.ts";
 import { readJsonObject } from "../http/response.ts";
 import { timingSafeEqualText } from "../http/compare.ts";
 import { PRODUCT_MAP } from "../polar/mapping.ts";
-import { createCheckout, PolarApiError } from "../polar/client.ts";
+import { createCheckout, PolarApiError, polarConfig } from "../polar/client.ts";
 import { insertCheckout } from "../db/checkouts.ts";
 import { parseLinkRequest } from "./request.ts";
 import { planLink } from "./plan.ts";
@@ -24,7 +24,7 @@ export async function handleLink(request: Request, env: Env, now: Date): Promise
   const { body, amount, productId } = planLink(parsed, PRODUCT_MAP);
   let checkout;
   try {
-    checkout = await createCheckout({ apiBase: env.POLAR_API, token: env.POLAR_ACCESS_TOKEN }, body);
+    checkout = await createCheckout(polarConfig(env), body);
   } catch (error) {
     if (!(error instanceof PolarApiError)) throw error;
     console.error("links: Polar refused", error.status, error.detail);

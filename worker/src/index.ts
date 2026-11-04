@@ -8,19 +8,28 @@ import { handleLink } from "./links/handler.ts";
 import { handleWebhook } from "./webhook/handler.ts";
 import { handleHealth } from "./health.ts";
 import { handleDownloads, handleFile } from "./delivery/handler.ts";
+import { handleAccount, handleAccountCancel } from "./account/handler.ts";
+import { handleInvoice } from "./account/invoice.ts";
+import { handleInternalCancel } from "./internal/handler.ts";
+import { matchRoute, type Route } from "./http/router.ts";
 
-type Handler = (request: Request, env: Env, ctx: ExecutionContext) => Promise<unknown>;
+type Handler = (request: Request, env: Env, ctx: ExecutionContext, params: Record<string, string>) => Promise<unknown>;
 
-const ROUTES: Record<string, Handler> = {
-  "POST /api/checkout": (request, env) => handleCheckout(request, env, new Date()),
-  "POST /api/links": (request, env) => handleLink(request, env, new Date()),
-  "POST /api/polar/webhook": (request, env, ctx) => handleWebhook(request, env, ctx, new Date()),
-  "GET /api/downloads": (request, env) => handleDownloads(request, env),
-  "GET /api/file": (request, env) => handleFile(request, env, new Date()),
-  "GET /api/health": (_request, env) => handleHealth(env),
-};
-// Only the site's own pages call this endpoint from a browser.
-const BROWSER_ROUTES = new Set(["POST /api/checkout", "GET /api/downloads"]);
+const route = (method: string, pattern: string, handler: Handler): Route<Handler> => ({ method, pattern, handler });
+const ROUTES: Route<Handler>[] = [
+  route("POST", "/api/checkout", (request, env) => handleCheckout(request, env, new Date())),
+  route("POST", "/api/links", (request, env) => handleLink(request, env, new Date())),
+  route("POST", "/api/polar/webhook", (request, env, ctx) => handleWebhook(request, env, ctx, new Date())),
+  route("GET", "/api/downloads", (request, env) => handleDownloads(request, env)),
+  route("GET", "/api/file", (request, env) => handleFile(request, env, new Date())),
+  route("GET", "/api/account", (request, env) => handleAccount(request, env, new Date())),
+  route("POST", "/api/account/subscriptions/:id/cancel", (request, env, _ctx, p) => handleAccountCancel(request, env, p.id ?? "", new Date())),
+  route("GET", "/api/invoice", (request, env) => handleInvoice(request, env, new Date())),
+  route("POST", "/api/internal/subscriptions/cancel", (request, env) => handleInternalCancel(request, env, new Date())),
+  route("GET", "/api/health", (_request, env) => handleHealth(env)),
+];
+// Endpoints the site's own pages call from a browser: other origins are refused.
+const BROWSER_ROUTES = new Set(["POST /api/checkout", "GET /api/downloads", "GET /api/account", "POST /api/account/subscriptions/:id/cancel"]);
 const NO_CONTENT = 204;
 
 export default {
@@ -29,12 +38,13 @@ export default {
     const allowed = allowedOrigins({ siteUrl: env.SITE_URL, extraOrigins: env.EXTRA_ORIGINS });
     const cors = corsHeaders(origin, allowed);
     if (request.method === "OPTIONS") return new Response(null, { status: NO_CONTENT, headers: cors });
-    const key = `${request.method} ${new URL(request.url).pathname}`;
-    const handler = ROUTES[key];
+    const path = new URL(request.url).pathname;
+    const match = matchRoute(ROUTES, request.method, path);
+    const key = match?.key ?? `${request.method} ${path}`;
     try {
-      if (!handler) throw new HttpError("not_found", `no route ${key}`);
-      if (BROWSER_ROUTES.has(key) && !isOriginAllowed(origin, allowed)) throw new HttpError("origin_forbidden", "this origin may not open checkouts");
-      const result = await handler(request, env, ctx);
+      if (!match) throw new HttpError("not_found", `no route ${key}`);
+      if (BROWSER_ROUTES.has(match.key) && !isOriginAllowed(origin, allowed)) throw new HttpError("origin_forbidden", "this origin may not call this endpoint");
+      const result = await match.handler(request, env, ctx, match.params);
       return result instanceof Response ? result : json(result, 200, cors);
     } catch (error) {
       if (error instanceof HttpError) return errorResponse(error, cors);

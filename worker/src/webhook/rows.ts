@@ -70,6 +70,8 @@ export function subscriptionRow(data: Json, map: ProductMap): SubscriptionRow {
     cancelAtPeriodEnd: data.cancel_at_period_end === true,
     canceledAt: str(data, "canceled_at"),
     endedAt: str(data, "ended_at"),
+    amount: typeof data.amount === "number" ? data.amount : null,
+    currency: str(data, "currency"),
     metadata: metadataOf(data),
   };
 }

@@ -4,23 +4,28 @@ import { HttpError } from "../http/errors.ts";
 import { readJsonObject } from "../http/response.ts";
 import { CATALOG } from "../catalog/index.ts";
 import { PRODUCT_MAP } from "../polar/mapping.ts";
-import { createCheckout, PolarApiError } from "../polar/client.ts";
+import { createCheckout, PolarApiError, polarConfig } from "../polar/client.ts";
 import { insertCheckout } from "../db/checkouts.ts";
+import { requireUser } from "../account/session.ts";
+import { ensureBuyer } from "../customers/buyer.ts";
 import { liveKinds, parseCheckoutRequest } from "./request.ts";
 import { planCheckout } from "./plan.ts";
 
 export async function handleCheckout(request: Request, env: Env, now: Date): Promise<{ url: string }> {
   const parsed = parseCheckoutRequest(await readJsonObject(request), CATALOG);
   if (!liveKinds(env.LIVE_KINDS).has(parsed.kind)) throw new HttpError("kind_closed", `${parsed.kind} checkout is not open yet`);
-  const { body, record } = planCheckout(parsed, { catalog: CATALOG, map: PRODUCT_MAP, siteUrl: env.SITE_URL });
+  // Owner, 04.11.2026: buying needs a Telegram sign-in; the customer never types an email.
+  const user = await requireUser(request, env);
+  const customer = await ensureBuyer(env, user.telegramId, now);
+  const { body, record } = planCheckout(parsed, { catalog: CATALOG, map: PRODUCT_MAP, siteUrl: env.SITE_URL, customerYm: customer.ym });
   let checkout;
   try {
-    checkout = await createCheckout({ apiBase: env.POLAR_API, token: env.POLAR_ACCESS_TOKEN }, body);
+    checkout = await createCheckout(polarConfig(env), body);
   } catch (error) {
     if (!(error instanceof PolarApiError)) throw error;
     console.error("checkout: Polar refused", error.status, error.detail);
     throw new HttpError("payment_provider_error", "the payment page could not be opened");
   }
-  await insertCheckout(env.DB, { id: checkout.id, source: "site", status: checkout.status, metadata: body.metadata, ...record }, now.toISOString());
+  await insertCheckout(env.DB, { id: checkout.id, source: "site", status: checkout.status, metadata: body.metadata, customerYm: customer.ym, ...record }, now.toISOString());
   return { url: checkout.url };
 }

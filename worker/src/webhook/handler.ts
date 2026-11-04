@@ -15,15 +15,17 @@ const MAX_WEBHOOK_BYTES = 1024 * 1024;
 const MS_PER_SECOND = 1000;
 
 /** Which table an event type updates, by its prefix. */
-async function project(db: D1Database, type: string, data: Json, now: string): Promise<void> {
+async function project(env: Env, type: string, data: Json, now: string): Promise<void> {
+  const db = env.DB;
   if (type.startsWith("checkout.")) await upsertCheckoutStatus(db, checkoutRow(data, PRODUCT_MAP), now);
-  else if (type.startsWith("order.")) await applyOrder(db, data, now);
+  else if (type.startsWith("order.")) await applyOrder(env, data, now);
   else if (type.startsWith("subscription.")) await upsertSubscription(db, subscriptionRow(data, PRODUCT_MAP), now);
 }
 
-async function projectAndMark(db: D1Database, id: string, type: string, data: Json): Promise<void> {
+async function projectAndMark(env: Env, id: string, type: string, data: Json): Promise<void> {
+  const db = env.DB;
   try {
-    await project(db, type, data, new Date().toISOString());
+    await project(env, type, data, new Date().toISOString());
     await markProcessed(db, id, new Date().toISOString(), null);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
@@ -46,6 +48,6 @@ export async function handleWebhook(request: Request, env: Env, ctx: ExecutionCo
   const id = headers.id ?? "";
   const type = str(event, "type") ?? "unknown";
   const isNew = await recordEvent(env.DB, { id, type, payload: body }, now.toISOString());
-  if (isNew) ctx.waitUntil(projectAndMark(env.DB, id, type, event.data));
+  if (isNew) ctx.waitUntil(projectAndMark(env, id, type, event.data));
   return { received: true, duplicate: !isNew };
 }

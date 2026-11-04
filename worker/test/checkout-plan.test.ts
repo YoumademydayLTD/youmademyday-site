@@ -3,7 +3,7 @@ import { planCheckout } from "../src/checkout/plan.ts";
 import { HttpError } from "../src/http/errors.ts";
 import { CATALOG, MAP, SITE } from "./fixtures.ts";
 
-const context = { catalog: CATALOG, map: MAP, siteUrl: SITE };
+const context = { catalog: CATALOG, map: MAP, siteUrl: SITE, customerYm: "ym0007" };
 
 describe("planCheckout", () => {
   it("sells the flagship in dollars on the English site and returns to its page", () => {
@@ -30,7 +30,9 @@ describe("planCheckout", () => {
     const { body, record } = planCheckout({ kind: "cart", ids: ["b9", "b10", "b11"], lang: "he" }, context);
     expect(body.products).toEqual(["p-store"]);
     expect(body.prices).toEqual({ "p-store": [{ amount_type: "fixed", price_amount: 8400, price_currency: "ils", tax_behavior: "inclusive" }] });
-    expect(body.metadata).toEqual({ ymd_source: "site", ymd_kind: "cart", ymd_ids: "b9,b10,b11", ymd_lang: "he" });
+    expect(body.metadata).toEqual({ ymd_source: "site", ymd_kind: "cart", ymd_ids: "b9,b10,b11", ymd_lang: "he", ymd_customer: "ym0007" });
+    expect(body.external_customer_id).toBe("ym0007");
+    expect(body).not.toHaveProperty("customer_email");
     expect(body.allow_discount_codes).toBe(false);
     expect(record.amount).toBe(8400);
   });

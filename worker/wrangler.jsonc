@@ -10,11 +10,14 @@
     { "binding": "DB", "database_name": "ymd-store", "database_id": "fb9e52b2-421d-45cb-84d7-7589feacbcc0", "migrations_dir": "migrations" }
   ],
   "r2_buckets": [{ "binding": "FILES", "bucket_name": "ymd-files" }],
+  // The bot worker owns the Telegram sign-in (GET /api/me) and sends paid orders to the buyer's chat.
+  "services": [{ "binding": "BOT", "service": "ymd-bot" }],
   "vars": {
     "SITE_URL": "https://youmademyday.store",
     // Extra browser origins allowed to call the API (the local preview server).
     "EXTRA_ORIGINS": "http://127.0.0.1:4322",
     "POLAR_API": "https://api.polar.sh/v1",
+    "BOT_URL": "https://ymd-bot.crx-platform-website.workers.dev",
     // Checkout kinds the site may open. Plans stay closed until the Telegram bot that delivers them exists.
     "LIVE_KINDS": "cart,product"
   }

@@ -10,13 +10,14 @@ export interface CheckoutRow {
   polarProductId: string;
   status: string;
   metadata: Record<string, string>;
+  customerYm?: string | null;
 }
 
-const INSERT = `INSERT INTO checkouts (id, source, kind, item_ids, lang, currency, amount, polar_product_id, status, metadata, created_at, updated_at)
-  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+const INSERT = `INSERT INTO checkouts (id, source, kind, item_ids, lang, currency, amount, polar_product_id, status, metadata, customer_ym, created_at, updated_at)
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
 const values = (row: CheckoutRow, now: string) =>
-  [row.id, row.source, row.kind, row.itemIds.join(","), row.lang, row.currency, row.amount, row.polarProductId, row.status, JSON.stringify(row.metadata), now, now];
+  [row.id, row.source, row.kind, row.itemIds.join(","), row.lang, row.currency, row.amount, row.polarProductId, row.status, JSON.stringify(row.metadata), row.customerYm ?? null, now, now];
 
 /** The items and language we recorded for a checkout, if we opened it. */
 export async function findCheckoutItems(db: D1Database, id: string): Promise<{ itemIds: string[]; lang: string | null } | null> {
@@ -28,7 +29,7 @@ export async function findCheckoutItems(db: D1Database, id: string): Promise<{ i
 export async function insertCheckout(db: D1Database, row: CheckoutRow, now: string): Promise<void> {
   await db.prepare(`${INSERT} ON CONFLICT(id) DO UPDATE SET source = excluded.source, kind = excluded.kind, item_ids = excluded.item_ids,
     lang = excluded.lang, currency = excluded.currency, amount = excluded.amount, polar_product_id = excluded.polar_product_id,
-    metadata = excluded.metadata`).bind(...values(row, now)).run();
+    metadata = excluded.metadata, customer_ym = COALESCE(excluded.customer_ym, checkouts.customer_ym)`).bind(...values(row, now)).run();
 }
 
 /** Status changes from checkout.* webhooks; a checkout opened elsewhere (Polar dashboard) is recorded too. */
