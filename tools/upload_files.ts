@@ -4,13 +4,12 @@
 // SHA-256 matches worker/src/delivery/files.json is skipped. Run: node tools/upload_files.ts [--force]
 import { createHash } from "node:crypto";
 import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
-import { execFileSync } from "node:child_process";
 import { join } from "node:path";
 import { pathToFileURL } from "node:url";
 import { ROOT } from "./polar/api.ts";
 import { buildCatalog } from "./build_catalog.ts";
+import { putObject } from "./r2.ts";
 
-const BUCKET = "ymd-files";
 const DIST = join(ROOT, "content", "dist");
 const WORKER = join(ROOT, "worker");
 export const MANIFEST_PATH = join(WORKER, "src", "delivery", "files.json");
@@ -39,11 +38,6 @@ const writeManifest = (manifest: Manifest): void => {
   writeFileSync(MANIFEST_PATH, `${JSON.stringify(sorted, null, 1)}\n`);
 };
 
-function upload(key: string, path: string): void {
-  execFileSync("npx", ["wrangler", "r2", "object", "put", `${BUCKET}/${key}`, "--file", path, "--content-type", "application/pdf", "--remote"],
-    { cwd: WORKER, stdio: ["ignore", "ignore", "pipe"] });
-}
-
 async function main(): Promise<void> {
   const catalog = await buildCatalog();
   const manifest = readManifest();
@@ -57,7 +51,7 @@ async function main(): Promise<void> {
       const entry: FileEntry = { sha256: createHash("sha256").update(bytes).digest("hex"), size: bytes.byteLength, filename: cleanFilename(path) };
       const key = `${lang}/${id}.pdf`;
       if (!isForced && manifest[key]?.sha256 === entry.sha256) { counts.unchanged += 1; continue; }
-      upload(key, path);
+      putObject(key, path, "application/pdf");
       manifest[key] = entry;
       writeManifest(manifest); // after every file, so an interrupted run resumes where it stopped
       counts.uploaded += 1;
