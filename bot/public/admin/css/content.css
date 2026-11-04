@@ -1,0 +1,29 @@
+/* Content screen and its editor dialog. */
+.content-head{gap:10px}
+.content-filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.content-head > .muted{width:100%}
+.content-list{display:grid;gap:12px;padding:14px max(var(--gutter),var(--safe-right)) calc(20px + var(--safe-bottom)) max(var(--gutter),var(--safe-left));grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr))}
+.content-item{background:var(--tile);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.content-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.content-day{font-weight:600;font-size:14.5px}
+.content-preview{white-space:pre-wrap;overflow-wrap:anywhere;color:var(--ink-2);font-size:15px;text-align:start}
+.lesson-pill{align-self:flex-start;display:inline-flex;align-items:center;min-height:36px;padding:0 16px;border-radius:999px;background:#fff;color:var(--link);font-weight:500;font-size:14.5px;box-shadow:0 0 0 .5px var(--hair)}
+.content-actions{display:flex;gap:6px;margin-top:auto}
+
+.sheet-dialog{width:min(620px,100vw - 24px);max-height:calc(100dvh - 24px - var(--safe-top) - var(--safe-bottom));padding:0;border:0;border-radius:26px;background:var(--bg);color:var(--ink);box-shadow:0 30px 80px -20px rgba(0,0,0,.35);overflow:hidden}
+.sheet-dialog[open]{display:flex;animation:pop .45s var(--spring)}
+.sheet-dialog::backdrop{background:rgba(0,0,0,.25)}
+@keyframes pop{from{opacity:0;transform:translateY(16px) scale(.98)}}
+.content-form{display:flex;flex-direction:column;width:100%;min-height:0}
+.dialog-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 12px 8px 20px;border-bottom:.5px solid var(--hair)}
+[dir="rtl"] .dialog-head{padding:12px 20px 8px 12px}
+.dialog-head h2{font-size:20px}
+.dialog-body{flex:1;min-height:0;overflow-y:auto;padding:16px 20px;display:flex;flex-direction:column;gap:14px}
+.form-grid{display:grid;grid-template-columns:2fr 1fr 1.4fr;gap:10px}
+.content-text{min-height:180px}
+.dialog-foot{display:flex;justify-content:flex-end;gap:8px;padding:12px 20px calc(12px + var(--safe-bottom));border-top:.5px solid var(--hair)}
+@media (max-width:520px){
+  .form-grid{grid-template-columns:1fr 1fr}
+  .form-grid .form-field:first-child{grid-column:1/-1}
+  .sheet-dialog{width:100vw;max-width:100vw;margin:auto 0 0;border-radius:26px 26px 0 0;max-height:calc(100dvh - 12px - var(--safe-top))}
+}

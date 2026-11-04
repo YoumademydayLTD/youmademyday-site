@@ -1,0 +1,13 @@
+/* Sign-in screen: one centred tile on white. */
+.login{height:100%;overflow-y:auto;display:grid;place-items:center;padding:calc(24px + var(--safe-top)) max(var(--gutter),var(--safe-right)) calc(24px + var(--safe-bottom)) max(var(--gutter),var(--safe-left))}
+.login-card{width:min(400px,100%);background:var(--tile);border-radius:30px;padding:32px 24px;display:flex;flex-direction:column;gap:14px;text-align:center}
+.login-card .brand-mark{width:56px;height:56px;border-radius:15px;margin-inline:auto}
+.login-card h1{font-size:28px}
+.or{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:14px}
+.or::before,.or::after{content:"";flex:1;height:.5px;background:var(--hair)}
+.code-form{display:flex;flex-direction:column;gap:6px;text-align:start}
+.code-form label{font-weight:500}
+.code-row{display:flex;gap:8px;margin-top:4px}
+.code-field{flex:1;min-width:0;background:#fff;font-size:20px;letter-spacing:.3em;text-align:center;font-variant-numeric:tabular-nums}
+.login-status{min-height:1.45em;font-size:14.5px;color:var(--ink-2)}
+.login-status.is-error{color:var(--danger)}

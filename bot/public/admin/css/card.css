@@ -1,0 +1,22 @@
+/* Customer card (sheet on phone, drawer on tablet, column on desktop: see layout.css). */
+.pane-card{background:var(--bg)}
+.card-grip{flex:none;width:40px;height:5px;border-radius:3px;background:var(--tile-2);margin:8px auto 0}
+.card-close{position:absolute;top:8px;inset-inline-end:8px;z-index:1;background:var(--tile)}
+.card-body{padding:14px max(var(--gutter),var(--safe-right)) calc(20px + var(--safe-bottom)) max(var(--gutter),var(--safe-left));display:flex;flex-direction:column;gap:14px}
+.card-loading{padding:30px 0;text-align:center}
+.card-hero{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;padding:10px 0 4px}
+.card-hero h2{font-size:22px}
+.lnk-plain{color:var(--link);font-weight:500}
+.card-section{background:var(--tile);border-radius:var(--r);padding:14px 16px}
+.card-section h3{font-size:13px;font-weight:600;color:var(--muted);text-transform:none;letter-spacing:0;margin-bottom:6px}
+.card-section dl{margin:0}
+.kv{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:.5px solid var(--hair);font-size:15px}
+.kv:last-child{border-bottom:0}
+.kv dt{color:var(--ink-2)}
+.kv dd{margin:0;font-weight:500;text-align:end;min-width:0;overflow-wrap:anywhere}
+.card-list{display:flex;flex-direction:column}
+.card-item{display:flex;flex-direction:column;gap:6px;padding:10px 0;border-bottom:.5px solid var(--hair)}
+.card-item:last-child{border-bottom:0}
+.card-item-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;font-size:15px}
+.card-item-title{font-weight:500;min-width:0;overflow-wrap:anywhere}
+.card-item-sub{display:flex;align-items:center;gap:8px;flex-wrap:wrap}

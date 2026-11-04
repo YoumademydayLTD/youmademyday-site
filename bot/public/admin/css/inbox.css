@@ -1,0 +1,17 @@
+/* Inbox list rows. */
+.thread-list{padding-bottom:var(--safe-bottom)}
+.thread-row{display:flex;gap:12px;align-items:center;min-height:72px;padding:10px max(var(--gutter),var(--safe-right)) 10px max(var(--gutter),var(--safe-left));color:var(--ink);border-bottom:.5px solid var(--hair);transition:background .2s}
+.thread-row:hover{background:rgba(0,0,0,.025)}
+.thread-row[aria-current="page"]{background:var(--link-wash)}
+.thread-row:focus-visible{outline-offset:-3px}
+.row-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.row-top,.row-bottom{display:flex;align-items:center;gap:6px;min-width:0}
+.row-name{font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:0 1 auto}
+.row-user{color:var(--muted);font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:0 1 auto}
+.row-time{margin-inline-start:auto;flex:none;color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+.row-preview{flex:1;min-width:0;color:var(--muted);font-size:14.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:start}
+.thread-row.is-unread .row-name{font-weight:700}
+.thread-row.is-unread .row-preview{color:var(--ink-2)}
+.thread-row.is-unread .row-time{color:var(--link);font-weight:600}
+.thread-row.is-resolved .avatar{color:var(--muted);background:var(--tile)}
+.unread-badge{flex:none;min-width:22px;height:22px;padding:0 7px;border-radius:11px;background:var(--link);color:#fff;font-size:12.5px;font-weight:700;display:grid;place-items:center;font-variant-numeric:tabular-nums}

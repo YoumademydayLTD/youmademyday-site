@@ -1,0 +1,67 @@
+/* App frame. The page itself never scrolls; only lists inside panes do (owner rule, 07.10).
+   Phone: one pane at a time, chosen by data-view. Desktop: inbox + thread, and a third card column from 1200px. */
+.app{height:100%;display:grid;grid-template-rows:auto minmax(0,1fr);grid-template-columns:minmax(0,1fr)}
+
+.appbar{display:flex;align-items:center;gap:8px;padding:calc(6px + var(--safe-top)) max(var(--gutter),var(--safe-right)) 6px max(var(--gutter),var(--safe-left));
+  background:var(--glass);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-bottom:.5px solid var(--hair);z-index:20}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand .brand-mark{width:32px;height:32px;border-radius:9px}
+.brand-name{font-weight:600;font-size:17px;letter-spacing:-.02em;white-space:nowrap}
+.tabs{display:flex;gap:4px;margin-inline-start:auto;background:var(--tile);border-radius:999px;padding:3px}
+.tab{position:relative;display:inline-flex;align-items:center;gap:6px;min-height:38px;padding:0 14px;border-radius:999px;color:var(--ink-2);font-weight:500;font-size:14.5px;transition:background .25s,color .25s}
+.tab .ico{width:18px;height:18px}
+.tab[aria-current="page"]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.tab-badge{min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:grid;place-items:center;font-variant-numeric:tabular-nums}
+.live-dot{width:var(--touch);height:var(--touch);display:grid;place-items:center;flex:none}
+.live-dot::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--muted);transition:background .3s}
+.live-dot[data-status="live"]::before{background:var(--ok)}
+.live-dot[data-status="offline"]::before{background:var(--danger)}
+
+.panes{grid-row:2;position:relative;display:grid;grid-template-columns:minmax(0,1fr);min-height:0;overflow:hidden}
+.pane{min-height:0;min-width:0;display:none;flex-direction:column;background:var(--bg)}
+.pane-head{flex:none;display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px max(var(--gutter),var(--safe-right)) 10px max(var(--gutter),var(--safe-left));border-bottom:.5px solid var(--hair)}
+.pane-title{font-size:24px;margin-inline-end:auto}
+.pane-scroll{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+
+/* segmented control */
+.seg{display:inline-flex;background:var(--tile);border-radius:999px;padding:3px}
+.seg-btn{border:0;background:transparent;min-height:34px;padding:0 14px;border-radius:999px;font-size:14px;font-weight:500;color:var(--ink-2)}
+.seg-btn[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+@media (pointer:coarse){.seg-btn{min-height:40px}}
+
+.app[data-view="inbox"] .pane-inbox,
+.app[data-view="thread"] .pane-thread,
+.app[data-view="content"] .pane-content{display:flex}
+
+/* phone: the thread fills the screen with its own back button, so the app bar steps aside */
+@media (max-width:899px){
+  .app[data-view="thread"] .appbar{display:none}
+  .app[data-view="thread"] .thread-head{padding-top:calc(8px + var(--safe-top))}
+  .brand-name{font-size:16px}
+}
+@media (max-width:440px){.brand-name{display:none}}
+
+/* the customer card as a sheet (phone: from the bottom; tablet: from the side) */
+.pane-card{position:fixed;z-index:40;inset-inline:0;bottom:0;max-height:88dvh;display:flex;border-radius:var(--r) var(--r) 0 0;box-shadow:0 -20px 60px -20px rgba(0,0,0,.3);
+  transform:translateY(105%);visibility:hidden;transition:transform .5s var(--spring),visibility 0s linear .5s}
+.app[data-view="thread"][data-card="open"] .pane-card{transform:none;visibility:visible;transition:transform .5s var(--spring)}
+.scrim{position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .4s var(--spring)}
+.app[data-view="thread"][data-card="open"] .scrim{opacity:1;pointer-events:auto}
+
+@media (min-width:900px){
+  .panes{grid-template-columns:340px minmax(0,1fr)}
+  .pane-inbox,.pane-thread{display:flex}
+  .pane-inbox{border-inline-end:.5px solid var(--hair)}
+  .app[data-view="content"] .pane-inbox,.app[data-view="content"] .pane-thread{display:none}
+  .app[data-view="content"] .pane-content{grid-column:1/-1}
+  .back-btn,.card-grip{display:none}
+  .pane-card{top:0;bottom:0;inset-inline:auto 0;width:380px;max-height:none;border-radius:0;box-shadow:0 0 60px -10px rgba(0,0,0,.25);transform:translateX(-105%)}
+  [dir="ltr"] .pane-card{transform:translateX(105%)}
+}
+@media (min-width:1200px){
+  .app[data-view="thread"] .panes{grid-template-columns:340px minmax(0,1fr) 340px}
+  .app[data-view="thread"] .pane-card,
+  .app[data-view="thread"][data-card="open"] .pane-card{position:static;width:auto;transform:none;visibility:visible;box-shadow:none;border-inline-start:.5px solid var(--hair);transition:none}
+  .app[data-view="thread"] .scrim{display:none}
+  .card-toggle,.card-close{display:none}
+}

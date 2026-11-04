@@ -1,0 +1,92 @@
+/* Base layer for the support center: the store's tokens (site/styles.css, owner 02.11.2026: Apple-like white,
+   #F5F5F7 tiles, system type, violet links), reset, buttons, fields, tags and helpers. */
+:root{
+  --bg:#FFFFFF; --tile:#F5F5F7; --tile-2:#E8E8ED; --ink:#1D1D1F; --ink-2:#424245; --muted:#6E6E73; --hair:rgba(0,0,0,.08);
+  --link:#6B48D6; --link-wash:rgba(107,72,214,.1); --ok:#1E7A4F; --danger:#C9372F;
+  --tg:#2AABEE; --tg-deep:#1C8DC9;
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Hebrew","SF Arabic","Heebo","Roboto","Noto Sans Arabic",system-ui,sans-serif;
+  --spring:cubic-bezier(.22,1,.36,1);
+  --r:22px; --r-sm:14px; --r-bubble:20px;
+  --shadow:0 0 0 .5px rgba(0,0,0,.06),0 18px 40px -22px rgba(0,0,0,.22);
+  --glass:rgba(255,255,255,.78);
+  --touch:44px;
+  --gutter:16px;
+  --safe-top:env(safe-area-inset-top,0px); --safe-bottom:env(safe-area-inset-bottom,0px);
+  --safe-left:env(safe-area-inset-left,0px); --safe-right:env(safe-area-inset-right,0px);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;height:100%}
+body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.45;letter-spacing:-.005em;-webkit-font-smoothing:antialiased;overflow:hidden}
+#root{height:100%}
+a{color:var(--link);text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{font-weight:600;letter-spacing:-.02em;line-height:1.15;text-wrap:balance}
+ul,ol{margin:0;padding:0;list-style:none}
+img{max-width:100%;display:block}
+[hidden]{display:none!important}
+:focus-visible{outline:3px solid var(--link);outline-offset:2px;border-radius:10px}
+.ico{width:20px;height:20px;flex:none}
+
+.muted{color:var(--muted)}
+.small{font-size:13.5px}
+.num{font-variant-numeric:tabular-nums}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;margin:-1px;padding:0;border:0}
+.skip{position:fixed;top:-80px;inset-inline-start:16px;z-index:200;background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;transition:top .3s var(--spring)}
+.skip:focus{top:calc(12px + var(--safe-top))}
+
+/* buttons: pills, like the store */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:var(--touch);padding:0 22px;border-radius:999px;border:0;font-weight:500;font-size:16px;white-space:nowrap;text-decoration:none;transition:transform .35s var(--spring),background .25s,opacity .25s}
+.btn:active{transform:scale(.97)}
+.btn[disabled],.btn[aria-disabled="true"]{opacity:.4;cursor:not-allowed;transform:none}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-ink:hover{background:#000}
+.btn-ghost{background:var(--tile);color:var(--ink)}
+.btn-ghost:hover{background:var(--tile-2)}
+.btn-tg{background:var(--tg);color:#fff}
+.btn-tg:hover{background:var(--tg-deep)}
+.btn-danger{color:var(--danger)}
+.btn-block{width:100%}
+.btn-sm{min-height:36px;padding:0 14px;font-size:14.5px}
+.btn .ico{width:18px;height:18px}
+.icon-btn{position:relative;width:var(--touch);height:var(--touch);border-radius:50%;border:0;background:transparent;color:var(--ink);display:inline-grid;place-items:center;flex:none;transition:background .25s}
+.icon-btn:hover{background:rgba(0,0,0,.05)}
+.icon-btn[disabled]{opacity:.35;cursor:not-allowed}
+.chip{display:inline-flex;align-items:center;gap:6px;min-height:36px;border:0;background:var(--tile);border-radius:999px;padding:6px 14px;font-weight:500;font-size:14.5px;transition:background .25s}
+.chip:hover{background:var(--tile-2)}
+.chip .ico{width:16px;height:16px}
+
+/* fields: 16px+ text so iOS Safari does not zoom on focus */
+.field{width:100%;min-height:var(--touch);border:1px solid transparent;background:var(--tile);border-radius:var(--r-sm);padding:10px 14px;font-size:16px;transition:border-color .2s,background .2s}
+.field:focus{background:#fff;border-color:var(--link);outline:none;box-shadow:0 0 0 3px var(--link-wash)}
+.field[aria-invalid="true"]{border-color:var(--danger)}
+select.field{appearance:none;-webkit-appearance:none;padding-inline-end:36px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%236E6E73' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-size:10px;background-position:left 14px center}
+[dir="ltr"] select.field{background-position:right 14px center}
+.field-sm{width:auto;min-width:0;min-height:36px;padding-block:6px;font-size:15px}
+textarea.field{resize:vertical;line-height:1.5}
+.form-field{display:flex;flex-direction:column;gap:6px}
+.form-field label{font-weight:500;font-size:14.5px}
+.form-error{color:var(--danger);font-size:14px}
+.form-error:empty{display:none}
+
+.tag{display:inline-block;font-size:12.5px;font-weight:500;padding:3px 10px;border-radius:999px;background:var(--tile);color:var(--ink-2);white-space:nowrap}
+.tag-ok{background:color-mix(in srgb,var(--ok) 12%,transparent);color:var(--ok)}
+.tag-danger{background:color-mix(in srgb,var(--danger) 12%,transparent);color:var(--danger)}
+.lang-chip{display:inline-block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;padding:2px 7px;border-radius:6px;background:var(--tile);color:var(--muted);direction:ltr}
+.avatar{width:44px;height:44px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:600;font-size:18px;color:var(--link);background:var(--link-wash)}
+.avatar-lg{width:72px;height:72px;font-size:30px}
+.brand-mark{width:44px;height:44px;border-radius:12px}
+.empty{padding:40px var(--gutter);text-align:center;color:var(--muted)}
+.empty .retry{margin-top:12px}
+
+/* phones and tablets: every tap target at least 44px */
+@media (pointer:coarse){
+  .btn-sm,.chip,.field-sm{min-height:var(--touch)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
