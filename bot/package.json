@@ -1,0 +1,20 @@
+{
+  "name": "ymd-store-bot",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.tools.json",
+    "test": "vitest run",
+    "dev": "wrangler dev",
+    "deploy": "npm run typecheck && npm test && wrangler deploy",
+    "db:migrate": "wrangler d1 migrations apply ymd-store --remote",
+    "setup:telegram": "node tools/setup_telegram.ts"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261104.1",
+    "@types/node": "^22.20.5",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0",
+    "wrangler": "^4.157.0"
+  }
+}

@@ -1,0 +1,33 @@
+// Cloudflare Worker for the store's Telegram bot (@youmademydaystore_bot) and the owner's support center (/admin).
+// Deploy: npm run deploy. Secrets and setup: see README.md.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ymd-bot",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": true,
+  "observability": { "enabled": true },
+  // Same database as the store worker. The bot reads the store tables and owns only bot_* tables;
+  // its own migrations table keeps the two migration histories apart.
+  "d1_databases": [
+    { "binding": "DB", "database_name": "ymd-store", "database_id": "fb9e52b2-421d-45cb-84d7-7589feacbcc0",
+      "migrations_dir": "migrations", "migrations_table": "bot_migrations" }
+  ],
+  "r2_buckets": [{ "binding": "FILES", "bucket_name": "ymd-files" }],
+  // The store worker, for fresh signed download links when a file cannot be sent as a document.
+  "services": [{ "binding": "STORE", "service": "ymd-store" }],
+  "durable_objects": { "bindings": [{ "name": "HUB", "class_name": "AdminHub" }] },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["AdminHub"] }],
+  "triggers": { "crons": ["*/15 * * * *"] },
+  "assets": { "directory": "./public", "binding": "ASSETS", "run_worker_first": ["/api/*", "/telegram/*", "/admin/file/*"] },
+  "vars": {
+    "SITE_URL": "https://youmademyday.store",
+    // The store worker's public address: its signed download links are built from it.
+    "STORE_URL": "https://ymd-store.crx-platform-website.workers.dev",
+    // Extra browser origins allowed to call the login API (the local preview server).
+    "EXTRA_ORIGINS": "http://127.0.0.1:4322",
+    "BOT_USERNAME": "youmademydaystore_bot",
+    // This worker's own address: the support notifications link to /admin here.
+    "PUBLIC_URL": "https://ymd-bot.crx-platform-website.workers.dev"
+  }
+}
