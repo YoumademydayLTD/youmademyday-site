@@ -4,6 +4,7 @@ import { esc } from "../util.js";
 import { botUrl, isBotLive } from "../telegram/bot.js";
 import { isSignedIn, getUser } from "../telegram/session.js";
 import { CODE_LENGTH } from "../telegram/code-digits.js";
+import { peekIntent } from "../checkout/intent.js";
 
 const icon = (id) => `<svg aria-hidden="true"><use href="#${id}"/></svg>`;
 
@@ -77,6 +78,7 @@ export function viewLogin() {
   return `<div class="wrap page-head center">${tgPill(t("tg.pill"))}<h1 style="margin-top:14px">${t("login.title")}</h1><p class="muted" style="margin:10px auto 0;max-width:52ch">${t("login.lead")}</p></div>
   <div class="wrap" id="loginRoot" style="display:flex;flex-direction:column;gap:60px;padding-bottom:60px">
     ${isBotLive() ? "" : `<p class="tg-soon">${t("login.soon")}</p>`}
+    ${!isSignedIn() && peekIntent()?.order ? `<p class="tg-soon">${t("login.toContinue")}</p>` : ""}
     ${isSignedIn() ? signedInCard() : loginCards()}
     <div><div class="sec-title"><h2>${t("login.acctA")} <span>${t("login.acctB")}</span></h2></div><div class="acct">${accountPoints()}</div></div>
   </div>`;

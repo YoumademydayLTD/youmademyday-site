@@ -22,15 +22,17 @@ import { isDirectOffer, buyHref } from "./money.js";
 import { mountLogin } from "./views/login-page.js";
 import { fetchMe, logout, SESSION_EVENT } from "./telegram/session.js";
 import { watchAccount } from "./telegram/account.js";
+import { watchSignInReturn } from "./checkout/resume.js";
+import { viewAccount, mountAccount, isAccountStale, ACCOUNT_ACTIONS, ACCOUNT_ROUTE } from "./account/view.js";
 
-const PAGES = { courses: () => viewShop("courses"), books: () => viewShop("books"), checkout: viewCheckout, search: viewSearch, pricing: viewPricing, plans: viewPlans, login: viewLogin, terms: viewTerms, privacy: viewPrivacy, refunds: viewRefunds, cookies: viewCookies, accessibility: viewAccessibility };
+const PAGES = { courses: () => viewShop("courses"), books: () => viewShop("books"), checkout: viewCheckout, search: viewSearch, pricing: viewPricing, plans: viewPlans, login: viewLogin, [ACCOUNT_ROUTE]: viewAccount, terms: viewTerms, privacy: viewPrivacy, refunds: viewRefunds, cookies: viewCookies, accessibility: viewAccessibility };
 const SHOPS = new Set(["courses", "books"]);
 // Routes that carry an id after a prefix: #buy-<item>, #thanks-<checkout id>.
 const PREFIX_VIEWS = { "buy-": viewBuy, "thanks-": viewThanks };
 // Work a prefixed page starts once it is on screen.
 const PREFIX_AFTER = { "thanks-": showDownloads };
 // Work a plain page starts once it is on screen.
-const PAGE_AFTER = { login: mountLogin };
+const PAGE_AFTER = { login: mountLogin, [ACCOUNT_ROUTE]: mountAccount };
 const RAIL_GAP = 20; // px, matches .rail gap in css/home.css
 
 // Clean slugs (/he/pricing) work on the live site; a hash wins when present. The language prefix is not a route.
@@ -121,14 +123,16 @@ const ACTIONS = {
   "go-cancel": () => { S.goCancel = true; if (currentRoute() === "refunds") { S.goCancel = false; $("#cancelForm")?.scrollIntoView({ block: "start" }); } else location.hash = "refunds"; },
   "copy-cancel": () => copyText(cancelText(), t("toast.copied")),
   "copy-email": () => copyText(BIZ.email, t("toast.emailCopied")),
-  pay: (el) => startPayment(el),
+  pay: (el) => startPayment(el, currentRoute()),
   logout: signOut,
+  ...ACCOUNT_ACTIONS,
 };
 const KEEP_DEFAULT = new Set(["close-go"]);
 
 applyDocumentLanguage();
 renderLayout();
 watchAccount();
+watchSignInReturn(currentRoute);
 fetchMe();
 
 // Home has a clean address (no #home): go there in place, without a reload.
@@ -167,8 +171,11 @@ document.addEventListener("submit", (e) => {
 });
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && $("#drawerRoot").innerHTML) closeDrawer(); });
 window.addEventListener("hashchange", () => { closeDrawer(); route(); });
-// Signing in or out redraws the login page into its other state.
-window.addEventListener(SESSION_EVENT, () => { if (currentRoute() === "login") rerender(); });
+// Signing in or out redraws the login page, and the personal area, into their other state.
+window.addEventListener(SESSION_EVENT, () => {
+  const r = currentRoute();
+  if (r === "login" || (r === ACCOUNT_ROUTE && isAccountStale())) rerender();
+});
 window.addEventListener("popstate", () => { closeDrawer(); route(); });
 startMotion();
 route();

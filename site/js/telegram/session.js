@@ -33,6 +33,8 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 export const isSignedIn = () => session !== null;
 /** The signed-in user, or null while unknown (not signed in, or /api/me has not answered yet). */
 export const getUser = () => user;
+/** The session token for calls that act as the visitor (the payment worker), or null when signed out. */
+export const getSessionToken = () => session;
 
 function signIn(data) {
   if (typeof data.session !== "string") return false;
@@ -43,7 +45,8 @@ function signIn(data) {
   return true;
 }
 
-function signOutLocally() {
+/** Forgets a session another server refused (expired), so the login page offers a fresh sign-in. */
+export function signOutLocally() {
   session = null;
   user = null;
   writeStored(null);

@@ -1,5 +1,6 @@
 // The page the payment provider sends the buyer back to after paying (#thanks-<checkout id>): a thank-you,
-// then the order's files to download, which appear as soon as the payment is confirmed.
+// then the order's files to download, which appear as soon as the payment is confirmed. The same files are
+// sent to the Telegram bot and stay in the personal area (#account), where the receipt is too.
 import { BIZ } from "../business.js";
 import { ALL } from "../catalog.js";
 import { flatCover } from "../book3d.js";
@@ -7,6 +8,7 @@ import { esc, $ } from "../util.js";
 import { t, HOME_URL } from "../i18n/index.js";
 import { completePayment } from "../checkout/pay.js";
 import { waitForDownloads } from "../checkout/downloads.js";
+import { tgButton } from "./telegram.js";
 
 const email = () => `<b>${BIZ.email}</b>`;
 
@@ -20,6 +22,8 @@ export function viewThanks(checkoutId) {
       <div id="dlStatus" role="status" aria-live="polite" aria-busy="true"><p class="muted">${t("dl.preparing")}</p></div>
       <div id="dlList" style="display:flex;flex-direction:column;gap:10px"></div>
     </section>
+    ${tgButton(t("thanks.tgBtn"), `order-${checkoutId}`)}
+    <a class="lnk" href="#account"><span>${t("thanks.toAccount")}</span></a>
     <small class="muted num">${t("thanks.ref", { id: esc(checkoutId) })}</small>
     <a class="btn btn-ghost" href="${HOME_URL}" data-home>${t("thanks.back")}</a>
   </div>`;

@@ -1,4 +1,5 @@
-// The header's account spot: «log in» for visitors; the user's name and a sign-out button once signed in.
+// The header's account spot: «log in» for visitors; once signed in, the user's name (a link to the personal
+// area, #account) and a sign-out button.
 // It redraws itself on every session change, so the rest of the header (search text, badges) stays as it is.
 import { t } from "../i18n/index.js";
 import { esc } from "../util.js";
@@ -10,7 +11,7 @@ const icon = (id) => `<svg aria-hidden="true"><use href="#${id}"/></svg>`;
 function signedIn() {
   const name = getUser()?.name;
   const label = name ? t("nav.accountLabel", { name: esc(name) }) : t("nav.account");
-  return `<a class="btn btn-tg tg-login" href="#login" aria-label="${label}">${icon("i-plane")}<span class="tg-name">${name ? esc(name) : t("nav.account")}</span></a>
+  return `<a class="btn btn-tg tg-login" href="#account" aria-label="${label}">${icon("i-plane")}<span class="tg-name">${name ? esc(name) : t("nav.account")}</span></a>
     <button class="icon-btn" type="button" data-act="logout" aria-label="${t("nav.logout")}" title="${t("nav.logout")}">${icon("i-out")}</button>`;
 }
 
