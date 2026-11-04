@@ -10,6 +10,12 @@ import type { Json } from "./read.ts";
 import type { Env } from "../env.ts";
 import { notifyBotOrderPaid } from "../internal/bot.ts";
 
+const CRX_SOURCE = "crx";
+
+/** Whether the bot may message the buyer about a paid order. Owner, 04.11.2026: CRX links never message the
+ * customer (CRX reads GET /api/links/:id/status instead); only checkouts the store itself opened do. */
+export const shouldNotifyBuyer = (checkout: { source: string } | null): boolean => checkout !== null && checkout.source !== CRX_SOURCE;
+
 /** The Telegram user who bought through this checkout (buyers are signed in), if known. */
 async function buyerTelegramId(db: D1Database, checkoutId: string): Promise<number | null> {
   const row = await db.prepare("SELECT cu.telegram_id FROM checkouts c JOIN customers cu ON cu.ym = c.customer_ym WHERE c.id = ?").bind(checkoutId).first<{ telegram_id: number }>();
@@ -30,7 +36,7 @@ export async function applyOrder(env: Env, data: Json, now: string): Promise<voi
     await revokeEntitlements(db, order.id, now);
   }
   await upsertOrder(db, order, now);
-  if (order.status !== "paid" || !order.checkoutId) return;
+  if (order.status !== "paid" || !order.checkoutId || !shouldNotifyBuyer(checkout)) return;
   const telegramId = await buyerTelegramId(db, order.checkoutId);
   if (telegramId === null) return;
   // A failed call is logged only: the buyer still has the thanks page, the personal area and the bot button.

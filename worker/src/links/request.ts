@@ -2,23 +2,24 @@
 // caller's own metadata. Pure, so it is unit-tested.
 import { HttpError } from "../http/errors.ts";
 import { optionalString, requireString } from "../http/fields.ts";
-import type { Currency } from "../catalog/index.ts";
+import type { PolarCurrency } from "../polar/checkout-body.ts";
 import type { ProductMap } from "../polar/mapping.ts";
 import { chooseCountry } from "../customers/country.ts";
 
 export interface LinkRequest {
   storeId: string;
-  currency: Currency;
-  amount?: number; // minor units; absent = the catalogue price
+  currency: PolarCurrency;
+  amount?: number; // minor units; absent = the catalogue (or link-only) price
   metadata: Record<string, string>;
   customerEmail?: string;
   externalCustomerId?: string;
   lang?: string;
   country?: string; // billing country to prefill (ISO2)
   customerIp?: string; // the buyer's IP, when the caller knows it
+  telegramUserId?: number; // the buyer's Telegram id: the store keeps his account and fills in his locked email
 }
 
-const CURRENCIES: readonly Currency[] = ["ils", "usd"];
+export const LINK_CURRENCIES: readonly PolarCurrency[] = ["ils", "usd", "gel"];
 const MINOR_UNITS = 100;
 // Polar allows 50 metadata keys; ours (ymd_*) take a few, the caller gets the rest.
 export const MAX_CALLER_KEYS = 40;
@@ -41,6 +42,16 @@ function parseAmount(value: unknown): number | undefined {
   return minor;
 }
 
+// A digit string is accepted too: Telegram ids fit in a double, but some callers send them as text.
+const DIGITS = /^[1-9]\d{0,15}$/;
+
+function parseTelegramUserId(value: unknown): number | undefined {
+  if (value === undefined || value === null) return undefined;
+  const id = typeof value === "string" && DIGITS.test(value) ? Number(value) : value;
+  if (typeof id !== "number" || !Number.isSafeInteger(id) || id <= 0) throw new HttpError("bad_request", "telegram_user_id must be a positive integer");
+  return id;
+}
+
 function parseMetadata(value: unknown): Record<string, string> {
   if (value === undefined || value === null) return {};
   if (typeof value !== "object" || Array.isArray(value)) throw new HttpError("bad_request", "metadata must be an object of strings");
@@ -60,7 +71,7 @@ export function parseLinkRequest(body: Record<string, unknown>, map: ProductMap)
   const storeId = requireString(body, "product", MAX_ID_LENGTH);
   if (!map[storeId]) throw new HttpError("unknown_item", `unknown product ${storeId}`);
   const currency = body.currency === undefined ? "ils" : body.currency;
-  if (typeof currency !== "string" || !(CURRENCIES as readonly string[]).includes(currency)) throw new HttpError("bad_request", `currency must be one of: ${CURRENCIES.join(", ")}`);
+  if (typeof currency !== "string" || !(LINK_CURRENCIES as readonly string[]).includes(currency)) throw new HttpError("bad_request", `currency must be one of: ${LINK_CURRENCIES.join(", ")}`);
   const amount = parseAmount(body.amount);
   const customerEmail = optionalString(body, "customer_email", MAX_EMAIL_LENGTH);
   const externalCustomerId = optionalString(body, "external_customer_id", MAX_ID_LENGTH);
@@ -68,13 +79,19 @@ export function parseLinkRequest(body: Record<string, unknown>, map: ProductMap)
   // A server caller's own location says nothing about the buyer, so only its country or the language count here.
   const country = chooseCountry({ saved: typeof body.country === "string" ? body.country.toUpperCase() : null, lang: lang ?? null });
   const customerIp = optionalString(body, "customer_ip_address", MAX_IP_LENGTH);
+  const telegramUserId = parseTelegramUserId(body.telegram_user_id);
+  // With a Telegram id the store owns the buyer's identity (ym number, internal email); a second one would conflict.
+  if (telegramUserId !== undefined && (customerEmail !== undefined || externalCustomerId !== undefined)) {
+    throw new HttpError("bad_request", "send telegram_user_id or customer_email / external_customer_id, not both");
+  }
   return {
-    storeId, currency: currency as Currency, metadata: parseMetadata(body.metadata),
+    storeId, currency: currency as PolarCurrency, metadata: parseMetadata(body.metadata),
     ...(amount === undefined ? {} : { amount }),
     ...(customerEmail === undefined ? {} : { customerEmail }),
     ...(externalCustomerId === undefined ? {} : { externalCustomerId }),
     ...(lang === undefined ? {} : { lang }),
     ...(country === null ? {} : { country }),
     ...(customerIp === undefined ? {} : { customerIp }),
+    ...(telegramUserId === undefined ? {} : { telegramUserId }),
   };
 }
