@@ -10,16 +10,22 @@ import { verifyWebhook } from "./verify.ts";
 import { isObject, str, type Json } from "./read.ts";
 import { checkoutRow, subscriptionRow } from "./rows.ts";
 import { applyOrder } from "./order.ts";
+import { pushLinkStatus } from "../links/callback.ts";
 
 const MAX_WEBHOOK_BYTES = 1024 * 1024;
 const MS_PER_SECOND = 1000;
 
-/** Which table an event type updates, by its prefix. */
+/** Which table an event type updates, by its prefix. Orders and memberships also change a CRX link's status. */
 async function project(env: Env, type: string, data: Json, now: string): Promise<void> {
   const db = env.DB;
-  if (type.startsWith("checkout.")) await upsertCheckoutStatus(db, checkoutRow(data, PRODUCT_MAP), now);
-  else if (type.startsWith("order.")) await applyOrder(env, data, now);
+  if (type.startsWith("checkout.")) {
+    await upsertCheckoutStatus(db, checkoutRow(data, PRODUCT_MAP), now);
+    return;
+  }
+  if (type.startsWith("order.")) await applyOrder(env, data, now);
   else if (type.startsWith("subscription.")) await upsertSubscription(db, subscriptionRow(data, PRODUCT_MAP), now);
+  else return;
+  await pushLinkStatus(env, str(data, "checkout_id"), new Date(now));
 }
 
 async function projectAndMark(env: Env, id: string, type: string, data: Json): Promise<void> {

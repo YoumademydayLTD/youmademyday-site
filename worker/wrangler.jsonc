@@ -19,6 +19,8 @@
     "POLAR_API": "https://api.polar.sh/v1",
     "BOT_URL": "https://ymd-bot.crx-platform-website.workers.dev",
     // Checkout kinds the site may open (owner opened memberships on 04.11.2026).
-    "LIVE_KINDS": "cart,product,plan"
+    "LIVE_KINDS": "cart,product,plan",
+    // Optional: CRX Platform's endpoint for link status pushes (signed with YMD_LINKS_SECRET); empty = off.
+    "CRX_STATUS_CALLBACK_URL": ""
   }
 }

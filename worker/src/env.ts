@@ -8,6 +8,7 @@ export interface Env {
   EXTRA_ORIGINS: string;
   POLAR_API: string;
   LIVE_KINDS: string;
+  CRX_STATUS_CALLBACK_URL: string; // optional: where CRX link status changes are pushed ("" = off)
   POLAR_ACCESS_TOKEN: string;
   POLAR_WEBHOOK_SECRET: string;
   YMD_LINKS_SECRET: string;
