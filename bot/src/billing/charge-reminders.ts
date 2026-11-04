@@ -23,6 +23,8 @@ export async function queueChargeReminders(ctx: AppContext): Promise<number> {
      JOIN orders o ON o.customer_id = s.customer_id
      JOIN bot_order_links l ON l.checkout_id = o.checkout_id
      WHERE s.status IN (${statuses}) AND s.cancel_at_period_end = 0
+       -- Owner 04.11: subscriptions opened from a CRX Platform link get no reminder from this bot.
+       AND NOT EXISTS (SELECT 1 FROM checkouts c WHERE c.id = s.checkout_id AND c.source = 'crx')
        AND s.current_period_end > ? AND s.current_period_end <= ?`,
   ).bind(...ACTIVE_STATUSES, ctx.nowIso, horizon).all<DueCharge>();
   let queued = 0;

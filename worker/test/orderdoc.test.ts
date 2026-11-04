@@ -24,6 +24,15 @@ describe("buildDocData", () => {
     expect(data.items).toEqual([{ title: "flagship (en)", amount: 200 }]);
     expect(data.deal).toBe(0);
   });
+  it("prices a CRX membership sold in GEL at its link price, not the shekel catalogue price", () => {
+    const data = buildDocData(order({ currency: "gel", totalAmount: 0, itemIds: ["max"] }), "en", CATALOG, REFUNDS);
+    expect(data.plan).toEqual({ title: "Maximum membership", period: "week", amount: 10_000, trialDays: 1 });
+    expect(data.deal).toBe(0);
+  });
+  it("prices a GEL product line at what the order charged", () => {
+    const data = buildDocData(order({ currency: "gel", totalAmount: 200, itemIds: ["b51"] }), "en", CATALOG, REFUNDS);
+    expect(data.items).toEqual([{ title: "flagship (en)", amount: 200 }]);
+  });
   it("describes a membership: title in the buyer's language, period price and free days", () => {
     const data = buildDocData(order({ currency: "ils", totalAmount: 0, itemIds: ["grow"] }), "he", CATALOG, REFUNDS);
     expect(data.plan).toEqual({ title: "מנוי צמיחה", period: "week", amount: 14700, trialDays: 1 });

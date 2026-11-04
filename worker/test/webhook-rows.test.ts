@@ -28,6 +28,10 @@ describe("webhook rows", () => {
     expect(subscriptionRow({ id: "s1", status: "active", product_id: "p-grow", cancel_at_period_end: true, current_period_end: "2026-11-11T00:00:00Z" }, MAP))
       .toMatchObject({ planId: "grow", cancelAtPeriodEnd: true, currentPeriodEnd: "2026-11-11T00:00:00Z" });
   });
+  it("keeps the checkout that started a subscription, so a CRX link finds its membership during the free day", () => {
+    expect(subscriptionRow({ id: "s2", status: "trialing", product_id: "p-max", checkout_id: "ch7" }, MAP)).toMatchObject({ planId: "max", checkoutId: "ch7" });
+    expect(subscriptionRow({ id: "s3", status: "active", product_id: "p-grow" }, MAP).checkoutId).toBeNull();
+  });
   it("reads a checkout status", () => {
     expect(checkoutRow({ id: "ch1", status: "succeeded", product_id: "p-b51", total_amount: 200, currency: "usd", metadata: { ymd_kind: "product", ymd_ids: "b51" } }, MAP))
       .toMatchObject({ id: "ch1", status: "succeeded", kind: "product", itemIds: ["b51"] });
