@@ -8,6 +8,8 @@ import { createCheckout, PolarApiError, polarConfig } from "../polar/client.ts";
 import { insertCheckout } from "../db/checkouts.ts";
 import { requireUser } from "../account/session.ts";
 import { ensureBuyer } from "../customers/buyer.ts";
+import { chooseCountry, visitorOf } from "../customers/country.ts";
+import { saveCountry } from "../customers/repo.ts";
 import { liveKinds, parseCheckoutRequest } from "./request.ts";
 import { planCheckout } from "./plan.ts";
 
@@ -17,7 +19,13 @@ export async function handleCheckout(request: Request, env: Env, now: Date): Pro
   // Owner, 04.11.2026: buying needs a Telegram sign-in; the customer never types an email.
   const user = await requireUser(request, env);
   const customer = await ensureBuyer(env, user.telegramId, now);
-  const { body, record } = planCheckout(parsed, { catalog: CATALOG, map: PRODUCT_MAP, siteUrl: env.SITE_URL, customerYm: customer.ym });
+  const visitor = visitorOf(request);
+  const country = chooseCountry({ saved: customer.country, located: visitor.country, lang: parsed.lang });
+  if (country && !customer.country) await saveCountry(env.DB, customer.id, country);
+  const planned = planCheckout(parsed, { catalog: CATALOG, map: PRODUCT_MAP, siteUrl: env.SITE_URL, customerYm: customer.ym });
+  // Prefilled for Polar's tax and currency logic; the buyer can still change the country on the payment page.
+  const body = { ...planned.body, ...(country ? { customer_billing_address: { country } } : {}), ...(visitor.ip ? { customer_ip_address: visitor.ip } : {}) };
+  const { record } = planned;
   let checkout;
   try {
     checkout = await createCheckout(polarConfig(env), body);

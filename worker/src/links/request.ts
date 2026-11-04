@@ -4,6 +4,7 @@ import { HttpError } from "../http/errors.ts";
 import { optionalString, requireString } from "../http/fields.ts";
 import type { Currency } from "../catalog/index.ts";
 import type { ProductMap } from "../polar/mapping.ts";
+import { chooseCountry } from "../customers/country.ts";
 
 export interface LinkRequest {
   storeId: string;
@@ -13,6 +14,8 @@ export interface LinkRequest {
   customerEmail?: string;
   externalCustomerId?: string;
   lang?: string;
+  country?: string; // billing country to prefill (ISO2)
+  customerIp?: string; // the buyer's IP, when the caller knows it
 }
 
 const CURRENCIES: readonly Currency[] = ["ils", "usd"];
@@ -25,6 +28,7 @@ export const RESERVED_PREFIX = "ymd_";
 const MAX_ID_LENGTH = 64;
 const MAX_EMAIL_LENGTH = 320;
 const MAX_LANG_LENGTH = 8;
+const MAX_IP_LENGTH = 45; // the longest IPv6 text form
 const MAX_AMOUNT_MAJOR = 100_000;
 
 function parseAmount(value: unknown): number | undefined {
@@ -61,11 +65,16 @@ export function parseLinkRequest(body: Record<string, unknown>, map: ProductMap)
   const customerEmail = optionalString(body, "customer_email", MAX_EMAIL_LENGTH);
   const externalCustomerId = optionalString(body, "external_customer_id", MAX_ID_LENGTH);
   const lang = optionalString(body, "lang", MAX_LANG_LENGTH);
+  // A server caller's own location says nothing about the buyer, so only its country or the language count here.
+  const country = chooseCountry({ saved: typeof body.country === "string" ? body.country.toUpperCase() : null, lang: lang ?? null });
+  const customerIp = optionalString(body, "customer_ip_address", MAX_IP_LENGTH);
   return {
     storeId, currency: currency as Currency, metadata: parseMetadata(body.metadata),
     ...(amount === undefined ? {} : { amount }),
     ...(customerEmail === undefined ? {} : { customerEmail }),
     ...(externalCustomerId === undefined ? {} : { externalCustomerId }),
     ...(lang === undefined ? {} : { lang }),
+    ...(country === null ? {} : { country }),
+    ...(customerIp === undefined ? {} : { customerIp }),
   };
 }

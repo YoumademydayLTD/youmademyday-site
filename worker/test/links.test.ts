@@ -51,3 +51,13 @@ describe("assertAuthorized", () => {
     expect(() => assertAuthorized("Bearer ", "")).toThrow();
   });
 });
+
+describe("link billing country", () => {
+  it("prefills the caller's country, else the language's, and passes the buyer IP", () => {
+    expect(parseLinkRequest({ product: "b51", country: "fr", customer_ip_address: "203.0.113.7" }, MAP)).toMatchObject({ country: "FR", customerIp: "203.0.113.7" });
+    expect(parseLinkRequest({ product: "b51", lang: "he" }, MAP).country).toBe("IL");
+    expect(parseLinkRequest({ product: "b51" }, MAP).country).toBeUndefined();
+    const { body } = planLink({ storeId: "b51", currency: "ils", metadata: {}, country: "IL", customerIp: "1.2.3.4" }, MAP);
+    expect(body).toMatchObject({ customer_billing_address: { country: "IL" }, customer_ip_address: "1.2.3.4" });
+  });
+});

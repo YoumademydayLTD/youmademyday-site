@@ -16,6 +16,8 @@ export interface PolarCheckoutBody {
   metadata: Record<string, string>;
   customer_email?: string;
   external_customer_id?: string;
+  customer_billing_address?: { country: string };
+  customer_ip_address?: string;
 }
 
 export const adHocPrice = (amount: number, currency: Currency): AdHocPrice =>

@@ -21,6 +21,8 @@ export function planLink(request: LinkRequest, map: ProductMap): { body: PolarCh
     ...(request.customerEmail ? { customer_email: request.customerEmail } : {}),
     ...(request.externalCustomerId ? { external_customer_id: request.externalCustomerId } : {}),
     ...(request.lang ? { locale: request.lang } : {}),
+    ...(request.country ? { customer_billing_address: { country: request.country } } : {}),
+    ...(request.customerIp ? { customer_ip_address: request.customerIp } : {}),
   };
   return { body, amount, productId: mapped.productId };
 }
