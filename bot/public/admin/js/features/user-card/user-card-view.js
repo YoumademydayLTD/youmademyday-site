@@ -11,7 +11,7 @@ import { GOOD_STATUSES, PURCHASE_STATUS, SUBSCRIPTION_STATUS, statusLabel } from
 /**
  * @typedef {{id: number, name: string, username: string | null, lang: string, createdAt: string, timeZone: string | null,
  *   dailyHour: number | null, dailyPaused: boolean, dailySilent: boolean, newsOptIn: boolean, track: string | null,
- *   trackDay: number | null, streak: number | null, isBlocked: boolean}} UserCard
+ *   trackDay: number | null, streak: number | null, isBlocked: boolean, ym: string | null}} UserCard
  * @typedef {{checkoutId: string, orderId: string | null, status: string, total: number, currency: string | null,
  *   items: {id: string, title: string}[], linkedAt: string}} Purchase
  * @typedef {{id: string, planId: string, status: string, currentPeriodEnd: string | null, cancelAtPeriodEnd: boolean}} Subscription
@@ -68,6 +68,7 @@ function cardContent({ user, purchases, subscriptions }) {
     section('פרטים', h('dl', null,
       field('שפה', langName),
       field('הצטרף', formatLongDate(user.createdAt)),
+      field('מספר לקוח', user.ym ? h('span', { dir: 'ltr', class: 'num' }, user.ym) : 'עוד לא קנה'),
       field('מזהה טלגרם', h('span', { dir: 'ltr', class: 'num' }, String(user.id))))),
     section('תזכורת יומית', h('dl', null,
       field('שעה', formatHour(user.dailyHour)),

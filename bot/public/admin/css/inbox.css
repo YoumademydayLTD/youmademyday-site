@@ -15,3 +15,11 @@
 .thread-row.is-unread .row-time{color:var(--link);font-weight:600}
 .thread-row.is-resolved .avatar{color:var(--muted);background:var(--tile)}
 .unread-badge{flex:none;min-width:22px;height:22px;padding:0 7px;border-radius:11px;background:var(--link);color:#fff;font-size:12.5px;font-weight:700;display:grid;place-items:center;font-variant-numeric:tabular-nums}
+/* Customer search above the thread list. */
+.customer-search{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.search-input{width:100%;min-height:40px;padding:8px 12px;border-radius:10px;border:.5px solid var(--hair);background:var(--tile);color:var(--ink);font:inherit}
+.search-results:empty{display:none}
+.search-results{display:flex;flex-direction:column;gap:2px}
+.search-hit{display:flex;gap:8px;align-items:center;width:100%;min-height:44px;padding:8px 10px;border-radius:10px;background:none;border:0;color:var(--ink);font:inherit;text-align:start;cursor:pointer}
+.search-hit:hover{background:rgba(0,0,0,.035)}
+.search-hit .tag{margin-inline-start:auto}

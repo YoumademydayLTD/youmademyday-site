@@ -57,5 +57,5 @@ export async function handleCommand(ctx: AppContext, user: BotUser, text: string
   if (command?.name === "admin") return handleAdminClaim(ctx, user, command.args);
   const handler = command ? SIMPLE[command.name] : undefined;
   if (handler) return handler(ctx, user);
-  await sendText(ctx, user.telegramId, t(user.lang, "unknown"), { keyboard: mainMenu(user.lang, ctx.env.SITE_URL) });
+  await sendText(ctx, user.telegramId, t(user.lang, "unknown"), { keyboard: mainMenu(user.lang) });
 }

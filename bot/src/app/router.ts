@@ -8,6 +8,8 @@ import { adminLogout, adminMe, adminVerify, adminWait, requireAdmin } from "../a
 import { getMedia, getThread, getThreads, getUserCard, postRead, postReply, postStatus } from "../admin/threads-http.ts";
 import { getContent, getQuickReplies, postContent, postContentDelete, postQuickReply, postQuickReplyDelete } from "../admin/content-http.ts";
 import { connect } from "../live/hub.ts";
+import { searchCustomers } from "../admin/customers.ts";
+import { postOrderPaid } from "../internal/orders-http.ts";
 
 type Params = Record<string, string>;
 type Handler = (request: Request, ctx: AppContext, params: Params) => Promise<unknown>;
@@ -38,6 +40,9 @@ export const ROUTES: readonly Route[] = [
   { method: "POST", pattern: "/api/admin/threads/:id/read", access: "admin", handler: (_r, c, p) => postRead(c, id(p)) },
   { method: "POST", pattern: "/api/admin/threads/:id/status", access: "admin", handler: (r, c, p) => postStatus(r, c, id(p)) },
   { method: "GET", pattern: "/api/admin/users/:id", access: "admin", handler: (_r, c, p) => getUserCard(c, id(p)) },
+  { method: "GET", pattern: "/api/admin/customers", access: "admin", handler: (r, c) => searchCustomers(r, c) },
+  // From the store worker over its service binding; checked with the shared internal secret.
+  { method: "POST", pattern: "/api/internal/orders/paid", access: "public", handler: (r, c) => postOrderPaid(r, c) },
   { method: "GET", pattern: "/api/admin/quick-replies", access: "admin", handler: (_r, c) => getQuickReplies(c) },
   { method: "POST", pattern: "/api/admin/quick-replies", access: "admin", handler: (r, c) => postQuickReply(r, c) },
   { method: "POST", pattern: "/api/admin/quick-replies/:id/delete", access: "admin", handler: (_r, c, p) => postQuickReplyDelete(c, id(p)) },

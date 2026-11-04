@@ -13,4 +13,5 @@ export interface Env {
   TELEGRAM_BOT_TOKEN: string;
   TELEGRAM_WEBHOOK_SECRET: string;
   ADMIN_CLAIM_CODE: string;
+  YMD_INTERNAL_SECRET: string; // shared with the store worker for calls between the two
 }

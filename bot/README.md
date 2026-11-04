@@ -40,6 +40,16 @@ D1 "ymd-store": store tables read-only + bot_* tables · R2 "ymd-files" · servi
   **redeploy the bot after a price or catalogue change**.
 - Own migrations in `migrations/`, tracked in `bot_migrations` (not the store's `d1_migrations`).
 
+## Store ↔ bot
+
+- `POST /api/internal/orders/paid {checkoutId, telegramId}` (from the store, header `X-Internal-Secret`): a signed-in
+  buyer's order was paid; it is linked to them and the files are sent at once (the cron retries a failed send).
+- Memberships: the ✨ menu button opens the bot's plans screen, which lists the user's running memberships with a
+  cancel button (`sub:ask:<id>` → confirm → the store's `POST /api/internal/subscriptions/cancel`). `/delete` cancels
+  running memberships the same way and tells the admin only about one that could not be cancelled.
+- The user card shows the internal customer number (`ym` from the store's `customers` table); the inbox has a customer
+  search: `GET /api/admin/customers?q=` (ym number, name, @username or Telegram id) → `{results: [{id, name, username, ym, threadId}]}`.
+
 ## Secrets (values in `Site/.env.bot`, gitignored; never printed)
 
 | Name | What |
@@ -47,6 +57,7 @@ D1 "ymd-store": store tables read-only + bot_* tables · R2 "ymd-files" · servi
 | `TELEGRAM_BOT_TOKEN` | the bot's token from @BotFather |
 | `TELEGRAM_WEBHOOK_SECRET` | sent by Telegram in `X-Telegram-Bot-Api-Secret-Token` (made by `tools/make_secrets.ts`) |
 | `ADMIN_CLAIM_CODE` | one-time code for `/admin <code>` (made by `tools/make_secrets.ts`) |
+| `YMD_INTERNAL_SECRET` | shared with the store worker (value in `Site/.env`) |
 
 Put one: `grep '^NAME=' ../.env.bot | cut -d= -f2- | tr -d '\n' | npx wrangler secret put NAME`
 
@@ -131,7 +142,7 @@ Shapes:
 
 - `Thread` = `{id, status:"open"|"resolved", unread (count of unread customer messages), lastText, lastAt, createdAt, user:{id, name, username, lang}}`
 - `Message` = `{id, threadId, direction:"in"|"out", text, mediaKind: null|"photo"|"document"|"voice"|"video"|"sticker", fileId, fileName, createdAt}` (`in` = from the customer)
-- `UserCard` = `{id, name, username, lang, createdAt, timeZone, dailyHour, dailyPaused, dailySilent, newsOptIn, track, trackDay, streak, isBlocked}`
+- `UserCard` = `{id, name, username, lang, createdAt, timeZone, dailyHour, dailyPaused, dailySilent, newsOptIn, track, trackDay, streak, isBlocked, ym}` (`ym`: internal customer number or null)
 - `Purchase` = `{checkoutId, orderId, status, total, currency, items:[{id, title}], linkedAt}` (`total` in minor units)
 - `Subscription` = `{id, planId, status, currentPeriodEnd, cancelAtPeriodEnd}`
 - `ContentItem` = `{id, track, dayN, lang, text, lessonUrl, lessonLabel, updatedAt}`

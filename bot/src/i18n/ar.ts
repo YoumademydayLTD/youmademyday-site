@@ -97,7 +97,19 @@ export const ar: Copy = {
 
   // Plan names as on the site (plan.<id>.name).
   planNames: { spark: "شرارة", day: "يوم جميل", community: "المجتمع", mentor: "المرافقة", grow: "النموّ", max: "القمّة" },
-  chargeReminder: "تذكير قبل الخصم: في {date} يتجدد اشتراك {plan} بمبلغ {amount}.\nتريدون الإلغاء؟ اكتبوا لنا هنا وسنلغيه دون أسئلة.",
+  chargeReminder: "تذكير قبل الخصم: في {date} يتجدد اشتراك {plan} بمبلغ {amount}.\nتريدون الإلغاء؟ ✨ الاشتراكات ← إلغاء، بضغطة واحدة.",
+  subsTitle: "اشتراكاتك:",
+  subActive: "{plan}: فعّال، يتجدد في {date}",
+  subTrial: "{plan}: يوم تجربة مجاني، أول خصم في {date}",
+  subEnding: "{plan}: ينتهي في {date}، دون خصومات أخرى",
+  subCancelButton: "إلغاء {plan}",
+  subCancelAskTrial: "إلغاء {plan}؟ أنتم في يوم التجربة المجاني، لذا سينتهي الآن ولن يُخصم منكم شيء.",
+  subCancelAskPaid: "إلغاء {plan}؟ يبقى فعّالًا حتى {date} ثم ينتهي. لا خصومات أخرى.",
+  subCancelYes: "نعم، ألغِ",
+  subCancelNo: "لا، أبقِه",
+  subCanceledNow: "تم إلغاء {plan}. لن يُخصم منكم شيء.",
+  subCanceledEnd: "سينتهي {plan} في {date}. لا خصومات أخرى.",
+  subCancelFailed: "تعذّر الإلغاء الآن. حاولوا بعد دقيقة، أو اكتبوا لنا هنا.",
 };
 
 export const arProfile: Profile = {

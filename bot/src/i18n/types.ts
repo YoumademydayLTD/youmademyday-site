@@ -88,6 +88,18 @@ export interface Copy {
 
   planNames: Record<string, string>;
   chargeReminder: string;
+  subsTitle: string;
+  subActive: string;
+  subTrial: string;
+  subEnding: string;
+  subCancelButton: string;
+  subCancelAskTrial: string;
+  subCancelAskPaid: string;
+  subCancelYes: string;
+  subCancelNo: string;
+  subCanceledNow: string;
+  subCanceledEnd: string;
+  subCancelFailed: string;
 }
 
 /** The bot's profile in one language (setMyName / setMyDescription / setMyShortDescription / setMyCommands). */

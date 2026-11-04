@@ -23,7 +23,7 @@ export interface BotUser {
   createdAt: string;
 }
 
-interface Row {
+export interface Row {
   telegram_id: number; first_name: string; last_name: string | null; username: string | null; lang: string; time_zone: string;
   daily_hour: number; daily_paused: number; daily_silent: number; news_opt_in: number; track: string | null; track_day: number;
   last_daily_date: string | null; streak: number; last_done_date: string | null; is_blocked: number; created_at: string;

@@ -4,7 +4,8 @@ import type { TgCallbackQuery } from "../telegram/types.ts";
 import type { BotUser } from "../users/repo.ts";
 import { t } from "../i18n/index.ts";
 import { answerCallback, showScreen } from "../telegram/send.ts";
-import { showMenu, showSupport } from "../menu/screens.ts";
+import { showMenu, showPlans, showSupport } from "../menu/screens.ts";
+import { handleMembershipAction } from "../billing/screen.ts";
 import { resendItem, showLibrary } from "../library/screen.ts";
 import { handleReminderAction, joinSpark, showReminders } from "../settings/reminders.ts";
 import { handleSettingsAction, showSettings } from "../settings/settings.ts";
@@ -22,6 +23,8 @@ const ACTIONS: Record<string, Action> = {
   rem: handleReminderAction,
   join: (ctx, user) => joinSpark(ctx, user),
   support: (ctx, user, _d, id) => showSupport(ctx, user, id),
+  plans: (ctx, user, _d, id) => showPlans(ctx, user, id),
+  sub: (ctx, user, data, id) => handleMembershipAction(ctx, user, data, id, () => showPlans(ctx, user, id)),
   settings: (ctx, user, _d, id) => showSettings(ctx, user, id),
   set: handleSettingsAction,
   login: confirmLogin,

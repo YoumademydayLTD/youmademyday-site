@@ -18,7 +18,7 @@ const PENDING_DAYS = 3;
 
 type DeliveryResult = "sent" | "pending" | "refunded";
 
-async function deliver(ctx: AppContext, user: BotUser, checkoutId: string): Promise<DeliveryResult> {
+export async function deliver(ctx: AppContext, user: BotUser, checkoutId: string): Promise<DeliveryResult> {
   const downloads = await fetchDownloads(ctx, checkoutId);
   if (downloads.status !== "ready") return downloads.status;
   // Marked first: a bundle is several uploads, and if the run is cut short the cron must not send it all twice.
@@ -43,7 +43,7 @@ export async function handleOrderStart(ctx: AppContext, user: BotUser, checkoutI
   } else if (result === "refunded") {
     await sendText(ctx, user.telegramId, t(user.lang, "orderRefunded"));
   }
-  if (result === "sent") await sendText(ctx, user.telegramId, t(user.lang, "menuPrompt"), { keyboard: mainMenu(user.lang, ctx.env.SITE_URL) });
+  if (result === "sent") await sendText(ctx, user.telegramId, t(user.lang, "menuPrompt"), { keyboard: mainMenu(user.lang) });
 }
 
 /** Cron: orders linked while their payment was pending get their files once it is paid. */

@@ -97,7 +97,19 @@ export const he: Copy = {
 
   // Plan names as on the site (plan.<id>.name).
   planNames: { spark: "ניצוץ", day: "יום טוב", community: "קהילה", mentor: "ליווי", grow: "צמיחה", max: "מקסימום" },
-  chargeReminder: "תזכורת לפני חיוב: ב-{date} יתחדש המנוי {plan}, בסך {amount}.\nרוצים לבטל? כתבו לנו כאן, ונבטל בלי שאלות.",
+  chargeReminder: "תזכורת לפני חיוב: ב-{date} יתחדש המנוי {plan}, בסך {amount}.\nרוצים לבטל? ✨ מנויים ← ביטול, בלחיצה אחת.",
+  subsTitle: "המנויים שלך:",
+  subActive: "{plan}: פעיל, מתחדש ב-{date}",
+  subTrial: "{plan}: יום ניסיון חינם, החיוב הראשון ב-{date}",
+  subEnding: "{plan}: מסתיים ב-{date}, בלי חיובים נוספים",
+  subCancelButton: "ביטול {plan}",
+  subCancelAskTrial: "לבטל את {plan}? אתם ביום הניסיון החינמי, אז המנוי ייגמר עכשיו ולא תחויבו.",
+  subCancelAskPaid: "לבטל את {plan}? המנוי ימשיך לעבוד עד {date} ואז ייגמר. לא יהיו חיובים נוספים.",
+  subCancelYes: "כן, לבטל",
+  subCancelNo: "לא, להשאיר",
+  subCanceledNow: "{plan} בוטל. לא תחויבו.",
+  subCanceledEnd: "{plan} ייגמר ב-{date}. לא יהיו חיובים נוספים.",
+  subCancelFailed: "לא הצלחנו לבטל כרגע. נסו שוב בעוד דקה, או כתבו לנו כאן.",
 };
 
 export const heProfile: Profile = {

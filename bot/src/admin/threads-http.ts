@@ -1,5 +1,6 @@
 // Support-center endpoints for threads, replies, user cards, quick replies and the media proxy.
 import type { AppContext } from "../app/context.ts";
+import { findYm } from "./customers.ts";
 import { HttpError } from "../http/errors.ts";
 import { TelegramError } from "../telegram/api.ts";
 import { readJsonObject, requireString } from "../http/response.ts";
@@ -82,7 +83,7 @@ export async function getUserCard(ctx: AppContext, telegramId: number): Promise<
   const user = await findUser(ctx.db, telegramId);
   if (!user) throw new HttpError("not_found", "no such user");
   const subscriptions = await listUserSubscriptions(ctx.db, telegramId);
-  return { user: userCard(user), purchases: await listPurchases(ctx.db, telegramId), subscriptions };
+  return { user: { ...userCard(user), ym: await findYm(ctx.db, telegramId) }, purchases: await listPurchases(ctx.db, telegramId), subscriptions };
 }
 
 /** GET /admin/file/:fileId — a customer's photo or file, streamed from Telegram so the bot token stays here. */

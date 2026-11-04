@@ -1,13 +1,17 @@
 // /delete: after a confirm, removes the user's bot data. Store order and payment records stay (the law requires
-// them); deleting the order links only unlinks them from this Telegram account. An active membership is handed
-// to the admin to end without further charges (the bot cannot cancel payments itself).
+// them); deleting the order links only unlinks them from this Telegram account. Running memberships are cancelled
+// through the store first (at once during the free trial, otherwise at period end); one the store could not cancel
+// is handed to the admin to end without further charges.
 import type { AppContext } from "../app/context.ts";
 import type { BotUser } from "../users/repo.ts";
 import { displayName } from "../users/repo.ts";
 import { escapeHtml, t } from "../i18n/index.ts";
 import { sendText, showScreen } from "../telegram/send.ts";
 import { button } from "../menu/keyboards.ts";
-import { isActive, listUserSubscriptions } from "../billing/subscriptions.ts";
+import { activeMemberships } from "../billing/screen.ts";
+import type { UserSubscription } from "../billing/subscriptions.ts";
+import { canCancel } from "../billing/membership-lines.ts";
+import { cancelViaStore } from "../billing/cancel.ts";
 import { listAdminIds } from "../admin/repo.ts";
 import { publish } from "../live/hub.ts";
 
@@ -31,17 +35,20 @@ export function deleteStatements(db: D1Database, telegramId: number): D1Prepared
   ];
 }
 
-async function handOverMemberships(ctx: AppContext, user: BotUser): Promise<void> {
-  const active = (await listUserSubscriptions(ctx.db, user.telegramId)).filter(isActive);
-  if (!active.length) return;
-  const list = active.map((s) => `${escapeHtml(s.planId ?? "?")} (${escapeHtml(s.id)})`).join(", ");
+async function endMemberships(ctx: AppContext, user: BotUser): Promise<void> {
+  const failed: UserSubscription[] = [];
+  for (const sub of (await activeMemberships(ctx, user)).filter(canCancel)) {
+    if (!(await cancelViaStore(ctx, user.telegramId, sub.id))) failed.push(sub);
+  }
+  if (!failed.length) return;
+  const list = failed.map((s) => `${escapeHtml(s.planId ?? "?")} (${escapeHtml(s.id)})`).join(", ");
   for (const adminId of await listAdminIds(ctx.db)) {
-    await sendText(ctx, adminId, `🗑 <b>${escapeHtml(displayName(user))}</b> מחק/ה את החשבון בבוט, ויש מנוי פעיל: ${list}.\nצריך לסיים אותו בלי חיובים נוספים.`);
+    await sendText(ctx, adminId, `🗑 <b>${escapeHtml(displayName(user))}</b> מחק/ה את החשבון בבוט, והביטול האוטומטי של המנוי נכשל: ${list}.\nצריך לסיים אותו בלי חיובים נוספים.`);
   }
 }
 
 export async function confirmDelete(ctx: AppContext, user: BotUser, messageId: number | null): Promise<void> {
-  await handOverMemberships(ctx, user);
+  await endMemberships(ctx, user);
   await ctx.db.batch(deleteStatements(ctx.db, user.telegramId));
   await ctx.tg.call("deleteMyCommands", { scope: { type: "chat", chat_id: user.telegramId } }).catch(() => undefined);
   await publish(ctx.env, { type: "deleted", userId: user.telegramId });

@@ -97,7 +97,19 @@ export const ru: Copy = {
 
   // Plan names as on the site (plan.<id>.name).
   planNames: { spark: "Искра", day: "Хороший день", community: "Сообщество", mentor: "Наставник", grow: "Рост", max: "Максимум" },
-  chargeReminder: "Напоминание перед списанием: {date} подписка «{plan}» продлится за {amount}.\nХотите отменить? Напишите нам здесь, и мы отменим без вопросов.",
+  chargeReminder: "Напоминание перед списанием: {date} подписка «{plan}» продлится за {amount}.\nХотите отменить? ✨ Подписки → Отменить, в одно касание.",
+  subsTitle: "Ваши подписки:",
+  subActive: "«{plan}»: активна, продлится {date}",
+  subTrial: "«{plan}»: бесплатный пробный день, первое списание {date}",
+  subEnding: "«{plan}»: закончится {date}, больше списаний не будет",
+  subCancelButton: "Отменить «{plan}»",
+  subCancelAskTrial: "Отменить «{plan}»? У вас бесплатный пробный день, поэтому подписка закончится сразу и списания не будет.",
+  subCancelAskPaid: "Отменить «{plan}»? Она работает до {date}, потом закончится. Больше списаний не будет.",
+  subCancelYes: "Да, отменить",
+  subCancelNo: "Нет, оставить",
+  subCanceledNow: "«{plan}» отменена. Списания не будет.",
+  subCanceledEnd: "«{plan}» закончится {date}. Больше списаний не будет.",
+  subCancelFailed: "Сейчас не получилось отменить. Попробуйте через минуту или напишите нам здесь.",
 };
 
 export const ruProfile: Profile = {

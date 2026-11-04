@@ -97,7 +97,19 @@ export const fr: Copy = {
 
   // Plan names as on the site (plan.<id>.name).
   planNames: { spark: "Étincelle", day: "Belle journée", community: "Communauté", mentor: "Mentor", grow: "Croissance", max: "Maximum" },
-  chargeReminder: "Avant votre prochain prélèvement : le {date}, votre abonnement {plan} se renouvelle pour {amount}.\nVous voulez annuler ? Écrivez-nous ici et nous l'annulons, sans questions.",
+  chargeReminder: "Avant votre prochain prélèvement : le {date}, votre abonnement {plan} se renouvelle pour {amount}.\nVous voulez annuler ? ✨ Abonnements → Annuler, en un geste.",
+  subsTitle: "Vos abonnements :",
+  subActive: "{plan} : actif, renouvelé le {date}",
+  subTrial: "{plan} : jour d'essai gratuit, premier prélèvement le {date}",
+  subEnding: "{plan} : se termine le {date}, sans autre prélèvement",
+  subCancelButton: "Annuler {plan}",
+  subCancelAskTrial: "Annuler {plan} ? Vous êtes dans le jour d'essai gratuit : il se termine tout de suite et vous ne serez pas prélevé.",
+  subCancelAskPaid: "Annuler {plan} ? Il reste actif jusqu'au {date}, puis se termine. Aucun autre prélèvement.",
+  subCancelYes: "Oui, annuler",
+  subCancelNo: "Non, le garder",
+  subCanceledNow: "{plan} est annulé. Vous ne serez pas prélevé.",
+  subCanceledEnd: "{plan} se terminera le {date}. Aucun autre prélèvement.",
+  subCancelFailed: "Impossible d'annuler pour l'instant. Réessayez dans une minute ou écrivez-nous ici.",
 };
 
 export const frProfile: Profile = {

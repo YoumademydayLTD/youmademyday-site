@@ -97,7 +97,19 @@ export const en: Copy = {
 
   // Plan names as on the site (plan.<id>.name).
   planNames: { spark: "Spark", day: "Good Day", community: "Community", mentor: "Mentor", grow: "Growth", max: "Maximum" },
-  chargeReminder: "Before your next charge: on {date} your {plan} membership renews for {amount}.\nWant to cancel? Write to us here and we'll cancel it, no questions asked.",
+  chargeReminder: "Before your next charge: on {date} your {plan} membership renews for {amount}.\nWant to cancel? ✨ Memberships → Cancel, in one tap.",
+  subsTitle: "Your memberships:",
+  subActive: "{plan}: active, renews on {date}",
+  subTrial: "{plan}: free trial day, first charge on {date}",
+  subEnding: "{plan}: ends on {date}, no further charges",
+  subCancelButton: "Cancel {plan}",
+  subCancelAskTrial: "Cancel {plan}? You're on the free trial day, so it ends right now and you won't be charged.",
+  subCancelAskPaid: "Cancel {plan}? It keeps working until {date} and then ends. No further charges.",
+  subCancelYes: "Yes, cancel",
+  subCancelNo: "No, keep it",
+  subCanceledNow: "{plan} is cancelled. You won't be charged.",
+  subCanceledEnd: "{plan} will end on {date}. No further charges.",
+  subCancelFailed: "We couldn't cancel it right now. Try again in a minute, or write to us here.",
 };
 
 export const enProfile: Profile = {

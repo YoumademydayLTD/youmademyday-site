@@ -4,9 +4,10 @@ import { APP_TITLE } from './core/constants.js';
 import { announce } from './core/dom.js';
 import { inboxStore } from './core/inbox-store.js';
 import { connectLive } from './core/live.js';
-import { parseRoute, watchRoute } from './core/router.js';
+import { parseRoute, routeHash, watchRoute } from './core/router.js';
 import { renderContent } from './features/content/content-view.js';
 import { renderInbox } from './features/inbox/inbox-view.js';
+import { createCustomerSearch } from './features/search/customer-search.js';
 import { logout } from './features/login/login-api.js';
 import { createShell } from './features/shell/shell.js';
 import { renderThreadPane } from './features/thread/thread-view.js';
@@ -50,7 +51,8 @@ async function isSignedIn() {
  */
 export function startApp(root, { onSignedOut }) {
   const shell = createShell(root, { onLogout: () => void signOut() });
-  const inbox = renderInbox(shell.panes.inbox);
+  const search = createCustomerSearch({ onOpen: openCustomer });
+  const inbox = renderInbox(shell.panes.inbox, { search });
   const thread = renderThreadPane(shell.panes.thread, { onToggleCard: () => setCard(!shell.isCardOpen()) });
   const card = renderCardPane(shell.panes.card, { onClose: () => setCard(false) });
   /** @type {ReturnType<typeof renderContent> | null} */
@@ -65,6 +67,16 @@ export function startApp(root, { onSignedOut }) {
     if (!shell.isCardSheet()) return;
     if (isOpen) card.focusClose();
     else document.querySelector(/** @type {'button'} */ ('button.card-toggle'))?.focus();
+  }
+
+  /**
+   * A search result: their latest thread (the card follows), or only the card for someone who never wrote.
+   * @param {import('./features/search/customer-search.js').CustomerHit} hit
+   */
+  function openCustomer(hit) {
+    if (hit.threadId !== null) { location.hash = routeHash({ view: 'thread', threadId: hit.threadId }); return; }
+    card.show(hit.id);
+    setCard(true);
   }
 
   /** @param {Route} route */

@@ -5,15 +5,18 @@ import { escapeHtml, t } from "../i18n/index.ts";
 import { sitePage } from "../config/langs.ts";
 import { showScreen } from "../telegram/send.ts";
 import { backRow, link, mainMenu } from "./keyboards.ts";
+import { activeMemberships, membershipBlock } from "../billing/screen.ts";
 
 export async function showMenu(ctx: AppContext, user: BotUser, messageId: number | null): Promise<void> {
   const text = `${t(user.lang, "welcome", { name: escapeHtml(user.firstName) })}\n\n${t(user.lang, "menuPrompt")}`;
-  await showScreen(ctx, user.telegramId, messageId, text, mainMenu(user.lang, ctx.env.SITE_URL));
+  await showScreen(ctx, user.telegramId, messageId, text, mainMenu(user.lang));
 }
 
+/** The plans screen; a user with running memberships also sees them here, each with a cancel button. */
 export async function showPlans(ctx: AppContext, user: BotUser, messageId: number | null): Promise<void> {
-  const keyboard = { inline_keyboard: [[link(t(user.lang, "plansButton"), sitePage(ctx.env.SITE_URL, user.lang, "plans"))], backRow(user.lang)] };
-  await showScreen(ctx, user.telegramId, messageId, t(user.lang, "plansText"), keyboard);
+  const mine = membershipBlock(user, await activeMemberships(ctx, user));
+  const keyboard = { inline_keyboard: [...mine.rows, [link(t(user.lang, "plansButton"), sitePage(ctx.env.SITE_URL, user.lang, "plans"))], backRow(user.lang)] };
+  await showScreen(ctx, user.telegramId, messageId, mine.text ? `${mine.text}\n\n${t(user.lang, "plansText")}` : t(user.lang, "plansText"), keyboard);
 }
 
 export async function showSupport(ctx: AppContext, user: BotUser, messageId: number | null): Promise<void> {

@@ -10,9 +10,10 @@ const EMPTY_TEXT = Object.freeze({ open: 'אין שיחות פתוחות. הכל
 
 /**
  * @param {HTMLElement} pane
+ * @param {{search?: HTMLElement}} [options] the customer search, shown under the title
  * @returns {{setSelected: (id: number | null) => void, destroy: () => void}}
  */
-export function renderInbox(pane) {
+export function renderInbox(pane, { search } = {}) {
   /** @type {number | null} */
   let selectedId = null;
   /** @type {Map<number, HTMLAnchorElement>} */
@@ -28,7 +29,8 @@ export function renderInbox(pane) {
   replace(pane,
     h('div', { class: 'pane-head' },
       h('h2', { class: 'pane-title' }, 'שיחות'),
-      h('div', { class: 'seg', role: 'group', 'aria-label': 'סינון לפי מצב' }, filterButtons)),
+      h('div', { class: 'seg', role: 'group', 'aria-label': 'סינון לפי מצב' }, filterButtons),
+      search ?? null),
     scroller);
 
   function draw() {
