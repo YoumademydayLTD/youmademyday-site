@@ -1,6 +1,8 @@
-// One call to the payment worker: the signed-in visitor's session goes along as a Bearer token, the call
-// gives up after a timeout, and a refusal comes back as a StoreError that carries the worker's error code.
+// One call to one of our workers (the payment worker, or the bot worker for the daily companion): the signed-in
+// visitor's session goes along as a Bearer token, the call gives up after a timeout, and a refusal comes back as a
+// StoreError that carries the worker's error code.
 import { API_BASE } from "./config.js";
+import { BOT_API_BASE } from "../telegram/config.js";
 import { getSessionToken } from "../telegram/session.js";
 
 const DEFAULT_TIMEOUT_MS = 15000;
@@ -29,12 +31,12 @@ function headersFor(body) {
   return headers;
 }
 
-/** The worker's JSON reply for path. Throws StoreError when it refuses, or the fetch error when it is unreachable. */
-export async function callStore(path, { method = "GET", body, timeoutMs = DEFAULT_TIMEOUT_MS } = {}) {
+/** The JSON reply of the worker at base. Throws StoreError when it refuses, or the fetch error when it is unreachable. */
+async function callWorker(base, path, { method = "GET", body, timeoutMs = DEFAULT_TIMEOUT_MS } = {}) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const response = await fetch(`${API_BASE}${path}`, {
+    const response = await fetch(`${base}${path}`, {
       method,
       headers: headersFor(body),
       body: body === undefined ? undefined : JSON.stringify(body),
@@ -47,3 +49,9 @@ export async function callStore(path, { method = "GET", body, timeoutMs = DEFAUL
     clearTimeout(timer);
   }
 }
+
+/** A call to the payment worker (files, memberships, receipts, the reader). */
+export const callStore = (path, options) => callWorker(API_BASE, path, options);
+
+/** A call to the bot worker as the signed-in visitor (the daily companion). */
+export const callBot = (path, options) => callWorker(BOT_API_BASE, path, options);

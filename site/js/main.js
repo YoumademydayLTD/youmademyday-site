@@ -23,16 +23,19 @@ import { mountLogin } from "./views/login-page.js";
 import { fetchMe, logout, SESSION_EVENT } from "./telegram/session.js";
 import { watchAccount } from "./telegram/account.js";
 import { watchSignInReturn } from "./checkout/resume.js";
-import { viewAccount, mountAccount, isAccountStale, ACCOUNT_ACTIONS, ACCOUNT_ROUTE } from "./account/view.js";
+import { viewAccount, mountAccount, ACCOUNT_ACTIONS, ACCOUNT_ROUTE } from "./account/view.js";
+import { isGateStale } from "./account/gate.js";
+import { viewRead, mountRead, READ_ACTIONS, READ_PREFIX } from "./reader/view.js";
+import { viewCompanion, mountCompanion, COMPANION_ACTIONS, COMPANION_CHANGES, COMPANION_ROUTE } from "./companion/view.js";
 
-const PAGES = { courses: () => viewShop("courses"), books: () => viewShop("books"), checkout: viewCheckout, search: viewSearch, pricing: viewPricing, plans: viewPlans, login: viewLogin, [ACCOUNT_ROUTE]: viewAccount, terms: viewTerms, privacy: viewPrivacy, refunds: viewRefunds, cookies: viewCookies, accessibility: viewAccessibility };
+const PAGES = { courses: () => viewShop("courses"), books: () => viewShop("books"), checkout: viewCheckout, search: viewSearch, pricing: viewPricing, plans: viewPlans, login: viewLogin, [ACCOUNT_ROUTE]: viewAccount, [COMPANION_ROUTE]: viewCompanion, terms: viewTerms, privacy: viewPrivacy, refunds: viewRefunds, cookies: viewCookies, accessibility: viewAccessibility };
 const SHOPS = new Set(["courses", "books"]);
-// Routes that carry an id after a prefix: #buy-<item>, #thanks-<checkout id>.
-const PREFIX_VIEWS = { "buy-": viewBuy, "thanks-": viewThanks };
+// Routes that carry an id after a prefix: #buy-<item>, #thanks-<checkout id>, #read-<item>[-<unit>].
+const PREFIX_VIEWS = { "buy-": viewBuy, "thanks-": viewThanks, [READ_PREFIX]: viewRead };
 // Work a prefixed page starts once it is on screen.
-const PREFIX_AFTER = { "thanks-": showDownloads };
+const PREFIX_AFTER = { "thanks-": showDownloads, [READ_PREFIX]: mountRead };
 // Work a plain page starts once it is on screen.
-const PAGE_AFTER = { login: mountLogin, [ACCOUNT_ROUTE]: mountAccount };
+const PAGE_AFTER = { login: mountLogin, [ACCOUNT_ROUTE]: mountAccount, [COMPANION_ROUTE]: mountCompanion };
 const RAIL_GAP = 20; // px, matches .rail gap in css/home.css
 
 // Clean slugs (/he/pricing) work on the live site; a hash wins when present. The language prefix is not a route.
@@ -126,7 +129,11 @@ const ACTIONS = {
   pay: (el) => startPayment(el, currentRoute()),
   logout: signOut,
   ...ACCOUNT_ACTIONS,
+  ...READ_ACTIONS,
+  ...COMPANION_ACTIONS,
 };
+// Selects and switches act on «change», not on click: a click handler's preventDefault would stop them toggling.
+const CHANGES = { ...COMPANION_CHANGES };
 const KEEP_DEFAULT = new Set(["close-go"]);
 
 applyDocumentLanguage();
@@ -161,7 +168,8 @@ document.addEventListener("input", (e) => {
   fillGrid(type);
 });
 document.addEventListener("change", (e) => {
-  if (e.target.id === "sort") { S.filters[e.target.dataset.type].sort = e.target.value; fillGrid(e.target.dataset.type); }
+  if (e.target.id === "sort") { S.filters[e.target.dataset.type].sort = e.target.value; fillGrid(e.target.dataset.type); return; }
+  CHANGES[e.target.dataset.change]?.(e.target);
 });
 document.addEventListener("submit", (e) => {
   if (e.target.id !== "topSearch") return;
@@ -171,10 +179,10 @@ document.addEventListener("submit", (e) => {
 });
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && $("#drawerRoot").innerHTML) closeDrawer(); });
 window.addEventListener("hashchange", () => { closeDrawer(); route(); });
-// Signing in or out redraws the login page, and the personal area, into their other state.
+// Signing in or out redraws the login page, and the signed-in-only pages (personal area, reader, companion),
+// into their other state. Only when the state really changed: /api/me announces on every page load.
 window.addEventListener(SESSION_EVENT, () => {
-  const r = currentRoute();
-  if (r === "login" || (r === ACCOUNT_ROUTE && isAccountStale())) rerender();
+  if (currentRoute() === "login" || isGateStale()) rerender();
 });
 window.addEventListener("popstate", () => { closeDrawer(); route(); });
 startMotion();
