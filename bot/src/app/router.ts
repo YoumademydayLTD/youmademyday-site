@@ -9,6 +9,7 @@ import { getMedia, getThread, getThreads, getUserCard, postRead, postReply, post
 import { getContent, getQuickReplies, postContent, postContentDelete, postQuickReply, postQuickReplyDelete } from "../admin/content-http.ts";
 import { connect } from "../live/hub.ts";
 import { searchCustomers } from "../admin/customers.ts";
+import { getCompanion, postCompanionDone, postCompanionSettings, postCompanionTrack } from "../companion/http.ts";
 import { postOrderPaid } from "../internal/orders-http.ts";
 
 type Params = Record<string, string>;
@@ -28,6 +29,10 @@ export const ROUTES: readonly Route[] = [
   { method: "POST", pattern: "/api/login/verify", access: "site", handler: (r, c) => verifyCode(r, c, "site") },
   { method: "GET", pattern: "/api/me", access: "site", handler: (r, c) => getMe(r, c) },
   { method: "POST", pattern: "/api/logout", access: "site", handler: (r, c) => postLogout(r, c) },
+  { method: "GET", pattern: "/api/companion", access: "site", handler: (r, c) => getCompanion(r, c) },
+  { method: "POST", pattern: "/api/companion/done", access: "site", handler: (r, c) => postCompanionDone(r, c) },
+  { method: "POST", pattern: "/api/companion/settings", access: "site", handler: (r, c) => postCompanionSettings(r, c) },
+  { method: "POST", pattern: "/api/companion/track", access: "site", handler: (r, c) => postCompanionTrack(r, c) },
   { method: "POST", pattern: "/api/admin/login/start", access: "public", handler: (_r, c) => startLogin(c, "admin") },
   { method: "POST", pattern: "/api/admin/login/wait", access: "public", handler: (r, c) => adminWait(r, c) },
   { method: "POST", pattern: "/api/admin/login/verify", access: "public", handler: (r, c) => adminVerify(r, c) },
