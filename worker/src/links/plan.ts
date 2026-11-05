@@ -7,10 +7,12 @@ import { adHocPrice, polarLocale, type PolarCheckoutBody } from "../polar/checko
 import type { LinkRequest } from "./request.ts";
 
 // The buyer's ym number, when the store knows him (telegram_user_id): Polar then locks the email to his internal one.
-export interface LinkContext { map: ProductMap; catalog: Catalog; buyerYm?: string }
+// `kind` is recorded as metadata.ymd_kind (default "link": one checkout per CRX request).
+export interface LinkContext { map: ProductMap; catalog: Catalog; buyerYm?: string; kind?: string }
 export interface LinkPlan { body: PolarCheckoutBody; amount: number; productId: string; itemIds: string[] }
 
 const TRIAL_UNIT = "day";
+const DEFAULT_KIND = "link";
 // Polar rejects ad-hoc prices that leave out the organization's default presentment currency (live check 04.11.2026),
 // so a link in another currency also carries the product's own price in the default one; the buyer sees `currency`.
 const DEFAULT_CURRENCY = "ils";
@@ -63,7 +65,7 @@ export function planLink(request: LinkRequest, context: LinkContext): LinkPlan {
     ...(mapped.recurring ? trialFields(request.storeId, context.catalog) : {}),
     allow_discount_codes: false,
     metadata: {
-      ...request.metadata, ymd_source: "crx", ymd_kind: "link", ymd_ids: itemIds.join(","),
+      ...request.metadata, ymd_source: "crx", ymd_kind: context.kind ?? DEFAULT_KIND, ymd_ids: itemIds.join(","),
       ...(context.buyerYm ? { ymd_customer: context.buyerYm } : {}),
     },
     ...(request.customerEmail ? { customer_email: request.customerEmail } : {}),

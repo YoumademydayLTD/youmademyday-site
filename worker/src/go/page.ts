@@ -8,7 +8,9 @@ import { GO_COPY } from "./copy.ts";
 export const ANDROID_FALLBACK_MS = 1500;
 export const IOS_FALLBACK_MS = 1200;
 
-export interface BouncePage { kind: Exclude<BrowserKind, "browser">; checkoutUrl: string; nonce: string }
+// `checkoutUrl` is what the real browser opens; `stayUrl` is what the in-app browser opens if the hand-off does not
+// happen (default: the same page). A reusable link needs them apart, or the in-app fallback would bounce again.
+export interface BouncePage { kind: Exclude<BrowserKind, "browser">; checkoutUrl: string; stayUrl?: string; nonce: string }
 
 const ESCAPES: Record<string, string> = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
 export const escapeHtml = (text: string): string => text.replace(/[&<>"']/g, (char) => ESCAPES[char] ?? char);
@@ -51,16 +53,16 @@ function shell({ nonce, data = {}, script, body }: Shell): string {
 <body><main>${body}</main>${script ? `<script nonce="${nonce}">${script}</script>` : ""}</body></html>`;
 }
 
-export function renderBouncePage({ kind, checkoutUrl, nonce }: BouncePage): string {
-  const pay = escapeHtml(checkoutUrl);
+export function renderBouncePage({ kind, checkoutUrl, stayUrl = checkoutUrl, nonce }: BouncePage): string {
+  const pay = escapeHtml(stayUrl);
   if (kind === "android-in-app") {
-    const go = chromeIntentUrl(checkoutUrl);
+    const go = chromeIntentUrl(checkoutUrl, stayUrl);
     const copy = GO_COPY.android;
-    return shell({ nonce, data: { go, pay: checkoutUrl }, script: ANDROID_SCRIPT, body: `<h1>${copy.heading}</h1><p>${copy.body}</p>
+    return shell({ nonce, data: { go, pay: stayUrl }, script: ANDROID_SCRIPT, body: `<h1>${copy.heading}</h1><p>${copy.body}</p>
 <a class="btn later" href="${escapeHtml(go)}">${copy.button}</a><a class="stay later" href="${pay}">${copy.stay}</a>` });
   }
   const copy = GO_COPY.ios;
-  return shell({ nonce, data: { go: safariUrl(checkoutUrl), pay: checkoutUrl }, script: IOS_SCRIPT, body: `<h1>${copy.heading}</h1><p>${copy.body}</p>
+  return shell({ nonce, data: { go: safariUrl(checkoutUrl), pay: stayUrl }, script: IOS_SCRIPT, body: `<h1>${copy.heading}</h1><p>${copy.body}</p>
 <a class="btn later" href="${pay}">${copy.button}</a>` });
 }
 

@@ -20,10 +20,10 @@ export function browserKindOf(userAgent: string | null): BrowserKind {
   return "browser";
 }
 
-/** Android: open the page in Chrome; if Chrome is missing, Android opens the plain https URL instead. */
-export function chromeIntentUrl(target: string): string {
+/** Android: open the page in Chrome; if Chrome is missing, Android opens the plain https fallback (default: the same page). */
+export function chromeIntentUrl(target: string, fallback: string = target): string {
   const url = new URL(target);
-  return `intent://${url.host}${url.pathname}${url.search}#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=${encodeURIComponent(target)};end`;
+  return `intent://${url.host}${url.pathname}${url.search}#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=${encodeURIComponent(fallback)};end`;
 }
 
 /** iOS: the scheme Safari registers to open an https page from another app. */
