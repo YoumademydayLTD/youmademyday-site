@@ -120,6 +120,20 @@ describe("Maximum membership weekly at 100 GEL", () => {
   });
 });
 
+describe("Editing studio weekly at 100 GEL (owner, 05.11.2026)", () => {
+  it("is its own weekly product at the same 100 GEL with the same free day; plan-max is untouched", () => {
+    const { body, amount, productId, itemIds } = planLink({ storeId: "plan-edit", currency: "gel", metadata: {} }, CONTEXT);
+    expect(productId).toBe("p-edit");
+    expect(amount).toBe(10_000);
+    expect(itemIds).toEqual(["edit"]);
+    expect(body.prices).toEqual({ "p-edit": [
+      { amount_type: "fixed", price_amount: 10_000, price_currency: "gel", tax_behavior: "inclusive" },
+      { amount_type: "fixed", price_amount: 12_900, price_currency: "ils", tax_behavior: "inclusive" },
+    ] });
+    expect(body).toMatchObject({ trial_interval: "day", trial_interval_count: 1 });
+  });
+});
+
 describe("telegram_user_id", () => {
   it("reads a number or a digit string", () => {
     expect(parseLinkRequest({ product: "b51", telegram_user_id: 123456789 }, MAP).telegramUserId).toBe(123456789);

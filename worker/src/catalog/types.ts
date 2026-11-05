@@ -12,7 +12,8 @@ export interface CatalogProduct {
   titles: Record<string, string>;
   includes?: string[];
 }
-export interface CatalogPlan { title: string; titles: Record<string, string>; description: string; price: number; usd?: number; period: "week" | "month"; trialDays: number }
+// describeOnCheckout: the payment page shows the plan's description, not only its name (owner 05.11.2026, the editing course).
+export interface CatalogPlan { title: string; titles: Record<string, string>; description: string; price: number; usd?: number; period: "week" | "month"; trialDays: number; describeOnCheckout?: boolean }
 export interface Business { name: string; id: string; addr: string; email: string }
 export interface Catalog {
   langs: string[];

@@ -571,6 +571,16 @@
    }
   }
  },
+ "plan-edit": {
+  "productId": "2af436c7-0427-438d-a3c4-9dcab0870ad7",
+  "recurring": "week",
+  "prices": {
+   "ils": {
+    "id": "0e56c45e-00e3-48ec-9c33-b4077d631bf0",
+    "amount": 12900
+   }
+  }
+ },
  "store-order": {
   "productId": "55494515-a15e-4fdf-a7ea-4c4a89e24061",
   "recurring": null,

@@ -4,8 +4,11 @@
 // subscription is still the Maximum plan (same library, same personal area) and no extra Polar product exists.
 import type { PolarCurrency } from "../polar/checkout-body.ts";
 
+// Owner, 05.11.2026: the editing course «סטודיו העריכה» (plan-edit) is sold through CRX at the same 100 GEL a week
+// with the same free first day; plan-max keeps its price untouched.
 export const LINK_PRICES: Readonly<Record<string, Partial<Record<PolarCurrency, number>>>> = {
   "plan-max": { gel: 10_000 },
+  "plan-edit": { gel: 10_000 },
 };
 
 /** The link-only price of a store id in a currency, if one is set. */

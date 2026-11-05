@@ -3,6 +3,7 @@ import { findView, type ViewIndex } from "../src/view/units.ts";
 import { includedProducts } from "../src/view/plan-library.ts";
 import { libraryItem } from "../src/view/library.ts";
 import { CATALOG } from "./fixtures.ts";
+import type { CatalogProduct } from "../src/catalog/index.ts";
 
 const units = [{ n: 1, title: "One", minutes: 20 }, { n: 2, title: "Two", minutes: 25 }];
 const INDEX: ViewIndex = {
@@ -28,6 +29,12 @@ describe("includedProducts", () => {
     expect([...includedProducts(["community"], CATALOG)]).toEqual(["c1"]);
     expect(includedProducts(["day"], CATALOG).size).toBe(0);
     expect(includedProducts([], CATALOG).size).toBe(0);
+  });
+  it("opens only the named photography and editing items for the editing studio", () => {
+    const { c1, b9 } = CATALOG.products as Record<"c1" | "b9", CatalogProduct>;
+    const catalog = { ...CATALOG, products: { ...CATALOG.products, c5: c1, b28: b9 } };
+    expect([...includedProducts(["edit"], catalog)].sort()).toEqual(["b28", "c5"]);
+    expect(includedProducts(["edit"], CATALOG).size).toBe(0); // none of them in this catalogue
   });
 });
 

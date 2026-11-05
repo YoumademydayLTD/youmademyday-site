@@ -13,7 +13,7 @@ export const CATALOG_PATH = join(ROOT, "worker", "src", "catalog", "catalog.json
 const SOURCE_LANG = "he";
 
 interface SiteProduct { id: string; n: number; type: string; title: string; sub: string; price: number; usd?: number; includes?: string[] }
-interface SitePlan { id: string; price: number; usd?: number; period: "week" | "month"; trialDays?: number }
+interface SitePlan { id: string; price: number; usd?: number; period: "week" | "month"; trialDays?: number; describeOnCheckout?: boolean }
 
 export interface CatalogProduct {
   n: number; // the file number: content/dist/<NN>-*.pdf
@@ -26,7 +26,8 @@ export interface CatalogProduct {
   titles: Record<string, string>; // title on each site that sells it
   includes?: string[]; // bundles: the items delivered
 }
-export interface CatalogPlan { title: string; titles: Record<string, string>; description: string; price: number; usd?: number; period: "week" | "month"; trialDays: number }
+// describeOnCheckout: the payment page shows the plan's description, not only its name (owner 05.11.2026, the editing course).
+export interface CatalogPlan { title: string; titles: Record<string, string>; description: string; price: number; usd?: number; period: "week" | "month"; trialDays: number; describeOnCheckout?: boolean }
 export interface Business { name: string; id: string; addr: string; email: string }
 export interface Catalog { langs: string[]; defaultLang: string; homeCurrencyLang: string; bookDealMin: number; refundDays: number; business: Record<string, Business>; products: Record<string, CatalogProduct>; plans: Record<string, CatalogPlan> }
 
@@ -76,6 +77,7 @@ async function buildPlans(langs: string[]): Promise<Record<string, CatalogPlan>>
       ...(plan.usd != null ? { usd: plan.usd } : {}),
       period: plan.period,
       trialDays: plan.trialDays ?? 0,
+      ...(plan.describeOnCheckout ? { describeOnCheckout: true } : {}),
     };
   }
   return plans;

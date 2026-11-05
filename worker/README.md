@@ -37,6 +37,13 @@ The two links CRX sells:
   `trial_interval: day, trial_interval_count: 1` on the checkout. The subscription is the real Maximum plan (library,
   personal area, cancel button), so no extra Polar product or sync is needed. Polar keeps an ad-hoc price on the
   subscription (`Subscription.prices[].source = "ad_hoc"`); check the first renewal on the Polar dashboard.
+- **Editing course «סטודיו העריכה» weekly at 100 GEL with one free day (owner, 05.11.2026):** `{product: "plan-edit", currency: "gel"}`.
+  Same price, trial and mechanics as `plan-max`, on its own weekly Polar product (`site/js/telegram/plans.js`
+  `LINK_PLANS`, never listed on the plans page; 129 ₪ is the catalogue price Polar requires in the default currency).
+  The payment page shows the plan's description (`describeOnCheckout`). The product carries a Polar download benefit
+  with lesson 1 (`content/dist/52-ai-photo-editing.pdf`, attached by `tools/polar_benefit_file.ts`), and a running
+  membership opens the photography and editing items in the personal area (`src/view/plan-library.ts`). `plan-max` is
+  untouched and still sold.
 
 Paid CRX orders record entitlements like any order, but the bot is never asked to message the buyer
 (`shouldNotifyBuyer`). CRX reads `GET /api/links/:id/status`; optionally the store also pushes every order/subscription
@@ -59,7 +66,8 @@ change of a CRX link to `CRX_STATUS_CALLBACK_URL` (POST, the same JSON, headers 
 - `src/polar/products.json` — store id → Polar product and price ids, written by `tools/polar_sync.ts`.
 - `src/delivery/files.json` — what is in the private R2 bucket `ymd-files` (`<lang>/<product id>.pdf` → hash, size, download name), written by `tools/upload_files.ts`.
 - `migrations/` — D1 schema (`checkouts`, `orders`, `subscriptions`, `webhook_events`, `entitlements`, `customers`, `reading_progress`). `0006` adds `subscriptions.checkout_id`: apply it (`npm run db:migrate`) **before** deploying code that writes it.
-- `src/catalog/link-prices.ts` — prices only CRX links use (100 GEL a week for `plan-max`).
+- `src/catalog/link-prices.ts` — prices only CRX links use (100 GEL a week for `plan-max` and `plan-edit`).
+- `tools/polar_benefit_file.ts <store id> <pdf> "<description>"` — uploads a PDF to Polar and attaches it to our product as a download benefit (reused by file hash; older benefits stay in Polar, detach by hand).
 - `src/<feature>/` — `checkout`, `links`, `webhook`, `delivery`, `catalog`, `polar`, `db`, `http`. Pure logic is separate from I/O and unit-tested in `test/`; `test-tools/` covers the sync tools and checks the catalogue against the site files.
 
 ## Secrets (wrangler secret put, values in Site/.env, never committed)
@@ -151,3 +159,11 @@ Run `~/.claude/bin/load-check` before installs, tests and deploys on the shared 
 - **04.11.2026 — Delivery by short-lived signed links (owner).** Files live in a private R2 bucket per language; the
   thanks page lists them as soon as the order is paid. Links are HMAC tokens served and checked by the worker itself
   (no public bucket, no R2 API keys). Entitlements are a table so the Telegram bot can deliver the same files later.
+- **05.11.2026 — The CRX course is a new plan, `plan-edit`, not a renamed `plan-max` (owner: «תעשה איזה קורס שקשור לעריכה»).**
+  Renaming the Polar product behind `plan-max` would have renamed the store's own Maximum membership on every site
+  checkout, and the next `npm run sync` would have reverted it. So the editing course «סטודיו העריכה» is a link-only
+  weekly plan with the same 100 GEL a week and the same free first day; `plan-max` and `b51` are unchanged. Two
+  exceptions to earlier rules, both for this plan only: its Polar product has a description (04.11 said name only), and
+  it opens a fixed list of library items instead of a scope. Lesson 1 is a Polar download benefit so the buyer gets a
+  file on Polar's confirmation page even before signing in to the site. The title carries no Latin letters because
+  Polar's page is left-to-right and showed «עם AI» out of order (first version kept in `content/dist/history/`).

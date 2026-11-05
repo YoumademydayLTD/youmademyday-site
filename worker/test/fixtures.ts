@@ -26,6 +26,7 @@ export const CATALOG: Catalog = {
     grow: { title: "grow", titles: { en: "Growth membership", he: "מנוי צמיחה" }, description: "", price: 147, usd: 39, period: "week", trialDays: 1 },
     max: { title: "max", titles: { en: "Maximum membership", he: "מנוי מקסימום" }, description: "", price: 297, usd: 79, period: "week", trialDays: 1 },
     day: { title: "day", titles: { en: "Good Day membership" }, description: "", price: 29, period: "month", trialDays: 0 },
+    edit: { title: "edit", titles: { en: "The AI Editing Studio", he: "סטודיו העריכה" }, description: "a course", price: 129, period: "week", trialDays: 1, describeOnCheckout: true },
   },
 };
 
@@ -44,6 +45,7 @@ export const MAP: ProductMap = {
   "plan-grow": { ...one("p-grow", 14700, 3900), recurring: "week" },
   "plan-max": { ...one("p-max", 29700, 7900), recurring: "week" },
   "plan-day": { ...one("p-day", 2900), recurring: "month" },
+  "plan-edit": { ...one("p-edit", 12900), recurring: "week" },
   k49: one("p-k49", 9900),
   "store-order": one("p-store", 10000),
 };
