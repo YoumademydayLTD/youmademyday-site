@@ -8,7 +8,8 @@ import { timingSafeEqualText } from "../http/compare.ts";
 import { CATALOG } from "../catalog/index.ts";
 import { PRODUCT_MAP } from "../polar/mapping.ts";
 import { createCheckout, PolarApiError, polarConfig } from "../polar/client.ts";
-import { insertCheckout } from "../db/checkouts.ts";
+import { insertCheckout, saveGoLink } from "../db/checkouts.ts";
+import { GO_ID_LENGTH, goUrlOf, isPolarCheckoutUrl, newGoId } from "../go/link.ts";
 import { ensureBuyer } from "../customers/buyer.ts";
 import type { Customer } from "../customers/repo.ts";
 import { parseLinkRequest, type LinkRequest } from "./request.ts";
@@ -29,7 +30,22 @@ async function buyerOf(env: Env, request: LinkRequest, now: Date): Promise<Custo
   return request.telegramUserId === undefined ? null : ensureBuyer(env, request.telegramUserId, now);
 }
 
-export async function handleLink(request: Request, env: Env, now: Date): Promise<{ url: string; id: string; expires_at: string }> {
+// `url` is Polar's page as before; `go_url` is the bounce that opens it in the phone's real browser (null only if
+// Polar ever answered with a page outside polar.sh, which the bounce refuses to serve).
+export interface LinkReply { url: string; go_url: string | null; id: string; expires_at: string }
+
+/** Stores the bounce for a new link and returns its public URL. */
+async function createGoLink(env: Env, checkoutId: string, url: string, randomBytes: Uint8Array): Promise<string | null> {
+  if (!isPolarCheckoutUrl(url)) {
+    console.error("links: Polar returned a payment page outside polar.sh, no go link", checkoutId);
+    return null;
+  }
+  const goId = newGoId(randomBytes);
+  await saveGoLink(env.DB, { checkoutId, url, goId });
+  return goUrlOf(env.GO_BASE_URL, goId);
+}
+
+export async function handleLink(request: Request, env: Env, now: Date, randomBytes: Uint8Array = crypto.getRandomValues(new Uint8Array(GO_ID_LENGTH))): Promise<LinkReply> {
   assertAuthorized(request.headers.get("Authorization"), env.YMD_LINKS_SECRET);
   const parsed = parseLinkRequest(await readJsonObject(request), PRODUCT_MAP);
   // Price check first (pure): a request that cannot be sold must not create a customer here or on Polar.
@@ -52,7 +68,8 @@ export async function handleLink(request: Request, env: Env, now: Date): Promise
     currency: parsed.currency, amount, polarProductId: productId, status: checkout.status, metadata: body.metadata,
     customerYm: buyer?.ym ?? null,
   }, now.toISOString());
-  return { url: checkout.url, id: checkout.id, expires_at: checkout.expires_at };
+  const goUrl = await createGoLink(env, checkout.id, checkout.url, randomBytes);
+  return { url: checkout.url, go_url: goUrl, id: checkout.id, expires_at: checkout.expires_at };
 }
 
 export async function handleLinkStatus(request: Request, env: Env, checkoutId: string): Promise<LinkStatus> {

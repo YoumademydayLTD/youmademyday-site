@@ -38,3 +38,16 @@ export async function insertCheckout(db: D1Database, row: CheckoutRow, now: stri
 export async function upsertCheckoutStatus(db: D1Database, row: CheckoutRow, now: string): Promise<void> {
   await db.prepare(`${INSERT} ON CONFLICT(id) DO UPDATE SET status = excluded.status, updated_at = excluded.updated_at`).bind(...values(row, now)).run();
 }
+
+export interface GoLink { checkoutId: string; url: string; goId: string }
+
+/** Keeps a CRX link's payment page URL and its bounce id on the checkout row (after insertCheckout). */
+export async function saveGoLink(db: D1Database, link: GoLink): Promise<void> {
+  await db.prepare("UPDATE checkouts SET url = ?, go_id = ? WHERE id = ?").bind(link.url, link.goId, link.checkoutId).run();
+}
+
+/** The payment page URL behind a bounce id: only links CRX opened through the store, null for any other id. */
+export async function findGoTarget(db: D1Database, goId: string): Promise<string | null> {
+  const row = await db.prepare("SELECT url FROM checkouts WHERE go_id = ? AND source = 'crx' AND url IS NOT NULL").bind(goId).first<{ url: string }>();
+  return row?.url ?? null;
+}

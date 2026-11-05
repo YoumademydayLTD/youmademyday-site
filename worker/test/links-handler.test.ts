@@ -30,12 +30,13 @@ function envWith(answer: Answer) {
   const d1 = fakeD1(answer);
   const bot = vi.fn(async () => new Response("{}"));
   const env = {
-    DB: d1.db, BOT: { fetch: bot }, BOT_URL: "https://bot.test", POLAR_API: "https://polar.test/v1", POLAR_ACCESS_TOKEN: "polar-token",
+    DB: d1.db, BOT: { fetch: bot }, BOT_URL: "https://bot.test", GO_BASE_URL: "https://store.test/", POLAR_API: "https://polar.test/v1", POLAR_ACCESS_TOKEN: "polar-token",
     YMD_LINKS_SECRET: SECRET, YMD_INTERNAL_SECRET: "internal", CRX_STATUS_CALLBACK_URL: "",
   } as unknown as Env;
   return { env, calls: d1.calls, bot };
 }
 
+const GO_BYTES = Uint8Array.from({ length: 10 }, (_, i) => i); // → go id "ABCDEFGHIJ"
 const customerRow = { id: 42, ym: YM, telegram_id: TELEGRAM_ID, polar_customer_id: null, country: null };
 const linkRequest = (body: unknown, secret = SECRET) =>
   new Request("https://store.test/api/links", { method: "POST", headers: { Authorization: `Bearer ${secret}` }, body: JSON.stringify(body) });
@@ -46,8 +47,10 @@ describe("POST /api/links with telegram_user_id", () => {
   it("creates the customer silently and locks the checkout to his ym number and internal email", async () => {
     const polar = stubPolar();
     const { env, calls, bot } = envWith((call) => (call.sql.includes("FROM customers WHERE telegram_id") ? customerRow : undefined));
-    const reply = await handleLink(linkRequest({ product: "plan-max", currency: "gel", telegram_user_id: TELEGRAM_ID, lang: "he" }), env, NOW);
-    expect(reply).toEqual({ url: "https://polar.sh/checkout/ch_1", id: "ch_1", expires_at: "2026-11-04T13:00:00Z" });
+    const reply = await handleLink(linkRequest({ product: "plan-max", currency: "gel", telegram_user_id: TELEGRAM_ID, lang: "he" }), env, NOW, GO_BYTES);
+    // `url` keeps its old meaning; `go_url` is the bounce, stored next to the checkout.
+    expect(reply).toEqual({ url: "https://polar.sh/checkout/ch_1", go_url: "https://store.test/go/ABCDEFGHIJ", id: "ch_1", expires_at: "2026-11-04T13:00:00Z" });
+    expect(calls.find((c) => c.sql.startsWith("UPDATE checkouts SET url"))?.args).toEqual(["https://polar.sh/checkout/ch_1", "ABCDEFGHIJ", "ch_1"]);
     // The same customers row the Telegram sign-in finds later.
     expect(calls.find((c) => c.sql.startsWith("INSERT INTO customers"))?.args[0]).toBe(TELEGRAM_ID);
     expect(polar.find((c) => c.path === "/customers/")?.body).toEqual({ external_id: YM, email: paymentEmail(YM), type: "individual" });

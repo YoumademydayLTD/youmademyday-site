@@ -5,6 +5,7 @@ export interface Env {
   BOT: Fetcher;
   BOT_URL: string;
   SITE_URL: string;
+  GO_BASE_URL: string; // where GET /go/:id is served (the worker's own host until the domain's DNS moves)
   EXTRA_ORIGINS: string;
   POLAR_API: string;
   LIVE_KINDS: string;

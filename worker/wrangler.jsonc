@@ -14,6 +14,9 @@
   "services": [{ "binding": "BOT", "service": "ymd-bot" }],
   "vars": {
     "SITE_URL": "https://youmademyday.store",
+    // Base of the CRX links' «open in the real browser» bounce (GET /go/:id). youmademyday.store is GitHub Pages
+    // with DNS at Spaceship, so the worker cannot answer there; change this one value if the domain moves to Cloudflare.
+    "GO_BASE_URL": "https://ymd-store.crx-platform-website.workers.dev",
     // Extra browser origins allowed to call the API (the local preview server).
     "EXTRA_ORIGINS": "http://127.0.0.1:4322",
     "POLAR_API": "https://api.polar.sh/v1",
