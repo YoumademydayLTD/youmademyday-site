@@ -28,3 +28,10 @@ export function chromeIntentUrl(target: string, fallback: string = target): stri
 
 /** iOS: the scheme Safari registers to open an https page from another app. */
 export const safariUrl = (target: string): string => target.replace(/^https:\/\//, "x-safari-https://");
+
+// Link-preview fetchers by their documented User-Agent names (Meta/Instagram, Telegram, WhatsApp, X, Slack, Discord,
+// LinkedIn, Pinterest, search engines). A plain "bot" match is avoided: some phone brands (e.g. Cubot) contain it.
+const LINK_PREVIEW_MARKERS = /facebookexternalhit|facebookcatalog|meta-externalagent|TelegramBot|WhatsApp\/|Twitterbot|Slackbot|Discordbot|LinkedInBot|Pinterestbot|Googlebot|bingbot|Applebot|redditbot|SkypeUriPreview|Embedly/i;
+
+/** True for a server that only fetches the link to draw its preview card, never a buyer. */
+export const isLinkPreview = (userAgent: string | null): boolean => LINK_PREVIEW_MARKERS.test(userAgent ?? "");

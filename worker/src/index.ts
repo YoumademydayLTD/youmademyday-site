@@ -14,6 +14,7 @@ import { handleOrderDoc } from "./orderdoc/handler.ts";
 import { handleReadDone, handleReadItem, handleReadUnit } from "./view/handler.ts";
 import { handleInternalCancel } from "./internal/handler.ts";
 import { handleGo, newNonce } from "./go/handler.ts";
+import { handleBuy } from "./buy/handler.ts";
 import { matchRoute, type Route } from "./http/router.ts";
 
 type Handler = (request: Request, env: Env, ctx: ExecutionContext, params: Record<string, string>) => Promise<unknown>;
@@ -35,6 +36,7 @@ const ROUTES: Route<Handler>[] = [
   route("GET", "/api/order-doc", (request, env) => handleOrderDoc(request, env, new Date())),
   route("POST", "/api/internal/subscriptions/cancel", (request, env) => handleInternalCancel(request, env, new Date())),
   route("GET", "/go/:id", (request, env, _ctx, p) => handleGo(request, p.id ?? "", { db: env.DB, nonce: newNonce() })),
+  route("GET", "/buy/:slug", (request, env, _ctx, p) => handleBuy(request, p.slug ?? "", { env, nonce: newNonce(), now: new Date() })),
   route("GET", "/api/health", (_request, env) => handleHealth(env)),
 ];
 // Endpoints the site's own pages call from a browser: other origins are refused.

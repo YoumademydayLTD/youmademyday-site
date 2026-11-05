@@ -17,4 +17,15 @@ export const GO_COPY = {
     heading: "הקישור הזה לא פעיל",
     body: "אפשר לבקש קישור חדש בצ'אט.",
   },
+  // A reusable link (GET /buy/:slug): what a link preview sees, and what a buyer sees if Polar did not open a page.
+  preview: {
+    heading: "מעבר לתשלום",
+    body: "דף התשלום נפתח בלחיצה.",
+    button: "המשך לתשלום",
+  },
+  failed: {
+    heading: "דף התשלום לא נפתח",
+    body: "נסו שוב בעוד רגע.",
+    button: "לנסות שוב",
+  },
 } as const;

@@ -66,8 +66,16 @@ export function renderBouncePage({ kind, checkoutUrl, stayUrl = checkoutUrl, non
 <a class="btn later" href="${pay}">${copy.button}</a>` });
 }
 
+export interface NoticePage { nonce: string; heading: string; body: string; button?: { label: string; href: string } }
+
+/** A page with one message and an optional button (no script). */
+export function renderNoticePage({ nonce, heading, body, button }: NoticePage): string {
+  const link = button ? `<a class="btn" href="${escapeHtml(button.href)}">${escapeHtml(button.label)}</a>` : "";
+  return shell({ nonce, body: `<h1>${escapeHtml(heading)}</h1><p>${escapeHtml(body)}</p>${link}` });
+}
+
 export const renderMissingPage = (nonce: string): string =>
-  shell({ nonce, body: `<h1>${GO_COPY.missing.heading}</h1><p>${GO_COPY.missing.body}</p>` });
+  renderNoticePage({ nonce, heading: GO_COPY.missing.heading, body: GO_COPY.missing.body });
 
 /** Headers for every page this route serves: never cached (one buyer's link), never indexed, nothing else may load. */
 export const pageHeaders = (nonce: string): Record<string, string> => ({
