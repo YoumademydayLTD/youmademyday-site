@@ -2,7 +2,7 @@
 import { HttpError } from "../http/errors.ts";
 import { cartTotal, currencyFor, toMinor, type Catalog, type Currency } from "../catalog/index.ts";
 import { PLAN_ID_PREFIX, STORE_ORDER_ID, type ProductMap } from "../polar/mapping.ts";
-import { adHocPrice, type PolarCheckoutBody } from "../polar/checkout-body.ts";
+import { adHocPrice, polarLocale, type PolarCheckoutBody } from "../polar/checkout-body.ts";
 import type { CheckoutRequest } from "./request.ts";
 import { langPrefix, returnUrl, successUrl } from "./site-urls.ts";
 
@@ -60,7 +60,7 @@ export function planCheckout(request: CheckoutRequest, context: CheckoutContext)
     ...(sale.adHoc ? { prices: { [productId]: [adHocPrice(sale.amount, sale.currency)] } } : {}),
     success_url: successUrl(context.siteUrl, prefix),
     return_url: returnUrl(context.siteUrl, prefix, sale.backHash),
-    locale: request.lang, // Polar falls back to English for languages it does not have
+    locale: polarLocale(request.lang),
     allow_discount_codes: ALLOW_DISCOUNT_CODES,
     metadata: { ymd_source: "site", ymd_kind: request.kind, ymd_ids: sale.itemIds.join(","), ymd_lang: request.lang, ymd_customer: context.customerYm },
     external_customer_id: context.customerYm,

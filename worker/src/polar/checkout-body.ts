@@ -30,3 +30,12 @@ export interface PolarCheckoutBody {
 
 export const adHocPrice = (amount: number, currency: PolarCurrency): AdHocPrice =>
   ({ amount_type: "fixed", price_amount: amount, price_currency: currency, tax_behavior: TAX_BEHAVIOR });
+
+// The languages Polar's payment page has (https://polar.sh/docs/features/checkout/localization, read 05.11.2026); Hebrew
+// is not among them. Without a locale Polar follows the buyer's browser, and a buyer on the «עריכה» link saw Spanish card
+// errors (owner, 05.11.2026), so every checkout now names its locale: the site's language when Polar has it, else English.
+const POLAR_LOCALES: ReadonlySet<string> = new Set(["en", "nl", "es", "fr", "sv", "de", "hu", "it", "pt", "pt-PT", "ko", "ja", "tr", "pl", "zh-TW"]);
+const FALLBACK_LOCALE = "en";
+
+/** The locale to send Polar for a site language (always one Polar has, so the page never follows the browser). */
+export const polarLocale = (lang: string | undefined): string => (lang !== undefined && POLAR_LOCALES.has(lang) ? lang : FALLBACK_LOCALE);

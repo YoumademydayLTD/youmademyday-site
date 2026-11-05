@@ -3,7 +3,7 @@ import { HttpError } from "../http/errors.ts";
 import type { Catalog } from "../catalog/index.ts";
 import { linkPriceOf } from "../catalog/link-prices.ts";
 import { PLAN_ID_PREFIX, type ProductMap } from "../polar/mapping.ts";
-import { adHocPrice, type PolarCheckoutBody } from "../polar/checkout-body.ts";
+import { adHocPrice, polarLocale, type PolarCheckoutBody } from "../polar/checkout-body.ts";
 import type { LinkRequest } from "./request.ts";
 
 // The buyer's ym number, when the store knows him (telegram_user_id): Polar then locks the email to his internal one.
@@ -68,7 +68,7 @@ export function planLink(request: LinkRequest, context: LinkContext): LinkPlan {
     },
     ...(request.customerEmail ? { customer_email: request.customerEmail } : {}),
     ...(externalCustomerId ? { external_customer_id: externalCustomerId } : {}),
-    ...(request.lang ? { locale: request.lang } : {}),
+    locale: polarLocale(request.lang),
     ...(request.country ? { customer_billing_address: { country: request.country } } : {}),
     ...(request.customerIp ? { customer_ip_address: request.customerIp } : {}),
   };

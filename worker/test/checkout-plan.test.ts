@@ -19,7 +19,11 @@ describe("planCheckout", () => {
     const { body } = planCheckout({ kind: "product", id: "b51", lang: "he" }, context);
     expect(body.currency).toBe("ils");
     expect(body.success_url).toBe(`${SITE}/he/#thanks-{CHECKOUT_ID}`);
-    expect(body.locale).toBe("he");
+    expect(body.locale).toBe("en"); // Polar has no Hebrew page yet; English, never the buyer's browser language
+  });
+  it("names a locale Polar has: French stays French, everything else is English", () => {
+    expect(planCheckout({ kind: "cart", ids: ["c1"], lang: "fr" }, context).body.locale).toBe("fr");
+    expect(planCheckout({ kind: "cart", ids: ["c1"], lang: "ru" }, context).body.locale).toBe("en");
   });
   it("sells a one-item cart as that item's own product", () => {
     const { body, record } = planCheckout({ kind: "cart", ids: ["c1"], lang: "fr" }, context);

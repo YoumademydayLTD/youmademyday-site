@@ -132,6 +132,11 @@ describe("Editing studio weekly at 100 GEL (owner, 05.11.2026)", () => {
     ] });
     expect(body).toMatchObject({ trial_interval: "day", trial_interval_count: 1 });
   });
+  it("always names an English page unless the caller's language is one Polar has (never the buyer's browser)", () => {
+    expect(planLink({ storeId: "plan-edit", currency: "gel", metadata: {} }, CONTEXT).body.locale).toBe("en");
+    expect(planLink({ storeId: "plan-edit", currency: "gel", metadata: {}, lang: "he" }, CONTEXT).body.locale).toBe("en");
+    expect(planLink({ storeId: "plan-edit", currency: "gel", metadata: {}, lang: "fr" }, CONTEXT).body.locale).toBe("fr");
+  });
 });
 
 describe("telegram_user_id", () => {
