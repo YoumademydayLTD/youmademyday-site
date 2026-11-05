@@ -317,7 +317,7 @@ export default {
     "קבוצת מקסימום קטנה וסגורה",
   ],
   // Link-only weekly plan (owner, 05.11.2026): the editing course sold through CRX links.
-  "plan.edit.title": "סטודיו העריכה",
+  "plan.edit.title": "עריכה",
   "plan.edit.name": "סטודיו העריכה",
   "plan.edit.tag": "קורס שבועי",
   "plan.edit.cta": "להתחיל לערוך",

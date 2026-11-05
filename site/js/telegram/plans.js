@@ -20,12 +20,13 @@ export const PLANS = [
 
 /**
  * Plans sold only through payment links (CRX, store id plan-<id>), never listed on the plans page.
- * Owner, 05.11.2026: the editing course «סטודיו העריכה» is a weekly membership with the first day free;
+ * Owner, 05.11.2026 (13:12): the editing course, named just «עריכה» on the payment page with no description, is a weekly
+ * membership with the first day free;
  * the link price is 100 GEL a week (worker/src/catalog/link-prices.ts), the shekel price is the catalogue price
- * Polar requires in the default currency. `describeOnCheckout`: the payment page shows the plan's blurb, not only its name.
+ * Polar requires in the default currency. `describeOnCheckout: true` would also show the plan's blurb on the payment page.
  */
 export const LINK_PLANS = [
-  { id: "edit", price: 129, period: "week", trialDays: 1, describeOnCheckout: true },
+  { id: "edit", price: 129, period: "week", trialDays: 1 },
 ];
 
 export const ALL_PLANS = Object.fromEntries([...FEATURED_PLANS, ...PLANS, ...LINK_PLANS].map((p) => [p.id, p]));
