@@ -2292,6 +2292,270 @@
    },
    "period": "week",
    "trialDays": 1
+  },
+  "ai": {
+   "title": "מנוי סטודיו הבינה המלאכותית",
+   "titles": {
+    "en": "AI Studio membership",
+    "he": "מנוי סטודיו הבינה המלאכותית",
+    "fr": "Abonnement Studio IA",
+    "ar": "اشتراك استوديو الذكاء الاصطناعي",
+    "ru": "Подписка «Студия ИИ»"
+   },
+   "description": "הקורס «בינה מלאכותית לעסק קטן», ויחד איתו «מדריך הפרומפטים בעברית» ו«ChatGPT לבעלי עסקים», פתוחים לכם באזור האישי כל עוד המנוי פעיל. היום הראשון חינם, וביטול בכל רגע.",
+   "price": 105,
+   "prices": {
+    "usd": 33,
+    "cad": 47,
+    "eur": 29,
+    "gbp": 25,
+    "aud": 49
+   },
+   "period": "week",
+   "trialDays": 1,
+   "checkoutName": "AI Studio"
+  },
+  "design": {
+   "title": "מנוי סטודיו העיצוב",
+   "titles": {
+    "en": "Design Studio membership",
+    "he": "מנוי סטודיו העיצוב",
+    "fr": "Abonnement Studio Design",
+    "ar": "اشتراك استوديو التصميم",
+    "ru": "Подписка «Студия дизайна»"
+   },
+   "description": "הקורס «Canva מאפס למקצוען», ויחד איתו «מחברת סקיצות» ו«עיצוב הבית בתקציב קטן», פתוחים לכם באזור האישי כל עוד המנוי פעיל. היום הראשון חינם, וביטול בכל רגע.",
+   "price": 105,
+   "prices": {
+    "usd": 33,
+    "cad": 47,
+    "eur": 29,
+    "gbp": 25,
+    "aud": 49
+   },
+   "period": "week",
+   "trialDays": 1,
+   "checkoutName": "Design Studio"
+  },
+  "sheets": {
+   "title": "מנוי סטודיו הגיליונות",
+   "titles": {
+    "en": "Sheets Studio membership",
+    "he": "מנוי סטודיו הגיליונות",
+    "fr": "Abonnement Studio Tableurs",
+    "ar": "اشتراك استوديو الجداول",
+    "ru": "Подписка «Студия таблиц»"
+   },
+   "description": "הקורס «אקסל וגוגל שיטס לחיים», ויחד איתו «ערכת הצעות מחיר», «לוח משימות שבועי» ו«הניירת של הבית בקופסה אחת», פתוחים לכם באזור האישי כל עוד המנוי פעיל. היום הראשון חינם, וביטול בכל רגע.",
+   "price": 105,
+   "prices": {
+    "usd": 33,
+    "cad": 47,
+    "eur": 29,
+    "gbp": 25,
+    "aud": 49
+   },
+   "period": "week",
+   "trialDays": 1,
+   "checkoutName": "Sheets Studio"
+  },
+  "writing": {
+   "title": "מנוי סטודיו הכתיבה",
+   "titles": {
+    "en": "Writing Studio membership",
+    "he": "מנוי סטודיו הכתיבה",
+    "fr": "Abonnement Studio Écriture",
+    "ar": "اشتراك استوديو الكتابة",
+    "ru": "Подписка «Студия текстов»"
+   },
+   "description": "הקורס «כתיבה שמוכרת», ויחד איתו «מדריך לכתיבת דף נחיתה», «ניוזלטר ראשון» ו«הודעות שעונים עליהן», פתוחים לכם באזור האישי כל עוד המנוי פעיל. היום הראשון חינם, וביטול בכל רגע.",
+   "price": 105,
+   "prices": {
+    "usd": 33,
+    "cad": 47,
+    "eur": 29,
+    "gbp": 25,
+    "aud": 49
+   },
+   "period": "week",
+   "trialDays": 1,
+   "checkoutName": "Writing Studio"
+  },
+  "photo": {
+   "title": "מנוי סטודיו הצילום",
+   "titles": {
+    "en": "Photo Studio membership",
+    "he": "מנוי סטודיו הצילום",
+    "fr": "Abonnement Studio Photo",
+    "ar": "اشتراك استوديو التصوير",
+    "ru": "Подписка «Фотостудия»"
+   },
+   "description": "הקורס «צילום מוצרים בטלפון», ויחד איתו «צילום בטלפון», «פורטרטים בטלפון» ו«סדר בספריית התמונות», פתוחים לכם באזור האישי כל עוד המנוי פעיל. היום הראשון חינם, וביטול בכל רגע.",
+   "price": 105,
+   "prices": {
+    "usd": 33,
+    "cad": 47,
+    "eur": 29,
+    "gbp": 25,
+    "aud": 49
+   },
+   "period": "week",
+   "trialDays": 1,
+   "checkoutName": "Photo Studio"
+  },
+  "focus": {
+   "title": "מנוי סטודיו המיקוד",
+   "titles": {
+    "en": "Focus Studio membership",
+    "he": "מנוי סטודיו המיקוד",
+    "fr": "Abonnement Studio Focus",
+    "ar": "اشتراك استوديو التركيز",
+    "ru": "Подписка «Студия фокуса»"
+   },
+   "description": "הקורס «ניהול זמן שעובד», ויחד איתו «שיטת ה-30 דקות», «הסקירה השבועית ב-20 דקות» ו«טלפון שנותן להתרכז», פתוחים לכם באזור האישי כל עוד המנוי פעיל. היום הראשון חינם, וביטול בכל רגע.",
+   "price": 105,
+   "prices": {
+    "usd": 33,
+    "cad": 47,
+    "eur": 29,
+    "gbp": 25,
+    "aud": 49
+   },
+   "period": "week",
+   "trialDays": 1,
+   "checkoutName": "Focus Studio"
+  },
+  "social": {
+   "title": "מנוי סטודיו הרשתות",
+   "titles": {
+    "en": "Social Studio membership",
+    "he": "מנוי סטודיו הרשתות",
+    "fr": "Abonnement Studio Réseaux",
+    "ar": "اشتراك استوديو التواصل",
+    "ru": "Подписка «Студия соцсетей»"
+   },
+   "description": "הקורס «אינסטגרם לעסק קטן», ויחד איתו «100 רעיונות לפוסטים», «מתכנן תוכן חודשי» ו«מיתוג אישי בלינקדאין», פתוחים לכם באזור האישי כל עוד המנוי פעיל. היום הראשון חינם, וביטול בכל רגע.",
+   "price": 105,
+   "prices": {
+    "usd": 33,
+    "cad": 47,
+    "eur": 29,
+    "gbp": 25,
+    "aud": 49
+   },
+   "period": "week",
+   "trialDays": 1,
+   "checkoutName": "Social Studio"
+  },
+  "web": {
+   "title": "מנוי סטודיו האתרים",
+   "titles": {
+    "en": "Web Studio membership",
+    "he": "מנוי סטודיו האתרים",
+    "fr": "Abonnement Studio Web",
+    "ar": "اشتراك استوديو الويب",
+    "ru": "Подписка «Веб-студия»"
+   },
+   "description": "הקורס «מבוא לפיתוח אתרים ב-HTML ו-CSS», ויחד איתו «מדריך הפרילנסר המתחיל» ו«סיכומים שמשתמשים בהם», פתוחים לכם באזור האישי כל עוד המנוי פעיל. היום הראשון חינם, וביטול בכל רגע.",
+   "price": 105,
+   "prices": {
+    "usd": 33,
+    "cad": 47,
+    "eur": 29,
+    "gbp": 25,
+    "aud": 49
+   },
+   "period": "week",
+   "trialDays": 1,
+   "checkoutName": "Web Studio"
+  },
+  "calm": {
+   "title": "מנוי מסלול הרוגע",
+   "titles": {
+    "en": "Calm Track membership",
+    "he": "מנוי מסלול הרוגע",
+    "fr": "Abonnement Parcours Sérénité",
+    "ar": "اشتراك مسار الهدوء",
+    "ru": "Подписка «Трек спокойствия»"
+   },
+   "description": "המסלול היומי «רוגע ושינה» בבוט בטלגרם, ויחד איתו «מחברת התודה», «יומן בוקר», «יוגה בבוקר» ו«שגרת ההירגעות של הערב» באזור האישי, כל עוד המנוי פעיל. היום הראשון חינם, וביטול בכל רגע.",
+   "price": 105,
+   "prices": {
+    "usd": 33,
+    "cad": 47,
+    "eur": 29,
+    "gbp": 25,
+    "aud": 49
+   },
+   "period": "week",
+   "trialDays": 1,
+   "checkoutName": "Calm Track"
+  },
+  "confidence": {
+   "title": "מנוי מסלול הביטחון",
+   "titles": {
+    "en": "Confidence Track membership",
+    "he": "מנוי מסלול הביטחון",
+    "fr": "Abonnement Parcours Confiance",
+    "ar": "اشتراك مسار الثقة",
+    "ru": "Подписка «Трек уверенности»"
+   },
+   "description": "המסלול היומי «ביטחון עצמי» בבוט בטלגרם, ויחד איתו «מדריך הנואם המתחיל», «להתכונן לראיון עבודה», «לומר לא בעבודה» ו«משוב בלי דרמה» באזור האישי, כל עוד המנוי פעיל. היום הראשון חינם, וביטול בכל רגע.",
+   "price": 105,
+   "prices": {
+    "usd": 33,
+    "cad": 47,
+    "eur": 29,
+    "gbp": 25,
+    "aud": 49
+   },
+   "period": "week",
+   "trialDays": 1,
+   "checkoutName": "Confidence Track"
+  },
+  "goals": {
+   "title": "מנוי מסלול היעדים",
+   "titles": {
+    "en": "Goals Track membership",
+    "he": "מנוי מסלול היעדים",
+    "fr": "Abonnement Parcours Objectifs",
+    "ar": "اشتراك مسار الأهداف",
+    "ru": "Подписка «Трек целей»"
+   },
+   "description": "המסלול היומי «קריירה ומטרות» בבוט בטלגרם, ויחד איתו «המקסימום שלך», «קורות חיים שעוברים סינון» ו«הרגלים קטנים» באזור האישי, כל עוד המנוי פעיל. היום הראשון חינם, וביטול בכל רגע.",
+   "price": 105,
+   "prices": {
+    "usd": 33,
+    "cad": 47,
+    "eur": 29,
+    "gbp": 25,
+    "aud": 49
+   },
+   "period": "week",
+   "trialDays": 1,
+   "checkoutName": "Goals Track"
+  },
+  "library": {
+   "title": "מנוי הספרייה המלאה",
+   "titles": {
+    "en": "Full Library membership",
+    "he": "מנוי הספרייה המלאה",
+    "fr": "Abonnement Bibliothèque complète",
+    "ar": "اشتراك المكتبة الكاملة",
+    "ru": "Подписка «Вся библиотека»"
+   },
+   "description": "כל הקורסים והספרים של החנות פתוחים לכם באזור האישי, וכל המסלולים היומיים בבוט בטלגרם, כל עוד המנוי פעיל. היום הראשון חינם, וביטול בכל רגע.",
+   "price": 219,
+   "prices": {
+    "usd": 69,
+    "cad": 97,
+    "eur": 59,
+    "gbp": 49,
+    "aud": 99
+   },
+   "period": "week",
+   "trialDays": 1,
+   "checkoutName": "Full Library"
   }
  }
 }

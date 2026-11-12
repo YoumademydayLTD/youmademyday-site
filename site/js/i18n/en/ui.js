@@ -1,4 +1,6 @@
 // English interface text (the default language). Keys match he/ui.js; {x} are placeholders.
+import LINK_PLAN_COPY from "./link-plans.js";
+
 export default {
   "meta.title": "You Made My Day · Courses, books and a personal companion on Telegram",
   "meta.itemTitle": "{title} · You Made My Day",
@@ -329,6 +331,8 @@ export default {
     "In the library: Phone Product Photography, Canva from Zero to Pro, Phone Photography and Phone Video Editing",
     "Cancel any time from your personal area",
   ],
+  // Link-only weekly memberships (owner, 12.11.2026): names and blurbs in ./link-plans.js.
+  ...LINK_PLAN_COPY,
   "plans.moreA": "More memberships.",
   "plans.moreB": "Start small.",
   "home.offerBadge": "The store's own book",

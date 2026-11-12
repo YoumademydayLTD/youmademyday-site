@@ -97,7 +97,11 @@ export const ru: Copy = {
   supportAck: "Получили ✓ Человек из команды ответит здесь.",
 
   // Plan names as on the site (plan.<id>.name).
-  planNames: { spark: "Искра", day: "Хороший день", community: "Сообщество", mentor: "Наставник", grow: "Рост", max: "Максимум" },
+  // The second line names the weekly link plans (owner, 12.11.2026; same names as site/js/i18n/ru/link-plans.js).
+  planNames: {
+    spark: "Искра", day: "Хороший день", community: "Сообщество", mentor: "Наставник", grow: "Рост", max: "Максимум",
+    ai: "Студия ИИ", design: "Студия дизайна", sheets: "Студия таблиц", writing: "Студия текстов", photo: "Фотостудия", focus: "Студия фокуса", social: "Студия соцсетей", web: "Веб-студия", calm: "Трек спокойствия", confidence: "Трек уверенности", goals: "Трек целей", library: "Вся библиотека",
+  },
   chargeReminder: "Напоминание перед списанием: {date} подписка «{plan}» продлится за {amount}.\nХотите отменить? ✨ Подписки → Отменить, в одно касание.",
   subsTitle: "Ваши подписки:",
   subActive: "«{plan}»: активна, продлится {date}",

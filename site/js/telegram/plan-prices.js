@@ -41,5 +41,89 @@ export const PLAN_PRICES = {
   "eur": 35,
   "gbp": 29,
   "aud": 59
+ },
+ "ai": {
+  "usd": 33,
+  "cad": 47,
+  "eur": 29,
+  "gbp": 25,
+  "aud": 49
+ },
+ "design": {
+  "usd": 33,
+  "cad": 47,
+  "eur": 29,
+  "gbp": 25,
+  "aud": 49
+ },
+ "sheets": {
+  "usd": 33,
+  "cad": 47,
+  "eur": 29,
+  "gbp": 25,
+  "aud": 49
+ },
+ "writing": {
+  "usd": 33,
+  "cad": 47,
+  "eur": 29,
+  "gbp": 25,
+  "aud": 49
+ },
+ "photo": {
+  "usd": 33,
+  "cad": 47,
+  "eur": 29,
+  "gbp": 25,
+  "aud": 49
+ },
+ "focus": {
+  "usd": 33,
+  "cad": 47,
+  "eur": 29,
+  "gbp": 25,
+  "aud": 49
+ },
+ "social": {
+  "usd": 33,
+  "cad": 47,
+  "eur": 29,
+  "gbp": 25,
+  "aud": 49
+ },
+ "web": {
+  "usd": 33,
+  "cad": 47,
+  "eur": 29,
+  "gbp": 25,
+  "aud": 49
+ },
+ "calm": {
+  "usd": 33,
+  "cad": 47,
+  "eur": 29,
+  "gbp": 25,
+  "aud": 49
+ },
+ "confidence": {
+  "usd": 33,
+  "cad": 47,
+  "eur": 29,
+  "gbp": 25,
+  "aud": 49
+ },
+ "goals": {
+  "usd": 33,
+  "cad": 47,
+  "eur": 29,
+  "gbp": 25,
+  "aud": 49
+ },
+ "library": {
+  "usd": 69,
+  "cad": 97,
+  "eur": 59,
+  "gbp": 49,
+  "aud": 99
  }
 };

@@ -97,7 +97,11 @@ export const fr: Copy = {
   supportAck: "Bien reçu ✓ Une personne de l'équipe vous répondra ici.",
 
   // Plan names as on the site (plan.<id>.name).
-  planNames: { spark: "Étincelle", day: "Belle journée", community: "Communauté", mentor: "Mentor", grow: "Croissance", max: "Maximum" },
+  // The second line names the weekly link plans (owner, 12.11.2026; same names as site/js/i18n/fr/link-plans.js).
+  planNames: {
+    spark: "Étincelle", day: "Belle journée", community: "Communauté", mentor: "Mentor", grow: "Croissance", max: "Maximum",
+    ai: "Studio IA", design: "Studio Design", sheets: "Studio Tableurs", writing: "Studio Écriture", photo: "Studio Photo", focus: "Studio Focus", social: "Studio Réseaux", web: "Studio Web", calm: "Parcours Sérénité", confidence: "Parcours Confiance", goals: "Parcours Objectifs", library: "Bibliothèque complète",
+  },
   chargeReminder: "Avant votre prochain prélèvement : le {date}, votre abonnement {plan} se renouvelle pour {amount}.\nVous voulez annuler ? ✨ Abonnements → Annuler, en un geste.",
   subsTitle: "Vos abonnements :",
   subActive: "{plan} : actif, renouvelé le {date}",

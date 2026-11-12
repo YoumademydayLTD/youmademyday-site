@@ -97,7 +97,11 @@ export const he: Copy = {
   supportAck: "קיבלנו ✓ אדם מהצוות יענה כאן.",
 
   // Plan names as on the site (plan.<id>.name).
-  planNames: { spark: "ניצוץ", day: "יום טוב", community: "קהילה", mentor: "ליווי", grow: "צמיחה", max: "מקסימום" },
+  // The second line names the weekly link plans (owner, 12.11.2026; same names as site/js/i18n/he/link-plans.js).
+  planNames: {
+    spark: "ניצוץ", day: "יום טוב", community: "קהילה", mentor: "ליווי", grow: "צמיחה", max: "מקסימום",
+    ai: "סטודיו הבינה המלאכותית", design: "סטודיו העיצוב", sheets: "סטודיו הגיליונות", writing: "סטודיו הכתיבה", photo: "סטודיו הצילום", focus: "סטודיו המיקוד", social: "סטודיו הרשתות", web: "סטודיו האתרים", calm: "מסלול הרוגע", confidence: "מסלול הביטחון", goals: "מסלול היעדים", library: "הספרייה המלאה",
+  },
   chargeReminder: "תזכורת לפני חיוב: ב-{date} יתחדש המנוי {plan}, בסך {amount}.\nרוצים לבטל? ✨ מנויים ← ביטול, בלחיצה אחת.",
   subsTitle: "המנויים שלך:",
   subActive: "{plan}: פעיל, מתחדש ב-{date}",

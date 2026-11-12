@@ -3,11 +3,13 @@
 // Good Day's "one e-book each month" is chosen by hand, so it opens nothing automatically.
 // The editing studio (owner, 05.11.2026) opens the photography and editing items its blurb names.
 import type { Catalog } from "../catalog/index.ts";
+import { LIBRARY_LINK_PLAN, LINK_PLAN_ITEMS } from "../catalog/link-plans.ts";
 
 type Scope = "all" | "courses";
-const PLAN_SCOPE: Record<string, Scope> = { grow: "all", max: "all", community: "courses", mentor: "courses" };
+// The weekly library link plan (owner, 12.11.2026) opens every course and book, like Growth and Maximum.
+const PLAN_SCOPE: Record<string, Scope> = { grow: "all", max: "all", community: "courses", mentor: "courses", [LIBRARY_LINK_PLAN]: "all" };
 // Plans that open a fixed list of items instead of a whole scope (only those the catalogue has are opened).
-const PLAN_ITEMS: Record<string, readonly string[]> = { edit: ["c5", "c2", "b28", "b29"] };
+const PLAN_ITEMS: Record<string, readonly string[]> = { edit: ["c5", "c2", "b28", "b29"], ...LINK_PLAN_ITEMS };
 // Statuses in which a membership gives access (Polar's).
 export const RUNNING_STATUSES = new Set(["active", "trialing"]);
 

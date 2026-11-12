@@ -41,8 +41,9 @@ export function productSpecs(catalog: Catalog): ProductSpec[] {
     ymdId: id, name: p.title, description: null, visibility: "public", recurring: null, trialDays: 0, prices: pricesOf(p),
   }));
   // A plan sold as a course (owner 05.11.2026, the editing studio) also shows its description on the payment page.
+  // A plan with its own payment-page name (owner 12.11.2026, the weekly link plans) is named by it, not by its Hebrew title.
   const plans = Object.entries(catalog.plans).map(([id, p]): ProductSpec => ({
-    ymdId: `${PLAN_ID_PREFIX}${id}`, name: p.title, description: p.describeOnCheckout ? p.description : null, visibility: "public", recurring: p.period, trialDays: p.trialDays, prices: pricesOf(p),
+    ymdId: `${PLAN_ID_PREFIX}${id}`, name: p.checkoutName ?? p.title, description: p.describeOnCheckout ? p.description : null, visibility: "public", recurring: p.period, trialDays: p.trialDays, prices: pricesOf(p),
   }));
   const storeOrder: ProductSpec = {
     ymdId: STORE_ORDER_ID,

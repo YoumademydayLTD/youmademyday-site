@@ -1,4 +1,6 @@
 // Russian interface text. Keys match en/ui.js; {x} are placeholders.
+import LINK_PLAN_COPY from "./link-plans.js";
+
 export default {
   "meta.title": "You Made My Day · Курсы, книги и личный спутник в Telegram",
   "meta.itemTitle": "{title} · You Made My Day",
@@ -329,6 +331,8 @@ export default {
     "В библиотеке: «Предметная съёмка на телефон», «Canva с нуля до профи», «Съёмка на телефон» и «Монтаж видео на телефоне»",
     "Отмена в любой момент из личного кабинета",
   ],
+  // Link-only weekly memberships (owner, 12.11.2026): names and blurbs in ./link-plans.js.
+  ...LINK_PLAN_COPY,
   "plans.moreA": "Другие подписки.",
   "plans.moreB": "Начните с малого.",
   "home.offerBadge": "Книга нашего магазина",

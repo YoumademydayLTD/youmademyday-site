@@ -14,7 +14,7 @@ const SOURCE_LANG = "he";
 
 type CurrencyPrices = Record<string, number>; // currency code (lower case) → price, from tools/currency_prices.json
 interface SiteProduct { id: string; n: number; type: string; title: string; sub: string; price: number; usd?: number; prices?: CurrencyPrices; includes?: string[] }
-interface SitePlan { id: string; price: number; usd?: number; prices?: CurrencyPrices; period: "week" | "month"; trialDays?: number; describeOnCheckout?: boolean }
+interface SitePlan { id: string; price: number; usd?: number; prices?: CurrencyPrices; period: "week" | "month"; trialDays?: number; describeOnCheckout?: boolean; checkoutName?: string }
 
 export interface CatalogProduct {
   n: number; // the file number: content/dist/<NN>-*.pdf
@@ -29,7 +29,8 @@ export interface CatalogProduct {
   includes?: string[]; // bundles: the items delivered
 }
 // describeOnCheckout: the payment page shows the plan's description, not only its name (owner 05.11.2026, the editing course).
-export interface CatalogPlan { title: string; titles: Record<string, string>; description: string; price: number; usd?: number; prices?: CurrencyPrices; period: "week" | "month"; trialDays: number; describeOnCheckout?: boolean }
+// checkoutName: the product's name on the payment page when it is not the Hebrew title (owner 12.11.2026, plans bought abroad).
+export interface CatalogPlan { title: string; titles: Record<string, string>; description: string; price: number; usd?: number; prices?: CurrencyPrices; period: "week" | "month"; trialDays: number; describeOnCheckout?: boolean; checkoutName?: string }
 export interface Business { name: string; id: string; addr: string; email: string }
 export interface Catalog { langs: string[]; defaultLang: string; homeCurrencyLang: string; currencies: string[]; bookDealMin: number; refundDays: number; business: Record<string, Business>; products: Record<string, CatalogProduct>; plans: Record<string, CatalogPlan> }
 
@@ -81,6 +82,7 @@ async function buildPlans(langs: string[]): Promise<Record<string, CatalogPlan>>
       period: plan.period,
       trialDays: plan.trialDays ?? 0,
       ...(plan.describeOnCheckout ? { describeOnCheckout: true } : {}),
+      ...(plan.checkoutName ? { checkoutName: plan.checkoutName } : {}),
     };
   }
   return plans;

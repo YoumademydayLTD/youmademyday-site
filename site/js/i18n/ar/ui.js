@@ -1,4 +1,6 @@
 // Arabic (Modern Standard) interface text. Keys match en/ui.js; {x} are placeholders.
+import LINK_PLAN_COPY from "./link-plans.js";
+
 export default {
   "meta.title": "You Made My Day · دورات وكتب ورفيق شخصي على تيليغرام",
   "meta.itemTitle": "{title} · You Made My Day",
@@ -329,6 +331,8 @@ export default {
     "في المكتبة: تصوير المنتجات بالهاتف، Canva من الصفر إلى الاحتراف، التصوير بالهاتف، ومونتاج الفيديو بالهاتف",
     "إلغاء في أي وقت من منطقتك الشخصية",
   ],
+  // Link-only weekly memberships (owner, 12.11.2026): names and blurbs in ./link-plans.js.
+  ...LINK_PLAN_COPY,
   "plans.moreA": "اشتراكات أخرى.",
   "plans.moreB": "ابدأ بخطوة صغيرة.",
   "home.offerBadge": "كتاب المتجر",

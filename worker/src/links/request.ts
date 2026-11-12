@@ -46,7 +46,7 @@ function parseAmount(value: unknown): number | undefined {
 // A digit string is accepted too: Telegram ids fit in a double, but some callers send them as text.
 const DIGITS = /^[1-9]\d{0,15}$/;
 
-function parseTelegramUserId(value: unknown): number | undefined {
+export function parseTelegramUserId(value: unknown): number | undefined {
   if (value === undefined || value === null) return undefined;
   const id = typeof value === "string" && DIGITS.test(value) ? Number(value) : value;
   if (typeof id !== "number" || !Number.isSafeInteger(id) || id <= 0) throw new HttpError("bad_request", "telegram_user_id must be a positive integer");

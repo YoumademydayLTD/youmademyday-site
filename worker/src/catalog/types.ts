@@ -17,7 +17,8 @@ export interface CatalogProduct {
   includes?: string[];
 }
 // describeOnCheckout: the payment page shows the plan's description, not only its name (owner 05.11.2026, the editing course).
-export interface CatalogPlan { title: string; titles: Record<string, string>; description: string; price: number; usd?: number; prices?: CurrencyPrices; period: "week" | "month"; trialDays: number; describeOnCheckout?: boolean }
+// checkoutName: the product's name on the payment page when it is not the Hebrew title (owner 12.11.2026, plans bought abroad).
+export interface CatalogPlan { title: string; titles: Record<string, string>; description: string; price: number; usd?: number; prices?: CurrencyPrices; period: "week" | "month"; trialDays: number; describeOnCheckout?: boolean; checkoutName?: string }
 export interface Business { name: string; id: string; addr: string; email: string }
 export interface Catalog {
   langs: string[];

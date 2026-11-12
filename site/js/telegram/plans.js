@@ -4,6 +4,7 @@
 // plans stay below them. Monthly prices are still placeholders.
 
 import { PLAN_PRICES } from "./plan-prices.js";
+import { WEEKLY_LINK_PLANS } from "./link-plans.js";
 
 export const PERIOD_DAYS = { week: 7, month: 30 };
 
@@ -32,6 +33,7 @@ export const PLANS = [
  */
 export const LINK_PLANS = [
   { id: "edit", price: 129, period: "week", trialDays: 1 },
+  ...WEEKLY_LINK_PLANS,
 ].map(withPrices);
 
 export const ALL_PLANS = Object.fromEntries([...FEATURED_PLANS, ...PLANS, ...LINK_PLANS].map((p) => [p.id, p]));

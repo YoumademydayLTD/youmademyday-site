@@ -2,13 +2,26 @@
 import type { LinkFacts } from "../links/link-status.ts";
 
 interface CheckoutDbRow {
-  id: string; item_ids: string; currency: string; amount: number; polar_product_id: string; status: string; telegram_id: number | null;
+  id: string; item_ids: string; currency: string; amount: number; polar_product_id: string; status: string; telegram_id: number | null; metadata: string | null;
 }
 interface SubscriptionDbRow { id: string; status: string; cancel_at_period_end: number; current_period_end: string | null }
 
+/** The checkout row's metadata column (a JSON object of strings); an empty or damaged value reads as no metadata. */
+export function parseStoredMetadata(stored: string | null): Record<string, string> {
+  if (!stored) return {};
+  try {
+    const parsed: unknown = JSON.parse(stored);
+    if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) return {};
+    return Object.fromEntries(Object.entries(parsed).map(([key, value]) => [key, String(value)]));
+  } catch {
+    // A status must still be readable when one old row holds text that is not JSON.
+    return {};
+  }
+}
+
 /** Only checkouts CRX opened (source "crx"); null for any other id. */
 export async function findLinkFacts(db: D1Database, checkoutId: string): Promise<LinkFacts | null> {
-  const checkout = await db.prepare(`SELECT c.id, c.item_ids, c.currency, c.amount, c.polar_product_id, c.status, cu.telegram_id
+  const checkout = await db.prepare(`SELECT c.id, c.item_ids, c.currency, c.amount, c.polar_product_id, c.status, c.metadata, cu.telegram_id
     FROM checkouts c LEFT JOIN customers cu ON cu.ym = c.customer_ym WHERE c.id = ? AND c.source = 'crx'`).bind(checkoutId).first<CheckoutDbRow>();
   if (!checkout) return null;
   const order = await db.prepare("SELECT status, subscription_id FROM orders WHERE checkout_id = ? ORDER BY created_at DESC LIMIT 1")
@@ -21,6 +34,7 @@ export async function findLinkFacts(db: D1Database, checkoutId: string): Promise
     checkout: {
       id: checkout.id, itemIds: checkout.item_ids.split(",").filter(Boolean), currency: checkout.currency, amount: checkout.amount,
       polarProductId: checkout.polar_product_id, status: checkout.status, telegramId: checkout.telegram_id,
+      metadata: parseStoredMetadata(checkout.metadata),
     },
     order: order ? { status: order.status } : null,
     subscription: subscription ? {

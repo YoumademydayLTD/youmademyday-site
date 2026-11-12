@@ -1,5 +1,5 @@
 {
- "_note": "Prices per currency for every product (by number) and plan (by id): the single source of truth for every currency except shekels (content/catalog.json and site/js/telegram/plans.js hold the shekel price). Hand-rounded amounts, not live conversions; set 12.11.2026 near these rates: 1 ILS = 0.3149 USD = 0.4486 CAD = 0.2836 EUR = 0.2370 GBP = 0.4598 AUD. Edit a number here, then run tools/gen_products.py. Items that already had a dollar price keep it (b51 $2, Growth $39, Maximum $79) and their other currencies follow the dollar price.",
+ "_note": "Prices per currency for every product (by number) and plan (by id): the single source of truth for every currency except shekels (content/catalog.json and site/js/telegram/plans.js hold the shekel price). Hand-rounded amounts, not live conversions; set 12.11.2026 near these rates: 1 ILS = 0.3149 USD = 0.4486 CAD = 0.2836 EUR = 0.2370 GBP = 0.4598 AUD. Edit a number here, then run tools/gen_products.py. Items that already had a dollar price keep it (b51 $2, Growth $39, Maximum $79) and their other currencies follow the dollar price. The weekly link plans added 12.11.2026 (ai … goals, library) are set from their Canadian price: 47 and 97 CAD exactly, the rest rounded from it.",
  "currencies": ["usd", "cad", "eur", "gbp", "aud"],
  "products": {
   "1": {"usd": 109, "cad": 159, "eur": 99, "gbp": 85, "aud": 159},
@@ -84,6 +84,18 @@
   "day": {"usd": 9, "cad": 13, "eur": 8, "gbp": 7, "aud": 13},
   "community": {"usd": 19, "cad": 27, "eur": 17, "gbp": 14, "aud": 27},
   "mentor": {"usd": 45, "cad": 65, "eur": 39, "gbp": 35, "aud": 69},
-  "edit": {"usd": 39, "cad": 59, "eur": 35, "gbp": 29, "aud": 59}
+  "edit": {"usd": 39, "cad": 59, "eur": 35, "gbp": 29, "aud": 59},
+  "ai": {"usd": 33, "cad": 47, "eur": 29, "gbp": 25, "aud": 49},
+  "design": {"usd": 33, "cad": 47, "eur": 29, "gbp": 25, "aud": 49},
+  "sheets": {"usd": 33, "cad": 47, "eur": 29, "gbp": 25, "aud": 49},
+  "writing": {"usd": 33, "cad": 47, "eur": 29, "gbp": 25, "aud": 49},
+  "photo": {"usd": 33, "cad": 47, "eur": 29, "gbp": 25, "aud": 49},
+  "focus": {"usd": 33, "cad": 47, "eur": 29, "gbp": 25, "aud": 49},
+  "social": {"usd": 33, "cad": 47, "eur": 29, "gbp": 25, "aud": 49},
+  "web": {"usd": 33, "cad": 47, "eur": 29, "gbp": 25, "aud": 49},
+  "calm": {"usd": 33, "cad": 47, "eur": 29, "gbp": 25, "aud": 49},
+  "confidence": {"usd": 33, "cad": 47, "eur": 29, "gbp": 25, "aud": 49},
+  "goals": {"usd": 33, "cad": 47, "eur": 29, "gbp": 25, "aud": 49},
+  "library": {"usd": 69, "cad": 97, "eur": 59, "gbp": 49, "aud": 99}
  }
 }

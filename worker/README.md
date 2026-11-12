@@ -17,10 +17,11 @@ Live at **https://ymd-store.crx-platform-website.workers.dev** (workers.dev, bec
 | `GET /api/order-doc?t=<token>` | the buyer (bot button, thanks page, personal area) | The order details document (the disclosure document the terms promise): a printable HTML page in the buyer's language with our company details, order number and date, items and prices, total, membership terms (period, renewal, free day, how to cancel), delivery and the refund rights with a link to the refunds page. Links are signed for a year. `GET /api/downloads` returns it as `documentUrl`; `/api/account` invoices carry `documentUrl`. |
 | `POST /api/internal/subscriptions/cancel` | the bot (service binding, header `X-Internal-Secret`) | `{telegramId, subscriptionId}` → `{membership}`; the bot's cancel button and `/delete`. |
 | `POST /api/polar/webhook` | Polar | Verifies the Standard Webhooks signature, stores the event once (dedupe on `webhook-id`), replies at once, then updates `checkouts` / `orders` / `subscriptions`. |
-| `POST /api/links` | CRX Platform (server to server) | Header `Authorization: Bearer $YMD_LINKS_SECRET`. Body `{product, amount?, currency?, telegram_user_id?, metadata?, customer_email?, external_customer_id?, lang?, country?, customer_ip_address?}`. `product` is a store id (`b51`, `plan-max`, `store-order`, …); `amount` is in currency units (5 = 5 ₪), optional (default: the catalogue price, else a link-only price from `src/catalog/link-prices.ts`); `currency` `ils` (default), `usd` or `gel`; `metadata` up to 40 string keys, `ymd_*` reserved. A plan link is a subscription with the plan's free days set on the checkout. With `telegram_user_id` (not together with `customer_email` / `external_customer_id`) the store finds or silently creates that Telegram user's customer (same row the Telegram sign-in finds, ym number, internal email, Polar customer) — nothing is sent to him — and the checkout carries his ym as `external_customer_id`, so Polar prefills and locks the email; after he signs in to the site the purchase and invoice are in his personal area. No success URL: the buyer ends on Polar's confirmation page. Returns `{url, go_url, id, expires_at}`: `url` is Polar's payment page (unchanged), `go_url` the bounce below (null only if Polar answered with a page outside `polar.sh`). |
+| `POST /api/links` | CRX Platform (server to server) | Header `Authorization: Bearer $YMD_LINKS_SECRET`. Body `{product, amount?, currency?, telegram_user_id?, metadata?, customer_email?, external_customer_id?, lang?, country?, customer_ip_address?}`. `product` is a store id (`b51`, `plan-max`, `store-order`, …); `amount` is in currency units (5 = 5 ₪), optional (default: the catalogue price, else a link-only price from `src/catalog/link-prices.ts`); `currency` `ils` (default), `usd`, `cad`, `eur`, `gbp`, `aud` or `gel`; `metadata` up to 40 string keys, `ymd_*` reserved. A plan link is a subscription with the plan's free days set on the checkout. With `telegram_user_id` (not together with `customer_email` / `external_customer_id`) the store finds or silently creates that Telegram user's customer (same row the Telegram sign-in finds, ym number, internal email, Polar customer) — nothing is sent to him — and the checkout carries his ym as `external_customer_id`, so Polar prefills and locks the email; after he signs in to the site the purchase and invoice are in his personal area. No success URL: the buyer ends on Polar's confirmation page. Returns `{url, go_url, id, expires_at, product}`: `url` is Polar's payment page (unchanged), `go_url` the bounce below (null only if Polar answered with a page outside `polar.sh`), `product` the store id sold. Instead of `product`, `product_group: "short-guide"` lets the store pick: a one-dollar guide (`b53`–`b76`) the buyer does not own yet, else any of them (`src/catalog/link-groups.ts`, `src/links/group.ts`). A product the account already owns can be bought again. |
+| `POST /api/links/accounts` | link sales (same bearer) | `{telegram_user_id}` → `{telegram_user_id, account: "ready"}`. Creates the store's silent customer row for that Telegram user before any sale; idempotent, the same reply for a new and an existing account, nothing else returned. No Polar customer is created until his first link. |
 | `GET /go/:id` | the buyer's phone (link from CRX) | The «open in the real browser» bounce for a CRX link (`go_url`). The 10-symbol id is random and stored on the checkout row next to Polar's page URL, so only pages `/api/links` created, on `https://polar.sh/checkout/…`, are ever served (checked again on read). A normal browser gets a 302 to the payment page. An app's in-app browser (Telegram, Instagram, Facebook; Android `; wv)`, iOS without `Safari/`) gets a tiny Hebrew page: Android opens Chrome with `intent://…;package=com.android.chrome;S.browser_fallback_url=…` and after 1.5 s shows «פתח בכרום» plus «או המשך כאן»; iPhone tries `x-safari-https://…` and after 1.2 s, if still on the page, opens the payment page in place. Unknown id: 404 page. No cache, no index, CSP `default-src 'none'` with a per-reply nonce. Links made before this deploy (05.11.2026 17:43) have no stored page and answer 404. |
 | `GET /buy/:slug` | anyone (the owner's own tests, his Instagram) | A **reusable** payment link: the same URL for everyone, a fresh Polar checkout on every open. Slugs are a constant table (`src/buy/slugs.ts`); today only `edit` → `plan-edit` at 100 GEL a week after one free day, exactly like the CRX link, metadata `ymd_source=crx`, `ymd_kind=reusable`. The checkout carries **no customer** (no email, no `external_customer_id`, no ym), only the billing country from Cloudflare's location of the visitor (else Israel) and his IP. A normal browser gets a 302 (`no-store`) to the new `https://polar.sh/checkout/…`; an in-app browser gets the `/go` bounce pointing back at the same `/buy/<slug>`, so Safari / Chrome opens the checkout; its stay-here fallback is `/buy/<slug>?here=1`, which opens the checkout in place whatever the browser (no second bounce). Link-preview fetchers (`facebookexternalhit`, `TelegramBot`, `WhatsApp/`, …) get a plain page and open no checkout. Unknown slug: the 404 page; Polar refusing: a 502 retry page. Each checkout is recorded in `checkouts` (`source crx`, `kind reusable`, no customer), so its order and subscription land in the DB like any link's. |
-| `GET /api/links/:id/status` | CRX Platform (same bearer) | `{id, status, product, amount, currency, telegram_user_id, checkout_status, subscription?}` for a checkout CRX opened (404 for any other). `status`: `pending` · `paid` (one-time order paid) · `refunded` (full or partial) · `trialing` · `active` (also Polar's `past_due` while it retries) · `canceled` (also `unpaid`, `incomplete_expired`, `paused`). `amount` in currency units. |
+| `GET /api/links/:id/status` | CRX Platform (same bearer) | `{id, status, product, amount, currency, telegram_user_id, checkout_status, metadata, subscription?}` (`metadata`: the caller's own keys as sent with the link, added 12.11.2026) for a checkout CRX opened (404 for any other). `status`: `pending` · `paid` (one-time order paid) · `refunded` (full or partial) · `trialing` · `active` (also Polar's `past_due` while it retries) · `canceled` (also `unpaid`, `incomplete_expired`, `paused`). `amount` in currency units. |
 | `GET /api/downloads?checkout=<id>[&wait=1]` | the thanks page (browser) | `{status: "pending"}` until the order is paid (with `wait=1` the server re-checks for up to 20 s), then `{status: "ready", items: [{id, title, url, filename, lang, size, expiresAt}]}`; `{status: "refunded"}` after a full refund. |
 | `GET /api/file?t=<token>` | the buyer's browser | Streams the PDF from R2 as an attachment. The token is HMAC-signed (`FILES_SIGNING_SECRET`) and expires after 30 minutes; reopening the thanks page gives fresh links. |
 | `GET /api/health` | anyone | Database reachable, open kinds, mapped products, which secrets are set (never their values). |
@@ -47,6 +48,41 @@ The two links CRX sells:
   membership opens the photography and editing items in the personal area (`src/view/plan-library.ts`). `plan-max` is
   untouched and still sold.
 
+### Weekly link plans and one-dollar guides (owner, 12.11.2026)
+
+Twelve more weekly memberships are sold only through links, never listed on the plans page
+(`site/js/telegram/link-plans.js`): eleven at 47 CAD a week and one at 97 CAD a week, each with the first day free. Each
+is its own Polar product with its own content, so a buyer who holds several holds several different things:
+
+| Store id | Name on the payment page | Opens while it runs |
+| --- | --- | --- |
+| `plan-ai` | AI Studio | c1, b9, b10 |
+| `plan-design` | Design Studio | c2, b26, b37 |
+| `plan-sheets` | Sheets Studio | c3, b18, b20, b59 |
+| `plan-writing` | Writing Studio | c4, b12, b13, b70 |
+| `plan-photo` | Photo Studio | c5, b28, b67, b68 |
+| `plan-focus` | Focus Studio | c6, b21, b55, b56 |
+| `plan-social` | Social Studio | c7, b11, b19, b14 |
+| `plan-web` | Web Studio | c8, b17, b73 |
+| `plan-calm` | Calm Track | the bot's «calm» track, b23, b24, b48, b74 |
+| `plan-confidence` | Confidence Track | the bot's «confidence» track, b46, b16, b71, b72 |
+| `plan-goals` | Goals Track | the bot's «goals» track, b51, b15, b22 |
+| `plan-library` | Full Library | every course and book, every track in the bot |
+
+- A link is `{product: "plan-ai", currency: "cad", telegram_user_id}`: the catalogue price in that currency (47 CAD; 33 USD,
+  29 EUR, 25 GBP, 49 AUD, 105 ₪), no ad-hoc price, `trial_interval: day, trial_interval_count: 1` on the checkout.
+- The items are in `src/catalog/link-plans.ts` (read by `src/view/plan-library.ts`), the tracks in
+  `bot/src/config/tracks.ts`. No list shares an item with another (`test/link-plans.test.ts`).
+- The payment-page name is the plan's `checkoutName` (English, because these are bought abroad), which
+  `tools/polar/specs.ts` uses instead of the Hebrew title. No description on the payment page.
+- The library is its own plan, not the Maximum at another price: the Maximum promises a personal mentor, a weekly call and
+  a closed group, and its Canadian price is 109; a product that promises exactly the library, at exactly 97 CAD in the
+  catalogue, needs no ad-hoc price and leaves the Maximum untouched.
+- One-dollar sales are the short guides `b53`–`b76` at their catalogue price (1 CAD / USD / EUR / GBP / AUD). The same guide
+  may be bought again by the same account: every purchase is its own order and entitlement row.
+- Polar: «Allow multiple subscriptions» must be on for the organization (off by default, one active subscription per
+  customer), and «Prevent trial abuse» off, or a second membership is refused or loses its free day.
+
 Paid CRX orders record entitlements like any order, but the bot is never asked to message the buyer
 (`shouldNotifyBuyer`). CRX reads `GET /api/links/:id/status`; optionally the store also pushes every order/subscription
 change of a CRX link to `CRX_STATUS_CALLBACK_URL` (POST, the same JSON, headers `X-YMD-Timestamp` and
@@ -69,6 +105,7 @@ change of a CRX link to `CRX_STATUS_CALLBACK_URL` (POST, the same JSON, headers 
 - `src/delivery/files.json` — what is in the private R2 bucket `ymd-files` (`<lang>/<product id>.pdf` → hash, size, download name), written by `tools/upload_files.ts`.
 - `migrations/` — D1 schema (`checkouts`, `orders`, `subscriptions`, `webhook_events`, `entitlements`, `customers`, `reading_progress`). `0006` adds `subscriptions.checkout_id`: apply it (`npm run db:migrate`) **before** deploying code that writes it.
 - `src/catalog/link-prices.ts` — prices only CRX links use (100 GEL a week for `plan-max` and `plan-edit`).
+- `src/catalog/link-plans.ts` — what each weekly link plan opens; `src/catalog/link-groups.ts` — product groups a link may ask for (`short-guide`).
 - `tools/polar_benefit_file.ts <store id> <pdf> "<description>"` — uploads a PDF to Polar and attaches it to our product as a download benefit (reused by file hash; older benefits stay in Polar, detach by hand).
 - `src/<feature>/` — `checkout`, `links`, `webhook`, `delivery`, `catalog`, `polar`, `db`, `http`. Pure logic is separate from I/O and unit-tested in `test/`; `test-tools/` covers the sync tools and checks the catalogue against the site files.
 
@@ -186,3 +223,14 @@ Run `~/.claude/bin/load-check` before installs, tests and deploys on the shared 
   05.11.2026). Apple Pay shows only in Safari on an Apple device with Apple Pay set up, Google Pay only in Chrome signed
   in with Google Pay, which is why the link bounces in-app browsers first. The organization's
   `feature_settings.wallets_enabled = false` is Polar's customer credit wallet, not Apple Pay.
+- **12.11.2026 — Twelve weekly link plans, a product group and an account call for link sales (owner).** Link sales now
+  also sell eleven separate weekly memberships at 47 CAD and one at 97 CAD (first day free), and the one-dollar guides
+  again and again. Each membership is a real store product of its own (a course or a daily track with its books; the
+  whole library), so several held by one buyer are several different things; the lists live in one table and a test
+  keeps them real, English-readable and disjoint. The library is a plan of its own instead of the Maximum at a link-only
+  price: it promises only what a link buyer receives, its catalogue price is the price charged, and the Maximum does not
+  change. `POST /api/links` gained `product_group` (the store picks a guide the buyer does not own yet, else any; owning
+  one never blocks buying it again) and returns the `product` sold; `GET /api/links/:id/status` returns the caller's
+  `metadata`; `POST /api/links/accounts` opens the silent store account before any sale and creates nothing at Polar.
+  Existing links (`plan-max` and `plan-edit` in GEL, `b51`) build the same checkout as before; their replies only carry
+  the two added fields. No success URL was added: the buyer still ends on Polar's confirmation page.

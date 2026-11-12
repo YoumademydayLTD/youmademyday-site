@@ -28,6 +28,8 @@ export const CATALOG: Catalog = {
     max: { title: "max", titles: { en: "Maximum membership", he: "מנוי מקסימום" }, description: "", price: 297, usd: 79, period: "week", trialDays: 1 },
     day: { title: "day", titles: { en: "Good Day membership" }, description: "", price: 29, period: "month", trialDays: 0 },
     edit: { title: "edit", titles: { en: "The AI Editing Studio", he: "סטודיו העריכה" }, description: "a course", price: 129, period: "week", trialDays: 1, describeOnCheckout: true },
+    // A weekly link plan with its own payment-page name and a Canadian catalogue price.
+    ai: { title: "ai", titles: { en: "AI Studio membership", he: "מנוי סטודיו הבינה המלאכותית" }, description: "a studio", price: 105, prices: { cad: 47 }, period: "week", trialDays: 1, checkoutName: "AI Studio" },
   },
 };
 
@@ -51,6 +53,7 @@ export const MAP: ProductMap = {
   "plan-max": { ...one("p-max", 29700, 7900), recurring: "week" },
   "plan-day": { ...one("p-day", 2900), recurring: "month" },
   "plan-edit": { ...one("p-edit", 12900), recurring: "week" },
+  "plan-ai": { ...one("p-ai", 10500, undefined, 4700), recurring: "week" },
   k49: one("p-k49", 9900),
   "store-order": one("p-store", 10000),
 };

@@ -5,6 +5,7 @@ import { errorResponse, json } from "./http/response.ts";
 import { allowedOrigins, corsHeaders, isOriginAllowed } from "./http/cors.ts";
 import { handleCheckout } from "./checkout/handler.ts";
 import { handleLink, handleLinkStatus } from "./links/handler.ts";
+import { handleLinkAccount } from "./links/account.ts";
 import { handleWebhook } from "./webhook/handler.ts";
 import { handleHealth } from "./health.ts";
 import { handleDownloads, handleFile } from "./delivery/handler.ts";
@@ -23,6 +24,7 @@ const route = (method: string, pattern: string, handler: Handler): Route<Handler
 const ROUTES: Route<Handler>[] = [
   route("POST", "/api/checkout", (request, env) => handleCheckout(request, env, new Date())),
   route("POST", "/api/links", (request, env) => handleLink(request, env, new Date())),
+  route("POST", "/api/links/accounts", (request, env) => handleLinkAccount(request, env, new Date())),
   route("GET", "/api/links/:id/status", (request, env, _ctx, p) => handleLinkStatus(request, env, p.id ?? "")),
   route("POST", "/api/polar/webhook", (request, env, ctx) => handleWebhook(request, env, ctx, new Date())),
   route("GET", "/api/downloads", (request, env) => handleDownloads(request, env)),

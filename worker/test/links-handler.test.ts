@@ -49,7 +49,7 @@ describe("POST /api/links with telegram_user_id", () => {
     const { env, calls, bot } = envWith((call) => (call.sql.includes("FROM customers WHERE telegram_id") ? customerRow : undefined));
     const reply = await handleLink(linkRequest({ product: "plan-max", currency: "gel", telegram_user_id: TELEGRAM_ID, lang: "he" }), env, NOW, GO_BYTES);
     // `url` keeps its old meaning; `go_url` is the bounce, stored next to the checkout.
-    expect(reply).toEqual({ url: "https://polar.sh/checkout/ch_1", go_url: "https://store.test/go/ABCDEFGHIJ", id: "ch_1", expires_at: "2026-11-04T13:00:00Z" });
+    expect(reply).toEqual({ url: "https://polar.sh/checkout/ch_1", go_url: "https://store.test/go/ABCDEFGHIJ", id: "ch_1", expires_at: "2026-11-04T13:00:00Z", product: "plan-max" });
     expect(calls.find((c) => c.sql.startsWith("UPDATE checkouts SET url"))?.args).toEqual(["https://polar.sh/checkout/ch_1", "ABCDEFGHIJ", "ch_1"]);
     // The same customers row the Telegram sign-in finds later.
     expect(calls.find((c) => c.sql.startsWith("INSERT INTO customers"))?.args[0]).toBe(TELEGRAM_ID);
@@ -93,11 +93,11 @@ describe("GET /api/links/:id/status", () => {
   const statusRequest = (secret = SECRET) => new Request("https://store.test/api/links/ch_1/status", { headers: { Authorization: `Bearer ${secret}` } });
   it("reads a CRX link's state from the tables", async () => {
     const { env } = envWith((call) => {
-      if (call.sql.includes("FROM checkouts")) return { id: "ch_1", item_ids: "max", currency: "gel", amount: 10_000, polar_product_id: "3f5716cd-f3c8-4c21-8259-2d20d667cb7b", status: "succeeded", telegram_id: TELEGRAM_ID };
+      if (call.sql.includes("FROM checkouts")) return { id: "ch_1", item_ids: "max", currency: "gel", amount: 10_000, polar_product_id: "3f5716cd-f3c8-4c21-8259-2d20d667cb7b", status: "succeeded", telegram_id: TELEGRAM_ID, metadata: '{"ymd_source":"crx","ref":"r-9"}' };
       if (call.sql.includes("FROM subscriptions")) return { id: "sub_1", status: "trialing", cancel_at_period_end: 0, current_period_end: "2026-11-05T12:00:00Z" };
       return undefined;
     });
-    expect(await handleLinkStatus(statusRequest(), env, "ch_1")).toMatchObject({ status: "trialing", product: "plan-max", amount: 100, currency: "gel", telegram_user_id: TELEGRAM_ID });
+    expect(await handleLinkStatus(statusRequest(), env, "ch_1")).toMatchObject({ status: "trialing", product: "plan-max", amount: 100, currency: "gel", telegram_user_id: TELEGRAM_ID, metadata: { ref: "r-9" } });
   });
   it("only shows checkouts CRX opened, and asks for the secret", async () => {
     const { env, calls } = envWith(() => undefined);

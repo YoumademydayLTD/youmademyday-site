@@ -97,7 +97,11 @@ export const en: Copy = {
   supportAck: "Got it ✓ A person from our team will reply here.",
 
   // Plan names as on the site (plan.<id>.name).
-  planNames: { spark: "Spark", day: "Good Day", community: "Community", mentor: "Mentor", grow: "Growth", max: "Maximum" },
+  // The second line names the weekly link plans (owner, 12.11.2026; same names as site/js/i18n/en/link-plans.js).
+  planNames: {
+    spark: "Spark", day: "Good Day", community: "Community", mentor: "Mentor", grow: "Growth", max: "Maximum",
+    ai: "AI Studio", design: "Design Studio", sheets: "Sheets Studio", writing: "Writing Studio", photo: "Photo Studio", focus: "Focus Studio", social: "Social Studio", web: "Web Studio", calm: "Calm Track", confidence: "Confidence Track", goals: "Goals Track", library: "Full Library",
+  },
   chargeReminder: "Before your next charge: on {date} your {plan} membership renews for {amount}.\nWant to cancel? ✨ Memberships → Cancel, in one tap.",
   subsTitle: "Your memberships:",
   subActive: "{plan}: active, renews on {date}",

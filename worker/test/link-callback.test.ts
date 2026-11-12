@@ -4,7 +4,7 @@ import type { LinkStatus } from "../src/links/link-status.ts";
 import type { Env } from "../src/env.ts";
 import { fakeD1 } from "./fake-d1.ts";
 
-const STATUS: LinkStatus = { id: "ch1", status: "paid", product: "b51", amount: 5, currency: "ils", telegram_user_id: 7, checkout_status: "succeeded" };
+const STATUS: LinkStatus = { id: "ch1", status: "paid", product: "b51", amount: 5, currency: "ils", telegram_user_id: 7, checkout_status: "succeeded", metadata: { ref: "r-9" } };
 const NOW = new Date("2026-11-04T12:00:00Z");
 
 describe("signCallback", () => {

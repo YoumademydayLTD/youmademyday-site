@@ -2429,6 +2429,366 @@
    }
   }
  },
+ "plan-ai": {
+  "productId": "63d5eb87-a55b-4292-b8b3-1a1095d7940e",
+  "recurring": "week",
+  "prices": {
+   "ils": {
+    "id": "44125ebf-77aa-4cbd-b95f-e933de46101a",
+    "amount": 10500
+   },
+   "usd": {
+    "id": "ffa97a56-ce8b-4a80-9423-bc18946181d1",
+    "amount": 3300
+   },
+   "cad": {
+    "id": "9d160bd6-cd02-4430-9ee5-c24ac2253afa",
+    "amount": 4700
+   },
+   "eur": {
+    "id": "16bedbff-45f6-4d65-b02c-eb1844353351",
+    "amount": 2900
+   },
+   "gbp": {
+    "id": "aa0d9335-ba25-4657-ad95-ec9f4573ed1f",
+    "amount": 2500
+   },
+   "aud": {
+    "id": "1bc89d56-b0ee-4a47-b983-2724dd95b394",
+    "amount": 4900
+   }
+  }
+ },
+ "plan-design": {
+  "productId": "a494c18f-ed79-4c03-8c87-db5508af65d6",
+  "recurring": "week",
+  "prices": {
+   "ils": {
+    "id": "a60854a7-b2bc-4fca-a3cd-fc410a245d8d",
+    "amount": 10500
+   },
+   "usd": {
+    "id": "70e8f48a-0ad2-4127-8543-819e5f5cf79c",
+    "amount": 3300
+   },
+   "cad": {
+    "id": "22a10311-0530-429d-9562-459881ae663b",
+    "amount": 4700
+   },
+   "eur": {
+    "id": "e95a8544-052c-44cc-a60c-8e6e93b952f6",
+    "amount": 2900
+   },
+   "gbp": {
+    "id": "6f8582dc-ba6c-4bc9-8cc4-675a9512d98d",
+    "amount": 2500
+   },
+   "aud": {
+    "id": "b6ac91b9-b16a-452d-b687-8d1e65208a0a",
+    "amount": 4900
+   }
+  }
+ },
+ "plan-sheets": {
+  "productId": "b9c8bbd1-9b16-4fb7-9860-d9f10680d3e5",
+  "recurring": "week",
+  "prices": {
+   "ils": {
+    "id": "d34bff7a-1776-433f-a194-e6726453770a",
+    "amount": 10500
+   },
+   "usd": {
+    "id": "0ebd69ad-ec48-41b1-9b8c-72aea6993442",
+    "amount": 3300
+   },
+   "cad": {
+    "id": "b93b19ec-b974-400e-b53e-080841e03cf9",
+    "amount": 4700
+   },
+   "eur": {
+    "id": "a9b79f06-f9f2-4370-a1d5-e75a24e8e4d9",
+    "amount": 2900
+   },
+   "gbp": {
+    "id": "6a66af94-1907-4e97-97e5-4fc35edba3a4",
+    "amount": 2500
+   },
+   "aud": {
+    "id": "ede3bb79-8dbb-45b0-97b2-a867c559a842",
+    "amount": 4900
+   }
+  }
+ },
+ "plan-writing": {
+  "productId": "b9528962-2c5d-4b15-866d-615fca238f25",
+  "recurring": "week",
+  "prices": {
+   "ils": {
+    "id": "86f3ac9a-6b12-4de9-801a-03ff448476d9",
+    "amount": 10500
+   },
+   "usd": {
+    "id": "471945c9-7b9e-48a4-b04e-b83f71b855c8",
+    "amount": 3300
+   },
+   "cad": {
+    "id": "19c06133-0dd5-44d8-baa5-ea8d206f7e0f",
+    "amount": 4700
+   },
+   "eur": {
+    "id": "151d012a-7138-4c28-8bda-8f8fc150cec3",
+    "amount": 2900
+   },
+   "gbp": {
+    "id": "288077a6-a636-4256-beb8-3e4662f4e42e",
+    "amount": 2500
+   },
+   "aud": {
+    "id": "b89326b6-4e91-4c61-9c25-a135e7e5824e",
+    "amount": 4900
+   }
+  }
+ },
+ "plan-photo": {
+  "productId": "b8292172-e591-42ef-bdc6-e3fa5b3cd11c",
+  "recurring": "week",
+  "prices": {
+   "ils": {
+    "id": "33401c74-062c-4122-afbc-3254ec5603cf",
+    "amount": 10500
+   },
+   "usd": {
+    "id": "0e441a51-813c-4117-8668-cd86656ead61",
+    "amount": 3300
+   },
+   "cad": {
+    "id": "cb91b15e-639a-4e5f-8405-9c353c93793f",
+    "amount": 4700
+   },
+   "eur": {
+    "id": "976f3503-924b-4c36-88ef-711fdbdccfee",
+    "amount": 2900
+   },
+   "gbp": {
+    "id": "9f528368-4efb-40a8-8c9c-c17e1f9facaa",
+    "amount": 2500
+   },
+   "aud": {
+    "id": "da22c7e2-1af4-4eb0-9ae3-7ad24b8a9e7e",
+    "amount": 4900
+   }
+  }
+ },
+ "plan-focus": {
+  "productId": "dc6c51d4-131b-4809-876a-9cb5248d536e",
+  "recurring": "week",
+  "prices": {
+   "ils": {
+    "id": "9e0f58fa-f9da-490c-b453-ca40e1ea5783",
+    "amount": 10500
+   },
+   "usd": {
+    "id": "bf975ac6-ffba-43a9-b989-e1c4eabb5f2c",
+    "amount": 3300
+   },
+   "cad": {
+    "id": "8a206c0f-e064-44b7-8569-ebb14f094016",
+    "amount": 4700
+   },
+   "eur": {
+    "id": "e75a29fa-e4d1-4e23-952c-75bded06aa3a",
+    "amount": 2900
+   },
+   "gbp": {
+    "id": "b04d8d80-c914-4b6c-8908-ea8722352ce8",
+    "amount": 2500
+   },
+   "aud": {
+    "id": "5c46816d-5fdd-442c-a570-ab11d59a9344",
+    "amount": 4900
+   }
+  }
+ },
+ "plan-social": {
+  "productId": "eadb9e97-1a40-433f-a0ba-0646883ebe45",
+  "recurring": "week",
+  "prices": {
+   "ils": {
+    "id": "839daa07-af22-4210-9ee0-5ad514506f9c",
+    "amount": 10500
+   },
+   "usd": {
+    "id": "431a2e1e-7455-4d70-a699-47d4198c0c4a",
+    "amount": 3300
+   },
+   "cad": {
+    "id": "7c62bfd2-c575-466b-bf9d-879e0e088a50",
+    "amount": 4700
+   },
+   "eur": {
+    "id": "c20ea613-40d7-4bed-9e56-f1daea082206",
+    "amount": 2900
+   },
+   "gbp": {
+    "id": "d76f8778-8d14-4490-b348-d8bcf6765dcf",
+    "amount": 2500
+   },
+   "aud": {
+    "id": "5a642de3-8b94-4da9-a072-2614080d99b0",
+    "amount": 4900
+   }
+  }
+ },
+ "plan-web": {
+  "productId": "18ce5b05-080f-4540-b4b1-96dfb430584b",
+  "recurring": "week",
+  "prices": {
+   "ils": {
+    "id": "429638f0-11a8-4547-8363-0f965373ff44",
+    "amount": 10500
+   },
+   "usd": {
+    "id": "30acc027-f249-43c3-aca9-72cf51bc4dbf",
+    "amount": 3300
+   },
+   "cad": {
+    "id": "cf8f5e1e-23d3-4101-8a4b-ccd969391e91",
+    "amount": 4700
+   },
+   "eur": {
+    "id": "c90bf4ce-6490-40c3-abd1-4f3b0d342472",
+    "amount": 2900
+   },
+   "gbp": {
+    "id": "6af9df7e-d959-47d6-a182-420aac151b2b",
+    "amount": 2500
+   },
+   "aud": {
+    "id": "5d7480ac-61df-44fa-921c-cf6bc8f8c88e",
+    "amount": 4900
+   }
+  }
+ },
+ "plan-calm": {
+  "productId": "4ad8cd38-71ae-4c23-9b8b-868eee4021ca",
+  "recurring": "week",
+  "prices": {
+   "ils": {
+    "id": "2b45b129-a247-4088-93cf-9702eaa9d898",
+    "amount": 10500
+   },
+   "usd": {
+    "id": "c1f6550b-181f-4805-84b4-0a98112c2bde",
+    "amount": 3300
+   },
+   "cad": {
+    "id": "e8c47ace-5a11-4808-9d60-961113707b3f",
+    "amount": 4700
+   },
+   "eur": {
+    "id": "688e92de-565d-40af-885a-38c6c376624a",
+    "amount": 2900
+   },
+   "gbp": {
+    "id": "baf89f58-84f3-4536-a478-e97210395767",
+    "amount": 2500
+   },
+   "aud": {
+    "id": "5b1ae850-bf76-422c-ae52-18e01435fb82",
+    "amount": 4900
+   }
+  }
+ },
+ "plan-confidence": {
+  "productId": "68605a39-b278-4b11-a119-00b0ea83d826",
+  "recurring": "week",
+  "prices": {
+   "ils": {
+    "id": "047a655c-c6b9-4f0e-a26c-8e02e902adf4",
+    "amount": 10500
+   },
+   "usd": {
+    "id": "55a695ce-aa1a-4b7c-8702-435a84b0c2ff",
+    "amount": 3300
+   },
+   "cad": {
+    "id": "998fb11a-9f8c-4890-b0c4-690a2534f228",
+    "amount": 4700
+   },
+   "eur": {
+    "id": "b8a6ff1a-0d0e-4d69-a242-09638ed61dfe",
+    "amount": 2900
+   },
+   "gbp": {
+    "id": "7a4ae933-9f0c-4ae0-834e-59f664d75807",
+    "amount": 2500
+   },
+   "aud": {
+    "id": "4a5e4b2c-7e96-4edd-845d-20bea3a0172b",
+    "amount": 4900
+   }
+  }
+ },
+ "plan-goals": {
+  "productId": "462c07aa-d15b-401e-b11b-937f5eb2909e",
+  "recurring": "week",
+  "prices": {
+   "ils": {
+    "id": "c3a70982-90c9-4f01-9c59-836d35cbcbe1",
+    "amount": 10500
+   },
+   "usd": {
+    "id": "b38098dc-1f49-481b-bf66-4b21ed4007d7",
+    "amount": 3300
+   },
+   "cad": {
+    "id": "83b7aed5-00a3-4fa5-851c-194f974e2d74",
+    "amount": 4700
+   },
+   "eur": {
+    "id": "f0a665bc-634a-41af-835f-72d6dd724dbc",
+    "amount": 2900
+   },
+   "gbp": {
+    "id": "7eb2ae10-c086-4c3f-9f65-e427f8dbb74b",
+    "amount": 2500
+   },
+   "aud": {
+    "id": "ef1f249b-d87f-4275-932e-65c3c8338723",
+    "amount": 4900
+   }
+  }
+ },
+ "plan-library": {
+  "productId": "958e9978-9bac-464e-bf10-deea405c641f",
+  "recurring": "week",
+  "prices": {
+   "ils": {
+    "id": "878d6535-db75-49af-902c-31e851d931b6",
+    "amount": 21900
+   },
+   "usd": {
+    "id": "5aff1cde-bb63-434b-b9c7-69a4c3c1b149",
+    "amount": 6900
+   },
+   "cad": {
+    "id": "dea0cc51-7db8-4cde-af3d-6ea25687f9ef",
+    "amount": 9700
+   },
+   "eur": {
+    "id": "68e4c6f1-1d4e-4e83-a510-01e9b4272416",
+    "amount": 5900
+   },
+   "gbp": {
+    "id": "2c8ad71c-28b3-4a4a-8f15-8edbff4e676a",
+    "amount": 4900
+   },
+   "aud": {
+    "id": "8fca7a15-80d2-4f0d-99f6-58bd6b2e625a",
+    "amount": 9900
+   }
+  }
+ },
  "store-order": {
   "productId": "55494515-a15e-4fdf-a7ea-4c4a89e24061",
   "recurring": null,

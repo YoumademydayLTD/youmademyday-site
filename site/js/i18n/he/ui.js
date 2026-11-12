@@ -1,4 +1,6 @@
 // Hebrew interface text. Keys are shared by every language file; {x} are placeholders.
+import LINK_PLAN_COPY from "./link-plans.js";
+
 export default {
   "meta.title": "You Made My Day · קורסים, ספרים ושותף אישי בטלגרם",
   "meta.itemTitle": "{title} · You Made My Day",
@@ -329,6 +331,8 @@ export default {
     "בספרייה: «צילום מוצרים בטלפון», «Canva מאפס למקצוען», «צילום בטלפון» ו«עריכת וידאו בטלפון»",
     "ביטול בכל רגע מהאזור האישי",
   ],
+  // Link-only weekly memberships (owner, 12.11.2026): names and blurbs in ./link-plans.js.
+  ...LINK_PLAN_COPY,
   "plans.moreA": "עוד מנויים.",
   "plans.moreB": "להתחיל בקטן.",
   "home.offerBadge": "הספר של החנות",

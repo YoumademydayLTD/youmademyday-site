@@ -3,16 +3,20 @@
 // site/js/telegram/plans.js.
 export interface Track { id: string; plans: readonly string[] }
 
-const MEMBER_PLANS = ["grow", "max", "day", "community", "mentor"] as const;
+// "library" is the weekly link plan that opens everything (owner, 12.11.2026; site/js/telegram/link-plans.js).
+const MEMBER_PLANS = ["grow", "max", "day", "community", "mentor", "library"] as const;
+// Owner, 12.11.2026: three weekly link plans are one topic track each (the plan id is the track id), so each
+// opens its own track and no other.
+const withOwnPlan = (trackId: string): readonly string[] => [...MEMBER_PLANS, trackId];
 
 export const TRACKS: readonly Track[] = [
   { id: "spark", plans: [] },
-  { id: "confidence", plans: MEMBER_PLANS },
+  { id: "confidence", plans: withOwnPlan("confidence") },
   { id: "couples", plans: MEMBER_PLANS },
   { id: "habits", plans: MEMBER_PLANS },
   { id: "money", plans: MEMBER_PLANS },
-  { id: "calm", plans: MEMBER_PLANS },
-  { id: "goals", plans: MEMBER_PLANS },
+  { id: "calm", plans: withOwnPlan("calm") },
+  { id: "goals", plans: withOwnPlan("goals") },
 ];
 export const FREE_TRACK = "spark";
 

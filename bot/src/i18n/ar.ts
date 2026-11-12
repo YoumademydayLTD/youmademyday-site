@@ -97,7 +97,11 @@ export const ar: Copy = {
   supportAck: "وصلتنا رسالتكم ✓ سيرد عليكم شخص من الفريق هنا.",
 
   // Plan names as on the site (plan.<id>.name).
-  planNames: { spark: "شرارة", day: "يوم جميل", community: "المجتمع", mentor: "المرافقة", grow: "النموّ", max: "القمّة" },
+  // The second line names the weekly link plans (owner, 12.11.2026; same names as site/js/i18n/ar/link-plans.js).
+  planNames: {
+    spark: "شرارة", day: "يوم جميل", community: "المجتمع", mentor: "المرافقة", grow: "النموّ", max: "القمّة",
+    ai: "استوديو الذكاء الاصطناعي", design: "استوديو التصميم", sheets: "استوديو الجداول", writing: "استوديو الكتابة", photo: "استوديو التصوير", focus: "استوديو التركيز", social: "استوديو التواصل", web: "استوديو الويب", calm: "مسار الهدوء", confidence: "مسار الثقة", goals: "مسار الأهداف", library: "المكتبة الكاملة",
+  },
   chargeReminder: "تذكير قبل الخصم: في {date} يتجدد اشتراك {plan} بمبلغ {amount}.\nتريدون الإلغاء؟ ✨ الاشتراكات ← إلغاء، بضغطة واحدة.",
   subsTitle: "اشتراكاتك:",
   subActive: "{plan}: فعّال، يتجدد في {date}",
