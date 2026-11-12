@@ -8,3 +8,4 @@ tools/.venv/
 .env
 .env.*
 .dev.vars
+history/

@@ -12,8 +12,9 @@ export const CATALOG_PATH = join(ROOT, "worker", "src", "catalog", "catalog.json
 // Hebrew is the source catalogue: its titles name the Polar products and it lists every item.
 const SOURCE_LANG = "he";
 
-interface SiteProduct { id: string; n: number; type: string; title: string; sub: string; price: number; usd?: number; includes?: string[] }
-interface SitePlan { id: string; price: number; usd?: number; period: "week" | "month"; trialDays?: number; describeOnCheckout?: boolean }
+type CurrencyPrices = Record<string, number>; // currency code (lower case) → price, from tools/currency_prices.json
+interface SiteProduct { id: string; n: number; type: string; title: string; sub: string; price: number; usd?: number; prices?: CurrencyPrices; includes?: string[] }
+interface SitePlan { id: string; price: number; usd?: number; prices?: CurrencyPrices; period: "week" | "month"; trialDays?: number; describeOnCheckout?: boolean }
 
 export interface CatalogProduct {
   n: number; // the file number: content/dist/<NN>-*.pdf
@@ -22,14 +23,15 @@ export interface CatalogProduct {
   description: string;
   price: number;
   usd?: number;
+  prices?: CurrencyPrices;
   langs: string[];
   titles: Record<string, string>; // title on each site that sells it
   includes?: string[]; // bundles: the items delivered
 }
 // describeOnCheckout: the payment page shows the plan's description, not only its name (owner 05.11.2026, the editing course).
-export interface CatalogPlan { title: string; titles: Record<string, string>; description: string; price: number; usd?: number; period: "week" | "month"; trialDays: number; describeOnCheckout?: boolean }
+export interface CatalogPlan { title: string; titles: Record<string, string>; description: string; price: number; usd?: number; prices?: CurrencyPrices; period: "week" | "month"; trialDays: number; describeOnCheckout?: boolean }
 export interface Business { name: string; id: string; addr: string; email: string }
-export interface Catalog { langs: string[]; defaultLang: string; homeCurrencyLang: string; bookDealMin: number; refundDays: number; business: Record<string, Business>; products: Record<string, CatalogProduct>; plans: Record<string, CatalogPlan> }
+export interface Catalog { langs: string[]; defaultLang: string; homeCurrencyLang: string; currencies: string[]; bookDealMin: number; refundDays: number; business: Record<string, Business>; products: Record<string, CatalogProduct>; plans: Record<string, CatalogPlan> }
 
 const importSite = async <T>(relative: string): Promise<T> => (await import(pathToFileURL(join(SITE_JS, relative)).href)) as T;
 
@@ -45,7 +47,7 @@ async function buildProducts(langs: string[]): Promise<Record<string, CatalogPro
     const sellsIn = langs.filter((lang) => byLang.get(lang)?.has(p.id));
     const titles = Object.fromEntries(sellsIn.map((lang) => [lang, byLang.get(lang)?.get(p.id)?.title ?? p.title]));
     products[p.id] = {
-      n: p.n, type: p.type, title: p.title, description: p.sub, price: p.price, ...(p.usd != null ? { usd: p.usd } : {}),
+      n: p.n, type: p.type, title: p.title, description: p.sub, price: p.price, ...(p.usd != null ? { usd: p.usd } : {}), ...(p.prices ? { prices: p.prices } : {}),
       langs: sellsIn, titles, ...(p.includes ? { includes: p.includes } : {}),
     };
   }
@@ -75,6 +77,7 @@ async function buildPlans(langs: string[]): Promise<Record<string, CatalogPlan>>
       description: text(`plan.${plan.id}.sub`) || list(`plan.${plan.id}.items`).join(" · "),
       price: plan.price,
       ...(plan.usd != null ? { usd: plan.usd } : {}),
+      ...(plan.prices ? { prices: plan.prices } : {}),
       period: plan.period,
       trialDays: plan.trialDays ?? 0,
       ...(plan.describeOnCheckout ? { describeOnCheckout: true } : {}),
@@ -85,9 +88,9 @@ async function buildPlans(langs: string[]): Promise<Record<string, CatalogPlan>>
 
 export async function buildCatalog(): Promise<Catalog> {
   const { BOOK_DEAL_MIN, REFUND_DAYS, BIZ_FOR } = await importSite<{ BOOK_DEAL_MIN: number; REFUND_DAYS: number; BIZ_FOR: (lang: string) => Business }>("business.js");
-  const { LIVE, DEFAULT_LANG, HOME_CURRENCY_LANG } = await importSite<{ LIVE: string[]; DEFAULT_LANG: string; HOME_CURRENCY_LANG: string }>("i18n/config.js");
+  const { LIVE, DEFAULT_LANG, HOME_CURRENCY_LANG, CURRENCIES } = await importSite<{ LIVE: string[]; DEFAULT_LANG: string; HOME_CURRENCY_LANG: string; CURRENCIES: string[] }>("i18n/config.js");
   return {
-    langs: LIVE, defaultLang: DEFAULT_LANG, homeCurrencyLang: HOME_CURRENCY_LANG, bookDealMin: BOOK_DEAL_MIN, refundDays: REFUND_DAYS,
+    langs: LIVE, defaultLang: DEFAULT_LANG, homeCurrencyLang: HOME_CURRENCY_LANG, currencies: CURRENCIES.map((code) => code.toLowerCase()), bookDealMin: BOOK_DEAL_MIN, refundDays: REFUND_DAYS,
     // Company details per site language, for the order details document (the disclosure document the law requires).
     business: Object.fromEntries(LIVE.map((lang) => {
       const { name, id, addr, email } = BIZ_FOR(lang);

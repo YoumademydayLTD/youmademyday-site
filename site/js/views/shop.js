@@ -1,20 +1,25 @@
 // Catalog pages (courses / books) and search results.
 import { COURSES, BOOKS, card } from "../catalog.js";
 import { S } from "../state.js";
-import { esc, ils, $ } from "../util.js";
+import { esc, $ } from "../util.js";
 import { t } from "../i18n/index.js";
+import { HOME_CURRENCY } from "../i18n/config.js";
+import { CURRENCY } from "../currency.js";
+import { amountOf, money } from "../money.js";
 
 const ALL_CATS = "*"; // filter value meaning "every topic"
 
-const PRICE_STEP = { courses: 10, books: 5 };
+const PRICE_STEP = { courses: 10, books: 5 }; // shekels
+const OTHER_CURRENCY_STEP = 1; // amounts in the other currencies are about a third as large
+const stepFor = (type) => (CURRENCY === HOME_CURRENCY ? PRICE_STEP[type] : OTHER_CURRENCY_STEP);
 const SORTS = {
   rec: { label: "shop.sort.rec", fn: (list) => (a, b) => list.indexOf(a) - list.indexOf(b) },
-  low: { label: "shop.sort.low", fn: () => (a, b) => a.price - b.price },
-  high: { label: "shop.sort.high", fn: () => (a, b) => b.price - a.price },
+  low: { label: "shop.sort.low", fn: () => (a, b) => amountOf(a) - amountOf(b) },
+  high: { label: "shop.sort.high", fn: () => (a, b) => amountOf(b) - amountOf(a) },
 };
 
 const listFor = (type) => (type === "courses" ? COURSES : BOOKS);
-const priceRange = (list) => [Math.min(...list.map((p) => p.price)), Math.max(...list.map((p) => p.price))];
+const priceRange = (list) => [Math.min(...list.map(amountOf)), Math.max(...list.map(amountOf))];
 
 export function viewShop(type) {
   const list = listFor(type);
@@ -28,8 +33,8 @@ export function viewShop(type) {
   <div class="wrap catalog">
     <aside class="filters">
       <div><h4>${t("shop.topic")}</h4><div class="chips">${cats.map((c) => `<button class="chip ${f.cat === c ? "on" : ""}" data-act="f-cat" data-type="${type}" data-v="${esc(c)}">${c === ALL_CATS ? t("shop.all") : esc(c)}<small>${c === ALL_CATS ? list.length : list.filter((p) => p.cat === c).length}</small></button>`).join("")}</div></div>
-      <div class="field"><label for="maxPrice">${t("shop.maxPrice")} <span id="maxLbl" class="num">${ils(f.maxPrice)}</span></label>
-        <input id="maxPrice" type="range" min="${minP}" max="${maxP}" step="${PRICE_STEP[type]}" value="${f.maxPrice}" data-type="${type}"></div>
+      <div class="field"><label for="maxPrice">${t("shop.maxPrice")} <span id="maxLbl" class="num">${money(f.maxPrice)}</span></label>
+        <input id="maxPrice" type="range" min="${minP}" max="${maxP}" step="${stepFor(type)}" value="${f.maxPrice}" data-type="${type}"></div>
     </aside>
     <div style="min-width:0">
       <div class="toolbar"><span class="muted" id="countLbl"></span>
@@ -43,7 +48,7 @@ export function fillGrid(type) {
   const list = listFor(type);
   const f = S.filters[type];
   const rows = list
-    .filter((p) => (f.cat === ALL_CATS || p.cat === f.cat) && p.price <= f.maxPrice)
+    .filter((p) => (f.cat === ALL_CATS || p.cat === f.cat) && amountOf(p) <= f.maxPrice)
     .sort(SORTS[f.sort].fn(list));
   $("#countLbl").textContent = t("shop.count", { n: rows.length });
   $("#grid").innerHTML = rows.length

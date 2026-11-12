@@ -8,6 +8,13 @@ export const PRODUCTS = [
   "sub": "12 leçons pratiques pour gagner des heures chaque semaine avec ChatGPT, Claude et des outils gratuits",
   "cat": "Technologie",
   "price": 349,
+  "prices": {
+   "usd": 109,
+   "cad": 159,
+   "eur": 99,
+   "gbp": 85,
+   "aud": 159
+  },
   "cv": [
    "#2B1E40",
    "#FFFFFF",
@@ -103,6 +110,13 @@ export const PRODUCTS = [
   "sub": "Concevoir des publications, des présentations et un logo sans aucune expérience",
   "cat": "Design",
   "price": 249,
+  "prices": {
+   "usd": 79,
+   "cad": 109,
+   "eur": 69,
+   "gbp": 59,
+   "aud": 119
+  },
   "cv": [
    "#FFD9E8",
    "#2B1E40",
@@ -178,6 +192,13 @@ export const PRODUCTS = [
   "sub": "Formules, tableaux et un premier tableau de bord",
   "cat": "Technologie",
   "price": 249,
+  "prices": {
+   "usd": 79,
+   "cad": 109,
+   "eur": 69,
+   "gbp": 59,
+   "aud": 119
+  },
   "cv": [
    "#2B1E40",
    "#FFFFFF",
@@ -253,6 +274,13 @@ export const PRODUCTS = [
   "sub": "Le copywriting pour les petites entreprises, pas à pas",
   "cat": "Marketing",
   "price": 299,
+  "prices": {
+   "usd": 95,
+   "cad": 139,
+   "eur": 85,
+   "gbp": 69,
+   "aud": 139
+  },
   "cv": [
    "#EEE6FF",
    "#2B1E40",
@@ -328,6 +356,13 @@ export const PRODUCTS = [
   "sub": "Lumière, fond et retouche pour une boutique en ligne",
   "cat": "Photographie",
   "price": 219,
+  "prices": {
+   "usd": 69,
+   "cad": 99,
+   "eur": 65,
+   "gbp": 55,
+   "aud": 99
+  },
   "cv": [
    "#1D1D1F",
    "#FFFFFF",
@@ -403,6 +438,13 @@ export const PRODUCTS = [
   "sub": "Des méthodes éprouvées pour planifier votre semaine, sans applications compliquées",
   "cat": "Productivité",
   "price": 199,
+  "prices": {
+   "usd": 65,
+   "cad": 89,
+   "eur": 55,
+   "gbp": 49,
+   "aud": 89
+  },
   "cv": [
    "#DCEBFF",
    "#1D2B47",
@@ -479,6 +521,13 @@ export const PRODUCTS = [
   "sub": "Contenu, Reels et planification mensuelle",
   "cat": "Marketing",
   "price": 279,
+  "prices": {
+   "usd": 89,
+   "cad": 129,
+   "eur": 79,
+   "gbp": 65,
+   "aud": 129
+  },
   "cv": [
    "#EEE6FF",
    "#2B1E40",
@@ -554,6 +603,13 @@ export const PRODUCTS = [
   "sub": "Construire sa première landing page à partir de zéro",
   "cat": "Technologie",
   "price": 299,
+  "prices": {
+   "usd": 95,
+   "cad": 139,
+   "eur": 85,
+   "gbp": 69,
+   "aud": 139
+  },
   "cv": [
    "#2B1E40",
    "#FFFFFF",
@@ -629,6 +685,13 @@ export const PRODUCTS = [
   "sub": "200 instructions prêtes à l'emploi pour le travail, les études et la création",
   "cat": "Technologie",
   "price": 69,
+  "prices": {
+   "usd": 22,
+   "cad": 32,
+   "eur": 20,
+   "gbp": 16,
+   "aud": 32
+  },
   "cv": [
    "#2B1E40",
    "#FFFFFF",
@@ -662,6 +725,13 @@ export const PRODUCTS = [
   "sub": "30 situations réelles avec modèles prêts à l'emploi",
   "cat": "Technologie",
   "price": 59,
+  "prices": {
+   "usd": 19,
+   "cad": 27,
+   "eur": 17,
+   "gbp": 14,
+   "aud": 27
+  },
   "cv": [
    "#2B1E40",
    "#FFFFFF",
@@ -694,6 +764,13 @@ export const PRODUCTS = [
   "sub": "Un calendrier éditorial pour toute l'année",
   "cat": "Marketing",
   "price": 49,
+  "prices": {
+   "usd": 15,
+   "cad": 22,
+   "eur": 14,
+   "gbp": 12,
+   "aud": 22
+  },
   "cv": [
    "#EEE6FF",
    "#2B1E40",
@@ -724,6 +801,13 @@ export const PRODUCTS = [
   "sub": "Structure, titres et exemples avant/après",
   "cat": "Marketing",
   "price": 59,
+  "prices": {
+   "usd": 19,
+   "cad": 27,
+   "eur": 17,
+   "gbp": 14,
+   "aud": 27
+  },
   "cv": [
    "#EEE6FF",
    "#2B1E40",
@@ -756,6 +840,13 @@ export const PRODUCTS = [
   "sub": "Comment constituer une liste de diffusion et écrire un e-mail hebdomadaire",
   "cat": "Marketing",
   "price": 45,
+  "prices": {
+   "usd": 14,
+   "cad": 20,
+   "eur": 13,
+   "gbp": 11,
+   "aud": 20
+  },
   "cv": [
    "#EEE6FF",
    "#2B1E40",
@@ -791,6 +882,13 @@ export const PRODUCTS = [
   "sub": "Un profil, des publications et des échanges qui vous apportent des demandes",
   "cat": "Carrière",
   "price": 55,
+  "prices": {
+   "usd": 17,
+   "cad": 25,
+   "eur": 16,
+   "gbp": 13,
+   "aud": 25
+  },
   "cv": [
    "#3B2A5C",
    "#FFFFFF",
@@ -824,6 +922,13 @@ export const PRODUCTS = [
   "sub": "Structure, rédaction et 12 exemples par métier",
   "cat": "Carrière",
   "price": 45,
+  "prices": {
+   "usd": 14,
+   "cad": 20,
+   "eur": 13,
+   "gbp": 11,
+   "aud": 20
+  },
   "cv": [
    "#3B2A5C",
    "#FFFFFF",
@@ -857,6 +962,13 @@ export const PRODUCTS = [
   "sub": "60 questions fréquentes et comment y répondre",
   "cat": "Carrière",
   "price": 45,
+  "prices": {
+   "usd": 14,
+   "cad": 20,
+   "eur": 13,
+   "gbp": 11,
+   "aud": 20
+  },
   "cv": [
    "#3B2A5C",
    "#FFFFFF",
@@ -889,6 +1001,13 @@ export const PRODUCTS = [
   "sub": "Fixer ses tarifs, rédiger un devis et un contrat de prestation de base",
   "cat": "Carrière",
   "price": 59,
+  "prices": {
+   "usd": 19,
+   "cad": 27,
+   "eur": 17,
+   "gbp": 14,
+   "aud": 27
+  },
   "cv": [
    "#3B2A5C",
    "#FFFFFF",
@@ -925,6 +1044,13 @@ export const PRODUCTS = [
   "sub": "10 modèles prêts à copier dans Word ou Google Docs",
   "cat": "Business",
   "price": 39,
+  "prices": {
+   "usd": 12,
+   "cad": 18,
+   "eur": 11,
+   "gbp": 9,
+   "aud": 18
+  },
   "cv": [
    "#F4EEFF",
    "#2B1E40",
@@ -961,6 +1087,13 @@ export const PRODUCTS = [
   "sub": "Un cahier prêt à remplir pour planifier et suivre vos publications",
   "cat": "Marketing",
   "price": 29,
+  "prices": {
+   "usd": 9,
+   "cad": 13,
+   "eur": 8,
+   "gbp": 7,
+   "aud": 13
+  },
   "cv": [
    "#EEE6FF",
    "#2B1E40",
@@ -997,6 +1130,13 @@ export const PRODUCTS = [
   "sub": "Un agenda à imprimer ou à remplir sur tablette",
   "cat": "Productivité",
   "price": 25,
+  "prices": {
+   "usd": 8,
+   "cad": 11,
+   "eur": 7,
+   "gbp": 6,
+   "aud": 12
+  },
   "cv": [
    "#DCEBFF",
    "#1D2B47",
@@ -1032,6 +1172,13 @@ export const PRODUCTS = [
   "sub": "De l'ordre dans la maison et dans la tête en une demi-heure par jour",
   "cat": "Productivité",
   "price": 39,
+  "prices": {
+   "usd": 12,
+   "cad": 18,
+   "eur": 11,
+   "gbp": 9,
+   "aud": 18
+  },
   "cv": [
    "#DCEBFF",
    "#1D2B47",
@@ -1068,6 +1215,13 @@ export const PRODUCTS = [
   "sub": "Un cahier d'exercices de 30 jours pour installer une nouvelle habitude",
   "cat": "Productivité",
   "price": 39,
+  "prices": {
+   "usd": 12,
+   "cad": 18,
+   "eur": 11,
+   "gbp": 9,
+   "aud": 18
+  },
   "cv": [
    "#DCEBFF",
    "#1D2B47",
@@ -1102,6 +1256,13 @@ export const PRODUCTS = [
   "sub": "90 jours d'écriture guidée, 5 minutes par jour",
   "cat": "Écriture",
   "price": 35,
+  "prices": {
+   "usd": 11,
+   "cad": 16,
+   "eur": 10,
+   "gbp": 8,
+   "aud": 16
+  },
   "cv": [
    "#FFF4EA",
    "#2B1E40",
@@ -1140,6 +1301,13 @@ export const PRODUCTS = [
   "sub": "Des questions pour chaque nouveau jour, 100 pages",
   "cat": "Écriture",
   "price": 35,
+  "prices": {
+   "usd": 11,
+   "cad": 16,
+   "eur": 10,
+   "gbp": 8,
+   "aud": 16
+  },
   "cv": [
    "#FFF4EA",
    "#2B1E40",
@@ -1166,6 +1334,13 @@ export const PRODUCTS = [
   "sub": "Un guide pratique en 20 exercices",
   "cat": "Écriture",
   "price": 49,
+  "prices": {
+   "usd": 15,
+   "cad": 22,
+   "eur": 14,
+   "gbp": 12,
+   "aud": 22
+  },
   "cv": [
    "#FFF4EA",
    "#2B1E40",
@@ -1202,6 +1377,13 @@ export const PRODUCTS = [
   "sub": "60 exercices de dessin quotidiens",
   "cat": "Création",
   "price": 39,
+  "prices": {
+   "usd": 12,
+   "cad": 18,
+   "eur": 11,
+   "gbp": 9,
+   "aud": 18
+  },
   "cv": [
    "#FFE7F0",
    "#2B1E40",
@@ -1235,6 +1417,13 @@ export const PRODUCTS = [
   "sub": "Feuilles d'exercices et lettres à recopier",
   "cat": "Création",
   "price": 45,
+  "prices": {
+   "usd": 14,
+   "cad": 20,
+   "eur": 13,
+   "gbp": 11,
+   "aud": 20
+  },
   "cv": [
    "#FFE7F0",
    "#2B1E40",
@@ -1269,6 +1458,13 @@ export const PRODUCTS = [
   "sub": "50 conseils courts, chacun avec son exercice photo",
   "cat": "Photographie",
   "price": 45,
+  "prices": {
+   "usd": 14,
+   "cad": 20,
+   "eur": 13,
+   "gbp": 11,
+   "aud": 20
+  },
   "cv": [
    "#1D1D1F",
    "#FFFFFF",
@@ -1301,6 +1497,13 @@ export const PRODUCTS = [
   "sub": "CapCut, de zéro à votre première vidéo",
   "cat": "Photographie",
   "price": 49,
+  "prices": {
+   "usd": 15,
+   "cad": 22,
+   "eur": 14,
+   "gbp": 12,
+   "aud": 22
+  },
   "cv": [
    "#1D1D1F",
    "#FFFFFF",
@@ -1340,6 +1543,13 @@ export const PRODUCTS = [
   "sub": "40 recettes familiales, pas à pas",
   "cat": "Cuisine",
   "price": 69,
+  "prices": {
+   "usd": 22,
+   "cad": 32,
+   "eur": 20,
+   "gbp": 16,
+   "aud": 32
+  },
   "cv": [
    "#FFE3D6",
    "#3A1F1A",
@@ -1373,6 +1583,13 @@ export const PRODUCTS = [
   "sub": "Levain, hallot et pains dans une cuisine ordinaire",
   "cat": "Cuisine",
   "price": 55,
+  "prices": {
+   "usd": 17,
+   "cad": 25,
+   "eur": 16,
+   "gbp": 13,
+   "aud": 25
+  },
   "cv": [
    "#FFE3D6",
    "#3A1F1A",
@@ -1406,6 +1623,13 @@ export const PRODUCTS = [
   "sub": "30 dîners rapides pour toute la semaine",
   "cat": "Cuisine",
   "price": 49,
+  "prices": {
+   "usd": 15,
+   "cad": 22,
+   "eur": 14,
+   "gbp": 12,
+   "aud": 22
+  },
   "cv": [
    "#FFE3D6",
    "#3A1F1A",
@@ -1438,6 +1662,13 @@ export const PRODUCTS = [
   "sub": "25 recettes de gâteaux et de biscuits",
   "cat": "Cuisine",
   "price": 49,
+  "prices": {
+   "usd": 15,
+   "cad": 22,
+   "eur": 14,
+   "gbp": 12,
+   "aud": 22
+  },
   "cv": [
    "#FFE3D6",
    "#3A1F1A",
@@ -1469,6 +1700,13 @@ export const PRODUCTS = [
   "sub": "60 idées pour le repas de dix heures",
   "cat": "Cuisine",
   "price": 35,
+  "prices": {
+   "usd": 11,
+   "cad": 16,
+   "eur": 10,
+   "gbp": 8,
+   "aud": 16
+  },
   "cv": [
    "#FFE3D6",
    "#3A1F1A",
@@ -1503,6 +1741,13 @@ export const PRODUCTS = [
   "sub": "Menus et listes de courses à imprimer",
   "cat": "Cuisine",
   "price": 29,
+  "prices": {
+   "usd": 9,
+   "cad": 13,
+   "eur": 8,
+   "gbp": 7,
+   "aud": 13
+  },
   "cv": [
    "#FFE3D6",
    "#3A1F1A",
@@ -1531,6 +1776,13 @@ export const PRODUCTS = [
   "sub": "Aromatiques et légumes en pot, au fil des saisons",
   "cat": "Maison",
   "price": 45,
+  "prices": {
+   "usd": 14,
+   "cad": 20,
+   "eur": 13,
+   "gbp": 11,
+   "aud": 20
+  },
   "cv": [
    "#E2F1EA",
    "#16302A",
@@ -1567,6 +1819,13 @@ export const PRODUCTS = [
   "sub": "Des idées pour chaque pièce, avec listes d’achats",
   "cat": "Maison",
   "price": 49,
+  "prices": {
+   "usd": 15,
+   "cad": 22,
+   "eur": 14,
+   "gbp": 12,
+   "aud": 22
+  },
   "cv": [
    "#E2F1EA",
    "#16302A",
@@ -1607,6 +1866,13 @@ export const PRODUCTS = [
   "sub": "Une méthode simple pour trier et ranger ses vêtements",
   "cat": "Maison",
   "price": 35,
+  "prices": {
+   "usd": 11,
+   "cad": 16,
+   "eur": 10,
+   "gbp": 8,
+   "aud": 16
+  },
   "cv": [
    "#E2F1EA",
    "#16302A",
@@ -1645,6 +1911,13 @@ export const PRODUCTS = [
   "sub": "10 thèmes avec leurs listes de préparation",
   "cat": "Famille",
   "price": 39,
+  "prices": {
+   "usd": 12,
+   "cad": 18,
+   "eur": 11,
+   "gbp": 9,
+   "aud": 18
+  },
   "cv": [
    "#FFF1DC",
    "#3A2A10",
@@ -1678,6 +1951,13 @@ export const PRODUCTS = [
   "sub": "80 idées pour la maison et le dehors",
   "cat": "Famille",
   "price": 39,
+  "prices": {
+   "usd": 12,
+   "cad": 18,
+   "eur": 11,
+   "gbp": 9,
+   "aud": 18
+  },
   "cv": [
    "#FFF1DC",
    "#3A2A10",
@@ -1711,6 +1991,13 @@ export const PRODUCTS = [
   "sub": "Fiches d'activités à imprimer pour les 6–10 ans",
   "cat": "Famille",
   "price": 35,
+  "prices": {
+   "usd": 11,
+   "cad": 16,
+   "eur": 10,
+   "gbp": 8,
+   "aud": 16
+  },
   "cv": [
    "#FFF1DC",
    "#3A2A10",
@@ -1744,6 +2031,13 @@ export const PRODUCTS = [
   "sub": "20 itinéraires faciles pour les familles, avec un schéma pour chaque itinéraire",
   "cat": "Randonnée et voyages",
   "price": 49,
+  "prices": {
+   "usd": 15,
+   "cad": 22,
+   "eur": 14,
+   "gbp": 12,
+   "aud": 22
+  },
   "cv": [
    "#E6F2FF",
    "#13314D",
@@ -1774,6 +2068,13 @@ export const PRODUCTS = [
   "sub": "Check-lists, valises et itinéraire",
   "cat": "Randonnée et voyages",
   "price": 39,
+  "prices": {
+   "usd": 12,
+   "cad": 18,
+   "eur": 11,
+   "gbp": 9,
+   "aud": 18
+  },
   "cv": [
    "#E6F2FF",
    "#13314D",
@@ -1808,6 +2109,13 @@ export const PRODUCTS = [
   "sub": "300 phrases utiles pour le travail et les voyages",
   "cat": "Langues",
   "price": 45,
+  "prices": {
+   "usd": 14,
+   "cad": 20,
+   "eur": 13,
+   "gbp": 11,
+   "aud": 20
+  },
   "cv": [
    "#E9E4FF",
    "#2B1E40",
@@ -1849,6 +2157,13 @@ export const PRODUCTS = [
   "sub": "Modèles et phrases clés",
   "cat": "Langues",
   "price": 39,
+  "prices": {
+   "usd": 12,
+   "cad": 18,
+   "eur": 11,
+   "gbp": 9,
+   "aud": 18
+  },
   "cv": [
    "#E9E4FF",
    "#2B1E40",
@@ -1880,6 +2195,13 @@ export const PRODUCTS = [
   "sub": "Préparer et donner une présentation de 10 minutes",
   "cat": "Carrière",
   "price": 45,
+  "prices": {
+   "usd": 14,
+   "cad": 20,
+   "eur": 13,
+   "gbp": 11,
+   "aud": 20
+  },
   "cv": [
    "#3B2A5C",
    "#FFFFFF",
@@ -1917,6 +2239,13 @@ export const PRODUCTS = [
   "sub": "Un programme marche-course de 8 semaines, pour débutants en bonne santé",
   "cat": "Activité physique",
   "price": 35,
+  "prices": {
+   "usd": 11,
+   "cad": 16,
+   "eur": 10,
+   "gbp": 8,
+   "aud": 16
+  },
   "cv": [
    "#E3F4EC",
    "#123A2B",
@@ -1951,6 +2280,13 @@ export const PRODUCTS = [
   "sub": "3 courts enchaînements, chaque posture décrite avec précision",
   "cat": "Activité physique",
   "price": 39,
+  "prices": {
+   "usd": 12,
+   "cad": 18,
+   "eur": 11,
+   "gbp": 9,
+   "aud": 18
+  },
   "cv": [
    "#E3F4EC",
    "#123A2B",
@@ -1982,6 +2318,13 @@ export const PRODUCTS = [
   "sub": "Cinq guides marketing et vente, à un prix plus doux",
   "cat": "Coffrets",
   "price": 199,
+  "prices": {
+   "usd": 65,
+   "cad": 89,
+   "eur": 55,
+   "gbp": 49,
+   "aud": 89
+  },
   "cv": [
    "#1D1D1F",
    "#FFFFFF",
@@ -2007,6 +2350,13 @@ export const PRODUCTS = [
   "sub": "Six livres de cuisine, du levain aux dîners de la semaine",
   "cat": "Coffrets",
   "price": 179,
+  "prices": {
+   "usd": 55,
+   "cad": 79,
+   "eur": 49,
+   "gbp": 45,
+   "aud": 85
+  },
   "cv": [
    "#1D1D1F",
    "#FFFFFF",
@@ -2034,6 +2384,13 @@ export const PRODUCTS = [
   "cat": "Développement personnel",
   "price": 5,
   "usd": 2,
+  "prices": {
+   "usd": 2,
+   "cad": 3,
+   "eur": 2,
+   "gbp": 2,
+   "aud": 3
+  },
   "cv": [
    "#0E0B12",
    "#FFFFFF",
@@ -2061,5 +2418,869 @@ export const PRODUCTS = [
   "excerpt": "La plupart des gens ne vivent pas en dessous de leur potentiel par manque de talent ou de volonté. Ils vivent en dessous parce qu'ils essaient de tout changer d'un coup, craquent au bout d'une semaine et en concluent que le problème, c'est eux. Ce livre est construit à l'inverse. Il ne vous demande pas de devenir quelqu'un d'autre. Il vous demande de regarder honnêtement où vous en êtes, de décider où il compte pour vous d'arriver, puis d'avancer dans cette direction par des pas assez petits pour tenir même pendant une semaine chargée.",
   "pages": 55,
   "mb": 1.1
+ },
+ {
+  "id": "b53",
+  "n": 53,
+  "type": "ebook",
+  "title": "Une boîte de réception sereine",
+  "sub": "Un plan d'une semaine pour vider vos e-mails et en garder la maîtrise",
+  "cat": "Guides express",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "bars",
+  "description": [
+   "Un plan court et pratique pour reprendre la maîtrise de vos e-mails en une semaine. Vous fixez trois moments par jour, vous triez chaque message à l'aide de quatre décisions simples, vous liquidez l'arriéré en une seule séance et vous gardez une boîte calme grâce à une routine quotidienne de cinq minutes. Le guide convient à toute application de messagerie et se termine par une liste de contrôle d'une page."
+  ],
+  "chapters": [
+   "Avant de commencer",
+   "Chapitre 1 : Trois moments fixes par jour",
+   "Chapitre 2 : Quatre décisions pour chaque message",
+   "Chapitre 3 : Liquider l'arriéré en une séance",
+   "Chapitre 4 : Le plan de la semaine",
+   "En résumé : la liste de contrôle en une page"
+  ],
+  "excerpt": "Une boîte de réception qui déborde est rarement un problème de trop d'e-mails. C'est un problème de trop de décisions en suspens. Chaque message que vous lisez et laissez là où il est reste dans votre tête comme une petite tâche inachevée. Ce guide vous donne une manière simple de décider une seule fois, un plan pour liquider ce qui s'est accumulé et une routine de cinq minutes qui garde la boîte au calme. Il fonctionne avec toute application de messagerie, sur téléphone comme sur ordinateur, et ne vous demande de rien acheter.",
+  "pages": 8,
+  "mb": 0.6
+ },
+ {
+  "id": "b54",
+  "n": 54,
+  "type": "ebook",
+  "title": "Des réunions qui finissent à l'heure",
+  "sub": "Préparer, animer et conclure une réunion courte qui débouche sur des décisions",
+  "cat": "Guides express",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "dot",
+  "description": [
+   "Un guide compact pour des réunions qui commencent par un objectif et se terminent par des décisions. Vous apprenez quand une réunion n'est pas nécessaire, comment écrire un ordre du jour fait de questions, comment garder la discussion sur ses rails sans être brusque et comment envoyer un compte rendu qui fait avancer les choses. Avec des modèles à copier et une liste de contrôle d'une page."
+  ],
+  "chapters": [
+   "Avant de commencer",
+   "Chapitre 1 : Faut-il se réunir ?",
+   "Chapitre 2 : Un ordre du jour fait de questions",
+   "Chapitre 3 : Animer la réunion",
+   "Chapitre 4 : Le compte rendu qui fait avancer les choses",
+   "En résumé : la liste de contrôle en une page"
+  ],
+  "excerpt": "Une bonne réunion est courte, a une raison claire et se termine quand chacun sait qui fait quoi et pour quand. Il manque au moins l'un de ces trois éléments à la plupart des réunions. Ce guide vous montre comment y remédier, que vous dirigiez une équipe, animiez un comité de bénévoles ou ayez simplement invité trois collègues pour résoudre un problème. Vous y trouverez un test pour décider s'il faut se réunir, un format d'ordre du jour qui fonctionne, quelques phrases pour orienter la discussion et un modèle de compte rendu à copier.",
+  "pages": 10,
+  "mb": 0.6
+ },
+ {
+  "id": "b55",
+  "n": 55,
+  "type": "ebook",
+  "title": "Le bilan hebdomadaire en 20 minutes",
+  "sub": "Une courte habitude qui garde vos tâches, votre agenda et vos projets en ordre",
+  "cat": "Guides express",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "sun",
+  "description": [
+   "Une habitude hebdomadaire simple qui prend vingt minutes et remet toute votre semaine en ordre. Vous rassemblez tout ce qui est en suspens, vous regardez la semaine écoulée, vous regardez l'agenda à venir et vous choisissez trois priorités pour les sept prochains jours. Le guide comprend une page de bilan à imprimer et des conseils pour faire durer l'habitude."
+  ],
+  "chapters": [
+   "Avant de commencer",
+   "Chapitre 1 : Choisir le moment et le lieu",
+   "Chapitre 2 : Rassembler et regarder en arrière",
+   "Chapitre 3 : Regarder devant et en choisir trois",
+   "Chapitre 4 : La page de bilan",
+   "En résumé : la liste de contrôle en une page"
+  ],
+  "excerpt": "La plupart des semaines ne tournent pas mal à cause d'une grosse erreur. Elles tournent mal à cause de petites choses que personne n'a regardées : un formulaire à rendre, un appel à retourner, une réunion que vous avez oublié de préparer. Un bilan hebdomadaire, ce sont vingt minutes tranquilles pendant lesquelles vous regardez tout une fois, décidez de ce qui compte et commencez la semaine suivante en sachant où vous en êtes. Ce guide vous donne les étapes exactes, une page à remplir et un moyen de garder l'habitude même les semaines chargées.",
+  "pages": 9,
+  "mb": 0.6
+ },
+ {
+  "id": "b56",
+  "n": 56,
+  "type": "ebook",
+  "title": "Un téléphone qui vous laisse vous concentrer",
+  "sub": "Réglez votre téléphone en une soirée pour qu'il cesse de vous interrompre",
+  "cat": "Guides express",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "half",
+  "description": [
+   "Un réglage d'une soirée qui transforme votre téléphone, source d'interruptions, en outil silencieux. Vous classez les notifications en trois groupes, vous refaites l'écran d'accueil, vous fixez des heures de concentration et vous adoptez quelques petites règles pour les moments où la main part toute seule vers le téléphone. Aucune application à acheter et aucun bras de fer avec la volonté : seulement des réglages et des habitudes."
+  ],
+  "chapters": [
+   "Avant de commencer",
+   "Chapitre 1 : Les notifications en trois groupes",
+   "Chapitre 2 : Un écran d'accueil pour les outils",
+   "Chapitre 3 : Heures de concentration et nuits tranquilles",
+   "Chapitre 4 : De petites règles pour les moments de faiblesse",
+   "En résumé : la liste de contrôle en une page"
+  ],
+  "excerpt": "Votre téléphone est conçu pour vous rappeler à lui. Chaque son, chaque pastille et chaque bannière a été pensé par quelqu'un dont le travail est d'obtenir votre attention. Vous n'avez pas besoin de jeter le téléphone ni de gagner chaque jour une bataille de volonté. Il vous faut une soirée pour changer les réglages, afin que le téléphone vous attende, et non l'inverse. Ce guide vous accompagne pas à pas dans cette soirée, sur n'importe quel téléphone, et ajoute quelques petites habitudes qui préservent le calme.",
+  "pages": 8,
+  "mb": 0.6
+ },
+ {
+  "id": "b57",
+  "n": 57,
+  "type": "ebook",
+  "title": "La remise en ordre de la maison en une heure",
+  "sub": "Un parcours fixe qui rend tout le logement présentable en soixante minutes",
+  "cat": "Guides express",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "ring",
+  "description": [
+   "Un parcours fixe de soixante minutes qui ramène un logement en désordre à un état agréable et présentable. Vous préparez un seul panier de produits, vous avancez pièce par pièce dans un ordre établi, minuteur en main, et vous arrêtez quand l'heure est écoulée. Le guide comprend le plan minute par minute, une manière de répartir le travail en famille et une version courte pour les jours chargés."
+  ],
+  "chapters": [
+   "Avant de commencer",
+   "Chapitre 1 : Le panier et les règles",
+   "Chapitre 2 : Le parcours, minute par minute",
+   "Chapitre 3 : Les raccourcis pièce par pièce",
+   "Chapitre 4 : Partager l'heure et tenir dans la durée",
+   "En résumé : la liste de contrôle en une page"
+  ],
+  "excerpt": "Le ménage dure aussi longtemps qu'on le laisse durer. Sans plan, vous commencez par la cuisine, emportez quelque chose dans la chambre, remarquez l'armoire, et deux heures plus tard rien n'est terminé. La remise en ordre en une heure est un parcours fixe avec un minuteur. Vous avancez toujours dans le même ordre, vous faites la même courte liste dans chaque pièce et vous arrêtez quand l'heure est écoulée. Le logement ne sera pas impeccable. Il sera rangé, frais et agréable, et c'est ce dont la plupart d'entre nous ont besoin la plupart des semaines.",
+  "pages": 8,
+  "mb": 0.6
+ },
+ {
+  "id": "b58",
+  "n": 58,
+  "type": "ebook",
+  "title": "La lessive sans hésitation",
+  "sub": "Trier, laver, sécher et détacher, expliqué simplement",
+  "cat": "Guides express",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "bars",
+  "description": [
+   "Tout ce qu'il faut pour faire la lessive en confiance : lire l'étiquette d'entretien, trier simplement, choisir le programme et la température, sécher sans faire rétrécir et traiter les taches les plus courantes. Avec des tableaux à consulter d'un coup d'œil et une routine hebdomadaire qui empêche le linge de s'accumuler."
+  ],
+  "chapters": [
+   "Avant de commencer",
+   "Chapitre 1 : Lire l'étiquette d'entretien",
+   "Chapitre 2 : Trier en deux minutes",
+   "Chapitre 3 : Laver et sécher",
+   "Chapitre 4 : Les taches courantes",
+   "En résumé : la liste de contrôle en une page"
+  ],
+  "excerpt": "La lessive n'a rien de difficile, mais personne ne l'enseigne vraiment. La plupart d'entre nous ont appris en abîmant un pull préféré ou en sortant des chemises blanches devenues roses. Ce guide rassemble les bases en un seul endroit : lire une étiquette d'entretien, trier rapidement, choisir un programme, sécher et traiter les taches courantes. Les conseils sont généraux. L'étiquette cousue dans le vêtement et les indications de votre machine et de votre lessive passent toujours en premier.",
+  "pages": 9,
+  "mb": 0.6
+ },
+ {
+  "id": "b59",
+  "n": 59,
+  "type": "ebook",
+  "title": "Les papiers de la maison dans une seule boîte",
+  "sub": "Un système simple pour les papiers et les documents numériques du foyer",
+  "cat": "Guides express",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "dot",
+  "description": [
+   "Un système de classement simple pour un foyer, qui tient dans une boîte et dans un dossier de votre ordinateur. Vous rassemblez tous les papiers de la maison, vous les triez en trois décisions, vous les classez dans huit catégories fixes et vous gardez l'ordre avec dix minutes par mois. Le guide comprend une règle pour nommer les fichiers numériques et une page des documents qu'il vaut mieux retrouver vite."
+  ],
+  "chapters": [
+   "Avant de commencer",
+   "Chapitre 1 : Rassembler et décider",
+   "Chapitre 2 : Huit chemises",
+   "Chapitre 3 : Le jumeau numérique",
+   "Chapitre 4 : Dix minutes par mois",
+   "En résumé : la liste de contrôle en une page"
+  ],
+  "excerpt": "Chaque foyer reçoit du papier : factures, contrats, garanties, formulaires de l'école, courriers médicaux. On n'a plus jamais besoin de la plus grande partie, et une petite partie devient urgente le jour même où on ne la trouve pas. Ce guide construit un système assez petit pour être tenu : une boîte avec huit chemises, un dossier identique sur votre ordinateur et dix minutes par mois. Il parle d'ordre, pas de droit. La durée de conservation d'un document varie selon les pays ; consultez les indications officielles ou demandez à un professionnel qualifié pour votre situation.",
+  "pages": 10,
+  "mb": 0.6
+ },
+ {
+  "id": "b60",
+  "n": 60,
+  "type": "ebook",
+  "title": "La liste de contrôle du déménagement",
+  "sub": "Un compte à rebours de huit semaines pour déménager sereinement",
+  "cat": "Guides express",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "sun",
+  "description": [
+   "Un compte à rebours, semaine après semaine, qui ôte la panique d'un déménagement. Vous savez quoi faire huit semaines avant, comment emballer pièce par pièce avec un système d'étiquetage qui fonctionne, ce qui va dans le carton de la première nuit et comment traverser le jour J et la première semaine. Des listes de contrôle tout au long, pour un appartement loué comme pour une maison familiale."
+  ],
+  "chapters": [
+   "Avant de commencer",
+   "Chapitre 1 : De huit à quatre semaines avant",
+   "Chapitre 2 : Un emballage qui facilite le déballage",
+   "Chapitre 3 : La dernière semaine et le jour J",
+   "Chapitre 4 : La première semaine et la liste des adresses",
+   "En résumé : la liste de contrôle en une page"
+  ],
+  "excerpt": "Un déménagement, ce sont cent petites tâches qui semblent toutes urgentes en même temps. Le moyen de rester calme est de les répartir sur huit semaines et de savoir, chaque semaine, ce qui lui revient et ce qui peut attendre. Ce guide vous donne ce compte à rebours, une méthode d'emballage qui facilite le déballage, une liste pour le jour du déménagement et un plan pour la première semaine dans le nouveau logement. Il convient à un petit appartement loué comme à une maison familiale ; passez ce qui ne vous concerne pas.",
+  "pages": 11,
+  "mb": 0.6
+ },
+ {
+  "id": "b61",
+  "n": 61,
+  "type": "ebook",
+  "title": "Le couteau en cuisine, pour les cuisiniers du quotidien",
+  "sub": "Tenir, couper et entretenir un couteau en sécurité, et préparer les légumes deux fois plus vite",
+  "cat": "Guides express",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "half",
+  "description": [
+   "Un guide pour débutants sur le geste qui accélère toute la cuisine. Vous apprenez quels sont les trois couteaux qui suffisent, comment tenir le couteau et l'aliment en sécurité, les coupes de base avec des explications pas à pas pour l'oignon, l'ail, la carotte, le poivron et les herbes, et comment garder un couteau tranchant. Le guide se termine par un plan d'entraînement de dix minutes et une liste de sécurité."
+  ],
+  "chapters": [
+   "Avant de commencer",
+   "Chapitre 1 : Trois couteaux et une planche stable",
+   "Chapitre 2 : La prise et la griffe",
+   "Chapitre 3 : Cinq légumes, pas à pas",
+   "Chapitre 4 : Entretien, affûtage et entraînement",
+   "En résumé : la liste de contrôle en une page"
+  ],
+  "excerpt": "C'est dans la découpe que passe l'essentiel du temps de cuisine, et c'est la partie que personne n'enseigne. Avec une bonne prise, une planche stable et quelques gestes de base, préparer des légumes devient rapide et calme, et aussi plus sûr. Ce guide vous apprend ces bases en étapes simples. Il ne vous faut ni couteaux coûteux ni mains rapides. La vitesse vient toute seule au bout de quelques semaines ; au début, seul compte le geste juste. Lisez chaque étape en entier avant de prendre le couteau, et exercez-vous lentement.",
+  "pages": 10,
+  "mb": 0.6
+ },
+ {
+  "id": "b62",
+  "n": 62,
+  "type": "ebook",
+  "title": "Riz et céréales réussis à tous les coups",
+  "sub": "Une méthode, un tableau de proportions et de temps, et un remède à chaque raté",
+  "cat": "Guides express",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "ring",
+  "description": [
+   "Une méthode claire pour cuire le riz et sept autres céréales de façon qu'ils soient réussis à chaque fois. Vous obtenez une technique de base, un tableau des proportions d'eau et des temps de cuisson, des façons de donner du goût, des remèdes pour un résultat collant, dur ou brûlé et des idées simples pour transformer une casserole de céréales en repas. Le guide traite aussi du refroidissement et de la conservation des restes."
+  ],
+  "chapters": [
+   "Avant de commencer",
+   "Chapitre 1 : La méthode de base",
+   "Chapitre 2 : Le tableau des céréales",
+   "Chapitre 3 : Le goût",
+   "Chapitre 4 : Remèdes, restes et repas",
+   "En résumé : la liste de contrôle en une page"
+  ],
+  "excerpt": "Une casserole de riz compte trois ingrédients, et pourtant elle rate : collante un jour, dure le lendemain, brûlée le surlendemain. La raison est presque toujours la même : la quantité d'eau, la force du feu, ou un couvercle soulevé trop tôt. Ce guide vous donne une méthode qui vaut pour la plupart des céréales, un tableau de proportions et de temps à garder sur le réfrigérateur et un remède pour chaque problème courant. Les quantités sont de bons points de départ. Les casseroles, les plaques et les marques diffèrent ; ajustez un peu après votre premier essai.",
+  "pages": 11,
+  "mb": 0.7
+ },
+ {
+  "id": "b63",
+  "n": 63,
+  "type": "ebook",
+  "title": "Le réfrigérateur bien rangé",
+  "sub": "Organisez votre réfrigérateur et vos placards pour que les aliments durent plus longtemps et qu'on jette moins",
+  "cat": "Guides express",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "bars",
+  "description": [
+   "Un guide pratique pour un réfrigérateur et un garde-manger qui travaillent pour vous. Vous videz et remettez le réfrigérateur à zéro en quarante minutes, vous donnez un rôle à chaque étagère, vous apprenez ce qui n'a rien à faire au froid, vous installez un garde-manger où l'on voit tout et vous gardez une habitude hebdomadaire simple qui utilise les aliments avant qu'ils se gâtent. Avec des tableaux de conservation et une routine de courses."
+  ],
+  "chapters": [
+   "Avant de commencer",
+   "Chapitre 1 : La remise à zéro en quarante minutes",
+   "Chapitre 2 : Un rôle pour chaque étagère",
+   "Chapitre 3 : Ce qui vit hors du réfrigérateur",
+   "Chapitre 4 : Le garde-manger et l'habitude hebdomadaire",
+   "En résumé : la liste de contrôle en une page"
+  ],
+  "excerpt": "Un réfrigérateur où l'on ne voit pas les aliments est un réfrigérateur qui les gaspille. La salade du fond, le demi-bocal de sauce, le fromage sous le sachet de carottes : tous ont été achetés avec de bonnes intentions et jetés deux semaines plus tard. Un réfrigérateur bien rangé n'est pas une affaire de jolies boîtes. Il s'agit de tout voir d'un coup d'œil et de mettre chaque aliment là où il se conserve le mieux. Ce guide vous accompagne dans une remise à zéro d'une quarantaine de minutes et dans les petites habitudes qui la font durer. Les conseils sont généraux ; suivez les dates et les indications de conservation de l'emballage.",
+  "pages": 11,
+  "mb": 0.6
+ },
+ {
+  "id": "b64",
+  "n": 64,
+  "type": "ebook",
+  "title": "Cuisiner une fois, congeler malin",
+  "sub": "Ce qui se congèle bien, comment l'emballer et comment faire du congélateur des dîners tout prêts",
+  "cat": "Guides express",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "dot",
+  "description": [
+   "Un guide court pour faire du congélateur un allié des semaines chargées. Vous apprenez ce qui se congèle bien et ce qui ne se congèle pas, comment refroidir, emballer et étiqueter correctement, comment décongeler et réchauffer, et comment mener une séance de cuisine de deux heures qui remplit le congélateur de dîners. Avec une liste du congélateur à afficher sur la porte."
+  ],
+  "chapters": [
+   "Avant de commencer",
+   "Chapitre 1 : Ce qui se congèle bien",
+   "Chapitre 2 : Refroidir, emballer, étiqueter",
+   "Chapitre 3 : Décongeler et réchauffer",
+   "Chapitre 4 : La séance de deux heures et la liste du congélateur",
+   "En résumé : la liste de contrôle en une page"
+  ],
+  "excerpt": "Le congélateur est l'outil le moins utilisé de la cuisine. Chez beaucoup d'entre nous, il contient des glaçons, des petits pois et quelques paquets mystérieux que personne n'ose ouvrir. Bien utilisé, c'est une étagère de dîners faits maison qui attendent les soirs où vous n'avez pas la force de cuisiner. Ce guide explique ce qui se congèle bien, comment emballer et étiqueter, comment décongeler et comment remplir le congélateur en une séance de cuisine tranquille. Les conseils sont généraux : suivez la notice de votre congélateur et les indications des aliments emballés.",
+  "pages": 12,
+  "mb": 0.6
+ },
+ {
+  "id": "b65",
+  "n": 65,
+  "type": "ebook",
+  "title": "Bagage cabine uniquement",
+  "sub": "Faites un seul petit sac pour une semaine de voyage, avec une liste complète et une méthode de pliage",
+  "cat": "Guides express",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "sun",
+  "description": [
+   "Une méthode pratique pour voyager une semaine ou plus avec un seul petit sac. Vous planifiez les vêtements grâce à une formule chiffrée simple, vous choisissez des pièces qui vont toutes ensemble, vous roulez et rangez par couches, vous gérez les liquides et l'électronique au contrôle de sécurité et vous lavez en route. Avec une liste complète à copier et une routine de dix minutes avant de quitter la maison."
+  ],
+  "chapters": [
+   "Avant de commencer",
+   "Chapitre 1 : La formule chiffrée",
+   "Chapitre 2 : Ranger par couches",
+   "Chapitre 3 : Liquides, électronique et lessive",
+   "Chapitre 4 : La liste complète",
+   "En résumé : la liste de contrôle en une page"
+  ],
+  "excerpt": "Voyager avec un seul petit sac change un voyage. Vous n'attendez pas au tapis à bagages, vous ne traînez pas une lourde valise dans les escaliers du métro et vous savez toujours où se trouve chaque chose. La plupart de ceux qui essaient une fois ne reviennent pas en arrière. Le secret n'est pas un sac spécial. C'est un plan : moins de vêtements, qui vont tous ensemble, et une manière fixe de les ranger. Ce guide vous donne le plan et une liste complète. Les compagnies aériennes diffèrent sur la taille et le poids autorisés ; vérifiez les règles de votre billet avant de faire le sac.",
+  "pages": 10,
+  "mb": 0.6
+ },
+ {
+  "id": "b66",
+  "n": 66,
+  "type": "ebook",
+  "title": "Une journée dans une ville inconnue",
+  "sub": "Un plan simple pour voir le meilleur de n'importe quelle ville en un seul jour, sans courir",
+  "cat": "Guides express",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "half",
+  "description": [
+   "Un plan qui fonctionne dans n'importe quelle ville quand vous n'avez qu'une journée. Vous vous préparez en trente minutes la veille au soir, vous construisez la journée autour d'un point d'ancrage et d'un quartier, vous mangez bien sans tomber dans les pièges à touristes et vous vous déplacez en confiance. Le guide comprend un modèle de journée à remplir, une liste pour le petit sac et des conseils pour voyager avec des enfants."
+  ],
+  "chapters": [
+   "Avant de commencer",
+   "Chapitre 1 : Trente minutes la veille au soir",
+   "Chapitre 2 : La forme de la journée",
+   "Chapitre 3 : Manger et se déplacer",
+   "Chapitre 4 : Le modèle de journée et le petit sac",
+   "En résumé : la liste de contrôle en une page"
+  ],
+  "excerpt": "Une journée dans une ville que vous ne connaissez pas peut être la plus belle du voyage ou la plus épuisante. La différence tient rarement à la ville. Elle tient au plan. Ceux qui veulent voir dix sites passent la journée dans les files d'attente et les transports, et se souviennent surtout de leurs pieds. Ceux qui choisissent une chose importante et un quartier où flâner rentrent avec le sentiment d'avoir rencontré le lieu. Ce guide vous donne une façon de préparer une telle journée en une demi-heure, dans n'importe quelle ville, pour une escale, un déplacement professionnel ou une excursion en train.",
+  "pages": 11,
+  "mb": 0.6
+ },
+ {
+  "id": "b67",
+  "n": 67,
+  "type": "ebook",
+  "title": "Portraits au téléphone",
+  "sub": "Photographiez ceux que vous aimez pour qu'ils se ressemblent",
+  "cat": "Guides express",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "ring",
+  "description": [
+   "Un guide court pour photographier des personnes avec un téléphone : où les placer par rapport à la lumière, comment choisir la distance et la hauteur, que dire pour qu'elles se détendent, et comment photographier les enfants et les groupes. Il se termine par une retouche en trois étapes et une liste à relire avant d'appuyer sur le bouton. Aucun matériel supplémentaire."
+  ],
+  "chapters": [
+   "Avant de commencer",
+   "Chapitre 1 : La lumière sur un visage",
+   "Chapitre 2 : Distance, hauteur et cadre",
+   "Chapitre 3 : Adultes, enfants et groupes",
+   "Chapitre 4 : Une retouche en trois étapes et garder les meilleures",
+   "En résumé : la liste de contrôle en une page"
+  ],
+  "excerpt": "Les photos qui comptent le plus pour nous sont des photos de personnes, et ce sont celles qui déçoivent le plus souvent : yeux fermés, ombres dures, sourire figé, visage qui paraît on ne sait pourquoi plus large qu'en vrai. Rien de tout cela n'est la faute du téléphone. Un bon portrait dépend de trois choses que vous maîtrisez : la lumière, la distance et l'humeur de la personne en face de vous. Ce guide traite précisément de ces trois points, en étapes simples qui valent pour tout téléphone, et ajoute quelques mots sur les enfants, les groupes et la retouche.",
+  "pages": 11,
+  "mb": 0.6
+ },
+ {
+  "id": "b68",
+  "n": 68,
+  "type": "ebook",
+  "title": "Domptez votre photothèque",
+  "sub": "Sauvegardez, nettoyez et organisez des milliers de photos de téléphone en un week-end",
+  "cat": "Guides express",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "bars",
+  "description": [
+   "Un plan d'un week-end pour les milliers de photos de votre téléphone. Vous faites d'abord deux sauvegardes, vous supprimez par tours rapides, vous créez un petit nombre d'albums, vous marquez les favoris et vous fixez une routine mensuelle de dix minutes pour que le désordre ne revienne pas. Le guide se termine par des façons de profiter des photos : un album annuel, des tirages et le partage en famille."
+  ],
+  "chapters": [
+   "Avant de commencer",
+   "Chapitre 1 : Sauvegarder avant de toucher à quoi que ce soit",
+   "Chapitre 2 : Supprimer par tours rapides",
+   "Chapitre 3 : Une structure légère",
+   "Chapitre 4 : Dix minutes par mois, et profiter des photos",
+   "En résumé : la liste de contrôle en une page"
+  ],
+  "excerpt": "La plupart d'entre nous portent des milliers de photos dans la poche et n'en retrouvent aucune. Des captures d'écran, des reçus, huit images presque identiques du même gâteau et, quelque part au milieu, la seule photo de grand-mère en train de rire. Une photothèque n'a de valeur que si l'on peut y retrouver les choses et si l'on sait qu'elle est en sécurité. Ce guide vous donne un plan pour un week-end : d'abord tout protéger, puis supprimer, puis organiser un peu, et enfin fixer une courte habitude mensuelle. Il vaut pour tout téléphone et toute application de photos.",
+  "pages": 12,
+  "mb": 0.6
+ },
+ {
+  "id": "b69",
+  "n": 69,
+  "type": "ebook",
+  "title": "Une langue en 15 minutes par jour",
+  "sub": "Une routine quotidienne pour apprendre n'importe quelle langue quand on a très peu de temps",
+  "cat": "Guides express",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "dot",
+  "description": [
+   "Une routine réaliste pour apprendre n'importe quelle langue en quinze minutes par jour. Vous fixez un objectif clair, vous découpez le quart d'heure en trois blocs de cinq minutes, vous apprenez d'abord les mots qui comptent, vous parlez dès la première semaine et vous suivez vos progrès sur une page simple. Avec un plan de démarrage de quatre semaines et des idées de pratique libre dans la vie de tous les jours."
+  ],
+  "chapters": [
+   "Avant de commencer",
+   "Chapitre 1 : Un objectif et un moment fixe",
+   "Chapitre 2 : Trois blocs de cinq minutes",
+   "Chapitre 3 : Les mots d'abord, et parler dès la première semaine",
+   "Chapitre 4 : Pratique libre, suivi et plan de quatre semaines",
+   "En résumé : la liste de contrôle en une page"
+  ],
+  "excerpt": "La plupart de ceux qui commencent une langue s'arrêtent au bout de quelques semaines, et ce n'est pas faute de talent. Ils commencent par une heure par jour, manquent deux jours et ne reviennent jamais. Une langue s'apprend par petites quantités sur une longue durée. Quinze minutes chaque jour vous donnent plus de quatre-vingt-dix heures en un an et, surtout, la langue n'a jamais le temps de s'effacer entre deux séances. Ce guide vous donne une routine pour ces quinze minutes, pour n'importe quelle langue et avec n'importe quel support. Il ne promet pas de miracle : avec un travail régulier, vous comprendrez et direz davantage chaque mois.",
+  "pages": 12,
+  "mb": 0.6
+ },
+ {
+  "id": "b70",
+  "n": 70,
+  "type": "ebook",
+  "title": "Des messages auxquels on répond",
+  "sub": "Écrire des messages et des e-mails professionnels courts et clairs, qui obtiennent une réponse du premier coup",
+  "cat": "Guides express",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "sun",
+  "description": [
+   "Un guide court pour écrire des messages professionnels qui sont lus, compris et suivis d'une réponse. Vous apprenez à placer la demande en premier, à faciliter la réponse, à choisir entre messagerie, e-mail et appel, et à rédiger sans tension les relances et les messages difficiles. Avec des exemples avant et après, des formules d'ouverture prêtes à l'emploi et une vérification de trente secondes avant l'envoi."
+  ],
+  "chapters": [
+   "Avant de commencer",
+   "Chapitre 1 : La demande vient en premier",
+   "Chapitre 2 : Faciliter la réponse",
+   "Chapitre 3 : Plus court, plus simple, et par le bon canal",
+   "Chapitre 4 : Relances, messages difficiles et vérification de trente secondes",
+   "En résumé : la liste de contrôle en une page"
+  ],
+  "excerpt": "Une grande part de la vie professionnelle se passe par écrit : messages dans la discussion de l'équipe, e-mails aux clients, mot au conseil de l'immeuble. La plupart sont lus sur un téléphone, entre deux autres choses, par quelqu'un que trente autres messages attendent. Un message qui demande un effort pour être compris est mis de côté pour plus tard, et plus tard ne vient pas toujours. Écrire clairement n'est pas un talent. C'est un petit ensemble d'habitudes : dire d'abord ce dont on a besoin, faciliter la réponse et retirer ce qui est inutile. Ce guide enseigne ces habitudes avec des exemples que vous pouvez copier.",
+  "pages": 12,
+  "mb": 0.6
+ },
+ {
+  "id": "b71",
+  "n": 71,
+  "type": "ebook",
+  "title": "Dire non au travail",
+  "sub": "Protégez votre temps avec tact, grâce à des phrases prêtes pour chaque situation courante",
+  "cat": "Guides express",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "half",
+  "description": [
+   "Un guide court pour refuser des demandes au travail sans abîmer les relations. Vous apprenez à marquer une pause avant de répondre, à décider à l'aide de trois questions, à dire non en quatre courtes parties et à proposer de vraies solutions de rechange. Avec des phrases prêtes pour un responsable, des collègues, des clients et des réunions, et une façon de gérer la culpabilité qui suit."
+  ],
+  "chapters": [
+   "Avant de commencer",
+   "Chapitre 1 : La pause",
+   "Chapitre 2 : Trois questions pour décider",
+   "Chapitre 3 : Comment le dire",
+   "Chapitre 4 : Solutions de rechange, pression et culpabilité",
+   "En résumé : la liste de contrôle en une page"
+  ],
+  "excerpt": "Chaque oui a un prix. Quand vous acceptez une tâche de plus, quelque chose d'autre reçoit moins de votre temps : votre travail principal, votre famille ou votre sommeil. Ceux qui ne savent pas dire non n'en font pas davantage. Ils font beaucoup de choses en retard et sous pression, et finissent par décevoir ceux-là mêmes à qui ils voulaient faire plaisir. Bien dire non est une compétence qui s'apprend. Il faut une courte pause, une décision claire et quelques phrases simples. Ce guide vous donne les trois, avec des formulations utilisables dès demain matin.",
+  "pages": 11,
+  "mb": 0.6
+ },
+ {
+  "id": "b72",
+  "n": 72,
+  "type": "ebook",
+  "title": "Des retours sans drame",
+  "sub": "Comment faire un retour utile et comment en recevoir un avec calme",
+  "cat": "Guides express",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "ring",
+  "description": [
+   "Un guide pratique des deux côtés du retour. Vous apprenez une structure en quatre étapes pour dire une chose difficile avec clarté et bienveillance, comment faire un compliment qui aide vraiment, comment écouter une critique sans vous défendre et comment la transformer en un changement concret. Avec des formules d'ouverture, des exemples et une page de préparation."
+  ],
+  "chapters": [
+   "Avant de commencer",
+   "Chapitre 1 : Avant de parler",
+   "Chapitre 2 : Les quatre étapes",
+   "Chapitre 3 : Recevoir un retour",
+   "Chapitre 4 : La page de préparation et les cas difficiles",
+   "En résumé : la liste de contrôle en une page"
+  ],
+  "excerpt": "La plupart des gens évitent les retours dans les deux sens. En faire un donne l'impression d'ouvrir une dispute, et en recevoir un donne l'impression d'être attaqué. Alors les petits problèmes sont laissés de côté jusqu'à devenir grands, et le bon travail passe sans un mot. Bien fait, un retour n'est ni un verdict ni un discours. C'est une information : voici ce que j'ai vu, voici ce que cela a entraîné, voici ce que je demande. Ce guide vous donne une structure simple pour transmettre cette information, une manière de complimenter qui a de la valeur et une méthode pour écouter une critique sans perdre votre calme.",
+  "pages": 12,
+  "mb": 0.6
+ },
+ {
+  "id": "b73",
+  "n": 73,
+  "type": "ebook",
+  "title": "Des notes qui servent",
+  "sub": "Une manière simple de prendre des notes en réunion, en cours et en lisant, et de les retrouver",
+  "cat": "Guides express",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "bars",
+  "description": [
+   "Une méthode simple de prise de notes pour les réunions, les cours et les livres. Vous écrivez moins pendant l'événement, vous marquez les actions et les questions de trois signes, vous résumez en cinq minutes ensuite et vous gardez tout au même endroit, là où on peut le retrouver. La méthode vaut sur papier comme sur téléphone et comprend des mises en page à copier."
+  ],
+  "chapters": [
+   "Avant de commencer",
+   "Chapitre 1 : Écrire moins",
+   "Chapitre 2 : La page et les trois signes",
+   "Chapitre 3 : Cinq minutes après",
+   "Chapitre 4 : Les retrouver",
+   "En résumé : la liste de contrôle en une page"
+  ],
+  "excerpt": "La plupart des notes sont écrites une fois et jamais relues. Elles remplissent des carnets et des applications, et quand il vous faut la seule chose qu'a dite le conférencier, ou la tâche que vous avez promise en réunion, impossible de la retrouver. Le problème vient rarement de l'écriture ou de l'application. Des notes ne sont utiles que si elles sont courtes, si ce qu'il faut faire en ressort et si elles vivent en un seul endroit. Ce guide enseigne une méthode en trois parties : écrire moins sur le moment, traiter cinq minutes après, et tout garder là où vous pouvez le retrouver.",
+  "pages": 11,
+  "mb": 0.6
+ },
+ {
+  "id": "b74",
+  "n": 74,
+  "type": "ebook",
+  "title": "Le rituel du soir",
+  "sub": "Une routine simple pour la dernière heure de la journée, afin que demain commence dans le calme",
+  "cat": "Guides express",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "dot",
+  "description": [
+   "Une routine douce pour la dernière heure de la journée. Vous terminez la journée par une remise en ordre de dix minutes, vous préparez le lendemain en cinq minutes, vous éloignez les écrans et vous choisissez deux ou trois activités calmes qui vous conviennent. Le guide comprend un outil pour composer votre routine, des idées pour les soirées avec des enfants et une version courte pour les nuits tardives. Des habitudes générales uniquement, pas un avis médical."
+  ],
+  "chapters": [
+   "Avant de commencer",
+   "Chapitre 1 : Une heure fixe et un signal clair",
+   "Chapitre 2 : Clore la journée",
+   "Chapitre 3 : Les écrans sortent, le calme entre",
+   "Chapitre 4 : Composer sa routine et la tenir",
+   "En résumé : la liste de contrôle en une page"
+  ],
+  "excerpt": "La façon dont une journée se termine décide de la façon dont la suivante commence. Une soirée qui déborde sur la nuit, un écran à la main, la vaisselle dans l'évier et les tâches du lendemain qui tournent dans la tête, mène à un matin qui commence fatigué et en retard. Un rituel du soir est une suite courte et fixe de gestes qui dit au corps et à la tête que la journée est finie. Il ne demande ni une heure de méditation ni un équipement particulier. Ce guide vous aide à composer votre propre routine à partir d'éléments simples et à la tenir les soirs ordinaires et chargés.",
+  "pages": 12,
+  "mb": 0.6
+ },
+ {
+  "id": "b75",
+  "n": 75,
+  "type": "ebook",
+  "title": "Le tableau des tâches de la famille",
+  "sub": "Partagez les travaux de la maison avec les enfants de tout âge, sans disputes quotidiennes",
+  "cat": "Guides express",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "sun",
+  "description": [
+   "Un guide pour les parents qui veulent que les enfants participent aux travaux de la maison sans lutte quotidienne. Vous y trouvez un tableau des tâches par âge, une manière d'enseigner chaque tâche en quatre étapes, un tableau hebdomadaire construit avec les enfants et des réponses aux difficultés courantes : l'oubli, le refus et le travail mal fait. Avec un tableau à copier et le plan d'une réunion de famille."
+  ],
+  "chapters": [
+   "Avant de commencer",
+   "Chapitre 1 : Quelles tâches à quel âge",
+   "Chapitre 2 : Enseigner une tâche en quatre étapes",
+   "Chapitre 3 : Construire le tableau ensemble",
+   "Chapitre 4 : L'oubli, le refus et la durée",
+   "En résumé : la liste de contrôle en une page"
+  ],
+  "excerpt": "Dans bien des foyers, un ou deux adultes font tout, et les enfants sont rappelés à l'ordre, priés, et pour finir grondés pour qu'ils accrochent une serviette. Cela fatigue les parents, et cela apprend aux enfants que la maison est le travail de quelqu'un d'autre. Les enfants sont capables de bien plus que ce que nous leur demandons d'ordinaire, et ils y gagnent beaucoup : des savoir-faire, de la confiance et le sentiment qu'on a besoin d'eux. Ce guide vous aide à répartir les travaux équitablement, à enseigner chaque tâche comme il faut et à construire un tableau simple que la famille peut tenir. C'est vous qui menez ; les enfants participent.",
+  "pages": 11,
+  "mb": 0.7
+ },
+ {
+  "id": "b76",
+  "n": 76,
+  "type": "ebook",
+  "title": "Des matins d'école sereins",
+  "sub": "Une routine qui fait sortir toute la famille à l'heure, sans cris",
+  "cat": "Guides express",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "half",
+  "description": [
+   "Un guide pour les parents, pour des matins qui se déroulent sans cris. Vous déplacez l'essentiel du travail à la veille au soir, vous construisez avec les enfants un ordre fixe d'étapes, vous installez une base de départ près de la porte et vous remplacez les rappels par quelques outils discrets. Avec un plan horaire à remplir, une idée de tableau en images pour les petits et des réponses aux difficultés courantes."
+  ],
+  "chapters": [
+   "Avant de commencer",
+   "Chapitre 1 : Le matin commence la veille au soir",
+   "Chapitre 2 : Le plan horaire",
+   "Chapitre 3 : Le tableau, la base de départ et les outils discrets",
+   "Chapitre 4 : Quand cela déraille, et comment tenir",
+   "En résumé : la liste de contrôle en une page"
+  ],
+  "excerpt": "Un matin d'école a une fin fixe, le moment où il faut partir, et beaucoup de petites étapes avant elle. Quand l'une d'elles se bloque, une chaussure introuvable, un formulaire non signé ou un enfant qui ne se lève pas, tout le matin s'effondre dans la précipitation et les voix qui montent, et chacun commence sa journée de mauvaise humeur. Un matin calme n'est pas une affaire de caractère ni de chance. Il vient de ce que l'on fait l'essentiel la veille au soir, d'un ordre fixe que les enfants connaissent par cœur et de quelques minutes de marge. Ce guide vous montre comment construire les trois.",
+  "pages": 12,
+  "mb": 0.6
  }
 ];

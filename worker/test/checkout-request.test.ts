@@ -14,6 +14,12 @@ describe("parseCheckoutRequest", () => {
     expect(parseCheckoutRequest({ kind: "product", id: "b51", lang: "en" }, CATALOG)).toEqual({ kind: "product", id: "b51", lang: "en" });
     expect(parseCheckoutRequest({ kind: "plan", id: "grow", lang: "fr" }, CATALOG)).toEqual({ kind: "plan", id: "grow", lang: "fr" });
   });
+  it("reads the currency the site names and rejects one the store does not sell in", () => {
+    expect(parseCheckoutRequest({ kind: "cart", ids: ["b9"], lang: "en", currency: "cad" }, CATALOG)).toEqual({ kind: "cart", ids: ["b9"], lang: "en", currency: "cad" });
+    expect(parseCheckoutRequest({ kind: "product", id: "b9", lang: "en", currency: "eur" }, CATALOG)).toEqual({ kind: "product", id: "b9", lang: "en", currency: "eur" });
+    expect(codeOf(() => parseCheckoutRequest({ kind: "product", id: "b9", lang: "en", currency: "gel" }, CATALOG))).toBe("bad_request");
+    expect(codeOf(() => parseCheckoutRequest({ kind: "product", id: "b9", lang: "en", currency: 5 }, CATALOG))).toBe("bad_request");
+  });
   it("ignores any amount the browser sends", () => {
     expect(parseCheckoutRequest({ kind: "product", id: "b9", lang: "he", amount: 1, price: 1 }, CATALOG)).toEqual({ kind: "product", id: "b9", lang: "he" });
   });

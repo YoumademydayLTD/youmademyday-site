@@ -1,6 +1,7 @@
-// Page chrome in the active language: header capsule, footer and the language picker.
+// Page chrome in the active language: header capsule, footer and the language and currency pickers.
 import { t, LANG, urlIn, HOME_URL } from "./i18n/index.js";
-import { LANGS, LIVE } from "./i18n/config.js";
+import { LANGS, LIVE, CURRENCIES } from "./i18n/config.js";
+import { CURRENCY, canChooseCurrency, saveCurrency } from "./currency.js";
 import { BIZ_FOR } from "./business.js";
 import { botUrl } from "./telegram/bot.js";
 import { accountSlot } from "./telegram/account.js";
@@ -26,6 +27,11 @@ function header() {
 const langPicker = () => `<label class="lang-pick">${icon("i-globe")}<span class="sr">${t("foot.lang")}</span>
   <select id="langPick" aria-label="${t("foot.lang")}">${Object.entries(LANGS).filter(([code]) => LIVE.includes(code)).map(([code, l]) => `<option value="${code}" lang="${code}" ${code === LANG ? "selected" : ""}>${l.name}</option>`).join("")}</select></label>`;
 
+// The currency picker sits beside the language picker on every site but the Hebrew one (always shekels).
+const currencyPicker = () => `<label class="lang-pick"><span class="sr">${t("foot.currency")}</span>
+  <select id="curPick" aria-label="${t("foot.currency")}">${CURRENCIES.map((code) => `<option value="${code}" ${code === CURRENCY ? "selected" : ""}>${code}</option>`).join("")}</select></label>`;
+const pickers = () => (canChooseCurrency ? `<span class="foot-picks">${currencyPicker()}${langPicker()}</span>` : langPicker());
+
 function footer() {
   const b = BIZ_FOR(LANG);
   const col = (title, items) => `<div><h4>${t(title)}</h4><ul>${items.map(([href, k, extra = ""]) => `<li><a href="${href}"${extra}>${t(k)}</a></li>`).join("")}</ul></div>`;
@@ -37,7 +43,7 @@ function footer() {
       ${col("foot.legal", [["#terms", "foot.terms"], ["#privacy", "foot.privacy"], ["#cookies", "foot.cookies"]])}
       <div><h4>${t("foot.company")}</h4><ul><li>${b.name}</li><li>${b.id}</li><li>${b.addr}</li><li><a href="mailto:${b.email}">${b.email}</a></li></ul></div>
     </div>
-    <div class="foot-bottom"><span>${t("foot.rights", { year: new Date().getFullYear() })}</span>${langPicker()}</div>
+    <div class="foot-bottom"><span>${t("foot.rights", { year: new Date().getFullYear() })}</span>${pickers()}</div>
   </div></footer>`;
 }
 
@@ -46,5 +52,10 @@ export function renderLayout() {
   document.getElementById("langPick").addEventListener("change", (e) => {
     const route = location.hash.slice(1) || location.pathname.split("/").filter(Boolean).filter((s) => !(s in LANGS)).join("/");
     location.href = urlIn(e.target.value, route);
+  });
+  // A new currency redraws every price, the cart and the filters: the simplest correct way is a reload.
+  document.getElementById("curPick")?.addEventListener("change", (e) => {
+    saveCurrency(e.target.value);
+    location.reload();
   });
 }

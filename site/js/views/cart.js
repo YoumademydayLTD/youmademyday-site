@@ -2,24 +2,25 @@
 import { ALL, kindLabel, totals, isPdf } from "../catalog.js";
 import { flatCover } from "../book3d.js";
 import { S } from "../state.js";
-import { esc, ils, $ } from "../util.js";
+import { esc, $ } from "../util.js";
+import { amountOf, money } from "../money.js";
 import { BOOK_DEAL_MIN } from "../business.js";
 import { t, tList } from "../i18n/index.js";
 import { payPanel, payButton } from "../checkout/panel.js";
 
 export function lineHtml(id) {
   const p = ALL[id];
-  return `<div class="line">${flatCover(p)}<div style="min-width:0"><h4>${esc(p.title)}</h4><small>${kindLabel(p)}</small><br><button class="x" data-act="remove" data-id="${id}">${t("cart.remove")}</button></div><b class="num">${ils(p.price)}</b></div>`;
+  return `<div class="line">${flatCover(p)}<div style="min-width:0"><h4>${esc(p.title)}</h4><small>${kindLabel(p)}</small><br><button class="x" data-act="remove" data-id="${id}">${t("cart.remove")}</button></div><b class="num">${money(amountOf(p))}</b></div>`;
 }
 
 export function summaryHtml() {
   const sum = totals(S.cart);
-  return `<div class="sum"><span>${t("cart.subtotal")}</span><span class="num">${ils(sum.subtotal)}</span></div>
-    ${sum.bookDeal ? `<div class="sum" style="color:var(--ok)"><span>${t("cart.deal", { n: BOOK_DEAL_MIN })}</span><span class="num">−${ils(sum.bookDeal)}</span></div>` : ""}
-    <div class="sum total"><span>${t("cart.total")}</span><span class="num">${ils(sum.total)}</span></div>`;
+  return `<div class="sum"><span>${t("cart.subtotal")}</span><span class="num">${money(sum.subtotal)}</span></div>
+    ${sum.bookDeal ? `<div class="sum" style="color:var(--ok)"><span>${t("cart.deal", { n: BOOK_DEAL_MIN })}</span><span class="num">−${money(sum.bookDeal)}</span></div>` : ""}
+    <div class="sum total"><span>${t("cart.total")}</span><span class="num">${money(sum.total)}</span></div>`;
 }
 
-const wishLine = (id) => `<div class="line">${flatCover(ALL[id])}<div style="min-width:0"><h4>${esc(ALL[id].title)}</h4><small>${ils(ALL[id].price)}</small></div><button class="btn btn-ghost btn-sm" data-act="wish-to-cart" data-id="${id}">${t("cart.toCart")}</button></div>`;
+const wishLine = (id) => `<div class="line">${flatCover(ALL[id])}<div style="min-width:0"><h4>${esc(ALL[id].title)}</h4><small>${money(amountOf(ALL[id]))}</small></div><button class="btn btn-ghost btn-sm" data-act="wish-to-cart" data-id="${id}">${t("cart.toCart")}</button></div>`;
 
 export function openDrawer(kind) {
   const isCart = kind !== "wish";

@@ -2,7 +2,8 @@
 // Every product we own carries metadata.ymd_id; products without it belong to the owner and are never touched.
 import type { Catalog } from "../build_catalog.ts";
 
-export type Currency = "ils" | "usd";
+export type Currency = "ils" | "usd" | "cad" | "eur" | "gbp" | "aud";
+type PricedItem = { price: number; usd?: number; prices?: Partial<Record<Currency, number>> };
 export type Interval = "week" | "month";
 
 export interface PriceSpec { currency: Currency; amount: number }
@@ -26,10 +27,13 @@ const STORE_ORDER_PLACEHOLDER_ILS = 100;
 
 const toMinor = (major: number): number => Math.round(major * MINOR_UNITS);
 
-function pricesOf(item: { price: number; usd?: number }): PriceSpec[] {
-  const prices: PriceSpec[] = [{ currency: "ils", amount: toMinor(item.price) }];
-  if (item.usd != null) prices.push({ currency: "usd", amount: toMinor(item.usd) });
-  return prices;
+/** One Polar price per currency: shekels (the organization's default), then the item's other currencies (owner, 12.11.2026). */
+function pricesOf(item: PricedItem): PriceSpec[] {
+  const others: Partial<Record<Currency, number>> = { ...(item.usd != null ? { usd: item.usd } : {}), ...item.prices };
+  return [
+    { currency: "ils", amount: toMinor(item.price) },
+    ...Object.entries(others).map(([currency, amount]): PriceSpec => ({ currency: currency as Currency, amount: toMinor(amount) })),
+  ];
 }
 
 export function productSpecs(catalog: Catalog): ProductSpec[] {

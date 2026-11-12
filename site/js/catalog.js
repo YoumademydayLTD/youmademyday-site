@@ -7,7 +7,7 @@ import { esc } from "./util.js";
 import { S } from "./state.js";
 import { BOOK_DEAL_MIN } from "./business.js";
 import { bookStage } from "./book3d.js";
-import { priceLabel } from "./money.js";
+import { amountOf, priceLabel } from "./money.js";
 
 export const ALL = Object.fromEntries(PRODUCTS.map((p) => [p.id, p]));
 export const COURSES = PRODUCTS.filter((p) => p.type === "course");
@@ -50,8 +50,8 @@ export function card(p) {
 // Cart totals: the only automatic offer is "3 books, the cheapest free".
 export function totals(ids) {
   const items = ids.map((id) => ALL[id]).filter(Boolean);
-  const subtotal = items.reduce((sum, p) => sum + p.price, 0);
+  const subtotal = items.reduce((sum, p) => sum + amountOf(p), 0);
   const books = items.filter(isPdf);
-  const bookDeal = books.length >= BOOK_DEAL_MIN ? Math.min(...books.map((b) => b.price)) : 0;
+  const bookDeal = books.length >= BOOK_DEAL_MIN ? Math.min(...books.map(amountOf)) : 0;
   return { subtotal, bookDeal, total: subtotal - bookDeal };
 }

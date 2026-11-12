@@ -1,6 +1,6 @@
 // Turn a validated site request into the Polar checkout to open and the row we keep (pure).
 import { HttpError } from "../http/errors.ts";
-import { cartTotal, currencyFor, toMinor, type Catalog, type Currency } from "../catalog/index.ts";
+import { cartCurrency, cartTotal, currencyFor, toMinor, HOME_CURRENCY, type Catalog, type Currency } from "../catalog/index.ts";
 import { PLAN_ID_PREFIX, STORE_ORDER_ID, type ProductMap } from "../polar/mapping.ts";
 import { adHocPrice, polarLocale, type PolarCheckoutBody } from "../polar/checkout-body.ts";
 import type { CheckoutRequest } from "./request.ts";
@@ -24,13 +24,21 @@ function mappedPrice(map: ProductMap, storeId: string, currency: Currency, amoun
   return mapped.productId;
 }
 
-interface Sale { storeId: string; currency: Currency; amount: number; adHoc: boolean; backHash: string; itemIds: string[] }
+// homeAmount: the same cart's total in shekels, set only for a cart charged in another currency (see adHocPrices).
+interface Sale { storeId: string; currency: Currency; amount: number; adHoc: boolean; backHash: string; itemIds: string[]; homeAmount?: number }
+
+/** Polar rejects ad-hoc prices that leave out the organization's default currency (live check 04.11.2026, see links/plan.ts). */
+function adHocPrices(sale: Sale) {
+  const prices = [adHocPrice(sale.amount, sale.currency)];
+  if (sale.homeAmount !== undefined) prices.push(adHocPrice(sale.homeAmount, HOME_CURRENCY));
+  return prices;
+}
 
 function saleFor(request: CheckoutRequest, catalog: Catalog): Sale {
   if (request.kind === "plan") {
     const plan = catalog.plans[request.id];
     if (!plan) throw new HttpError("unknown_item", `unknown plan ${request.id}`);
-    const { currency, amount } = currencyFor(request.lang, plan, catalog.homeCurrencyLang);
+    const { currency, amount } = currencyFor(request.lang, plan, catalog.homeCurrencyLang, request.currency);
     return { storeId: `${PLAN_ID_PREFIX}${request.id}`, currency, amount: toMinor(amount), adHoc: false, backHash: `buy-${PLAN_ID_PREFIX}${request.id}`, itemIds: [request.id] };
   }
   const ids = request.kind === "cart" ? request.ids : [request.id];
@@ -41,12 +49,15 @@ function saleFor(request: CheckoutRequest, catalog: Catalog): Sale {
   });
   const [first] = items;
   if (items.length === 1 && first) {
-    const { currency, amount } = currencyFor(request.lang, first, catalog.homeCurrencyLang);
+    const { currency, amount } = currencyFor(request.lang, first, catalog.homeCurrencyLang, request.currency);
     const backHash = request.kind === "cart" ? "checkout" : `buy-${ids[0]}`;
     return { storeId: ids[0] ?? "", currency, amount: toMinor(amount), adHoc: false, backHash, itemIds: ids };
   }
   // Polar sells one product per checkout: several items become one store order at the server-computed total.
-  return { storeId: STORE_ORDER_ID, currency: "ils", amount: toMinor(cartTotal(items, catalog.bookDealMin).total), adHoc: true, backHash: "checkout", itemIds: ids };
+  const currency = cartCurrency(items, request.lang, catalog.homeCurrencyLang, request.currency);
+  const homeTotal = toMinor(cartTotal(items, catalog.bookDealMin).total);
+  const amount = currency === HOME_CURRENCY ? homeTotal : toMinor(cartTotal(items, catalog.bookDealMin, currency).total);
+  return { storeId: STORE_ORDER_ID, currency, amount, adHoc: true, backHash: "checkout", itemIds: ids, ...(currency === HOME_CURRENCY ? {} : { homeAmount: homeTotal }) };
 }
 
 export function planCheckout(request: CheckoutRequest, context: CheckoutContext): CheckoutPlan {
@@ -57,7 +68,7 @@ export function planCheckout(request: CheckoutRequest, context: CheckoutContext)
   const body: PolarCheckoutBody = {
     products: [productId],
     currency: sale.currency,
-    ...(sale.adHoc ? { prices: { [productId]: [adHocPrice(sale.amount, sale.currency)] } } : {}),
+    ...(sale.adHoc ? { prices: { [productId]: adHocPrices(sale) } } : {}),
     success_url: successUrl(context.siteUrl, prefix),
     return_url: returnUrl(context.siteUrl, prefix, sale.backHash),
     locale: polarLocale(request.lang),

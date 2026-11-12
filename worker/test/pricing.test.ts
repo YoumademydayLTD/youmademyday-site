@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { cartTotal, currencyFor, toMinor } from "../src/catalog/pricing.ts";
+import { cartCurrency, cartTotal, currencyFor, priceIn, toMinor } from "../src/catalog/pricing.ts";
 
 const HOME = "he";
 const book = (price: number) => ({ type: "ebook", price });
@@ -16,7 +16,45 @@ describe("currencyFor", () => {
   });
 });
 
+describe("currencyFor with the currency the site names", () => {
+  const item = { price: 45, prices: { usd: 14, cad: 20 } };
+  it("charges the named currency at the item's own price in it", () => {
+    expect(currencyFor("en", item, HOME, "cad")).toEqual({ currency: "cad", amount: 20 });
+    expect(currencyFor("fr", item, HOME, "ils")).toEqual({ currency: "ils", amount: 45 });
+  });
+  it("keeps the Hebrew site in shekels whatever is named", () => {
+    expect(currencyFor("he", item, HOME, "cad")).toEqual({ currency: "ils", amount: 45 });
+  });
+  it("falls back to shekels for an item with no price in the named currency", () => {
+    expect(currencyFor("en", item, HOME, "gbp")).toEqual({ currency: "ils", amount: 45 });
+  });
+  it("reads an older dollar price as the dollar price", () => {
+    expect(priceIn({ price: 5, usd: 2 }, "usd")).toBe(2);
+    expect(priceIn({ price: 5, usd: 2, prices: { usd: 3 } }, "usd")).toBe(3);
+    expect(priceIn({ price: 5 }, "eur")).toBeUndefined();
+  });
+});
+
+describe("cartCurrency", () => {
+  const priced = { price: 45, prices: { cad: 20 } };
+  it("is the named currency only when every item has a price in it", () => {
+    expect(cartCurrency([priced, priced], "en", HOME, "cad")).toBe("cad");
+    expect(cartCurrency([priced, { price: 29 }], "en", HOME, "cad")).toBe("ils");
+  });
+  it("is shekels on the Hebrew site and when no currency is named", () => {
+    expect(cartCurrency([priced], "he", HOME, "cad")).toBe("ils");
+    expect(cartCurrency([priced], "en", HOME)).toBe("ils");
+  });
+});
+
 describe("cartTotal", () => {
+  it("totals a cart in another currency, with the deal on the cheapest book in that currency", () => {
+    const cadBook = (price: number, cad: number) => ({ type: "ebook", price, prices: { cad } });
+    expect(cartTotal([cadBook(45, 20), cadBook(29, 13), cadBook(39, 18)], 3, "cad")).toEqual({ subtotal: 51, bookDeal: 13, total: 38 });
+  });
+  it("refuses to total a cart with an item that has no price in the currency", () => {
+    expect(() => cartTotal([book(45)], 3, "cad")).toThrow(/no cad price/);
+  });
   it("has no deal under three books", () => {
     expect(cartTotal([book(45), book(39)], 3)).toEqual({ subtotal: 84, bookDeal: 0, total: 84 });
   });

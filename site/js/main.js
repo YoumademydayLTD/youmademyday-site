@@ -3,7 +3,7 @@ import { t, applyDocumentLanguage, HOME_URL } from "./i18n/index.js";
 import { LANGS } from "./i18n/config.js";
 import { ALL, isCourse } from "./catalog.js";
 import { S, save } from "./state.js";
-import { $, toast, ils } from "./util.js";
+import { $, toast } from "./util.js";
 import { BIZ } from "./business.js";
 import { renderLayout } from "./layout.js";
 import { viewHome } from "./views/home.js";
@@ -18,7 +18,7 @@ import { viewPlans } from "./views/plans.js";
 import { viewBuy } from "./views/buy.js";
 import { viewThanks, showDownloads } from "./views/thanks.js";
 import { startPayment } from "./checkout/pay.js";
-import { isDirectOffer, buyHref } from "./money.js";
+import { isDirectOffer, buyHref, money } from "./money.js";
 import { mountLogin } from "./views/login-page.js";
 import { fetchMe, logout, SESSION_EVENT } from "./telegram/session.js";
 import { watchAccount } from "./telegram/account.js";
@@ -164,7 +164,7 @@ document.addEventListener("input", (e) => {
   if (e.target.id !== "maxPrice") return;
   const type = e.target.dataset.type;
   S.filters[type].maxPrice = Number(e.target.value);
-  $("#maxLbl").textContent = ils(Number(e.target.value));
+  $("#maxLbl").textContent = money(Number(e.target.value));
   fillGrid(type);
 });
 document.addEventListener("change", (e) => {

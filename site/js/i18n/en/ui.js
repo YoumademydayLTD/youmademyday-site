@@ -8,12 +8,12 @@ export default {
   "nav.search": "Search", "nav.searchLabel": "Search courses, books or topics", "nav.wish": "Saved", "nav.cart": "Bag", "nav.homeLabel": "You Made My Day, home",
   "skip": "Skip to content",
 
-  "foot.note": "Prices are in Israeli shekels (ILS), except where a price is shown in US dollars. You buy after logging in with Telegram. Your files are sent to our Telegram bot and saved in your account on the site, together with your receipt. You may cancel under our refund policy and applicable consumer law.",
+  "foot.note": "Prices are shown, and charged, in the currency you pick at the bottom of the page. You buy after logging in with Telegram. Your files are sent to our Telegram bot and saved in your account on the site, together with your receipt. You may cancel under our refund policy and applicable consumer law.",
   "foot.shop": "Shop", "foot.help": "Help", "foot.legal": "Legal", "foot.company": "Company",
   "foot.pricing": "Pricing & payment", "foot.refunds": "Refund policy", "foot.cancel": "Cancel an order",
   "foot.terms": "Terms of use", "foot.privacy": "Privacy policy", "foot.cookies": "Cookie policy", "foot.a11y": "Accessibility",
   "foot.rights": "© {year} You Made My Day Ltd. All rights reserved.",
-  "foot.lang": "Language",
+  "foot.currency": "Currency", "pricing.fromPlain": "and up", "foot.lang": "Language",
 
   "kind.course": "Digital course", "kind.ebook": "Digital book", "kind.template": "Printable template", "kind.bundle": "Bundle",
   "kind.short.course": "Course", "kind.short.ebook": "Book", "kind.short.template": "Template", "kind.short.bundle": "Bundle",
@@ -125,7 +125,7 @@ export default {
   "dl.none": "We couldn't find files for this order. Email us at {email} and we'll sort it out.",
   "dl.refunded": "This order was refunded, so its files are no longer available.",
 
-  "pricing.title": "Pricing", "pricing.lead": "Courses and books: pay once and the files are yours forever. Memberships: renew weekly or monthly, as each plan says, and cancel any time. Prices are in Israeli shekels (ILS), except where shown in US dollars.",
+  "pricing.title": "Pricing", "pricing.lead": "Courses and books: pay once and the files are yours forever. Memberships: renew weekly or monthly, as each plan says, and cancel any time. Prices are shown, and charged, in the currency you pick at the bottom of the page.",
   "pricing.course": "Course", "pricing.book": "Book or template", "pricing.bundles": "Bundles", "pricing.from": "₪ and up", "pricing.bundlesN": "bundles",
   "pricing.courseIncl": ["Written lessons with tasks", "A worksheet for every lesson", "Downloadable PDFs", "{days}-day full refund"],
   "pricing.bookIncl": ["Instant PDF download", "Opens on any device, printable", "{n} books in your bag: cheapest free"],

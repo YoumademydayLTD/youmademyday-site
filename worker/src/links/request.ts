@@ -19,7 +19,8 @@ export interface LinkRequest {
   telegramUserId?: number; // the buyer's Telegram id: the store keeps his account and fills in his locked email
 }
 
-export const LINK_CURRENCIES: readonly PolarCurrency[] = ["ils", "usd", "gel"];
+// The catalogue's currencies (a link without an amount charges the catalogue price in them) and GEL, which only CRX uses.
+export const LINK_CURRENCIES: readonly PolarCurrency[] = ["ils", "usd", "cad", "eur", "gbp", "aud", "gel"];
 const MINOR_UNITS = 100;
 // Polar allows 50 metadata keys; ours (ymd_*) take a few, the caller gets the rest.
 export const MAX_CALLER_KEYS = 40;

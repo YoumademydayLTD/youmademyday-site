@@ -40,6 +40,28 @@ describe("planCheckout", () => {
     expect(body.allow_discount_codes).toBe(false);
     expect(record.amount).toBe(8400);
   });
+  it("sells one item in the currency the site names, at its catalogue price in it", () => {
+    const { body, record } = planCheckout({ kind: "cart", ids: ["b9"], lang: "en", currency: "cad" }, context);
+    expect(body).toMatchObject({ products: ["p-b9"], currency: "cad" });
+    expect(body.prices).toBeUndefined();
+    expect(record).toMatchObject({ currency: "cad", amount: 2000 });
+  });
+  it("sells a multi-item cart in the named currency, with the shekel total Polar requires beside it", () => {
+    const { body, record } = planCheckout({ kind: "cart", ids: ["b9", "b10", "b11"], lang: "en", currency: "cad" }, context);
+    expect(body.currency).toBe("cad");
+    expect(body.prices).toEqual({ "p-store": [
+      { amount_type: "fixed", price_amount: 3800, price_currency: "cad", tax_behavior: "inclusive" },
+      { amount_type: "fixed", price_amount: 8400, price_currency: "ils", tax_behavior: "inclusive" },
+    ] });
+    expect(record).toMatchObject({ currency: "cad", amount: 3800 });
+  });
+  it("keeps a cart in shekels on the Hebrew site and when an item has no price in the named currency", () => {
+    expect(planCheckout({ kind: "cart", ids: ["b9", "b10", "b11"], lang: "he", currency: "cad" }, context).record).toMatchObject({ currency: "ils", amount: 8400 });
+    expect(planCheckout({ kind: "cart", ids: ["b9", "c1"], lang: "en", currency: "cad" }, context).record).toMatchObject({ currency: "ils", amount: 39400 });
+  });
+  it("refuses a named currency whose price is not on Polar yet", () => {
+    expect(() => planCheckout({ kind: "product", id: "b10", lang: "en", currency: "cad" }, context)).toThrow(HttpError);
+  });
   it("sells a weekly plan in dollars abroad and a monthly plan in shekels", () => {
     expect(planCheckout({ kind: "plan", id: "grow", lang: "en" }, context).body).toMatchObject({ products: ["p-grow"], currency: "usd", return_url: `${SITE}/#buy-plan-grow` });
     expect(planCheckout({ kind: "plan", id: "day", lang: "en" }, context).body).toMatchObject({ products: ["p-day"], currency: "ils" });

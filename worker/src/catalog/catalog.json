@@ -8,6 +8,14 @@
  ],
  "defaultLang": "en",
  "homeCurrencyLang": "he",
+ "currencies": [
+  "ils",
+  "usd",
+  "cad",
+  "eur",
+  "gbp",
+  "aud"
+ ],
  "bookDealMin": 3,
  "refundDays": 14,
  "business": {
@@ -49,6 +57,13 @@
    "title": "בינה מלאכותית לעסק קטן",
    "description": "12 שיעורים מעשיים: לחסוך שעות כל שבוע עם ChatGPT, Claude וכלים חינמיים",
    "price": 349,
+   "prices": {
+    "usd": 109,
+    "cad": 159,
+    "eur": 99,
+    "gbp": 85,
+    "aud": 159
+   },
    "langs": [
     "en",
     "he",
@@ -70,6 +85,13 @@
    "title": "Canva מאפס למקצוען",
    "description": "עיצוב פוסטים, מצגות ולוגו בלי ניסיון",
    "price": 249,
+   "prices": {
+    "usd": 79,
+    "cad": 109,
+    "eur": 69,
+    "gbp": 59,
+    "aud": 119
+   },
    "langs": [
     "en",
     "he",
@@ -91,6 +113,13 @@
    "title": "אקסל וגוגל שיטס לחיים",
    "description": "נוסחאות, טבלאות ודשבורד ראשון",
    "price": 249,
+   "prices": {
+    "usd": 79,
+    "cad": 109,
+    "eur": 69,
+    "gbp": 59,
+    "aud": 119
+   },
    "langs": [
     "en",
     "he",
@@ -112,6 +141,13 @@
    "title": "כתיבה שמוכרת",
    "description": "קופירייטינג לבעלי עסקים קטנים, צעד אחר צעד",
    "price": 299,
+   "prices": {
+    "usd": 95,
+    "cad": 139,
+    "eur": 85,
+    "gbp": 69,
+    "aud": 139
+   },
    "langs": [
     "en",
     "he",
@@ -133,6 +169,13 @@
    "title": "צילום מוצרים בטלפון",
    "description": "אור, רקע ועריכה לחנות אונליין",
    "price": 219,
+   "prices": {
+    "usd": 69,
+    "cad": 99,
+    "eur": 65,
+    "gbp": 55,
+    "aud": 99
+   },
    "langs": [
     "en",
     "he",
@@ -154,6 +197,13 @@
    "title": "ניהול זמן שעובד",
    "description": "שיטות מוכחות לתכנון שבוע, בלי אפליקציות מסובכות",
    "price": 199,
+   "prices": {
+    "usd": 65,
+    "cad": 89,
+    "eur": 55,
+    "gbp": 49,
+    "aud": 89
+   },
    "langs": [
     "en",
     "he",
@@ -175,6 +225,13 @@
    "title": "אינסטגרם לעסק קטן",
    "description": "תוכן, רילס ותכנון חודשי",
    "price": 279,
+   "prices": {
+    "usd": 89,
+    "cad": 129,
+    "eur": 79,
+    "gbp": 65,
+    "aud": 129
+   },
    "langs": [
     "en",
     "he",
@@ -196,6 +253,13 @@
    "title": "מבוא לפיתוח אתרים ב-HTML ו-CSS",
    "description": "בונים דף נחיתה ראשון מאפס",
    "price": 299,
+   "prices": {
+    "usd": 95,
+    "cad": 139,
+    "eur": 85,
+    "gbp": 69,
+    "aud": 139
+   },
    "langs": [
     "en",
     "he",
@@ -217,6 +281,13 @@
    "title": "מדריך הפרומפטים בעברית",
    "description": "200 פקודות מוכנות לעבודה, ללימודים וליצירה",
    "price": 69,
+   "prices": {
+    "usd": 22,
+    "cad": 32,
+    "eur": 20,
+    "gbp": 16,
+    "aud": 32
+   },
    "langs": [
     "en",
     "he",
@@ -238,6 +309,13 @@
    "title": "ChatGPT לבעלי עסקים",
    "description": "30 תרחישים אמיתיים עם תבניות",
    "price": 59,
+   "prices": {
+    "usd": 19,
+    "cad": 27,
+    "eur": 17,
+    "gbp": 14,
+    "aud": 27
+   },
    "langs": [
     "en",
     "he",
@@ -259,6 +337,13 @@
    "title": "100 רעיונות לפוסטים",
    "description": "לוח תוכן לשנה שלמה",
    "price": 49,
+   "prices": {
+    "usd": 15,
+    "cad": 22,
+    "eur": 14,
+    "gbp": 12,
+    "aud": 22
+   },
    "langs": [
     "en",
     "he",
@@ -280,6 +365,13 @@
    "title": "מדריך לכתיבת דף נחיתה",
    "description": "מבנה, כותרות ודוגמאות לפני ואחרי",
    "price": 59,
+   "prices": {
+    "usd": 19,
+    "cad": 27,
+    "eur": 17,
+    "gbp": 14,
+    "aud": 27
+   },
    "langs": [
     "en",
     "he",
@@ -301,6 +393,13 @@
    "title": "ניוזלטר ראשון",
    "description": "איך לבנות רשימת תפוצה ולכתוב מייל שבועי",
    "price": 45,
+   "prices": {
+    "usd": 14,
+    "cad": 20,
+    "eur": 13,
+    "gbp": 11,
+    "aud": 20
+   },
    "langs": [
     "en",
     "he",
@@ -322,6 +421,13 @@
    "title": "מיתוג אישי בלינקדאין",
    "description": "פרופיל, פוסטים ושיחות שמביאים פניות",
    "price": 55,
+   "prices": {
+    "usd": 17,
+    "cad": 25,
+    "eur": 16,
+    "gbp": 13,
+    "aud": 25
+   },
    "langs": [
     "en",
     "he",
@@ -343,6 +449,13 @@
    "title": "קורות חיים שעוברים סינון",
    "description": "מבנה, ניסוח ו-12 דוגמאות לפי תחום",
    "price": 45,
+   "prices": {
+    "usd": 14,
+    "cad": 20,
+    "eur": 13,
+    "gbp": 11,
+    "aud": 20
+   },
    "langs": [
     "en",
     "he",
@@ -364,6 +477,13 @@
    "title": "להתכונן לראיון עבודה",
    "description": "60 שאלות נפוצות ואיך לענות עליהן",
    "price": 45,
+   "prices": {
+    "usd": 14,
+    "cad": 20,
+    "eur": 13,
+    "gbp": 11,
+    "aud": 20
+   },
    "langs": [
     "en",
     "he",
@@ -385,6 +505,13 @@
    "title": "מדריך הפרילנסר המתחיל",
    "description": "תמחור שירות, הצעת מחיר וחוזה עבודה בסיסי",
    "price": 59,
+   "prices": {
+    "usd": 19,
+    "cad": 27,
+    "eur": 17,
+    "gbp": 14,
+    "aud": 27
+   },
    "langs": [
     "en",
     "he",
@@ -406,6 +533,13 @@
    "title": "ערכת הצעות מחיר",
    "description": "10 תבניות מוכנות להעתקה לוורד או לגוגל דוקס",
    "price": 39,
+   "prices": {
+    "usd": 12,
+    "cad": 18,
+    "eur": 11,
+    "gbp": 9,
+    "aud": 18
+   },
    "langs": [
     "en",
     "he",
@@ -427,6 +561,13 @@
    "title": "מתכנן תוכן חודשי",
    "description": "גיליון מוכן לתכנון פוסטים ומעקב",
    "price": 29,
+   "prices": {
+    "usd": 9,
+    "cad": 13,
+    "eur": 8,
+    "gbp": 7,
+    "aud": 13
+   },
    "langs": [
     "en",
     "he",
@@ -448,6 +589,13 @@
    "title": "לוח משימות שבועי",
    "description": "מתכנן להדפסה ולטאבלט",
    "price": 25,
+   "prices": {
+    "usd": 8,
+    "cad": 11,
+    "eur": 7,
+    "gbp": 6,
+    "aud": 12
+   },
    "langs": [
     "en",
     "he",
@@ -469,6 +617,13 @@
    "title": "שיטת ה-30 דקות",
    "description": "סדר בבית ובראש בחצי שעה ביום",
    "price": 39,
+   "prices": {
+    "usd": 12,
+    "cad": 18,
+    "eur": 11,
+    "gbp": 9,
+    "aud": 18
+   },
    "langs": [
     "en",
     "he",
@@ -490,6 +645,13 @@
    "title": "הרגלים קטנים",
    "description": "חוברת עבודה ל-30 יום לבניית הרגל חדש",
    "price": 39,
+   "prices": {
+    "usd": 12,
+    "cad": 18,
+    "eur": 11,
+    "gbp": 9,
+    "aud": 18
+   },
    "langs": [
     "en",
     "he",
@@ -511,6 +673,13 @@
    "title": "מחברת התודה",
    "description": "90 יום של כתיבה מודרכת, 5 דקות ביום",
    "price": 35,
+   "prices": {
+    "usd": 11,
+    "cad": 16,
+    "eur": 10,
+    "gbp": 8,
+    "aud": 16
+   },
    "langs": [
     "en",
     "he",
@@ -532,6 +701,13 @@
    "title": "יומן בוקר",
    "description": "שאלות ליום חדש, 100 עמודים",
    "price": 35,
+   "prices": {
+    "usd": 11,
+    "cad": 16,
+    "eur": 10,
+    "gbp": 8,
+    "aud": 16
+   },
    "langs": [
     "en",
     "he",
@@ -553,6 +729,13 @@
    "title": "לכתוב סיפור קצר",
    "description": "מדריך מעשי עם 20 תרגילים",
    "price": 49,
+   "prices": {
+    "usd": 15,
+    "cad": 22,
+    "eur": 14,
+    "gbp": 12,
+    "aud": 22
+   },
    "langs": [
     "en",
     "he",
@@ -574,6 +757,13 @@
    "title": "מחברת סקיצות",
    "description": "60 תרגילי איור יומיים",
    "price": 39,
+   "prices": {
+    "usd": 12,
+    "cad": 18,
+    "eur": 11,
+    "gbp": 9,
+    "aud": 18
+   },
    "langs": [
     "en",
     "he",
@@ -595,6 +785,13 @@
    "title": "קליגרפיה עברית למתחילים",
    "description": "דפי תרגול ואותיות להעתקה",
    "price": 45,
+   "prices": {
+    "usd": 14,
+    "cad": 20,
+    "eur": 13,
+    "gbp": 11,
+    "aud": 20
+   },
    "langs": [
     "en",
     "he",
@@ -616,6 +813,13 @@
    "title": "צילום בטלפון",
    "description": "50 טיפים קצרים, וכל טיפ עם תרגיל צילום",
    "price": 45,
+   "prices": {
+    "usd": 14,
+    "cad": 20,
+    "eur": 13,
+    "gbp": 11,
+    "aud": 20
+   },
    "langs": [
     "en",
     "he",
@@ -637,6 +841,13 @@
    "title": "עריכת וידאו בטלפון",
    "description": "CapCut מאפס לסרטון ראשון",
    "price": 49,
+   "prices": {
+    "usd": 15,
+    "cad": 22,
+    "eur": 14,
+    "gbp": 12,
+    "aud": 22
+   },
    "langs": [
     "en",
     "he",
@@ -658,6 +869,13 @@
    "title": "המטבח הביתי",
    "description": "40 מתכונים ביתיים, צעד אחר צעד",
    "price": 69,
+   "prices": {
+    "usd": 22,
+    "cad": 32,
+    "eur": 20,
+    "gbp": 16,
+    "aud": 32
+   },
    "langs": [
     "en",
     "he",
@@ -679,6 +897,13 @@
    "title": "לחם בבית",
    "description": "מחמצת, חלות ולחמים במטבח רגיל",
    "price": 55,
+   "prices": {
+    "usd": 17,
+    "cad": 25,
+    "eur": 16,
+    "gbp": 13,
+    "aud": 25
+   },
    "langs": [
     "en",
     "he",
@@ -700,6 +925,13 @@
    "title": "ארוחות ב-20 דקות",
    "description": "30 ארוחות ערב מהירות לכל השבוע",
    "price": 49,
+   "prices": {
+    "usd": 15,
+    "cad": 22,
+    "eur": 14,
+    "gbp": 12,
+    "aud": 22
+   },
    "langs": [
     "en",
     "he",
@@ -721,6 +953,13 @@
    "title": "מאפים לשבת",
    "description": "25 מתכונים לעוגות ועוגיות",
    "price": 49,
+   "prices": {
+    "usd": 15,
+    "cad": 22,
+    "eur": 14,
+    "gbp": 12,
+    "aud": 22
+   },
    "langs": [
     "en",
     "he",
@@ -742,6 +981,13 @@
    "title": "קופסת אוכל לבית ספר",
    "description": "60 רעיונות לארוחות עשר",
    "price": 35,
+   "prices": {
+    "usd": 11,
+    "cad": 16,
+    "eur": 10,
+    "gbp": 8,
+    "aud": 16
+   },
    "langs": [
     "en",
     "he",
@@ -763,6 +1009,13 @@
    "title": "מתכנן ארוחות שבועי",
    "description": "תפריטים ורשימות קנייה להדפסה",
    "price": 29,
+   "prices": {
+    "usd": 9,
+    "cad": 13,
+    "eur": 8,
+    "gbp": 7,
+    "aud": 13
+   },
    "langs": [
     "en",
     "he",
@@ -784,6 +1037,13 @@
    "title": "גינה במרפסת",
    "description": "תבלינים וירקות בעציצים, לפי עונות",
    "price": 45,
+   "prices": {
+    "usd": 14,
+    "cad": 20,
+    "eur": 13,
+    "gbp": 11,
+    "aud": 20
+   },
    "langs": [
     "en",
     "he",
@@ -805,6 +1065,13 @@
    "title": "עיצוב הבית בתקציב קטן",
    "description": "רעיונות לכל חדר, עם רשימות קנייה",
    "price": 49,
+   "prices": {
+    "usd": 15,
+    "cad": 22,
+    "eur": 14,
+    "gbp": 12,
+    "aud": 22
+   },
    "langs": [
     "en",
     "he",
@@ -826,6 +1093,13 @@
    "title": "סדר בארון",
    "description": "שיטה פשוטה למיון ולארגון בגדים",
    "price": 35,
+   "prices": {
+    "usd": 11,
+    "cad": 16,
+    "eur": 10,
+    "gbp": 8,
+    "aud": 16
+   },
    "langs": [
     "en",
     "he",
@@ -847,6 +1121,13 @@
    "title": "מסיבת יום הולדת בבית",
    "description": "10 קונספטים עם רשימות הכנה",
    "price": 39,
+   "prices": {
+    "usd": 12,
+    "cad": 18,
+    "eur": 11,
+    "gbp": 9,
+    "aud": 18
+   },
    "langs": [
     "en",
     "he",
@@ -868,6 +1149,13 @@
    "title": "משחקים לילדים בלי מסך",
    "description": "80 רעיונות לבית ולחוץ",
    "price": 39,
+   "prices": {
+    "usd": 12,
+    "cad": 18,
+    "eur": 11,
+    "gbp": 9,
+    "aud": 18
+   },
    "langs": [
     "en",
     "he",
@@ -889,6 +1177,13 @@
    "title": "חוברת פעילות לחופש הגדול",
    "description": "דפי פעילות להדפסה לגילאי 6–10",
    "price": 35,
+   "prices": {
+    "usd": 11,
+    "cad": 16,
+    "eur": 10,
+    "gbp": 8,
+    "aud": 16
+   },
    "langs": [
     "en",
     "he",
@@ -910,6 +1205,13 @@
    "title": "טיול בארץ",
    "description": "20 מסלולים קלים למשפחות, עם תרשים לכל מסלול",
    "price": 49,
+   "prices": {
+    "usd": 15,
+    "cad": 22,
+    "eur": 14,
+    "gbp": 12,
+    "aud": 22
+   },
    "langs": [
     "en",
     "he",
@@ -931,6 +1233,13 @@
    "title": "טיול לחו״ל בתכנון חכם",
    "description": "צ׳ק-ליסטים, אריזה ותכנון מסלול",
    "price": 39,
+   "prices": {
+    "usd": 12,
+    "cad": 18,
+    "eur": 11,
+    "gbp": 9,
+    "aud": 18
+   },
    "langs": [
     "en",
     "he",
@@ -952,6 +1261,13 @@
    "title": "אנגלית לשיחה",
    "description": "300 משפטים שימושיים לעבודה ולטיולים",
    "price": 45,
+   "prices": {
+    "usd": 14,
+    "cad": 20,
+    "eur": 13,
+    "gbp": 11,
+    "aud": 20
+   },
    "langs": [
     "he",
     "fr",
@@ -971,6 +1287,13 @@
    "title": "אנגלית למיילים בעבודה",
    "description": "תבניות ומשפטי מפתח",
    "price": 39,
+   "prices": {
+    "usd": 12,
+    "cad": 18,
+    "eur": 11,
+    "gbp": 9,
+    "aud": 18
+   },
    "langs": [
     "he",
     "fr",
@@ -990,6 +1313,13 @@
    "title": "מדריך הנואם המתחיל",
    "description": "איך להכין ולהעביר הרצאה של 10 דקות",
    "price": 45,
+   "prices": {
+    "usd": 14,
+    "cad": 20,
+    "eur": 13,
+    "gbp": 11,
+    "aud": 20
+   },
    "langs": [
     "en",
     "he",
@@ -1011,6 +1341,13 @@
    "title": "להתחיל לרוץ",
    "description": "תוכנית הליכה-ריצה ל-8 שבועות, למתחילים בריאים",
    "price": 35,
+   "prices": {
+    "usd": 11,
+    "cad": 16,
+    "eur": 10,
+    "gbp": 8,
+    "aud": 16
+   },
    "langs": [
     "en",
     "he",
@@ -1032,6 +1369,13 @@
    "title": "יוגה בבוקר",
    "description": "3 רצפים קצרים, כל תנוחה בתיאור מדויק",
    "price": 39,
+   "prices": {
+    "usd": 12,
+    "cad": 18,
+    "eur": 11,
+    "gbp": 9,
+    "aud": 18
+   },
    "langs": [
     "en",
     "he",
@@ -1053,6 +1397,13 @@
    "title": "חבילת העסק הקטן",
    "description": "חמישה מדריכים לשיווק ולמכירה, במחיר אחד נמוך יותר",
    "price": 199,
+   "prices": {
+    "usd": 65,
+    "cad": 89,
+    "eur": 55,
+    "gbp": 49,
+    "aud": 89
+   },
    "langs": [
     "en",
     "he",
@@ -1081,6 +1432,13 @@
    "title": "חבילת המטבח",
    "description": "שישה ספרי מטבח, ממחמצת ועד ארוחות לשבוע",
    "price": 179,
+   "prices": {
+    "usd": 55,
+    "cad": 79,
+    "eur": 49,
+    "gbp": 45,
+    "aud": 85
+   },
    "langs": [
     "en",
     "he",
@@ -1111,6 +1469,13 @@
    "description": "ספר ההתפתחות האישית שהופך אותך לגרסה הכי טובה של עצמך",
    "price": 5,
    "usd": 2,
+   "prices": {
+    "usd": 2,
+    "cad": 3,
+    "eur": 2,
+    "gbp": 2,
+    "aud": 3
+   },
    "langs": [
     "en",
     "he",
@@ -1124,6 +1489,678 @@
     "fr": "Votre maximum",
     "ar": "أقصى ما فيك",
     "ru": "Ваш максимум"
+   }
+  },
+  "b53": {
+   "n": 53,
+   "type": "ebook",
+   "title": "תיבת מייל רגועה",
+   "description": "תוכנית של שבוע לרוקן את המייל ולהשאיר אותו בשליטה",
+   "price": 3,
+   "prices": {
+    "usd": 1,
+    "cad": 1,
+    "eur": 1,
+    "gbp": 1,
+    "aud": 1
+   },
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ],
+   "titles": {
+    "en": "A Calm Inbox",
+    "he": "תיבת מייל רגועה",
+    "fr": "Une boîte de réception sereine",
+    "ar": "بريد وارد هادئ",
+    "ru": "Спокойный почтовый ящик"
+   }
+  },
+  "b54": {
+   "n": 54,
+   "type": "ebook",
+   "title": "פגישות שנגמרות בזמן",
+   "description": "איך לתכנן, לנהל ולסגור פגישה קצרה שיוצאות ממנה החלטות",
+   "price": 3,
+   "prices": {
+    "usd": 1,
+    "cad": 1,
+    "eur": 1,
+    "gbp": 1,
+    "aud": 1
+   },
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ],
+   "titles": {
+    "en": "Meetings That End on Time",
+    "he": "פגישות שנגמרות בזמן",
+    "fr": "Des réunions qui finissent à l'heure",
+    "ar": "اجتماعات تنتهي في وقتها",
+    "ru": "Совещания, которые заканчиваются вовремя"
+   }
+  },
+  "b55": {
+   "n": 55,
+   "type": "ebook",
+   "title": "הסקירה השבועית ב-20 דקות",
+   "description": "הרגל שבועי קצר אחד ששומר על המשימות, היומן והתוכניות בסדר",
+   "price": 3,
+   "prices": {
+    "usd": 1,
+    "cad": 1,
+    "eur": 1,
+    "gbp": 1,
+    "aud": 1
+   },
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ],
+   "titles": {
+    "en": "The 20-Minute Weekly Review",
+    "he": "הסקירה השבועית ב-20 דקות",
+    "fr": "Le bilan hebdomadaire en 20 minutes",
+    "ar": "المراجعة الأسبوعية في 20 دقيقة",
+    "ru": "Недельный обзор за 20 минут"
+   }
+  },
+  "b56": {
+   "n": 56,
+   "type": "ebook",
+   "title": "טלפון שנותן להתרכז",
+   "description": "מגדירים את הטלפון בערב אחד כך שיפסיק להפריע",
+   "price": 3,
+   "prices": {
+    "usd": 1,
+    "cad": 1,
+    "eur": 1,
+    "gbp": 1,
+    "aud": 1
+   },
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ],
+   "titles": {
+    "en": "A Phone That Lets You Focus",
+    "he": "טלפון שנותן להתרכז",
+    "fr": "Un téléphone qui vous laisse vous concentrer",
+    "ar": "هاتف يتركك تركّز",
+    "ru": "Телефон, который не мешает сосредоточиться"
+   }
+  },
+  "b57": {
+   "n": 57,
+   "type": "ebook",
+   "title": "איפוס הבית בשעה אחת",
+   "description": "מסלול קבוע שמביא את כל הבית למצב ייצוגי בשישים דקות",
+   "price": 3,
+   "prices": {
+    "usd": 1,
+    "cad": 1,
+    "eur": 1,
+    "gbp": 1,
+    "aud": 1
+   },
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ],
+   "titles": {
+    "en": "The One-Hour Home Reset",
+    "he": "איפוס הבית בשעה אחת",
+    "fr": "La remise en ordre de la maison en une heure",
+    "ar": "إعادة ترتيب البيت في ساعة واحدة",
+    "ru": "Порядок в доме за один час"
+   }
+  },
+  "b58": {
+   "n": 58,
+   "type": "ebook",
+   "title": "כביסה בלי ניחושים",
+   "description": "מיון, כיבוס, ייבוש וכתמים, בהסבר פשוט",
+   "price": 3,
+   "prices": {
+    "usd": 1,
+    "cad": 1,
+    "eur": 1,
+    "gbp": 1,
+    "aud": 1
+   },
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ],
+   "titles": {
+    "en": "Laundry Without Guesswork",
+    "he": "כביסה בלי ניחושים",
+    "fr": "La lessive sans hésitation",
+    "ar": "غسيل بلا تخمين",
+    "ru": "Стирка без догадок"
+   }
+  },
+  "b59": {
+   "n": 59,
+   "type": "ebook",
+   "title": "הניירת של הבית בקופסה אחת",
+   "description": "שיטה פשוטה לניירות ולמסמכים הדיגיטליים של משק בית",
+   "price": 3,
+   "prices": {
+    "usd": 1,
+    "cad": 1,
+    "eur": 1,
+    "gbp": 1,
+    "aud": 1
+   },
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ],
+   "titles": {
+    "en": "Home Paperwork in One Box",
+    "he": "הניירת של הבית בקופסה אחת",
+    "fr": "Les papiers de la maison dans une seule boîte",
+    "ar": "أوراق البيت في علبة واحدة",
+    "ru": "Домашние бумаги в одной коробке"
+   }
+  },
+  "b60": {
+   "n": 60,
+   "type": "ebook",
+   "title": "רשימת הבדיקה ליום המעבר",
+   "description": "ספירה לאחור של שמונה שבועות למעבר דירה רגוע",
+   "price": 3,
+   "prices": {
+    "usd": 1,
+    "cad": 1,
+    "eur": 1,
+    "gbp": 1,
+    "aud": 1
+   },
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ],
+   "titles": {
+    "en": "The Moving Day Checklist",
+    "he": "רשימת הבדיקה ליום המעבר",
+    "fr": "La liste de contrôle du déménagement",
+    "ar": "قائمة التحقق ليوم الانتقال",
+    "ru": "Чек-лист переезда"
+   }
+  },
+  "b61": {
+   "n": 61,
+   "type": "ebook",
+   "title": "עבודה עם סכין למבשלים בבית",
+   "description": "להחזיק, לחתוך ולתחזק סכין בבטחה, ולהכין ירקות פי שניים מהר יותר",
+   "price": 3,
+   "prices": {
+    "usd": 1,
+    "cad": 1,
+    "eur": 1,
+    "gbp": 1,
+    "aud": 1
+   },
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ],
+   "titles": {
+    "en": "Knife Skills for Home Cooks",
+    "he": "עבודה עם סכין למבשלים בבית",
+    "fr": "Le couteau en cuisine, pour les cuisiniers du quotidien",
+    "ar": "مهارات السكين للطهاة في البيت",
+    "ru": "Работа ножом для домашней кухни"
+   }
+  },
+  "b62": {
+   "n": 62,
+   "type": "ebook",
+   "title": "אורז ודגנים שיוצאים טוב",
+   "description": "שיטה אחת, טבלת יחסים וזמנים, ותיקון לכל תקלה נפוצה",
+   "price": 3,
+   "prices": {
+    "usd": 1,
+    "cad": 1,
+    "eur": 1,
+    "gbp": 1,
+    "aud": 1
+   },
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ],
+   "titles": {
+    "en": "Rice and Grains That Come Out Right",
+    "he": "אורז ודגנים שיוצאים טוב",
+    "fr": "Riz et céréales réussis à tous les coups",
+    "ar": "أرز وحبوب تنجح دائمًا",
+    "ru": "Рис и крупы, которые получаются"
+   }
+  },
+  "b63": {
+   "n": 63,
+   "type": "ebook",
+   "title": "המקרר המסודר",
+   "description": "מסדרים את המקרר ואת המזווה כך שהאוכל מחזיק יותר ופחות נזרק",
+   "price": 3,
+   "prices": {
+    "usd": 1,
+    "cad": 1,
+    "eur": 1,
+    "gbp": 1,
+    "aud": 1
+   },
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ],
+   "titles": {
+    "en": "The Organised Fridge",
+    "he": "המקרר המסודר",
+    "fr": "Le réfrigérateur bien rangé",
+    "ar": "الثلاجة المنظَّمة",
+    "ru": "Порядок в холодильнике"
+   }
+  },
+  "b64": {
+   "n": 64,
+   "type": "ebook",
+   "title": "מבשלים פעם אחת, מקפיאים בחוכמה",
+   "description": "מה נשמר טוב בהקפאה, איך אורזים, ואיך הופכים את המקפיא לארוחות מוכנות",
+   "price": 3,
+   "prices": {
+    "usd": 1,
+    "cad": 1,
+    "eur": 1,
+    "gbp": 1,
+    "aud": 1
+   },
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ],
+   "titles": {
+    "en": "Cook Once, Freeze Smart",
+    "he": "מבשלים פעם אחת, מקפיאים בחוכמה",
+    "fr": "Cuisiner une fois, congeler malin",
+    "ar": "اطبخ مرة واحدة، وجمّد بذكاء",
+    "ru": "Готовим один раз, замораживаем с умом"
+   }
+  },
+  "b65": {
+   "n": 65,
+   "type": "ebook",
+   "title": "רק תיק יד",
+   "description": "אורזים תיק קטן אחד לשבוע בחוץ, עם רשימה מלאה ושיטת קיפול",
+   "price": 3,
+   "prices": {
+    "usd": 1,
+    "cad": 1,
+    "eur": 1,
+    "gbp": 1,
+    "aud": 1
+   },
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ],
+   "titles": {
+    "en": "Carry-On Only",
+    "he": "רק תיק יד",
+    "fr": "Bagage cabine uniquement",
+    "ar": "حقيبة يد فقط",
+    "ru": "Только ручная кладь"
+   }
+  },
+  "b66": {
+   "n": 66,
+   "type": "ebook",
+   "title": "יום אחד בעיר חדשה",
+   "description": "תוכנית פשוטה לראות את המיטב של כל עיר ביום אחד, בלי למהר",
+   "price": 3,
+   "prices": {
+    "usd": 1,
+    "cad": 1,
+    "eur": 1,
+    "gbp": 1,
+    "aud": 1
+   },
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ],
+   "titles": {
+    "en": "One Day in a New City",
+    "he": "יום אחד בעיר חדשה",
+    "fr": "Une journée dans une ville inconnue",
+    "ar": "يوم واحد في مدينة جديدة",
+    "ru": "Один день в новом городе"
+   }
+  },
+  "b67": {
+   "n": 67,
+   "type": "ebook",
+   "title": "פורטרטים בטלפון",
+   "description": "מצלמים את האנשים שאוהבים כך שייראו כמו עצמם",
+   "price": 3,
+   "prices": {
+    "usd": 1,
+    "cad": 1,
+    "eur": 1,
+    "gbp": 1,
+    "aud": 1
+   },
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ],
+   "titles": {
+    "en": "Portraits on Your Phone",
+    "he": "פורטרטים בטלפון",
+    "fr": "Portraits au téléphone",
+    "ar": "صور الأشخاص بالهاتف",
+    "ru": "Портреты на телефон"
+   }
+  },
+  "b68": {
+   "n": 68,
+   "type": "ebook",
+   "title": "סדר בספריית התמונות",
+   "description": "מגבים, מנקים ומארגנים אלפי תמונות מהטלפון בסוף שבוע אחד",
+   "price": 3,
+   "prices": {
+    "usd": 1,
+    "cad": 1,
+    "eur": 1,
+    "gbp": 1,
+    "aud": 1
+   },
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ],
+   "titles": {
+    "en": "Tame Your Photo Library",
+    "he": "סדר בספריית התמונות",
+    "fr": "Domptez votre photothèque",
+    "ar": "رتّب مكتبة صورك",
+    "ru": "Порядок в фотоархиве"
+   }
+  },
+  "b69": {
+   "n": 69,
+   "type": "ebook",
+   "title": "שפה ב-15 דקות ביום",
+   "description": "שגרה יומית ללימוד כל שפה כשיש מעט מאוד זמן",
+   "price": 3,
+   "prices": {
+    "usd": 1,
+    "cad": 1,
+    "eur": 1,
+    "gbp": 1,
+    "aud": 1
+   },
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ],
+   "titles": {
+    "en": "A Language in 15 Minutes a Day",
+    "he": "שפה ב-15 דקות ביום",
+    "fr": "Une langue en 15 minutes par jour",
+    "ar": "لغة في 15 دقيقة في اليوم",
+    "ru": "Язык за 15 минут в день"
+   }
+  },
+  "b70": {
+   "n": 70,
+   "type": "ebook",
+   "title": "הודעות שעונים עליהן",
+   "description": "כותבים הודעות ומיילים קצרים וברורים בעבודה, שמקבלים תשובה כבר בפעם הראשונה",
+   "price": 3,
+   "prices": {
+    "usd": 1,
+    "cad": 1,
+    "eur": 1,
+    "gbp": 1,
+    "aud": 1
+   },
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ],
+   "titles": {
+    "en": "Messages People Answer",
+    "he": "הודעות שעונים עליהן",
+    "fr": "Des messages auxquels on répond",
+    "ar": "رسائل يردّ عليها الناس",
+    "ru": "Сообщения, на которые отвечают"
+   }
+  },
+  "b71": {
+   "n": 71,
+   "type": "ebook",
+   "title": "לומר לא בעבודה",
+   "description": "שומרים על הזמן בנימוס, עם משפטים מוכנים לכל מצב נפוץ",
+   "price": 3,
+   "prices": {
+    "usd": 1,
+    "cad": 1,
+    "eur": 1,
+    "gbp": 1,
+    "aud": 1
+   },
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ],
+   "titles": {
+    "en": "Saying No at Work",
+    "he": "לומר לא בעבודה",
+    "fr": "Dire non au travail",
+    "ar": "أن تقول لا في العمل",
+    "ru": "Как говорить «нет» на работе"
+   }
+  },
+  "b72": {
+   "n": 72,
+   "type": "ebook",
+   "title": "משוב בלי דרמה",
+   "description": "איך נותנים משוב מועיל ואיך מקבלים אותו ברוגע",
+   "price": 3,
+   "prices": {
+    "usd": 1,
+    "cad": 1,
+    "eur": 1,
+    "gbp": 1,
+    "aud": 1
+   },
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ],
+   "titles": {
+    "en": "Feedback Without Drama",
+    "he": "משוב בלי דרמה",
+    "fr": "Des retours sans drame",
+    "ar": "ملاحظات بلا دراما",
+    "ru": "Обратная связь без драмы"
+   }
+  },
+  "b73": {
+   "n": 73,
+   "type": "ebook",
+   "title": "סיכומים שמשתמשים בהם",
+   "description": "דרך פשוטה לכתוב סיכומים בפגישות, בקורסים ובקריאה, ולמצוא אותם שוב",
+   "price": 3,
+   "prices": {
+    "usd": 1,
+    "cad": 1,
+    "eur": 1,
+    "gbp": 1,
+    "aud": 1
+   },
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ],
+   "titles": {
+    "en": "Notes You Will Use",
+    "he": "סיכומים שמשתמשים בהם",
+    "fr": "Des notes qui servent",
+    "ar": "ملاحظات مدوَّنة ستستخدمها",
+    "ru": "Записи, которыми вы будете пользоваться"
+   }
+  },
+  "b74": {
+   "n": 74,
+   "type": "ebook",
+   "title": "שגרת ההירגעות של הערב",
+   "description": "שגרה פשוטה לשעה האחרונה של היום, כדי שמחר יתחיל ברוגע",
+   "price": 3,
+   "prices": {
+    "usd": 1,
+    "cad": 1,
+    "eur": 1,
+    "gbp": 1,
+    "aud": 1
+   },
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ],
+   "titles": {
+    "en": "The Evening Wind-Down",
+    "he": "שגרת ההירגעות של הערב",
+    "fr": "Le rituel du soir",
+    "ar": "هدوء المساء",
+    "ru": "Спокойный вечер"
+   }
+  },
+  "b75": {
+   "n": 75,
+   "type": "ebook",
+   "title": "לוח המטלות המשפחתי",
+   "description": "מחלקים את עבודות הבית עם ילדים בכל גיל, בלי ויכוחים יומיומיים",
+   "price": 3,
+   "prices": {
+    "usd": 1,
+    "cad": 1,
+    "eur": 1,
+    "gbp": 1,
+    "aud": 1
+   },
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ],
+   "titles": {
+    "en": "The Family Chore Chart",
+    "he": "לוח המטלות המשפחתי",
+    "fr": "Le tableau des tâches de la famille",
+    "ar": "جدول المهام المنزلية للعائلة",
+    "ru": "Семейный график домашних дел"
+   }
+  },
+  "b76": {
+   "n": 76,
+   "type": "ebook",
+   "title": "בקרים רגועים לפני בית הספר",
+   "description": "שגרה שמוציאה את כל המשפחה מהדלת בזמן, בלי צעקות",
+   "price": 3,
+   "prices": {
+    "usd": 1,
+    "cad": 1,
+    "eur": 1,
+    "gbp": 1,
+    "aud": 1
+   },
+   "langs": [
+    "en",
+    "he",
+    "fr",
+    "ar",
+    "ru"
+   ],
+   "titles": {
+    "en": "Calm School Mornings",
+    "he": "בקרים רגועים לפני בית הספר",
+    "fr": "Des matins d'école sereins",
+    "ar": "صباحات هادئة قبل المدرسة",
+    "ru": "Спокойные школьные утра"
    }
   }
  },
@@ -1140,6 +2177,13 @@
    "description": "שותף אישי בכיס שמקדם אותך כל יום, צעד אחרי צעד.",
    "price": 147,
    "usd": 39,
+   "prices": {
+    "usd": 39,
+    "cad": 55,
+    "eur": 35,
+    "gbp": 29,
+    "aud": 55
+   },
    "period": "week",
    "trialDays": 1
   },
@@ -1155,6 +2199,13 @@
    "description": "השותף בבוט, ועוד מלווה אישי מהצוות, למי שרוצה להגיע הכי רחוק שאפשר.",
    "price": 297,
    "usd": 79,
+   "prices": {
+    "usd": 79,
+    "cad": 109,
+    "eur": 69,
+    "gbp": 59,
+    "aud": 119
+   },
    "period": "week",
    "trialDays": 1
   },
@@ -1169,6 +2220,13 @@
    },
    "description": "בוט אישי: משימה ותזכורת בכל יום · מסלול אחד לבחירה · מעקב רצף והתקדמות · ספר דיגיטלי אחד בכל חודש",
    "price": 29,
+   "prices": {
+    "usd": 9,
+    "cad": 13,
+    "eur": 8,
+    "gbp": 7,
+    "aud": 13
+   },
    "period": "month",
    "trialDays": 0
   },
@@ -1183,6 +2241,13 @@
    },
    "description": "כל מה שב«יום טוב» · השותף מלווה אותך בכל המסלולים, בלי הגבלה · מעקב התקדמות ודוח שבועי · כל הקורסים בספרייה · אתגר שבועי, מפגש לייב בכל חודש וקבוצה לפי נושא",
    "price": 59,
+   "prices": {
+    "usd": 19,
+    "cad": 27,
+    "eur": 17,
+    "gbp": 14,
+    "aud": 27
+   },
    "period": "month",
    "trialDays": 0
   },
@@ -1197,6 +2262,13 @@
    },
    "description": "כל מה שב«שותף» · צ׳אט אישי עם מלווה מהצוות · שיחת כיוון בכל שבוע · תוכנית אישית ל-90 יום",
    "price": 149,
+   "prices": {
+    "usd": 45,
+    "cad": 65,
+    "eur": 39,
+    "gbp": 35,
+    "aud": 69
+   },
    "period": "month",
    "trialDays": 0
   },
@@ -1211,6 +2283,13 @@
    },
    "description": "קורס מעשי לעריכה ושיפור של תמונות ווידאו עם כלי בינה מלאכותית, בטלפון ובמחשב. השיעור הראשון מחכה מיד אחרי ההרשמה: ערכת הכלים, סדר עבודה של חמישה צעדים, ספריית פרומפטים ושלושה פריסטים. בכל שבוע מתווסף שיעור חדש עם פריסטים ופרומפטים חדשים, והקורסים והספרים של החנות על צילום ועריכה פתוחים לכם באזור האישי.",
    "price": 129,
+   "prices": {
+    "usd": 39,
+    "cad": 59,
+    "eur": 35,
+    "gbp": 29,
+    "aud": 59
+   },
    "period": "week",
    "trialDays": 1
   }

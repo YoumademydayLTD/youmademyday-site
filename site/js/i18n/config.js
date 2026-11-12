@@ -11,6 +11,15 @@ export const LANGS = {
 export const DEFAULT_LANG = "en";
 // The site whose prices are always in shekels; the others show dollars for items that have a dollar price.
 export const HOME_CURRENCY_LANG = "he";
+// Currencies the store shows and charges in (owner, 12.11.2026). Shekels are the home currency; the price of every
+// item in each other currency comes from tools/currency_prices.json (generated into the product files).
+export const HOME_CURRENCY = "ILS";
+export const CURRENCIES = ["ILS", "USD", "CAD", "EUR", "GBP", "AUD"];
+// Where a foreign site starts when the visitor chose nothing and the browser's region is not in the table below.
+export const LANG_CURRENCY = { en: "USD", fr: "EUR", ar: "USD", ru: "USD" };
+const EURO_REGIONS = ["AT", "BE", "CY", "DE", "EE", "ES", "FI", "FR", "GR", "HR", "IE", "IT", "LT", "LU", "LV", "MT", "NL", "PT", "SI", "SK"];
+// Browser region ("en-CA" → CA) → currency. It wins over the language: a French speaker in Canada sees Canadian dollars.
+export const REGION_CURRENCY = { IL: "ILS", US: "USD", CA: "CAD", GB: "GBP", AU: "AUD", ...Object.fromEntries(EURO_REGIONS.map((region) => [region, "EUR"])) };
 // Languages published on the site. A language joins once its whole catalogue is translated (tools/build_site.py reads this line).
 export const LIVE = ["en", "he", "fr", "ar", "ru"];
 

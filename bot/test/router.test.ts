@@ -58,7 +58,9 @@ describe("helpers", () => {
     expect(formatCharge("en", "2026-11-10T08:00:00Z", 14700, "ils").amount).toContain("147");
     expect(planPriceMinor("grow", "ils")).toBe(14700);
     expect(planPriceMinor("grow", "usd")).toBe(3900);
-    expect(planPriceMinor("day", "usd")).toBeNull();
+    expect(planPriceMinor("day", "usd")).toBe(900);
+    expect(planPriceMinor("grow", "cad")).toBe(5500);
+    expect(planPriceMinor("grow", "gel")).toBeNull();
     expect(planPriceMinor("nope", "ils")).toBeNull();
   });
 

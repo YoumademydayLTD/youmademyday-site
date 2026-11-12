@@ -3,20 +3,25 @@
 // Owner, 04.11.2026: the two weekly plans are the main offer and get the most room; the smaller monthly
 // plans stay below them. Monthly prices are still placeholders.
 
+import { PLAN_PRICES } from "./plan-prices.js";
+
 export const PERIOD_DAYS = { week: 7, month: 30 };
+
+// Each paid plan's price in the other currencies (generated from tools/currency_prices.json, owner 12.11.2026).
+const withPrices = (plan) => (PLAN_PRICES[plan.id] ? { ...plan, prices: PLAN_PRICES[plan.id] } : plan);
 
 /** The main offer: weekly, first day free, priced in shekels and dollars. */
 export const FEATURED_PLANS = [
   { id: "grow", price: 147, usd: 39, period: "week", trialDays: 1 },
   { id: "max", price: 297, usd: 79, period: "week", trialDays: 1, isFeatured: true },
-];
+].map(withPrices);
 
 export const PLANS = [
   { id: "spark", price: 0, period: "month", tone: "ghost" },
   { id: "day", price: 29, period: "month", tone: "tg" },
   { id: "community", price: 59, period: "month", tone: "tg", isFeatured: true },
   { id: "mentor", price: 149, period: "month", tone: "ghost" },
-];
+].map(withPrices);
 
 /**
  * Plans sold only through payment links (CRX, store id plan-<id>), never listed on the plans page.
@@ -27,7 +32,7 @@ export const PLANS = [
  */
 export const LINK_PLANS = [
   { id: "edit", price: 129, period: "week", trialDays: 1 },
-];
+].map(withPrices);
 
 export const ALL_PLANS = Object.fromEntries([...FEATURED_PLANS, ...PLANS, ...LINK_PLANS].map((p) => [p.id, p]));
 

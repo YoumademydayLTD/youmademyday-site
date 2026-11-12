@@ -1,11 +1,11 @@
 // Product page: course, e-book / template, or bundle.
 import { ALL, COURSES, BOOKS, card, heart, isCourse, kindLabel, courseMinutes, hoursLabel } from "../catalog.js";
 import { S } from "../state.js";
-import { esc, ils } from "../util.js";
+import { esc } from "../util.js";
 import { BRAND, REFUND_DAYS } from "../business.js";
 import { bookStage } from "../book3d.js";
 import { t, tList, HOME_URL } from "../i18n/index.js";
-import { isDirectOffer, priceLabel, buyHref } from "../money.js";
+import { amountOf, money, isDirectOffer, priceLabel, buyHref } from "../money.js";
 
 const RELATED_COUNT = 4;
 const heroBook = (p) => bookStage(p, { style: "--ry:-22deg" });
@@ -56,8 +56,8 @@ function bookMain(p) {
 
 function bundleMain(p) {
   const parts = p.includes.map((id) => ALL[id]).filter(Boolean);
-  const separate = parts.reduce((sum, x) => sum + x.price, 0);
-  const facts = `<span>${t("meta.books", { n: parts.length })}</span><span>${t("item.separate")} <b>${ils(separate)}</b></span><span>${t("item.inBundlePrice")} <b>${ils(p.price)}</b></span>`;
+  const separate = parts.reduce((sum, x) => sum + amountOf(x), 0);
+  const facts = `<span>${t("meta.books", { n: parts.length })}</span><span>${t("item.separate")} <b>${money(separate)}</b></span><span>${t("item.inBundlePrice")} <b>${money(amountOf(p))}</b></span>`;
   return `${hero(p, facts)}${descPanel(p)}
     <div><h2 style="margin-bottom:14px">${t("item.inBundle")}</h2><div class="grid books">${parts.map(card).join("")}</div></div>`;
 }

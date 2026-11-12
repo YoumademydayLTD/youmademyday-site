@@ -6,6 +6,26 @@
    "ils": {
     "id": "818fc865-ead3-4fc4-8d4d-4e24c02cf3ad",
     "amount": 34900
+   },
+   "usd": {
+    "id": "c89163b3-63df-4d18-8798-6c69cbdbca90",
+    "amount": 10900
+   },
+   "cad": {
+    "id": "e0d49273-c77a-4fe4-9260-12229f0cc9fd",
+    "amount": 15900
+   },
+   "eur": {
+    "id": "85b0212c-0e9e-41a4-a139-7b89a5ea82bf",
+    "amount": 9900
+   },
+   "gbp": {
+    "id": "6a158ebd-6fb0-4ec5-8120-f7eda870e504",
+    "amount": 8500
+   },
+   "aud": {
+    "id": "f3fdd47c-460a-4014-86ae-46a0476c9556",
+    "amount": 15900
    }
   }
  },
@@ -16,6 +36,26 @@
    "ils": {
     "id": "fe7cf464-21c7-4ce2-a8ff-36c1f0fe0f3d",
     "amount": 24900
+   },
+   "usd": {
+    "id": "098301b6-3697-4c65-9bca-018aa1f4573d",
+    "amount": 7900
+   },
+   "cad": {
+    "id": "d5ea39bb-a349-40c7-8f3b-6be1cca85f08",
+    "amount": 10900
+   },
+   "eur": {
+    "id": "4e4f0377-c4d4-47a7-b9c2-6f8126ed7561",
+    "amount": 6900
+   },
+   "gbp": {
+    "id": "622320a9-98bb-4c6e-9cc3-7e6940e64340",
+    "amount": 5900
+   },
+   "aud": {
+    "id": "cc55c049-44fb-449b-8340-0dacf4231f4a",
+    "amount": 11900
    }
   }
  },
@@ -26,6 +66,26 @@
    "ils": {
     "id": "ae5cae2f-e0a7-4197-aee1-da5b6533aef9",
     "amount": 24900
+   },
+   "usd": {
+    "id": "a909f2df-d052-4dcb-ac59-469fe2811e0f",
+    "amount": 7900
+   },
+   "cad": {
+    "id": "b6cab2a8-e477-494c-9abf-f04b95b3b3ea",
+    "amount": 10900
+   },
+   "eur": {
+    "id": "57cb0a13-ad3f-4161-9fb9-fa5cb55165b4",
+    "amount": 6900
+   },
+   "gbp": {
+    "id": "4be35377-5461-42d5-86bb-230efb1c0fe2",
+    "amount": 5900
+   },
+   "aud": {
+    "id": "584cb67e-10a6-4015-904b-0058e4d1d445",
+    "amount": 11900
    }
   }
  },
@@ -36,6 +96,26 @@
    "ils": {
     "id": "f8415e1b-689c-42f3-9c61-811fb0b770ea",
     "amount": 29900
+   },
+   "usd": {
+    "id": "e48ff8cf-a48a-4ce1-98f6-92350bb2b1eb",
+    "amount": 9500
+   },
+   "cad": {
+    "id": "1696d998-163f-4d94-9719-6c2c2b4d7fb6",
+    "amount": 13900
+   },
+   "eur": {
+    "id": "14ef7997-2d37-43be-9b05-a63199765470",
+    "amount": 8500
+   },
+   "gbp": {
+    "id": "62701ab8-4d18-4c40-af67-7d19e6355e41",
+    "amount": 6900
+   },
+   "aud": {
+    "id": "06954a03-aed8-44df-8eae-2edd3a71a972",
+    "amount": 13900
    }
   }
  },
@@ -46,6 +126,26 @@
    "ils": {
     "id": "99b74817-4a13-49c9-b9a0-e42087544215",
     "amount": 21900
+   },
+   "usd": {
+    "id": "648e9a29-debb-472e-adb3-9b472438d094",
+    "amount": 6900
+   },
+   "cad": {
+    "id": "58ba1e41-5818-4b20-961f-39ec1206fb2c",
+    "amount": 9900
+   },
+   "eur": {
+    "id": "ea4e8210-8c67-4bcb-9e58-83eedd8c5d3c",
+    "amount": 6500
+   },
+   "gbp": {
+    "id": "ac04b778-a472-45af-84de-70b8eff3158b",
+    "amount": 5500
+   },
+   "aud": {
+    "id": "cf5fbc60-7ceb-4334-831b-da9ab1daee0f",
+    "amount": 9900
    }
   }
  },
@@ -56,6 +156,26 @@
    "ils": {
     "id": "bf93142f-c676-4921-931c-578528f2db41",
     "amount": 19900
+   },
+   "usd": {
+    "id": "97a179e8-804f-4c8e-8c0f-7596aa4e4a5d",
+    "amount": 6500
+   },
+   "cad": {
+    "id": "736be56d-d639-48ee-ab60-6d1e95ffa417",
+    "amount": 8900
+   },
+   "eur": {
+    "id": "f84d25af-77b3-490f-9cbd-0bed01aea16e",
+    "amount": 5500
+   },
+   "gbp": {
+    "id": "6e18cbef-0e60-4289-a65e-80b389fe7dc2",
+    "amount": 4900
+   },
+   "aud": {
+    "id": "d30589e9-e44e-4b02-8a09-c8544efe7559",
+    "amount": 8900
    }
   }
  },
@@ -66,6 +186,26 @@
    "ils": {
     "id": "49ca39bc-97b9-41e9-9229-39a091241696",
     "amount": 27900
+   },
+   "usd": {
+    "id": "1e37fd99-7055-4579-b6c4-e1368f1493ea",
+    "amount": 8900
+   },
+   "cad": {
+    "id": "ac60f7ca-378d-4ab6-80e0-ad6f7e581763",
+    "amount": 12900
+   },
+   "eur": {
+    "id": "947a2239-b625-4ac5-b108-094930838f1b",
+    "amount": 7900
+   },
+   "gbp": {
+    "id": "04ed11dc-8a7c-4335-8340-566df6f9a9a6",
+    "amount": 6500
+   },
+   "aud": {
+    "id": "35d9334e-3478-44d5-94af-1dd406de76fc",
+    "amount": 12900
    }
   }
  },
@@ -76,6 +216,26 @@
    "ils": {
     "id": "cd013b4f-22f0-4ea3-9023-6fcc62fd4b99",
     "amount": 29900
+   },
+   "usd": {
+    "id": "1668864d-4599-4ff9-84ce-b99256cec624",
+    "amount": 9500
+   },
+   "cad": {
+    "id": "f5aab524-eae2-4bb2-b371-921d85b71d50",
+    "amount": 13900
+   },
+   "eur": {
+    "id": "3b54e1ed-5b56-4310-aec1-94ca305ed28f",
+    "amount": 8500
+   },
+   "gbp": {
+    "id": "4b39c1e5-9410-4c1f-979f-2db491efd9cb",
+    "amount": 6900
+   },
+   "aud": {
+    "id": "779b88be-a470-47dc-a4de-a8f34ac2abdf",
+    "amount": 13900
    }
   }
  },
@@ -86,6 +246,26 @@
    "ils": {
     "id": "23bc92cd-1511-4e66-8935-e1323a26feb4",
     "amount": 6900
+   },
+   "usd": {
+    "id": "e9223e91-bcca-433d-9efa-a5fbcd8b302f",
+    "amount": 2200
+   },
+   "cad": {
+    "id": "64c161b5-d2fa-496b-a970-246525a86294",
+    "amount": 3200
+   },
+   "eur": {
+    "id": "7b288d47-2058-4901-8360-0d40f5af3df4",
+    "amount": 2000
+   },
+   "gbp": {
+    "id": "dc0659ae-2db0-4737-8fb2-acfd7315e11e",
+    "amount": 1600
+   },
+   "aud": {
+    "id": "c50b65f1-7dd3-460b-9be1-6c0018ee6dff",
+    "amount": 3200
    }
   }
  },
@@ -96,6 +276,26 @@
    "ils": {
     "id": "834d48eb-9746-4bbf-93c7-4b5663be6d9c",
     "amount": 5900
+   },
+   "usd": {
+    "id": "e2e4bdb9-4020-4882-8b67-fa7d27560954",
+    "amount": 1900
+   },
+   "cad": {
+    "id": "8d8ee1cf-c4e9-45f3-9d07-60e536f6d52c",
+    "amount": 2700
+   },
+   "eur": {
+    "id": "48127374-1636-49eb-ac7b-a61b91b67522",
+    "amount": 1700
+   },
+   "gbp": {
+    "id": "be29ff8d-a991-46c4-8fac-103ff488fdc5",
+    "amount": 1400
+   },
+   "aud": {
+    "id": "ce72f77f-a650-43ed-8f93-f139eb336ea3",
+    "amount": 2700
    }
   }
  },
@@ -106,6 +306,26 @@
    "ils": {
     "id": "27a37fad-9971-48aa-bfc7-f621880dd0dd",
     "amount": 4900
+   },
+   "usd": {
+    "id": "a14080bd-6d05-4717-ab45-3e78cbfe5dcb",
+    "amount": 1500
+   },
+   "cad": {
+    "id": "7e3087fd-3837-4e32-b0f2-ee5953f22ac2",
+    "amount": 2200
+   },
+   "eur": {
+    "id": "003063f1-a0ac-4163-95f7-89caf434d9c9",
+    "amount": 1400
+   },
+   "gbp": {
+    "id": "9f89b536-cc00-4028-86d9-6ff9f5d81f6e",
+    "amount": 1200
+   },
+   "aud": {
+    "id": "4ee7d8d4-8e4e-4e44-a37b-a78d708d230b",
+    "amount": 2200
    }
   }
  },
@@ -116,6 +336,26 @@
    "ils": {
     "id": "2f95f957-433d-4c94-a957-fbc1df295532",
     "amount": 5900
+   },
+   "usd": {
+    "id": "54993814-c237-4123-9bd2-f16b107851b6",
+    "amount": 1900
+   },
+   "cad": {
+    "id": "7c648fe4-0858-4d0c-bb93-8370db9743fd",
+    "amount": 2700
+   },
+   "eur": {
+    "id": "7e08335e-3094-43d7-b224-67a3bf4d49bd",
+    "amount": 1700
+   },
+   "gbp": {
+    "id": "f02a4d81-8c0f-49ed-9746-3796fffbd887",
+    "amount": 1400
+   },
+   "aud": {
+    "id": "2a47dbf7-619d-47d6-a3b0-809d087eae83",
+    "amount": 2700
    }
   }
  },
@@ -126,6 +366,26 @@
    "ils": {
     "id": "2bfa92b8-8568-4621-acd5-d389f474312e",
     "amount": 4500
+   },
+   "usd": {
+    "id": "a55bb009-78a8-4e1e-ad6c-5a1140c72ce5",
+    "amount": 1400
+   },
+   "cad": {
+    "id": "a2df7fae-41bc-4d7d-93f3-0382d9eb3768",
+    "amount": 2000
+   },
+   "eur": {
+    "id": "e50c7395-e8e1-45e6-825a-2384163d401d",
+    "amount": 1300
+   },
+   "gbp": {
+    "id": "d08f2f0f-ad2a-4fcc-a6b4-822c96502fef",
+    "amount": 1100
+   },
+   "aud": {
+    "id": "54e2f408-8bb9-4086-acc8-2cea123209ad",
+    "amount": 2000
    }
   }
  },
@@ -136,6 +396,26 @@
    "ils": {
     "id": "ea2f6ec4-b577-49b1-97b3-55a0a64609d9",
     "amount": 5500
+   },
+   "usd": {
+    "id": "719cbf23-0d4d-4212-ab2f-136865351b57",
+    "amount": 1700
+   },
+   "cad": {
+    "id": "bd63255f-83a8-43c4-ae8b-c271ce0d0a0b",
+    "amount": 2500
+   },
+   "eur": {
+    "id": "fbbe3a3b-9b44-4152-b5ab-6a022eb1de41",
+    "amount": 1600
+   },
+   "gbp": {
+    "id": "512ae80c-1ffb-4040-beb1-79bd6cc67fb4",
+    "amount": 1300
+   },
+   "aud": {
+    "id": "7f0246b0-dfcc-4134-b1ee-5b231a29523a",
+    "amount": 2500
    }
   }
  },
@@ -146,6 +426,26 @@
    "ils": {
     "id": "54a1fba0-54f0-455c-ac10-035ab858bd0e",
     "amount": 4500
+   },
+   "usd": {
+    "id": "7f5803ab-6381-447f-98e7-f9ed99bbb2c2",
+    "amount": 1400
+   },
+   "cad": {
+    "id": "52f35085-75a6-47d9-a5c7-1075fbaf12e8",
+    "amount": 2000
+   },
+   "eur": {
+    "id": "b3b35d43-daa9-4ffc-a12d-ca6cdc45b868",
+    "amount": 1300
+   },
+   "gbp": {
+    "id": "7ece220d-4b8b-40cf-a9ec-627244782e3b",
+    "amount": 1100
+   },
+   "aud": {
+    "id": "68dacc29-981c-4d3f-9028-413d1a72abee",
+    "amount": 2000
    }
   }
  },
@@ -156,6 +456,26 @@
    "ils": {
     "id": "e83335c2-f56b-4199-812d-182ad20abbf5",
     "amount": 4500
+   },
+   "usd": {
+    "id": "d85e9137-ddf4-4a01-adbc-b6b802b0db42",
+    "amount": 1400
+   },
+   "cad": {
+    "id": "6b077ec4-a4e7-40bc-8c8e-cc1fae50e7d6",
+    "amount": 2000
+   },
+   "eur": {
+    "id": "fb43546c-b014-4b7b-b81e-294658ec00e8",
+    "amount": 1300
+   },
+   "gbp": {
+    "id": "9eba2b70-a72e-47d4-b2ba-f956db51310c",
+    "amount": 1100
+   },
+   "aud": {
+    "id": "a0678bdd-fa8d-444e-9a83-6e0865b23053",
+    "amount": 2000
    }
   }
  },
@@ -166,6 +486,26 @@
    "ils": {
     "id": "16a0ad06-63b3-4ce6-8c27-47d40b9351ed",
     "amount": 5900
+   },
+   "usd": {
+    "id": "cef2c9c8-2b35-40a5-985a-a36d13d3e6a8",
+    "amount": 1900
+   },
+   "cad": {
+    "id": "99e2e001-ef95-427a-81e5-c95949811c6b",
+    "amount": 2700
+   },
+   "eur": {
+    "id": "99196c32-3cbb-4860-8a34-74da0c65e0c4",
+    "amount": 1700
+   },
+   "gbp": {
+    "id": "28801d61-e91a-449c-a56a-16f244ec9dd2",
+    "amount": 1400
+   },
+   "aud": {
+    "id": "6be29cc8-eed0-4ccc-b111-43cf6d01dc05",
+    "amount": 2700
    }
   }
  },
@@ -176,6 +516,26 @@
    "ils": {
     "id": "665cece9-f597-428b-ba3e-6f5dd013762a",
     "amount": 3900
+   },
+   "usd": {
+    "id": "12cb0cbd-e09a-4283-a513-dcab02134da9",
+    "amount": 1200
+   },
+   "cad": {
+    "id": "dae1855d-0418-46f1-9547-61590d14de1b",
+    "amount": 1800
+   },
+   "eur": {
+    "id": "b468dd6d-0de1-42e4-badb-60a3b2671e45",
+    "amount": 1100
+   },
+   "gbp": {
+    "id": "b691cafd-555f-47e8-8653-3f13d672294b",
+    "amount": 900
+   },
+   "aud": {
+    "id": "c8178592-9851-46f4-9a93-2bd5070d599a",
+    "amount": 1800
    }
   }
  },
@@ -186,6 +546,26 @@
    "ils": {
     "id": "e349fd10-d522-4fd9-9238-40a747331743",
     "amount": 2900
+   },
+   "usd": {
+    "id": "5e8257f4-0460-482d-bbcf-b7afdebeefd1",
+    "amount": 900
+   },
+   "cad": {
+    "id": "b7422609-40b3-49f1-83a1-00e63ef72e93",
+    "amount": 1300
+   },
+   "eur": {
+    "id": "79eebe2c-747f-4bf5-a485-2e059f8ca826",
+    "amount": 800
+   },
+   "gbp": {
+    "id": "ff10a96a-5c8a-4881-aed3-6280d54aef8f",
+    "amount": 700
+   },
+   "aud": {
+    "id": "736eadf8-002b-4e2a-b954-9ec2af9f2b2e",
+    "amount": 1300
    }
   }
  },
@@ -196,6 +576,26 @@
    "ils": {
     "id": "fdedff95-c199-4ba7-a728-04cff2a52e4a",
     "amount": 2500
+   },
+   "usd": {
+    "id": "aebad0ff-bbab-4695-b8cd-5c4cc0e9e85d",
+    "amount": 800
+   },
+   "cad": {
+    "id": "eff77366-7193-4f96-8709-9386334fad52",
+    "amount": 1100
+   },
+   "eur": {
+    "id": "a9d38630-7757-416b-82e7-37231e2a7079",
+    "amount": 700
+   },
+   "gbp": {
+    "id": "72d71403-8fc6-44d4-a368-3211f31bf78f",
+    "amount": 600
+   },
+   "aud": {
+    "id": "cf2d884f-6c73-4949-a1e7-acf7296cea65",
+    "amount": 1200
    }
   }
  },
@@ -206,6 +606,26 @@
    "ils": {
     "id": "5af52bc8-ca06-4e3d-86a1-c3d9d93ce820",
     "amount": 3900
+   },
+   "usd": {
+    "id": "ba75bafd-7087-45b2-9f92-9110d219dc3e",
+    "amount": 1200
+   },
+   "cad": {
+    "id": "33c8608e-8a2a-4e11-b560-e805868fe394",
+    "amount": 1800
+   },
+   "eur": {
+    "id": "e7f5d704-21d6-464a-882e-ac5792e03ca0",
+    "amount": 1100
+   },
+   "gbp": {
+    "id": "2c2dc6f4-6d3c-4031-a0f8-8394b8999f29",
+    "amount": 900
+   },
+   "aud": {
+    "id": "35a52561-3926-4064-9fa7-801abdd96a1a",
+    "amount": 1800
    }
   }
  },
@@ -216,6 +636,26 @@
    "ils": {
     "id": "2e122bdc-c478-4d23-af5d-986627d76876",
     "amount": 3900
+   },
+   "usd": {
+    "id": "0ac7c538-9f2c-4867-b23a-57fb9a0d0b67",
+    "amount": 1200
+   },
+   "cad": {
+    "id": "f3a0baf7-8f08-404d-b257-53cde698ec60",
+    "amount": 1800
+   },
+   "eur": {
+    "id": "3d9fae1f-3238-4a73-9339-43b63ab7eda5",
+    "amount": 1100
+   },
+   "gbp": {
+    "id": "61b8f587-c6d8-4eb4-ba5e-d8a47abebd3d",
+    "amount": 900
+   },
+   "aud": {
+    "id": "d04a23a4-260f-4fea-bcc0-47b18cd91417",
+    "amount": 1800
    }
   }
  },
@@ -226,6 +666,26 @@
    "ils": {
     "id": "db4b933b-fb1e-4fd5-8205-426c75f5aa20",
     "amount": 3500
+   },
+   "usd": {
+    "id": "e38f22ef-df88-4650-847d-a3ba201f685c",
+    "amount": 1100
+   },
+   "cad": {
+    "id": "9a6bc2fa-4c41-4b1a-9a3d-ead92153b7cc",
+    "amount": 1600
+   },
+   "eur": {
+    "id": "79a4acec-82e0-4315-946e-97f48cdbcbce",
+    "amount": 1000
+   },
+   "gbp": {
+    "id": "e5fd8dec-8789-4745-ac36-72454392776c",
+    "amount": 800
+   },
+   "aud": {
+    "id": "a5b20c96-9928-4e12-9010-58540f0d052f",
+    "amount": 1600
    }
   }
  },
@@ -236,6 +696,26 @@
    "ils": {
     "id": "3ed0009d-ff4f-40eb-8908-8c8a716dbe96",
     "amount": 3500
+   },
+   "usd": {
+    "id": "06099277-9e28-4907-b48b-bbcea2577db5",
+    "amount": 1100
+   },
+   "cad": {
+    "id": "3222e87e-e809-4524-a474-f359033af133",
+    "amount": 1600
+   },
+   "eur": {
+    "id": "f86ce179-555f-4961-b90a-b64512e97ad9",
+    "amount": 1000
+   },
+   "gbp": {
+    "id": "fa61d711-1d67-4508-8eb4-fa4d30eda19b",
+    "amount": 800
+   },
+   "aud": {
+    "id": "216d02fd-f6bd-4fb3-8da5-fdf40a7e4bcf",
+    "amount": 1600
    }
   }
  },
@@ -246,6 +726,26 @@
    "ils": {
     "id": "84aaf8f8-ab99-4962-a679-e13f3a37b3f9",
     "amount": 4900
+   },
+   "usd": {
+    "id": "d2ab1f96-1724-4953-9f8d-e328e3bd30b3",
+    "amount": 1500
+   },
+   "cad": {
+    "id": "ea960f93-b4a8-4aeb-b856-6a1f6dbc5665",
+    "amount": 2200
+   },
+   "eur": {
+    "id": "a598997f-0b42-4c6e-a40a-ab6f020afd74",
+    "amount": 1400
+   },
+   "gbp": {
+    "id": "96a03fe4-e23c-49a8-9d95-e511763d8a53",
+    "amount": 1200
+   },
+   "aud": {
+    "id": "89c18daf-abbb-4eb5-b6b8-9241fe637c16",
+    "amount": 2200
    }
   }
  },
@@ -256,6 +756,26 @@
    "ils": {
     "id": "30d6a372-42ba-4286-81b0-a3c6964a60db",
     "amount": 3900
+   },
+   "usd": {
+    "id": "9dd84f4b-9cea-4902-941f-6aef41268d02",
+    "amount": 1200
+   },
+   "cad": {
+    "id": "4bf0fb70-0ab0-4627-bccf-745837b29ccd",
+    "amount": 1800
+   },
+   "eur": {
+    "id": "758f3ca5-4753-46f1-83be-b1cfd860ecbb",
+    "amount": 1100
+   },
+   "gbp": {
+    "id": "17f8f61d-a47d-4ed2-8504-ec093d6bd84b",
+    "amount": 900
+   },
+   "aud": {
+    "id": "3a4849e5-7e0c-4c21-82a4-f414753a9a1b",
+    "amount": 1800
    }
   }
  },
@@ -266,6 +786,26 @@
    "ils": {
     "id": "2ec04387-2fac-4bcc-9f4a-cf35a5eed28f",
     "amount": 4500
+   },
+   "usd": {
+    "id": "16464913-9f0f-4e07-8658-723bf926950f",
+    "amount": 1400
+   },
+   "cad": {
+    "id": "fdee0f16-350b-487d-95dc-f1a6f27f4ef1",
+    "amount": 2000
+   },
+   "eur": {
+    "id": "2bd9dde3-8f17-4967-9ca1-454a5b792150",
+    "amount": 1300
+   },
+   "gbp": {
+    "id": "aa5b3df1-fe7c-44f1-9d0d-d7fcadb64c1e",
+    "amount": 1100
+   },
+   "aud": {
+    "id": "b14a05ca-80f2-4c67-8952-363d331d45c8",
+    "amount": 2000
    }
   }
  },
@@ -276,6 +816,26 @@
    "ils": {
     "id": "b511ad7d-751c-4197-8807-3f430798ffa1",
     "amount": 4500
+   },
+   "usd": {
+    "id": "754f1e1f-c0a9-4583-966f-0bf38ed792b7",
+    "amount": 1400
+   },
+   "cad": {
+    "id": "7ce48bf5-b3f5-4195-ae3f-b57e426eda86",
+    "amount": 2000
+   },
+   "eur": {
+    "id": "94793542-2df9-4ee9-9372-fb6f69b72001",
+    "amount": 1300
+   },
+   "gbp": {
+    "id": "7e8c11b4-2719-48bc-b7b5-62abddb73822",
+    "amount": 1100
+   },
+   "aud": {
+    "id": "d948d905-d787-4a3a-ab3a-1043727e368e",
+    "amount": 2000
    }
   }
  },
@@ -286,6 +846,26 @@
    "ils": {
     "id": "23175d12-557d-4427-8966-7a69034ac2c3",
     "amount": 4900
+   },
+   "usd": {
+    "id": "bfc18e4c-03dd-4983-aab5-94af63713de2",
+    "amount": 1500
+   },
+   "cad": {
+    "id": "2ce2ac6a-e039-467e-919a-8eb1cd4fbd89",
+    "amount": 2200
+   },
+   "eur": {
+    "id": "60cd61fc-b817-4fb4-8009-29eb55309504",
+    "amount": 1400
+   },
+   "gbp": {
+    "id": "27d9d85e-9b9d-478c-bc8c-8e1c1be0bda0",
+    "amount": 1200
+   },
+   "aud": {
+    "id": "8b75abda-960c-4220-9b38-ff2cabaff759",
+    "amount": 2200
    }
   }
  },
@@ -296,6 +876,26 @@
    "ils": {
     "id": "e5d86453-3e1d-484b-8b10-cd144027079c",
     "amount": 6900
+   },
+   "usd": {
+    "id": "e1ec8794-7eec-42b8-a32a-54a1b2371ff0",
+    "amount": 2200
+   },
+   "cad": {
+    "id": "cd3bea4d-ad32-498f-a59c-7167fb468e32",
+    "amount": 3200
+   },
+   "eur": {
+    "id": "76cb1dab-f9af-4bdc-8f93-76409806cf1a",
+    "amount": 2000
+   },
+   "gbp": {
+    "id": "c3249ac8-730d-4cb9-b18b-5328d96ecc47",
+    "amount": 1600
+   },
+   "aud": {
+    "id": "ce5f64c9-77f5-4121-b66a-5ebcde4b2a07",
+    "amount": 3200
    }
   }
  },
@@ -306,6 +906,26 @@
    "ils": {
     "id": "b0b85e76-2532-4b7f-b415-82a57569bfa3",
     "amount": 5500
+   },
+   "usd": {
+    "id": "92a092a9-76e4-4155-8cd6-4e84ac586ac4",
+    "amount": 1700
+   },
+   "cad": {
+    "id": "b9e22a97-82d1-4ce8-a97e-aa463f786505",
+    "amount": 2500
+   },
+   "eur": {
+    "id": "23631a11-01d9-45ce-a435-245e28cd13e3",
+    "amount": 1600
+   },
+   "gbp": {
+    "id": "e22e899d-af5c-447c-9dd6-f260b841304e",
+    "amount": 1300
+   },
+   "aud": {
+    "id": "6f95b727-289a-47ba-baef-a147aa852d9f",
+    "amount": 2500
    }
   }
  },
@@ -316,6 +936,26 @@
    "ils": {
     "id": "ff91860a-2fbb-4381-b844-3ae3fbbcb2ed",
     "amount": 4900
+   },
+   "usd": {
+    "id": "8e7885e6-77b7-48c4-ba1a-e559f0b18e08",
+    "amount": 1500
+   },
+   "cad": {
+    "id": "de5d8f97-efaf-42f6-9d36-144b208b79a7",
+    "amount": 2200
+   },
+   "eur": {
+    "id": "6a0f3737-bdf0-45ac-8838-d063646487b2",
+    "amount": 1400
+   },
+   "gbp": {
+    "id": "320ab942-58fe-4a59-b78c-3c79366c11a1",
+    "amount": 1200
+   },
+   "aud": {
+    "id": "4cf60b39-093a-4c4f-b6b1-b6cede03d35f",
+    "amount": 2200
    }
   }
  },
@@ -326,6 +966,26 @@
    "ils": {
     "id": "45c2a451-13ca-4193-909e-8d8fee6c1d5d",
     "amount": 4900
+   },
+   "usd": {
+    "id": "a24366b4-8606-45f4-b6b0-b453392cd1f2",
+    "amount": 1500
+   },
+   "cad": {
+    "id": "2c88c8ae-d93b-4bc4-9275-229f62907005",
+    "amount": 2200
+   },
+   "eur": {
+    "id": "136f1c21-d4e9-47e5-aadb-750cc70c752c",
+    "amount": 1400
+   },
+   "gbp": {
+    "id": "2f6e50bc-e92e-4d6f-9f5f-c0a0ef9b4b3f",
+    "amount": 1200
+   },
+   "aud": {
+    "id": "0c0cc20f-bb09-4790-a0c4-591725d4bd38",
+    "amount": 2200
    }
   }
  },
@@ -336,6 +996,26 @@
    "ils": {
     "id": "42eeeff2-ce70-4ec1-8175-36869513f51c",
     "amount": 3500
+   },
+   "usd": {
+    "id": "3276c049-4b1e-4c41-9173-b5a3c08d8a4e",
+    "amount": 1100
+   },
+   "cad": {
+    "id": "dc4f554f-9f8c-4a46-950e-75e85395b89f",
+    "amount": 1600
+   },
+   "eur": {
+    "id": "42e4260c-d9d2-47fe-b756-dbcd937c3ecb",
+    "amount": 1000
+   },
+   "gbp": {
+    "id": "dba8efda-29e1-4b68-b3f4-ea148badc453",
+    "amount": 800
+   },
+   "aud": {
+    "id": "1ad788b6-7eee-405f-8d4e-565d612c5238",
+    "amount": 1600
    }
   }
  },
@@ -346,6 +1026,26 @@
    "ils": {
     "id": "a527476b-4fee-4eb6-8789-c87ba848a270",
     "amount": 2900
+   },
+   "usd": {
+    "id": "d6f8882b-526e-4592-9a20-6a79b1a29e95",
+    "amount": 900
+   },
+   "cad": {
+    "id": "2fd1c993-de37-4c77-af9e-3e791071dc22",
+    "amount": 1300
+   },
+   "eur": {
+    "id": "c404d9ca-47e8-4260-9700-4cde81fa56f6",
+    "amount": 800
+   },
+   "gbp": {
+    "id": "b153fdea-29f8-4379-b8e0-ac07ec4a2183",
+    "amount": 700
+   },
+   "aud": {
+    "id": "17e82e1a-727d-4685-808b-643f5cbf016f",
+    "amount": 1300
    }
   }
  },
@@ -356,6 +1056,26 @@
    "ils": {
     "id": "e57ffde1-c000-4b2b-842f-8f910ae3b03c",
     "amount": 4500
+   },
+   "usd": {
+    "id": "64d85df4-800e-48b2-9c66-f2870d7e72b2",
+    "amount": 1400
+   },
+   "cad": {
+    "id": "bd751748-bdeb-4aa5-a81b-b6c3842f3d1d",
+    "amount": 2000
+   },
+   "eur": {
+    "id": "c42328cb-9316-4e00-a6a8-057b2661a806",
+    "amount": 1300
+   },
+   "gbp": {
+    "id": "3a40ee95-7d43-4381-adbf-3d5c2f3f8bb8",
+    "amount": 1100
+   },
+   "aud": {
+    "id": "78b44635-e1c5-4a12-a694-f7fd7b7dbff7",
+    "amount": 2000
    }
   }
  },
@@ -366,6 +1086,26 @@
    "ils": {
     "id": "1046aa36-2e58-4729-83e8-11766c4a05b2",
     "amount": 4900
+   },
+   "usd": {
+    "id": "277a1787-78ff-46a2-b813-0b3cbab21ee7",
+    "amount": 1500
+   },
+   "cad": {
+    "id": "5229b23f-ca0e-4c50-98a3-d4579da2faf2",
+    "amount": 2200
+   },
+   "eur": {
+    "id": "ad0ce4e8-21f8-4bc7-bf5d-12ff9623e00c",
+    "amount": 1400
+   },
+   "gbp": {
+    "id": "e004db54-9fc8-476b-9d84-3905cf71720c",
+    "amount": 1200
+   },
+   "aud": {
+    "id": "4e8db07c-4124-4b8a-92b6-45eaa71c8443",
+    "amount": 2200
    }
   }
  },
@@ -376,6 +1116,26 @@
    "ils": {
     "id": "27725370-9f05-421a-8bbe-0e686aedf442",
     "amount": 3500
+   },
+   "usd": {
+    "id": "7f818cdf-f290-4e9d-b66a-ea2c87b2cfe3",
+    "amount": 1100
+   },
+   "cad": {
+    "id": "d604d688-0052-4ecd-a609-2115b0557cbf",
+    "amount": 1600
+   },
+   "eur": {
+    "id": "84dbf269-278b-49b4-b2d8-19db0a189282",
+    "amount": 1000
+   },
+   "gbp": {
+    "id": "068623d1-4658-4a3b-af8a-ae3a79298a28",
+    "amount": 800
+   },
+   "aud": {
+    "id": "4e5da0fc-fc9e-4465-b998-e498cb5a37d2",
+    "amount": 1600
    }
   }
  },
@@ -386,6 +1146,26 @@
    "ils": {
     "id": "0ebe6224-e5ae-4950-9c5d-a8e61ba6f67b",
     "amount": 3900
+   },
+   "usd": {
+    "id": "0efd4a9c-e9e2-4568-8f16-c386782e486e",
+    "amount": 1200
+   },
+   "cad": {
+    "id": "f60326c3-fbbf-49b2-8f2a-ad1ff7be5305",
+    "amount": 1800
+   },
+   "eur": {
+    "id": "84fa2d9f-9138-4eb4-982f-0561dd9c7286",
+    "amount": 1100
+   },
+   "gbp": {
+    "id": "402ba10e-7f09-437f-bd4a-b69a5dc4fd56",
+    "amount": 900
+   },
+   "aud": {
+    "id": "c838f913-c2c7-44c7-b284-54233dcdfc8a",
+    "amount": 1800
    }
   }
  },
@@ -396,6 +1176,26 @@
    "ils": {
     "id": "846345c4-5508-4ffc-bb87-ed529ddc0ffe",
     "amount": 3900
+   },
+   "usd": {
+    "id": "a906574a-c9a6-4aa7-be6b-f03362236b14",
+    "amount": 1200
+   },
+   "cad": {
+    "id": "9afc3527-e4fb-49fc-b7f0-2e22fe6a8879",
+    "amount": 1800
+   },
+   "eur": {
+    "id": "8db7261b-f29a-4a03-9b53-bf712444ec0d",
+    "amount": 1100
+   },
+   "gbp": {
+    "id": "f9146f7c-9d9d-44d5-8c7e-3450e9528e99",
+    "amount": 900
+   },
+   "aud": {
+    "id": "a326621f-99a8-48f3-8d7f-0a3b019dfa2e",
+    "amount": 1800
    }
   }
  },
@@ -406,6 +1206,26 @@
    "ils": {
     "id": "eaead408-d1eb-4c4d-bf0b-0c51bfb1445b",
     "amount": 3500
+   },
+   "usd": {
+    "id": "c349fe88-ac61-4d23-8d7e-7c81c6c925f0",
+    "amount": 1100
+   },
+   "cad": {
+    "id": "582c108f-19eb-48ce-bf89-9e7ab21410cd",
+    "amount": 1600
+   },
+   "eur": {
+    "id": "39ef50cb-0eea-44ce-aec9-a567d2dfebdb",
+    "amount": 1000
+   },
+   "gbp": {
+    "id": "491443eb-4f52-4de5-8567-381872f975c1",
+    "amount": 800
+   },
+   "aud": {
+    "id": "570d8d2c-ae72-422d-9ff7-91ae7b941459",
+    "amount": 1600
    }
   }
  },
@@ -416,6 +1236,26 @@
    "ils": {
     "id": "b4d1017d-c401-4ac3-9942-9b9ca8bd9c01",
     "amount": 4900
+   },
+   "usd": {
+    "id": "9113b88d-07d5-4915-9152-61222978dc7e",
+    "amount": 1500
+   },
+   "cad": {
+    "id": "af5814aa-d65f-4ec2-9256-e7d10875bf09",
+    "amount": 2200
+   },
+   "eur": {
+    "id": "cf18bece-294d-4ee2-afe6-270ef3184a17",
+    "amount": 1400
+   },
+   "gbp": {
+    "id": "ee3745d8-b6d1-4482-a338-55bd17a17d6d",
+    "amount": 1200
+   },
+   "aud": {
+    "id": "1f115c06-8d84-47be-898b-79b570106409",
+    "amount": 2200
    }
   }
  },
@@ -426,6 +1266,26 @@
    "ils": {
     "id": "39fd8fd7-fe5b-40df-91be-7a8b4d65a25b",
     "amount": 3900
+   },
+   "usd": {
+    "id": "e0536f78-5c37-40e2-bb4d-8e91a5a49a0b",
+    "amount": 1200
+   },
+   "cad": {
+    "id": "9342edff-6355-476d-ad94-c2b11c731edc",
+    "amount": 1800
+   },
+   "eur": {
+    "id": "373ddba4-d09c-4ca0-b048-14ff00c0e6d3",
+    "amount": 1100
+   },
+   "gbp": {
+    "id": "4154637c-bc86-43e4-84e6-bbbea656458a",
+    "amount": 900
+   },
+   "aud": {
+    "id": "0f148a40-87bd-40fd-8403-9f3e4b7f8bfe",
+    "amount": 1800
    }
   }
  },
@@ -436,6 +1296,26 @@
    "ils": {
     "id": "9f18e8a1-aa64-44fb-a225-3991e959adc2",
     "amount": 4500
+   },
+   "usd": {
+    "id": "42ec9531-6d61-413f-88e7-fc4e7b770820",
+    "amount": 1400
+   },
+   "cad": {
+    "id": "e784c548-740b-449c-9543-9e35a4bceeff",
+    "amount": 2000
+   },
+   "eur": {
+    "id": "c7b5e8a6-81c4-4ac3-b366-e6916c05e879",
+    "amount": 1300
+   },
+   "gbp": {
+    "id": "b3e86c13-a9d7-4dce-b3fe-b6055aa439a6",
+    "amount": 1100
+   },
+   "aud": {
+    "id": "cecf6628-e95a-4570-92b2-18553cb09884",
+    "amount": 2000
    }
   }
  },
@@ -446,6 +1326,26 @@
    "ils": {
     "id": "3c61ae0e-a179-4082-b589-d14770386f25",
     "amount": 3900
+   },
+   "usd": {
+    "id": "c61657e0-750c-46cb-b478-6b215fd21f42",
+    "amount": 1200
+   },
+   "cad": {
+    "id": "8802fe70-f079-403d-9e3d-406c7e8c71b3",
+    "amount": 1800
+   },
+   "eur": {
+    "id": "e7474f26-5df4-421d-8cc9-4ebdc21f0edd",
+    "amount": 1100
+   },
+   "gbp": {
+    "id": "1d26f050-1630-4178-8ab6-868274a2b44d",
+    "amount": 900
+   },
+   "aud": {
+    "id": "dff8343b-1bdc-4ac2-be95-728af8846108",
+    "amount": 1800
    }
   }
  },
@@ -456,6 +1356,26 @@
    "ils": {
     "id": "34385db5-5f32-4a48-b1bd-491b0bea30d4",
     "amount": 4500
+   },
+   "usd": {
+    "id": "d744b431-d896-4216-95a7-ea5ddc0051b9",
+    "amount": 1400
+   },
+   "cad": {
+    "id": "e08d838a-247c-454d-90a2-f5259162327b",
+    "amount": 2000
+   },
+   "eur": {
+    "id": "8555b199-824f-4023-9d03-a7aa2c988c65",
+    "amount": 1300
+   },
+   "gbp": {
+    "id": "c148a3ec-365d-4799-bcc5-f1985ababd9e",
+    "amount": 1100
+   },
+   "aud": {
+    "id": "80c91b98-dca7-4306-879d-2eb3e8cd8762",
+    "amount": 2000
    }
   }
  },
@@ -466,6 +1386,26 @@
    "ils": {
     "id": "c687a531-3407-4868-980d-8069bfb5cb86",
     "amount": 3500
+   },
+   "usd": {
+    "id": "f6b36616-ab33-4a6a-a04b-21c13a355408",
+    "amount": 1100
+   },
+   "cad": {
+    "id": "80052e9b-4a32-4b3e-92ba-fab81abce759",
+    "amount": 1600
+   },
+   "eur": {
+    "id": "5c7bba89-3d78-473c-8d9d-90d493e3ea5a",
+    "amount": 1000
+   },
+   "gbp": {
+    "id": "0b0e7827-697a-4a60-82c3-0e5e1292675f",
+    "amount": 800
+   },
+   "aud": {
+    "id": "1aa9c54b-35e2-421c-bcd1-a8365c3c3df1",
+    "amount": 1600
    }
   }
  },
@@ -476,6 +1416,26 @@
    "ils": {
     "id": "d19abaaf-746d-4270-8df3-1d0ab4e87a24",
     "amount": 3900
+   },
+   "usd": {
+    "id": "228780b7-17fe-4f73-8809-d4cbdc9b06ff",
+    "amount": 1200
+   },
+   "cad": {
+    "id": "3d399788-087c-435c-a4de-295fa9ea51fd",
+    "amount": 1800
+   },
+   "eur": {
+    "id": "8c9752ce-111b-415a-be5b-89242c6db918",
+    "amount": 1100
+   },
+   "gbp": {
+    "id": "e88365ba-f648-4f25-9b0b-a173c7f4c50b",
+    "amount": 900
+   },
+   "aud": {
+    "id": "c4096452-16c6-43a7-b384-8fbdeb42af98",
+    "amount": 1800
    }
   }
  },
@@ -486,6 +1446,26 @@
    "ils": {
     "id": "9d381a12-c03a-40ca-aae1-612b85d841fc",
     "amount": 19900
+   },
+   "usd": {
+    "id": "a88951bb-06ae-4db3-8838-150244042ded",
+    "amount": 6500
+   },
+   "cad": {
+    "id": "bbfbb170-eb37-4517-8ed9-d99f50c68796",
+    "amount": 8900
+   },
+   "eur": {
+    "id": "c6c7dad8-9e61-4be5-a2a5-c6d28c95ed2d",
+    "amount": 5500
+   },
+   "gbp": {
+    "id": "88787ae9-a575-414d-8721-ebfa8ca159db",
+    "amount": 4900
+   },
+   "aud": {
+    "id": "b288f0fb-5f1e-4e2f-a532-804db3c9e012",
+    "amount": 8900
    }
   }
  },
@@ -496,6 +1476,26 @@
    "ils": {
     "id": "48dd2723-582a-4744-a598-37ea42b8fcb7",
     "amount": 17900
+   },
+   "usd": {
+    "id": "5fd7e136-d54d-4c30-afed-c2334627c001",
+    "amount": 5500
+   },
+   "cad": {
+    "id": "ce80fa8a-ebd4-4a22-b155-92e9fc236a6a",
+    "amount": 7900
+   },
+   "eur": {
+    "id": "bde00bd7-9836-417d-b1a2-483738889133",
+    "amount": 4900
+   },
+   "gbp": {
+    "id": "efab2d7a-3963-4c4c-aebe-068205503133",
+    "amount": 4500
+   },
+   "aud": {
+    "id": "52889eba-ea01-4b2b-86c5-1adb3bc3bff5",
+    "amount": 8500
    }
   }
  },
@@ -510,6 +1510,742 @@
    "usd": {
     "id": "30a2cc80-e73d-4b52-889f-b01cbf04050e",
     "amount": 200
+   },
+   "cad": {
+    "id": "746f454d-d93a-4a91-92ca-abe70fe9f04b",
+    "amount": 300
+   },
+   "eur": {
+    "id": "59fc1415-9110-4ad8-a4a5-f4064cafa02d",
+    "amount": 200
+   },
+   "gbp": {
+    "id": "f13f0137-22c0-4609-b806-0b6985170e0b",
+    "amount": 200
+   },
+   "aud": {
+    "id": "7515c4c8-057d-49b5-a285-d9f74c997cd2",
+    "amount": 300
+   }
+  }
+ },
+ "b53": {
+  "productId": "3c04755b-b21f-44a9-8c4c-a382a9055287",
+  "recurring": null,
+  "prices": {
+   "ils": {
+    "id": "b88b4852-d527-416c-b908-947fe27c1c9a",
+    "amount": 300
+   },
+   "usd": {
+    "id": "d08e4339-8e24-427f-9eb2-65e1d1897a68",
+    "amount": 100
+   },
+   "cad": {
+    "id": "e74b5312-509f-4b9c-8c1b-1b203aaf0219",
+    "amount": 100
+   },
+   "eur": {
+    "id": "51a7d749-d5b8-4a49-b32a-ab6eef281f43",
+    "amount": 100
+   },
+   "gbp": {
+    "id": "518c7163-d1d0-4c89-b577-9362600a3de4",
+    "amount": 100
+   },
+   "aud": {
+    "id": "b5133496-87c5-4621-a0d9-d51cea836f40",
+    "amount": 100
+   }
+  }
+ },
+ "b54": {
+  "productId": "66af5fa4-056d-4c01-9a89-bc151078d2aa",
+  "recurring": null,
+  "prices": {
+   "ils": {
+    "id": "9856ec61-2a32-47f6-8dfc-409648f0fc0f",
+    "amount": 300
+   },
+   "usd": {
+    "id": "a2c926c7-0564-4764-8d57-f8af9b686eed",
+    "amount": 100
+   },
+   "cad": {
+    "id": "f9679602-cc13-4a63-bde6-f492069f0ab9",
+    "amount": 100
+   },
+   "eur": {
+    "id": "0ad49a7f-4db4-4c54-8e69-f052187f904e",
+    "amount": 100
+   },
+   "gbp": {
+    "id": "d943dae6-153c-4b1e-9dbd-526d7bc94a23",
+    "amount": 100
+   },
+   "aud": {
+    "id": "c7cde18b-be3c-4fc5-bc6e-8c97d0c2f67e",
+    "amount": 100
+   }
+  }
+ },
+ "b55": {
+  "productId": "5cc25457-0877-4ece-86fe-07e637c8f7f1",
+  "recurring": null,
+  "prices": {
+   "ils": {
+    "id": "53c9410f-287d-4361-b083-83512e33b5c7",
+    "amount": 300
+   },
+   "usd": {
+    "id": "57a4045e-3cac-41d4-a824-935b43aaf5c6",
+    "amount": 100
+   },
+   "cad": {
+    "id": "7fd5163b-2249-4316-8715-8ee7d8f9473e",
+    "amount": 100
+   },
+   "eur": {
+    "id": "0e47b72c-1946-4b2b-ac09-059b8b3b3c99",
+    "amount": 100
+   },
+   "gbp": {
+    "id": "7c8048bc-8530-46f5-bc9c-59a0c48867cc",
+    "amount": 100
+   },
+   "aud": {
+    "id": "544a6a73-571f-4d5d-aca2-d9a4b2a7115b",
+    "amount": 100
+   }
+  }
+ },
+ "b56": {
+  "productId": "7f292e1b-f032-4dd4-b0a9-e779f10ca24c",
+  "recurring": null,
+  "prices": {
+   "ils": {
+    "id": "cdf46aae-d782-44de-9ef4-d6ecce4b5fc3",
+    "amount": 300
+   },
+   "usd": {
+    "id": "867cae73-e1c0-47e1-b660-dc7f01aefd91",
+    "amount": 100
+   },
+   "cad": {
+    "id": "1cd7815e-ed5d-4bb7-8cd3-57349b56c94d",
+    "amount": 100
+   },
+   "eur": {
+    "id": "190089ce-fa9a-4644-83a9-b61ff61f3e49",
+    "amount": 100
+   },
+   "gbp": {
+    "id": "b82cd4ad-b024-44b5-95ed-bc92d6946e41",
+    "amount": 100
+   },
+   "aud": {
+    "id": "a2924b2c-4700-4b40-bb9a-70cba0ffb270",
+    "amount": 100
+   }
+  }
+ },
+ "b57": {
+  "productId": "d3945fe3-ded8-4998-9e71-75bbb6635f4b",
+  "recurring": null,
+  "prices": {
+   "ils": {
+    "id": "c4b1727f-b602-47e0-86e8-6b7d73b1ee50",
+    "amount": 300
+   },
+   "usd": {
+    "id": "b3f53db8-0394-446f-9df9-e005866f14b1",
+    "amount": 100
+   },
+   "cad": {
+    "id": "9055a227-c213-42c6-a49f-ae132f8bd14e",
+    "amount": 100
+   },
+   "eur": {
+    "id": "046715f9-51f8-4c94-b330-b3e17883f19e",
+    "amount": 100
+   },
+   "gbp": {
+    "id": "dac4a9d3-98fe-4141-a2d6-febd5efb3324",
+    "amount": 100
+   },
+   "aud": {
+    "id": "d5fa3517-007e-42ba-911b-f8b3a86c0c35",
+    "amount": 100
+   }
+  }
+ },
+ "b58": {
+  "productId": "2237ed44-e2d5-4cfb-80ae-ad6645fcc3ee",
+  "recurring": null,
+  "prices": {
+   "ils": {
+    "id": "edbb2d22-60a1-401f-a440-1491c4706934",
+    "amount": 300
+   },
+   "usd": {
+    "id": "cb5eca9c-41bf-4493-a4ac-b0b5996881bf",
+    "amount": 100
+   },
+   "cad": {
+    "id": "a2fdd9f1-a843-4973-89c7-070c5cc12335",
+    "amount": 100
+   },
+   "eur": {
+    "id": "c26b7d6c-a741-4ca0-965a-36b2dad765f7",
+    "amount": 100
+   },
+   "gbp": {
+    "id": "6e68f34b-fa46-4979-9089-d2a7488b09c0",
+    "amount": 100
+   },
+   "aud": {
+    "id": "6f0809de-ac7e-4356-b0ad-f52cb8a25d11",
+    "amount": 100
+   }
+  }
+ },
+ "b59": {
+  "productId": "4851fe7c-f541-4d8f-b32e-9148e2863af4",
+  "recurring": null,
+  "prices": {
+   "ils": {
+    "id": "bcacd679-66e0-4a3b-bc73-a4c80065d000",
+    "amount": 300
+   },
+   "usd": {
+    "id": "eacba554-858c-4ec4-b9f7-3330144a2d3a",
+    "amount": 100
+   },
+   "cad": {
+    "id": "29397456-daf8-4735-acfb-e41aee2c07f6",
+    "amount": 100
+   },
+   "eur": {
+    "id": "18fc8ea5-75cb-4f2d-9ca3-9f7666c945df",
+    "amount": 100
+   },
+   "gbp": {
+    "id": "c9ed8c27-395c-4863-b5d0-7d03ed5e871d",
+    "amount": 100
+   },
+   "aud": {
+    "id": "77f1e2f4-24ca-47ea-93a1-255a4c3f4819",
+    "amount": 100
+   }
+  }
+ },
+ "b60": {
+  "productId": "e5fad1c5-99ee-490d-800a-240966d7518e",
+  "recurring": null,
+  "prices": {
+   "ils": {
+    "id": "068d7783-f407-442f-9f75-f3860780daa6",
+    "amount": 300
+   },
+   "usd": {
+    "id": "387898b2-a34a-4b8c-88d1-6cd879527cc3",
+    "amount": 100
+   },
+   "cad": {
+    "id": "af62c005-3f49-4659-add9-7fa516c50d34",
+    "amount": 100
+   },
+   "eur": {
+    "id": "4a667471-4000-41ef-92ad-cb7667dcbb57",
+    "amount": 100
+   },
+   "gbp": {
+    "id": "e8dd4313-2a3b-4516-9236-7628bcfbd02f",
+    "amount": 100
+   },
+   "aud": {
+    "id": "5cc362fe-4431-4796-ba72-e61f67534fcd",
+    "amount": 100
+   }
+  }
+ },
+ "b61": {
+  "productId": "77589713-dfc1-4f69-8be2-43b615724178",
+  "recurring": null,
+  "prices": {
+   "ils": {
+    "id": "9a7316cf-d6f9-4d42-b4f2-7b72d652afee",
+    "amount": 300
+   },
+   "usd": {
+    "id": "d5fb8038-fe21-40ac-9a0f-9c1edf5650f3",
+    "amount": 100
+   },
+   "cad": {
+    "id": "645fa3c1-8a7f-43ee-a9a7-ff1ab3c9f029",
+    "amount": 100
+   },
+   "eur": {
+    "id": "2a6c2399-b8bf-4613-96e9-543039bb7933",
+    "amount": 100
+   },
+   "gbp": {
+    "id": "efae0a72-436a-4656-b993-9223f22bbce4",
+    "amount": 100
+   },
+   "aud": {
+    "id": "0f863e99-cd69-48fb-9309-429a3009d02d",
+    "amount": 100
+   }
+  }
+ },
+ "b62": {
+  "productId": "d24828a5-1d59-4edd-9384-98902e6f7f73",
+  "recurring": null,
+  "prices": {
+   "ils": {
+    "id": "b9ac6603-a9a7-422e-a2e8-eccd2afc6637",
+    "amount": 300
+   },
+   "usd": {
+    "id": "e1f4f631-7e4e-420d-a031-2edf00233e67",
+    "amount": 100
+   },
+   "cad": {
+    "id": "6e3d33d0-e3c9-4d18-8955-1b2f1231b22c",
+    "amount": 100
+   },
+   "eur": {
+    "id": "6799b2ac-ca83-4abc-894d-3f0191323388",
+    "amount": 100
+   },
+   "gbp": {
+    "id": "c5746c51-5edf-4fba-a1cd-dacc17075b09",
+    "amount": 100
+   },
+   "aud": {
+    "id": "66febf23-fa4f-4a40-9619-f8f1a8260afa",
+    "amount": 100
+   }
+  }
+ },
+ "b63": {
+  "productId": "98d988c3-a367-4357-aaf1-e53242445acb",
+  "recurring": null,
+  "prices": {
+   "ils": {
+    "id": "2e6cac1b-a3ce-4b48-baa3-7eb7a13e4ed4",
+    "amount": 300
+   },
+   "usd": {
+    "id": "7bb47396-0b4a-4403-85ec-aff7c9b560f8",
+    "amount": 100
+   },
+   "cad": {
+    "id": "269b8608-4edf-4865-827f-63d210279b00",
+    "amount": 100
+   },
+   "eur": {
+    "id": "bf19f890-df3b-46fc-be1a-83dbaa9136f5",
+    "amount": 100
+   },
+   "gbp": {
+    "id": "80b5c877-45da-42d6-b50a-660d54e159e1",
+    "amount": 100
+   },
+   "aud": {
+    "id": "210794f5-e7cc-4636-9657-ba0cf211b48f",
+    "amount": 100
+   }
+  }
+ },
+ "b64": {
+  "productId": "3c7feab2-cb1d-40ef-9ecc-ecfdcd041f71",
+  "recurring": null,
+  "prices": {
+   "ils": {
+    "id": "80bad3cd-55b7-4313-96fa-6cf16cf070f8",
+    "amount": 300
+   },
+   "usd": {
+    "id": "3dedd619-0054-4c60-a952-a258896159b2",
+    "amount": 100
+   },
+   "cad": {
+    "id": "957b3306-54ac-4609-a652-e30a8a495bfc",
+    "amount": 100
+   },
+   "eur": {
+    "id": "adc312a1-1dbc-4bab-87d2-e49ee20bf68e",
+    "amount": 100
+   },
+   "gbp": {
+    "id": "fd57418e-86d8-462e-a1ea-9cfb8040d325",
+    "amount": 100
+   },
+   "aud": {
+    "id": "1722463e-2eaf-4d10-be9c-6bf1e4a0ec1c",
+    "amount": 100
+   }
+  }
+ },
+ "b65": {
+  "productId": "e2c58f72-96ab-4613-9bd5-1823f4c66bca",
+  "recurring": null,
+  "prices": {
+   "ils": {
+    "id": "c6eafe4f-8726-4258-8212-82a737888ff9",
+    "amount": 300
+   },
+   "usd": {
+    "id": "75939d6f-d93d-49e5-b038-20f614c1fc1f",
+    "amount": 100
+   },
+   "cad": {
+    "id": "2c41ebc0-9fc3-4bc1-a74f-1170a530115a",
+    "amount": 100
+   },
+   "eur": {
+    "id": "8fe78025-56f3-48a9-ad30-fc6868e92c2c",
+    "amount": 100
+   },
+   "gbp": {
+    "id": "8197189c-43bb-4a8a-b7cf-35a7a17c0253",
+    "amount": 100
+   },
+   "aud": {
+    "id": "65a8d8b9-fdd3-484e-b74b-e3432dba2200",
+    "amount": 100
+   }
+  }
+ },
+ "b66": {
+  "productId": "5f35d1ec-8fda-4ea6-acd4-cb2b87efa145",
+  "recurring": null,
+  "prices": {
+   "ils": {
+    "id": "1b55c390-d499-43c1-bc93-6d1348c4fd7a",
+    "amount": 300
+   },
+   "usd": {
+    "id": "0d178f2f-5035-4a6c-abb7-8ae57111850a",
+    "amount": 100
+   },
+   "cad": {
+    "id": "364b0189-fa60-4e8e-8f67-66ad3eac4edd",
+    "amount": 100
+   },
+   "eur": {
+    "id": "9e7b3b9b-4555-47c7-acaa-a0895e5f19cc",
+    "amount": 100
+   },
+   "gbp": {
+    "id": "b817f216-d203-4ba0-b5e4-6d54122fca84",
+    "amount": 100
+   },
+   "aud": {
+    "id": "cd5c177b-f9a4-4182-9d94-87c9b3f2a3df",
+    "amount": 100
+   }
+  }
+ },
+ "b67": {
+  "productId": "eb2c62a2-69e9-4b31-915e-105b43471029",
+  "recurring": null,
+  "prices": {
+   "ils": {
+    "id": "6b3ae705-8ae3-40c6-aeda-cfd5ec7032a9",
+    "amount": 300
+   },
+   "usd": {
+    "id": "a3e753de-5c36-4022-9a9b-580119bc9997",
+    "amount": 100
+   },
+   "cad": {
+    "id": "b4434080-bea9-4310-ac80-75c852545c47",
+    "amount": 100
+   },
+   "eur": {
+    "id": "eb20d7c0-dfa3-4da4-beae-47f1e4402a44",
+    "amount": 100
+   },
+   "gbp": {
+    "id": "b0cf03af-69b6-409c-8aaa-62e09e44246d",
+    "amount": 100
+   },
+   "aud": {
+    "id": "5f4e72d2-4b50-4ac8-a42b-a9dc27ef6962",
+    "amount": 100
+   }
+  }
+ },
+ "b68": {
+  "productId": "18ebe0ac-e0bf-42cb-bf61-1d8abb692cc7",
+  "recurring": null,
+  "prices": {
+   "ils": {
+    "id": "dbd820e2-0c9d-4f13-a2f1-73c2875938bc",
+    "amount": 300
+   },
+   "usd": {
+    "id": "96ba2f08-936f-415f-8499-8cb1cf0c7c18",
+    "amount": 100
+   },
+   "cad": {
+    "id": "af4e96e6-b9a1-4375-8a50-0553f5a8149b",
+    "amount": 100
+   },
+   "eur": {
+    "id": "ed81b4e8-7390-4cf7-b26d-8ef4a739cf91",
+    "amount": 100
+   },
+   "gbp": {
+    "id": "0007257a-2a0e-4d79-9fd2-d5404ef1ba03",
+    "amount": 100
+   },
+   "aud": {
+    "id": "d531c4c7-6ceb-4b5b-a1b6-a28032e0972e",
+    "amount": 100
+   }
+  }
+ },
+ "b69": {
+  "productId": "000e8745-f07c-4753-9d03-61f16e6eafcf",
+  "recurring": null,
+  "prices": {
+   "ils": {
+    "id": "3a9df8a6-f799-46d0-b402-8500e3093e86",
+    "amount": 300
+   },
+   "usd": {
+    "id": "6d25d2be-a858-4e63-aab9-014d43bf21af",
+    "amount": 100
+   },
+   "cad": {
+    "id": "cc4495e4-43f8-4ddb-aa91-426f5f2464b0",
+    "amount": 100
+   },
+   "eur": {
+    "id": "6fec8f24-5102-47c8-80d1-c2806dd0b5a4",
+    "amount": 100
+   },
+   "gbp": {
+    "id": "7aa1214f-aea3-4fd9-b317-ad33dc39d583",
+    "amount": 100
+   },
+   "aud": {
+    "id": "fb5704e2-7b90-4327-ba58-e7da60e2bc55",
+    "amount": 100
+   }
+  }
+ },
+ "b70": {
+  "productId": "083b20ea-f4ac-4e5e-a797-e03610a1d061",
+  "recurring": null,
+  "prices": {
+   "ils": {
+    "id": "e9bf9538-9566-4a6b-bda8-558b1e26fda3",
+    "amount": 300
+   },
+   "usd": {
+    "id": "413e1c7a-d157-4771-8f35-8cddb861bf0e",
+    "amount": 100
+   },
+   "cad": {
+    "id": "2070ca2a-0ab1-48e7-b6b9-1e6677390646",
+    "amount": 100
+   },
+   "eur": {
+    "id": "c4d35fab-b660-4d5a-81fa-cf017346396d",
+    "amount": 100
+   },
+   "gbp": {
+    "id": "c0686387-f2a6-49a4-a422-cf6b4cc8f225",
+    "amount": 100
+   },
+   "aud": {
+    "id": "3f9491e8-2325-45d7-89ab-c2242c3bc1a7",
+    "amount": 100
+   }
+  }
+ },
+ "b71": {
+  "productId": "a27ed6c4-2a0b-44d2-a78e-3c457ff97a6c",
+  "recurring": null,
+  "prices": {
+   "ils": {
+    "id": "094bc69e-2575-42c7-a424-5f414221ab4c",
+    "amount": 300
+   },
+   "usd": {
+    "id": "1bd9f84a-a0f2-404a-8561-d1af34c416c3",
+    "amount": 100
+   },
+   "cad": {
+    "id": "3150a732-38c1-48af-8043-10b951e27314",
+    "amount": 100
+   },
+   "eur": {
+    "id": "514dfa3d-9595-408f-97ed-4cff431b54f8",
+    "amount": 100
+   },
+   "gbp": {
+    "id": "4f191325-15df-49a7-928d-dc7772b42523",
+    "amount": 100
+   },
+   "aud": {
+    "id": "664aaad4-ad0d-404f-be6f-cb6400d166e8",
+    "amount": 100
+   }
+  }
+ },
+ "b72": {
+  "productId": "894e8e9b-7024-43d8-9fdc-91819d2538ec",
+  "recurring": null,
+  "prices": {
+   "ils": {
+    "id": "66be1fa4-fcbf-46ec-a79b-5c1fef97ca70",
+    "amount": 300
+   },
+   "usd": {
+    "id": "d82b0124-d9f4-4eb8-8cdc-0a202ba5a4dc",
+    "amount": 100
+   },
+   "cad": {
+    "id": "51f6488e-5b9d-4820-9c15-9f1745545939",
+    "amount": 100
+   },
+   "eur": {
+    "id": "a2e24c27-0120-4945-ae75-6a6ebcc12108",
+    "amount": 100
+   },
+   "gbp": {
+    "id": "4f55cfae-d946-465d-8549-0225ca8a226a",
+    "amount": 100
+   },
+   "aud": {
+    "id": "897b71fb-c0fd-4682-9238-9c9528ca0683",
+    "amount": 100
+   }
+  }
+ },
+ "b73": {
+  "productId": "4fe414a2-ab70-4c61-bbeb-e013f8c48a1f",
+  "recurring": null,
+  "prices": {
+   "ils": {
+    "id": "d3655ae8-693f-4563-9da9-373b7e855cdd",
+    "amount": 300
+   },
+   "usd": {
+    "id": "5a7ec34d-cb73-46a1-8720-68fc9a1b857a",
+    "amount": 100
+   },
+   "cad": {
+    "id": "6700f7b7-2dec-474d-ab51-5a625811931c",
+    "amount": 100
+   },
+   "eur": {
+    "id": "5a6b1998-58cf-407c-aa7a-5e1a21cf2034",
+    "amount": 100
+   },
+   "gbp": {
+    "id": "c73c34fa-7ae8-4c86-b67d-abe97c90dde5",
+    "amount": 100
+   },
+   "aud": {
+    "id": "b2cc4c77-8ef8-49eb-8283-53663d0e6bd2",
+    "amount": 100
+   }
+  }
+ },
+ "b74": {
+  "productId": "5388d4a4-b574-408c-8f19-f2f72a733ced",
+  "recurring": null,
+  "prices": {
+   "ils": {
+    "id": "6e124c91-5707-4c1f-8d1c-19fd3c781c16",
+    "amount": 300
+   },
+   "usd": {
+    "id": "43306c8f-b9f4-44ce-935b-eda0d56ecf6f",
+    "amount": 100
+   },
+   "cad": {
+    "id": "da396089-02ad-4452-9723-9d3b27475185",
+    "amount": 100
+   },
+   "eur": {
+    "id": "80d70012-35a9-4d29-bfb3-536bf8bbf99d",
+    "amount": 100
+   },
+   "gbp": {
+    "id": "2867364d-e833-41d6-8806-a6f79b9c7047",
+    "amount": 100
+   },
+   "aud": {
+    "id": "91162602-04a6-4d10-abe6-1ff38cfee91d",
+    "amount": 100
+   }
+  }
+ },
+ "b75": {
+  "productId": "d842bb7a-3f08-47e4-a832-ec9caa8bae48",
+  "recurring": null,
+  "prices": {
+   "ils": {
+    "id": "cab0b705-0531-47e6-b4eb-48ddf1cf6c41",
+    "amount": 300
+   },
+   "usd": {
+    "id": "cdf9255a-7b2a-43ce-96a3-f9be504e3a93",
+    "amount": 100
+   },
+   "cad": {
+    "id": "cc245f8d-fbd2-4d17-8696-9adf095a5eaa",
+    "amount": 100
+   },
+   "eur": {
+    "id": "bfa00a76-a610-416c-92a4-0b02c1153592",
+    "amount": 100
+   },
+   "gbp": {
+    "id": "99c0096e-a6cf-4b46-aafb-339064e0974c",
+    "amount": 100
+   },
+   "aud": {
+    "id": "ee31d49f-0324-49cc-bb84-37fd3049e11d",
+    "amount": 100
+   }
+  }
+ },
+ "b76": {
+  "productId": "d408053c-bc2c-417f-b4c3-1abbd71e3bba",
+  "recurring": null,
+  "prices": {
+   "ils": {
+    "id": "d164cf09-dbfd-4bb0-b1f6-abe09c6ff0ba",
+    "amount": 300
+   },
+   "usd": {
+    "id": "ef7bb12d-b564-4056-901a-aed209e42726",
+    "amount": 100
+   },
+   "cad": {
+    "id": "7b31b602-fa49-45a9-9f13-16f9b7eba16c",
+    "amount": 100
+   },
+   "eur": {
+    "id": "cb44a7d8-9738-45fd-8469-89a444a8a0f9",
+    "amount": 100
+   },
+   "gbp": {
+    "id": "f2335d0b-0e38-4818-aeb8-f70ce25ae784",
+    "amount": 100
+   },
+   "aud": {
+    "id": "54ca98d3-4e1d-4870-815b-5d960d4b7e4d",
+    "amount": 100
    }
   }
  },
@@ -524,6 +2260,22 @@
    "usd": {
     "id": "bad6890f-352e-4e5b-9b4e-c946b34772a9",
     "amount": 3900
+   },
+   "cad": {
+    "id": "ca09ee4b-df6e-4a90-bc18-96be6c55d3ad",
+    "amount": 5500
+   },
+   "eur": {
+    "id": "3950e62c-a966-4393-be30-9725d2478a62",
+    "amount": 3500
+   },
+   "gbp": {
+    "id": "b065aad2-8c06-409a-b373-108d679a7560",
+    "amount": 2900
+   },
+   "aud": {
+    "id": "4392ea79-92c8-483b-829a-445124cd9f91",
+    "amount": 5500
    }
   }
  },
@@ -538,6 +2290,22 @@
    "usd": {
     "id": "a2cd6f93-7853-4abb-9a5d-0f386510eb89",
     "amount": 7900
+   },
+   "cad": {
+    "id": "afc533ef-a74e-4e9f-97f0-62e3945292d5",
+    "amount": 10900
+   },
+   "eur": {
+    "id": "272dd4ed-3809-45e2-a25c-d72cd2a0d23e",
+    "amount": 6900
+   },
+   "gbp": {
+    "id": "122b3599-4d90-4df7-921f-3b1239da66a2",
+    "amount": 5900
+   },
+   "aud": {
+    "id": "08c38178-1418-41d5-9d8a-bff3838fd64d",
+    "amount": 11900
    }
   }
  },
@@ -548,6 +2316,26 @@
    "ils": {
     "id": "9e17a066-b034-4896-9182-9926a2c2131e",
     "amount": 2900
+   },
+   "usd": {
+    "id": "b1ecd25a-3994-4dc9-9ec1-6ed5b9c94ba0",
+    "amount": 900
+   },
+   "cad": {
+    "id": "2e1f0dc7-5a49-4275-b369-bd2e533c2ac2",
+    "amount": 1300
+   },
+   "eur": {
+    "id": "e3a3eb94-ef76-40c7-a9ce-1bbf6db39ee8",
+    "amount": 800
+   },
+   "gbp": {
+    "id": "f0c8abb4-5f03-424a-8699-7e0f04a12feb",
+    "amount": 700
+   },
+   "aud": {
+    "id": "abdfa23b-e0e8-4490-87f9-41ebc8a7bd9d",
+    "amount": 1300
    }
   }
  },
@@ -558,6 +2346,26 @@
    "ils": {
     "id": "c5c2a449-c2dc-400d-a939-1ddb28b8cd82",
     "amount": 5900
+   },
+   "usd": {
+    "id": "673c9b1f-2d99-4a9b-9c17-f09f9e46ca74",
+    "amount": 1900
+   },
+   "cad": {
+    "id": "6facafb9-2e64-4272-88e4-c95858ec02e9",
+    "amount": 2700
+   },
+   "eur": {
+    "id": "d98fcaf6-ba02-4239-9200-86c11528946a",
+    "amount": 1700
+   },
+   "gbp": {
+    "id": "086a7a82-3d42-46fe-819d-745ea5308b1f",
+    "amount": 1400
+   },
+   "aud": {
+    "id": "e9d40975-8c34-4dc1-bcd1-ee03bf75177b",
+    "amount": 2700
    }
   }
  },
@@ -568,6 +2376,26 @@
    "ils": {
     "id": "2ff3844d-9ef2-4776-a293-dba5641c70b9",
     "amount": 14900
+   },
+   "usd": {
+    "id": "82f15275-fed1-4c9e-8180-3d7c1a51c784",
+    "amount": 4500
+   },
+   "cad": {
+    "id": "1bdfac8d-de88-43ac-b45e-5e9f9fb9034d",
+    "amount": 6500
+   },
+   "eur": {
+    "id": "e395c5f4-59b6-4efa-8267-762d258f9504",
+    "amount": 3900
+   },
+   "gbp": {
+    "id": "a79c85f2-0c94-4c59-8499-b2959be8eb0b",
+    "amount": 3500
+   },
+   "aud": {
+    "id": "43e4a83e-91ea-4cbd-a5ab-500c0c89360f",
+    "amount": 6900
    }
   }
  },
@@ -578,6 +2406,26 @@
    "ils": {
     "id": "0e56c45e-00e3-48ec-9c33-b4077d631bf0",
     "amount": 12900
+   },
+   "usd": {
+    "id": "09c3a860-bbf0-4410-a623-23d649d06421",
+    "amount": 3900
+   },
+   "cad": {
+    "id": "a09f9171-eaa0-4c48-81ad-740354c02c7c",
+    "amount": 5900
+   },
+   "eur": {
+    "id": "886188d0-b566-4574-bef3-7b1dc5929c24",
+    "amount": 3500
+   },
+   "gbp": {
+    "id": "2198921f-9c54-4204-9a6d-6dc3e26e9995",
+    "amount": 2900
+   },
+   "aud": {
+    "id": "a267dfdb-3a10-40bb-9bf8-fcd0e6777a1d",
+    "amount": 5900
    }
   }
  },

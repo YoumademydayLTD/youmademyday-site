@@ -13,7 +13,7 @@ describe("parseLinkRequest", () => {
   });
   it("rejects bad products, currencies and amounts", () => {
     expect(() => parseLinkRequest({ product: "nope" }, MAP)).toThrow(/unknown product/);
-    expect(() => parseLinkRequest({ product: "b51", currency: "eur" }, MAP)).toThrow(/currency/);
+    expect(() => parseLinkRequest({ product: "b51", currency: "jpy" }, MAP)).toThrow(/currency/);
     expect(() => parseLinkRequest({ product: "b51", currency: "GEL" }, MAP)).toThrow(/currency/);
     expect(() => parseLinkRequest({ product: "b51", amount: 0 }, MAP)).toThrow(/amount/);
     expect(() => parseLinkRequest({ product: "b51", amount: "5" }, MAP)).toThrow(/amount/);
@@ -41,7 +41,7 @@ describe("planLink", () => {
     const { body, amount } = planLink({ storeId: "b9", currency: "ils", metadata: {} }, CONTEXT);
     expect(body.prices).toBeUndefined();
     expect(amount).toBe(4500);
-    expect(() => planLink({ storeId: "b9", currency: "usd", metadata: {} }, CONTEXT)).toThrow(/no usd price/);
+    expect(() => planLink({ storeId: "b10", currency: "usd", metadata: {} }, CONTEXT)).toThrow(/no usd price/);
   });
 });
 

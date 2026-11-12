@@ -199,6 +199,126 @@
   "size": 1704165,
   "filename": "your-maximum.pdf"
  },
+ "ar/b53.pdf": {
+  "sha256": "28e1311353bd07d51762073428e398f38649f295b2cd7bbd0aa40d2a6230e534",
+  "size": 846431,
+  "filename": "calm-inbox.pdf"
+ },
+ "ar/b54.pdf": {
+  "sha256": "9d4a4e5e13a4caa7ad38c56fcec7a0cdf9fb5b1e1aaeb622a6e777845e537ff5",
+  "size": 835011,
+  "filename": "meetings-on-time.pdf"
+ },
+ "ar/b55.pdf": {
+  "sha256": "ad6cf0457363a01732fe44354c18fa4e6fb5908c5f15dd26470cc0c849b09551",
+  "size": 848944,
+  "filename": "weekly-review.pdf"
+ },
+ "ar/b56.pdf": {
+  "sha256": "ec6d0a3f7628570d271d146a1412b0bcac4bb2c22263c01c208b2a8cb062c36c",
+  "size": 842969,
+  "filename": "focus-phone.pdf"
+ },
+ "ar/b57.pdf": {
+  "sha256": "f2a65829dfab6ba0dc8fdfca81d5e524ab66351d5948786593001fbed2668560",
+  "size": 853310,
+  "filename": "one-hour-home-reset.pdf"
+ },
+ "ar/b58.pdf": {
+  "sha256": "517467abf2ab8b1771b0e7ecc1a94d73a51a653a9bd2fafd726c2ad96c827189",
+  "size": 861847,
+  "filename": "laundry-basics.pdf"
+ },
+ "ar/b59.pdf": {
+  "sha256": "30c50e69315103fc7b3c25916a786e3b9c66b7dc1087a41910f914d31f8c9705",
+  "size": 864430,
+  "filename": "home-paperwork.pdf"
+ },
+ "ar/b60.pdf": {
+  "sha256": "1a177dfae3e8372ed787eae9897c39cdacf1ca11784a6452de21f3fe3543c268",
+  "size": 863534,
+  "filename": "moving-day-checklist.pdf"
+ },
+ "ar/b61.pdf": {
+  "sha256": "b17cc880d8bf79628f04834fd4172c30db5fa87ff2a4aa5db9501f096225ce71",
+  "size": 855400,
+  "filename": "knife-skills.pdf"
+ },
+ "ar/b62.pdf": {
+  "sha256": "af6c60ba2c7c65c42b499edbbf8d8b39204c381c892851fa575c5ea8281a3dfd",
+  "size": 912448,
+  "filename": "rice-and-grains.pdf"
+ },
+ "ar/b63.pdf": {
+  "sha256": "8f9fed46b43dbbe7f17466416e0dabb2d9cb8d236fc89359b2584695509d4d8a",
+  "size": 892463,
+  "filename": "organised-fridge.pdf"
+ },
+ "ar/b64.pdf": {
+  "sha256": "5a605feaa4d5a6c7719e67f3cdad0fddaba686b3fa13a1df9422705a75a0b957",
+  "size": 887525,
+  "filename": "freezer-cooking.pdf"
+ },
+ "ar/b65.pdf": {
+  "sha256": "a183f8f1b9bbcbcc954e6604b3c5e4a02ff1dee720a516322818f272f42ae66b",
+  "size": 853586,
+  "filename": "carry-on-only.pdf"
+ },
+ "ar/b66.pdf": {
+  "sha256": "fba9a5a763423e753d8eb1dfc1e959ddd38a5a732bfb485b53c1d21488e86390",
+  "size": 874382,
+  "filename": "one-day-new-city.pdf"
+ },
+ "ar/b67.pdf": {
+  "sha256": "e5a2c9639f0f6471ed42f0233c738d7967cc9cb22b4eb3e1033a0264ccffffc9",
+  "size": 889411,
+  "filename": "phone-portraits.pdf"
+ },
+ "ar/b68.pdf": {
+  "sha256": "228597ebaa23d64e3dcbcd81a5d71a4c282da95381289bd71fcce329c9a82d4e",
+  "size": 881063,
+  "filename": "photo-library.pdf"
+ },
+ "ar/b69.pdf": {
+  "sha256": "546dcfcf737d26f8bcba8318dae9162c198ebc7b7db106eb39d4525df41f8e12",
+  "size": 912992,
+  "filename": "language-15-minutes.pdf"
+ },
+ "ar/b70.pdf": {
+  "sha256": "42421267cf87de7422530ff3986fdda9f930b0bcf91d6a6b2f49928536b29491",
+  "size": 887398,
+  "filename": "clear-messages.pdf"
+ },
+ "ar/b71.pdf": {
+  "sha256": "bcd64cd95eb1b676482856f16c1c7e24b201038567de5c2a8e9f8bfadc520e68",
+  "size": 887309,
+  "filename": "saying-no-at-work.pdf"
+ },
+ "ar/b72.pdf": {
+  "sha256": "195de89d09b01b8935e5ee08e2ebadcdf1aedcd9b9a85896626987878a83f925",
+  "size": 900301,
+  "filename": "feedback-without-drama.pdf"
+ },
+ "ar/b73.pdf": {
+  "sha256": "68e7bfe228ee3b173e0d1bf609d32b1a2ac8553cd090151b3ffc8092ff3d3f23",
+  "size": 899519,
+  "filename": "notes-you-use.pdf"
+ },
+ "ar/b74.pdf": {
+  "sha256": "c5ef90a9633d9d0e2c59440633f1ac7396eb64d9e50c757aa03b9dc78aca2760",
+  "size": 896600,
+  "filename": "evening-wind-down.pdf"
+ },
+ "ar/b75.pdf": {
+  "sha256": "3c5cb9f4da3110e30e4ef44098df2e31efac8cd0ad4a091b046bf8fc70c293ff",
+  "size": 926901,
+  "filename": "family-chore-chart.pdf"
+ },
+ "ar/b76.pdf": {
+  "sha256": "d16b65877b6f12955044585764201e211ccd5b5d1db3ae8b9766ff33cc2ae4ef",
+  "size": 911236,
+  "filename": "calm-school-mornings.pdf"
+ },
  "ar/b9.pdf": {
   "sha256": "6569209fb3fa699e4becb732f0460c685d4e1848b4216bee0c9ef90de582b056",
   "size": 1084564,
@@ -433,6 +553,126 @@
   "sha256": "eaea50ba12664e2776aabadd007080f810ec53eaaa2917c9ddc70a9d33488f02",
   "size": 1063333,
   "filename": "your-maximum.pdf"
+ },
+ "en/b53.pdf": {
+  "sha256": "036fd1e62f71da5be8e66d53cbdf228ca56dc82e7b0c5e5bbcad54ca51208c2f",
+  "size": 610778,
+  "filename": "calm-inbox.pdf"
+ },
+ "en/b54.pdf": {
+  "sha256": "762ff508316fc49b263fadd9b107cdcf31a6b4edfae8665a14260fbe2a98ea72",
+  "size": 612102,
+  "filename": "meetings-on-time.pdf"
+ },
+ "en/b55.pdf": {
+  "sha256": "0b7fe03909118abbb37c632c26759ae7139cef35a3a49a1eb59ac8ea89481b32",
+  "size": 612511,
+  "filename": "weekly-review.pdf"
+ },
+ "en/b56.pdf": {
+  "sha256": "930fd532e8d7a0b7c186ff63a63c99e014b677e3f9ba70141298029144bef10f",
+  "size": 609916,
+  "filename": "focus-phone.pdf"
+ },
+ "en/b57.pdf": {
+  "sha256": "4d540f0dc78d2a12283549d1806c9d9ba14070fb596705dd45109d32bbf57003",
+  "size": 622060,
+  "filename": "one-hour-home-reset.pdf"
+ },
+ "en/b58.pdf": {
+  "sha256": "a72d1b367862115f8e5cb9fe538431dc5350a041c368b84fb5080580d0d70c03",
+  "size": 638519,
+  "filename": "laundry-basics.pdf"
+ },
+ "en/b59.pdf": {
+  "sha256": "dd320e85de0b108ada8a0889b6f4f8a262ab3a96d267fb715e8b99c386c5c794",
+  "size": 623281,
+  "filename": "home-paperwork.pdf"
+ },
+ "en/b60.pdf": {
+  "sha256": "ac802428e28a4c2efc4ecfb57ba0e081cd36cc31439719eca944498b09cc3df3",
+  "size": 640942,
+  "filename": "moving-day-checklist.pdf"
+ },
+ "en/b61.pdf": {
+  "sha256": "5e85bf9e40ef38bda0c79aaa79cebfe55055d6345fc5348a706f0658c8d281dd",
+  "size": 623337,
+  "filename": "knife-skills.pdf"
+ },
+ "en/b62.pdf": {
+  "sha256": "0dea5f0afa3ee766aaa2aea600024e30a475e49c3470f8724d24d0313d92e563",
+  "size": 673808,
+  "filename": "rice-and-grains.pdf"
+ },
+ "en/b63.pdf": {
+  "sha256": "255ce1db2f3127888dda84c8a348fc0a0ae8e676b18df07703bd41d4f4206723",
+  "size": 633579,
+  "filename": "organised-fridge.pdf"
+ },
+ "en/b64.pdf": {
+  "sha256": "ff3fed96f3de759e641e3d36fa2fd27e30caa63152017f25e37fd38bbaff6b4f",
+  "size": 645149,
+  "filename": "freezer-cooking.pdf"
+ },
+ "en/b65.pdf": {
+  "sha256": "9eff5959c5a0bb2aef526dc2897894954ed9ab144bbecdbcf3f30986496aaed6",
+  "size": 626485,
+  "filename": "carry-on-only.pdf"
+ },
+ "en/b66.pdf": {
+  "sha256": "6407f7412383e0fbab2fc2b6b9e48072f84584249d22ed6740c854c90a3a2994",
+  "size": 632297,
+  "filename": "one-day-new-city.pdf"
+ },
+ "en/b67.pdf": {
+  "sha256": "fb85d60bf9cdae8ba12301f8507f1785c161e704ebfc41fcef3cb39179d5e1ca",
+  "size": 627414,
+  "filename": "phone-portraits.pdf"
+ },
+ "en/b68.pdf": {
+  "sha256": "d96c022cff820a4c67f8f56e33da42eb3de7881e26bca46617a9a3996950dbab",
+  "size": 637237,
+  "filename": "photo-library.pdf"
+ },
+ "en/b69.pdf": {
+  "sha256": "e1ca3c603ab89bbf915fb63bfa354bc8861f5d049955ce4506f0a59b6c9f5136",
+  "size": 655905,
+  "filename": "language-15-minutes.pdf"
+ },
+ "en/b70.pdf": {
+  "sha256": "f9b6e4421b8c98bd444a795f67937df1c84f5b383d81721980f931edd074e403",
+  "size": 642101,
+  "filename": "clear-messages.pdf"
+ },
+ "en/b71.pdf": {
+  "sha256": "6ac8203d0a8ef2af6260db46a8e4e6af7772a44e5521c73181bf115aaf7bae5f",
+  "size": 632564,
+  "filename": "saying-no-at-work.pdf"
+ },
+ "en/b72.pdf": {
+  "sha256": "685f8152c6c7630e90fc3452fce39ff36047a18aad6adc792c93d51471c9ca81",
+  "size": 653844,
+  "filename": "feedback-without-drama.pdf"
+ },
+ "en/b73.pdf": {
+  "sha256": "ab9d277db70527d9c5e1496a7c0d1e680951c4e343dc945b22fe7c0589c64e01",
+  "size": 633651,
+  "filename": "notes-you-use.pdf"
+ },
+ "en/b74.pdf": {
+  "sha256": "c87f232840b87d2666719cfe3eb2049e00e56950139c937d73a690102f76a586",
+  "size": 647881,
+  "filename": "evening-wind-down.pdf"
+ },
+ "en/b75.pdf": {
+  "sha256": "17e090e166ed1a05fea1453c2ee4f27e475fab9fca7fb1d3ad371d92e406af26",
+  "size": 649227,
+  "filename": "family-chore-chart.pdf"
+ },
+ "en/b76.pdf": {
+  "sha256": "d1578b14135f275254ddb052646f11478e45095e361786903a9e304fef9d6864",
+  "size": 652745,
+  "filename": "calm-school-mornings.pdf"
  },
  "en/b9.pdf": {
   "sha256": "5a999e29d7f6bae5b067b7ea9a3d33ac40842868f3e86b2b4de07d3a720b6c51",
@@ -679,6 +919,126 @@
   "size": 1115823,
   "filename": "your-maximum.pdf"
  },
+ "fr/b53.pdf": {
+  "sha256": "088fda073dcbe6c02fe3b7e0436b8c949749e0f705cdfd9eca3429026ff46be2",
+  "size": 639062,
+  "filename": "calm-inbox.pdf"
+ },
+ "fr/b54.pdf": {
+  "sha256": "acd17e1bca43d25c4f62741e769304c5c0d315ee3e21731dff5d58b3d47dd694",
+  "size": 633488,
+  "filename": "meetings-on-time.pdf"
+ },
+ "fr/b55.pdf": {
+  "sha256": "02201aeee2140e6383810c76c6096f3d6b5785720a3fd10d3c44ede0d24394df",
+  "size": 639077,
+  "filename": "weekly-review.pdf"
+ },
+ "fr/b56.pdf": {
+  "sha256": "65fe854ee2b5d9bdfd4cf9b0a610e9e0c580dbb8b5596749584c4abc23425d62",
+  "size": 633906,
+  "filename": "focus-phone.pdf"
+ },
+ "fr/b57.pdf": {
+  "sha256": "8ef731e1053d15f9ba0f1e8a469193c40460d8ce034676d036f1ea786058959c",
+  "size": 636110,
+  "filename": "one-hour-home-reset.pdf"
+ },
+ "fr/b58.pdf": {
+  "sha256": "955be26897100dc6a0be0348b9b81bea8dbc14859cdf11246067d3abd0a5bfab",
+  "size": 642428,
+  "filename": "laundry-basics.pdf"
+ },
+ "fr/b59.pdf": {
+  "sha256": "1267e62afe104f3fdf6b539fbfcc58e912ba031141bc1cf68a35c0620cda7bbf",
+  "size": 652041,
+  "filename": "home-paperwork.pdf"
+ },
+ "fr/b60.pdf": {
+  "sha256": "afab9c5a027bc211bba20991b10b301c067542be4e0ed4c965ac196c0667507b",
+  "size": 661440,
+  "filename": "moving-day-checklist.pdf"
+ },
+ "fr/b61.pdf": {
+  "sha256": "ebd3167b2485df319484e5bd8cfb03a4003d681e53d79dc49c4add79ac0b0e7c",
+  "size": 640380,
+  "filename": "knife-skills.pdf"
+ },
+ "fr/b62.pdf": {
+  "sha256": "6afba8345d0d977f2f8b343a1da754a45eb66a6d93e4b64046da1ba81f9e83dc",
+  "size": 689984,
+  "filename": "rice-and-grains.pdf"
+ },
+ "fr/b63.pdf": {
+  "sha256": "2b493f6889a4405404531453e451580087388e6cf46fc84846f546c6fb7893cf",
+  "size": 665752,
+  "filename": "organised-fridge.pdf"
+ },
+ "fr/b64.pdf": {
+  "sha256": "335074e7c9a0483e5fc52a5067eea699ce5ae45b2c6faa8f418e1f8a4e6b5b9c",
+  "size": 674166,
+  "filename": "freezer-cooking.pdf"
+ },
+ "fr/b65.pdf": {
+  "sha256": "535396e66f3337809ba67e9b8c815b1320fbbe596cc7bd3d08ef5e7ce807d60a",
+  "size": 647810,
+  "filename": "carry-on-only.pdf"
+ },
+ "fr/b66.pdf": {
+  "sha256": "e5e2363d569415b75c5ce5681050ec3ec0cf53b4f7af80d46cfdaa4d9f1f267e",
+  "size": 659224,
+  "filename": "one-day-new-city.pdf"
+ },
+ "fr/b67.pdf": {
+  "sha256": "13b76c7e882e300c9e768c6a2eb1fdd7556ea794daec02f38f6042b01d9b352c",
+  "size": 654726,
+  "filename": "phone-portraits.pdf"
+ },
+ "fr/b68.pdf": {
+  "sha256": "e65430261b3b017879abb7a64858bc877bf210803a4733d2a3aa3443a4d241dd",
+  "size": 652585,
+  "filename": "photo-library.pdf"
+ },
+ "fr/b69.pdf": {
+  "sha256": "788bb92e6f8eddc21d43934667b6540a05d9bedb90b3d7a525abbbd9d8b5e49d",
+  "size": 681278,
+  "filename": "language-15-minutes.pdf"
+ },
+ "fr/b70.pdf": {
+  "sha256": "0656aec1a086083e76963e08ccc300ea9a0fe01fb82af6c63140620c0a3a274e",
+  "size": 665973,
+  "filename": "clear-messages.pdf"
+ },
+ "fr/b71.pdf": {
+  "sha256": "e119cd60ea267b66033bc26d69c2bd0ca5e0e14a5ccb5d46d083af91d56f309d",
+  "size": 658409,
+  "filename": "saying-no-at-work.pdf"
+ },
+ "fr/b72.pdf": {
+  "sha256": "01a933eab88b2e602df5d7e7d044b9dac3d640c35b1be3ba4e7d261b8d7be509",
+  "size": 663818,
+  "filename": "feedback-without-drama.pdf"
+ },
+ "fr/b73.pdf": {
+  "sha256": "273d2b735a62469517c45fae1d94dc3b7214ce9bf3bbe856a5dfb45eaa28c44e",
+  "size": 653074,
+  "filename": "notes-you-use.pdf"
+ },
+ "fr/b74.pdf": {
+  "sha256": "8dbd5d3f1f80c9df7f3f8491c2f2b0e90683ae711c084f1e7a5166503b6ce7ce",
+  "size": 667012,
+  "filename": "evening-wind-down.pdf"
+ },
+ "fr/b75.pdf": {
+  "sha256": "c7d7d36ad13c77782cf54070a99f125beae8ff38c72789a7fef2fca0790ecbdc",
+  "size": 684279,
+  "filename": "family-chore-chart.pdf"
+ },
+ "fr/b76.pdf": {
+  "sha256": "6a0870101c3efe14143ed68141cbc448747b40c528c44e14dd6df8e22ab55e81",
+  "size": 672840,
+  "filename": "calm-school-mornings.pdf"
+ },
  "fr/b9.pdf": {
   "sha256": "d71e8c08596bb45d2e6d9fe003afbef726c1b3ef71a6b64e857eab1ef369d859",
   "size": 773974,
@@ -924,6 +1284,126 @@
   "size": 1114455,
   "filename": "your-maximum.pdf"
  },
+ "he/b53.pdf": {
+  "sha256": "45d570e0e02efca0475e8c4a3b94f1a70af38daa0f74c8295ad0f48c30c564bd",
+  "size": 582544,
+  "filename": "calm-inbox.pdf"
+ },
+ "he/b54.pdf": {
+  "sha256": "a1e7cbb9139aa22527e413bb389963ed8f81f0966f72dedfd3eab6e44d1be444",
+  "size": 583291,
+  "filename": "meetings-on-time.pdf"
+ },
+ "he/b55.pdf": {
+  "sha256": "7240a5ffb22de843e683cd593542a409a6539ac7ddc5e81ea6683cc1874cf60f",
+  "size": 589062,
+  "filename": "weekly-review.pdf"
+ },
+ "he/b56.pdf": {
+  "sha256": "bbf92c41c12bc02d8b00c94b6cf9b7c612d1ae889891e13577b1dd16f94c5813",
+  "size": 582757,
+  "filename": "focus-phone.pdf"
+ },
+ "he/b57.pdf": {
+  "sha256": "823354fd9de54f60e5b5a21c91f74500094c5fce02ada32e9581c837ad23c328",
+  "size": 591235,
+  "filename": "one-hour-home-reset.pdf"
+ },
+ "he/b58.pdf": {
+  "sha256": "61362c3ad2444bb3ebc31ff3132fe0be22ead7cff77218ef7c84fbeff4804884",
+  "size": 596675,
+  "filename": "laundry-basics.pdf"
+ },
+ "he/b59.pdf": {
+  "sha256": "7293e7606e5234cdaa87597981a0e72c910544ba9c390500120cfa4e2263e16c",
+  "size": 600323,
+  "filename": "home-paperwork.pdf"
+ },
+ "he/b60.pdf": {
+  "sha256": "3a4eb452c04ca255827fdb2c7321b9c8a0f91372ea2ccb58a23506b0f9a64441",
+  "size": 608410,
+  "filename": "moving-day-checklist.pdf"
+ },
+ "he/b61.pdf": {
+  "sha256": "26c3e17f89094cc4c405c9927d396aed70431620164b45df168bc480b796b6e0",
+  "size": 598229,
+  "filename": "knife-skills.pdf"
+ },
+ "he/b62.pdf": {
+  "sha256": "026c8c73d2793688ab6d497220703d85c97bb8edb9c19c4ea7df4c4a47f8b893",
+  "size": 626334,
+  "filename": "rice-and-grains.pdf"
+ },
+ "he/b63.pdf": {
+  "sha256": "59c20c09ac574c48c918dd78644d0fdc2baf8a40b38b41c5d6352da642d9d062",
+  "size": 601560,
+  "filename": "organised-fridge.pdf"
+ },
+ "he/b64.pdf": {
+  "sha256": "1daced06deff7fe09365daeaeb8ae511eb1a83007379d8067c7ca5f79121e25b",
+  "size": 609844,
+  "filename": "freezer-cooking.pdf"
+ },
+ "he/b65.pdf": {
+  "sha256": "8622ce0cf2392b22cd45739f954d64b067c9d9f2df986936f6bb9091efd481b1",
+  "size": 596280,
+  "filename": "carry-on-only.pdf"
+ },
+ "he/b66.pdf": {
+  "sha256": "b96663be3b336348a3c6fa605717ebc75747c77d10ed0ce727112140b86c339d",
+  "size": 601214,
+  "filename": "one-day-new-city.pdf"
+ },
+ "he/b67.pdf": {
+  "sha256": "27540d85aa19149fca5ef338c43d6bb79cdb24f41658bb22fca2472dc1c878a7",
+  "size": 597032,
+  "filename": "phone-portraits.pdf"
+ },
+ "he/b68.pdf": {
+  "sha256": "394934b09595590497822fedabaf4647497bdea59328412f5550bb84424b99e6",
+  "size": 608324,
+  "filename": "photo-library.pdf"
+ },
+ "he/b69.pdf": {
+  "sha256": "b4310ba0e0082d988012a90084d77056cce171f0889c2b5dc7c381ba090da53a",
+  "size": 621463,
+  "filename": "language-15-minutes.pdf"
+ },
+ "he/b70.pdf": {
+  "sha256": "cf1874cb325e0c70ffe3df49d73bdb236253e2340d0a4c5281e763bd5323ee1d",
+  "size": 610266,
+  "filename": "clear-messages.pdf"
+ },
+ "he/b71.pdf": {
+  "sha256": "7559bb09854b3e5d945117a3145f24c34c9e68ca86e9acdfb50e95df2dd2cf14",
+  "size": 608454,
+  "filename": "saying-no-at-work.pdf"
+ },
+ "he/b72.pdf": {
+  "sha256": "3f06a835915c5bd29385c5fa97df40ce5f645ab295fcdf9ffe04c6ab3b372d14",
+  "size": 612991,
+  "filename": "feedback-without-drama.pdf"
+ },
+ "he/b73.pdf": {
+  "sha256": "46e9139f695c5ae1d808712c6bb3442beca60c31d2867b7f191960773d4b2c36",
+  "size": 610316,
+  "filename": "notes-you-use.pdf"
+ },
+ "he/b74.pdf": {
+  "sha256": "3123cb15c40b57a409c35909f4a940f5cd947983a312654c1e0fbbbdff4291c1",
+  "size": 618118,
+  "filename": "evening-wind-down.pdf"
+ },
+ "he/b75.pdf": {
+  "sha256": "a6242c0f7917b089c01282fa0cf28a513b90d6e5d932b463e2288d7f1d155b7e",
+  "size": 621764,
+  "filename": "family-chore-chart.pdf"
+ },
+ "he/b76.pdf": {
+  "sha256": "0597052fe5c5b1bbdf6237783f17cf153a67df823a2bab3e84cb6ceb42f8e658",
+  "size": 620755,
+  "filename": "calm-school-mornings.pdf"
+ },
  "he/b9.pdf": {
   "sha256": "bda79084c22cb20095679dd503789db125d2356977370e18f0f8c75ecea4c6ca",
   "size": 758820,
@@ -1168,6 +1648,126 @@
   "sha256": "52b514b8adc859e9a6cead58b565c957dc8eb37bd0a5d0da264530af138827bc",
   "size": 1313567,
   "filename": "your-maximum.pdf"
+ },
+ "ru/b53.pdf": {
+  "sha256": "271884acecad73fbebbd7bc3bcaa8e28b9425fd1f11414f7bb8ef1256e86a704",
+  "size": 678350,
+  "filename": "calm-inbox.pdf"
+ },
+ "ru/b54.pdf": {
+  "sha256": "a9dcf1f7db05c7c8189a24e182b7ad42a7d83d9a7dbf2c860d5c0e37fb9f4ea7",
+  "size": 682400,
+  "filename": "meetings-on-time.pdf"
+ },
+ "ru/b55.pdf": {
+  "sha256": "6295bf972ee0df792e195c0178985902724b5091875dcfc1854ea80c65463f63",
+  "size": 689369,
+  "filename": "weekly-review.pdf"
+ },
+ "ru/b56.pdf": {
+  "sha256": "bb1f6bf14908305c66f7043096558226489d4ad118ba0c13292ee734866a2ca7",
+  "size": 694417,
+  "filename": "focus-phone.pdf"
+ },
+ "ru/b57.pdf": {
+  "sha256": "7248817ec739bcf2b33822da0acc5a7605eab36e20c6eb4f8f4e784bee4393ab",
+  "size": 685667,
+  "filename": "one-hour-home-reset.pdf"
+ },
+ "ru/b58.pdf": {
+  "sha256": "5aa8b714b2a6aad09a5f347cd1306ff93883cdda52dd27ea86cd8ca554415846",
+  "size": 702340,
+  "filename": "laundry-basics.pdf"
+ },
+ "ru/b59.pdf": {
+  "sha256": "759cfd6888746aaf7396c9c29ab516c049386c06efe4bc9a6ca2ca3d4b4260ff",
+  "size": 711080,
+  "filename": "home-paperwork.pdf"
+ },
+ "ru/b60.pdf": {
+  "sha256": "9f077f7431267198f361b6fae6a3aeb307548e4365cb7370e4993f41551ac11d",
+  "size": 708826,
+  "filename": "moving-day-checklist.pdf"
+ },
+ "ru/b61.pdf": {
+  "sha256": "1eab0ca727950ede1aa689160fdb4e3e0c801c3fac4f33957655347c5712402f",
+  "size": 685110,
+  "filename": "knife-skills.pdf"
+ },
+ "ru/b62.pdf": {
+  "sha256": "e454be71d05bd0de11ce435f5dc6452a84eae4681f6c9c1f911ab2fa87faaa04",
+  "size": 736753,
+  "filename": "rice-and-grains.pdf"
+ },
+ "ru/b63.pdf": {
+  "sha256": "d5ecb52bdadb9fd3423eac9ca216cd36b39a8ec6e3e983a5c6a08f5477db37f3",
+  "size": 714429,
+  "filename": "organised-fridge.pdf"
+ },
+ "ru/b64.pdf": {
+  "sha256": "bf8cbde7af8fa2adc435ff0961013fb327fa774d93296d2d918ead9429ce0464",
+  "size": 717079,
+  "filename": "freezer-cooking.pdf"
+ },
+ "ru/b65.pdf": {
+  "sha256": "fb505a82c2e12fab7b52321c1e755c89b1b1f18e208becff38e8f944dbe900cc",
+  "size": 699477,
+  "filename": "carry-on-only.pdf"
+ },
+ "ru/b66.pdf": {
+  "sha256": "1180bb18c64e046b37c70636071956a98c477bff7ff801ea74f57ad9a07bc3ec",
+  "size": 705462,
+  "filename": "one-day-new-city.pdf"
+ },
+ "ru/b67.pdf": {
+  "sha256": "040576991e4636d1a59f981ef3f12bcd4f78014729cc8887924e652444a2ba55",
+  "size": 707705,
+  "filename": "phone-portraits.pdf"
+ },
+ "ru/b68.pdf": {
+  "sha256": "e6d0c428c934083730738b8cde1529dfdf56f5775e06379b84dc165792dcf8ad",
+  "size": 719351,
+  "filename": "photo-library.pdf"
+ },
+ "ru/b69.pdf": {
+  "sha256": "28ee143a5f1b08580914a9c830844abbb9057932d3fb6eef74e8033c4f2932a8",
+  "size": 730126,
+  "filename": "language-15-minutes.pdf"
+ },
+ "ru/b70.pdf": {
+  "sha256": "45520abe4bf9f3ec4fac07471e51da514e6a005e3a54f550faf1c44062ad3644",
+  "size": 724338,
+  "filename": "clear-messages.pdf"
+ },
+ "ru/b71.pdf": {
+  "sha256": "38b42402fb5fc91375b4826838432f17095c09a543cedbfc27013e02df35203c",
+  "size": 719232,
+  "filename": "saying-no-at-work.pdf"
+ },
+ "ru/b72.pdf": {
+  "sha256": "411757c739dcbfd056b350921a3eabe1da44d201ac947e2998ba108cddcdb8f7",
+  "size": 738781,
+  "filename": "feedback-without-drama.pdf"
+ },
+ "ru/b73.pdf": {
+  "sha256": "ec975853bee246c6529655daafccacd11875e65929b737ec6894c1f6e4f8271f",
+  "size": 726403,
+  "filename": "notes-you-use.pdf"
+ },
+ "ru/b74.pdf": {
+  "sha256": "b0bb31589b1c2d97765c7b38356d45094ae7bbbc729520119092fb9b72c00516",
+  "size": 720436,
+  "filename": "evening-wind-down.pdf"
+ },
+ "ru/b75.pdf": {
+  "sha256": "8527a8a12e565a2187361b483c4fe9f3e1c25867ffdcd9a926cb769c7b3d9a9b",
+  "size": 744585,
+  "filename": "family-chore-chart.pdf"
+ },
+ "ru/b76.pdf": {
+  "sha256": "9cb4f662b7c909006d7e737af426bc2bb2173dcfc478d7b758614d8b5aab622b",
+  "size": 717717,
+  "filename": "calm-school-mornings.pdf"
  },
  "ru/b9.pdf": {
   "sha256": "9312038c0fda81e4d89a12feccc556abab4ad07c1b594eb740b24cf562308c2e",

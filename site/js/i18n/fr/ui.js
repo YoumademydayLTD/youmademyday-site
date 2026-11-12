@@ -8,12 +8,12 @@ export default {
   "nav.search": "Rechercher", "nav.searchLabel": "Rechercher un cours, un livre ou un sujet", "nav.wish": "Favoris", "nav.cart": "Panier", "nav.homeLabel": "You Made My Day, accueil",
   "skip": "Aller au contenu",
 
-  "foot.note": "Les prix sont indiqués en shekels israéliens (ILS), sauf lorsqu’un prix est affiché en dollars américains. L’achat se fait après connexion avec Telegram. Vos fichiers sont envoyés à notre bot Telegram et enregistrés dans votre espace personnel sur le site, avec votre reçu. Vous pouvez annuler selon notre politique de remboursement et le droit de la consommation applicable.",
+  "foot.note": "Les prix sont affichés, et débités, dans la devise que vous choisissez en bas de page. L’achat se fait après connexion avec Telegram. Vos fichiers sont envoyés à notre bot Telegram et enregistrés dans votre espace personnel sur le site, avec votre reçu. Vous pouvez annuler selon notre politique de remboursement et le droit de la consommation applicable.",
   "foot.shop": "Boutique", "foot.help": "Aide", "foot.legal": "Mentions légales", "foot.company": "Entreprise",
   "foot.pricing": "Tarifs et paiement", "foot.refunds": "Politique de remboursement", "foot.cancel": "Annuler une commande",
   "foot.terms": "Conditions d’utilisation", "foot.privacy": "Politique de confidentialité", "foot.cookies": "Politique relative aux cookies", "foot.a11y": "Accessibilité",
   "foot.rights": "© {year} You Made My Day Ltd. Tous droits réservés.",
-  "foot.lang": "Langue",
+  "foot.currency": "Devise", "pricing.fromPlain": "et plus", "foot.lang": "Langue",
 
   "kind.course": "Cours numérique", "kind.ebook": "Livre numérique", "kind.template": "Modèle à imprimer", "kind.bundle": "Coffret",
   "kind.short.course": "Cours", "kind.short.ebook": "Livre", "kind.short.template": "Modèle", "kind.short.bundle": "Coffret",
@@ -125,7 +125,7 @@ export default {
   "dl.none": "Nous n’avons pas trouvé de fichiers pour cette commande. Écrivez-nous à {email} et nous réglerons cela.",
   "dl.refunded": "Cette commande a été remboursée : ses fichiers ne sont plus disponibles.",
 
-  "pricing.title": "Tarifs", "pricing.lead": "Cours et livres : vous payez une fois, les fichiers sont à vous pour toujours. Abonnements : renouvelés chaque semaine ou chaque mois, selon la formule, et résiliables à tout moment. Les prix sont indiqués en shekels israéliens (ILS), sauf lorsqu’ils sont affichés en dollars américains.",
+  "pricing.title": "Tarifs", "pricing.lead": "Cours et livres : vous payez une fois, les fichiers sont à vous pour toujours. Abonnements : renouvelés chaque semaine ou chaque mois, selon la formule, et résiliables à tout moment. Les prix sont affichés, et débités, dans la devise que vous choisissez en bas de page.",
   "pricing.course": "Cours", "pricing.book": "Livre ou modèle", "pricing.bundles": "Coffrets", "pricing.from": "₪ et plus", "pricing.bundlesN": "coffrets",
   "pricing.courseIncl": ["Leçons écrites avec exercices", "Une fiche d’exercices par leçon", "PDF à télécharger", "Remboursement intégral sous {days} jours"],
   "pricing.bookIncl": ["Téléchargement PDF immédiat", "Sur tous vos appareils, imprimable", "{n} livres dans le panier : le moins cher offert"],

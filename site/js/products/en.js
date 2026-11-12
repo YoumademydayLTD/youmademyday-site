@@ -8,6 +8,13 @@ export const PRODUCTS = [
   "sub": "12 hands-on lessons: save hours every week with ChatGPT, Claude and free tools",
   "cat": "Technology",
   "price": 349,
+  "prices": {
+   "usd": 109,
+   "cad": 159,
+   "eur": 99,
+   "gbp": 85,
+   "aud": 159
+  },
   "cv": [
    "#2B1E40",
    "#FFFFFF",
@@ -103,6 +110,13 @@ export const PRODUCTS = [
   "sub": "Design posts, presentations and a logo with no experience",
   "cat": "Design",
   "price": 249,
+  "prices": {
+   "usd": 79,
+   "cad": 109,
+   "eur": 69,
+   "gbp": 59,
+   "aud": 119
+  },
   "cv": [
    "#FFD9E8",
    "#2B1E40",
@@ -178,6 +192,13 @@ export const PRODUCTS = [
   "sub": "Formulas, tables and your first dashboard",
   "cat": "Technology",
   "price": 249,
+  "prices": {
+   "usd": 79,
+   "cad": 109,
+   "eur": 69,
+   "gbp": 59,
+   "aud": 119
+  },
   "cv": [
    "#2B1E40",
    "#FFFFFF",
@@ -253,6 +274,13 @@ export const PRODUCTS = [
   "sub": "Copywriting for small business owners, step by step",
   "cat": "Marketing",
   "price": 299,
+  "prices": {
+   "usd": 95,
+   "cad": 139,
+   "eur": 85,
+   "gbp": 69,
+   "aud": 139
+  },
   "cv": [
    "#EEE6FF",
    "#2B1E40",
@@ -328,6 +356,13 @@ export const PRODUCTS = [
   "sub": "Light, backgrounds and editing for your online store",
   "cat": "Photography",
   "price": 219,
+  "prices": {
+   "usd": 69,
+   "cad": 99,
+   "eur": 65,
+   "gbp": 55,
+   "aud": 99
+  },
   "cv": [
    "#1D1D1F",
    "#FFFFFF",
@@ -403,6 +438,13 @@ export const PRODUCTS = [
   "sub": "Proven methods for planning your week, without complicated apps",
   "cat": "Productivity",
   "price": 199,
+  "prices": {
+   "usd": 65,
+   "cad": 89,
+   "eur": 55,
+   "gbp": 49,
+   "aud": 89
+  },
   "cv": [
    "#DCEBFF",
    "#1D2B47",
@@ -479,6 +521,13 @@ export const PRODUCTS = [
   "sub": "Content, Reels and a Monthly Plan",
   "cat": "Marketing",
   "price": 279,
+  "prices": {
+   "usd": 89,
+   "cad": 129,
+   "eur": 79,
+   "gbp": 65,
+   "aud": 129
+  },
   "cv": [
    "#EEE6FF",
    "#2B1E40",
@@ -554,6 +603,13 @@ export const PRODUCTS = [
   "sub": "Build your first landing page from scratch",
   "cat": "Technology",
   "price": 299,
+  "prices": {
+   "usd": 95,
+   "cad": 139,
+   "eur": 85,
+   "gbp": 69,
+   "aud": 139
+  },
   "cv": [
    "#2B1E40",
    "#FFFFFF",
@@ -629,6 +685,13 @@ export const PRODUCTS = [
   "sub": "200 ready-made prompts for work, study and creativity",
   "cat": "Technology",
   "price": 69,
+  "prices": {
+   "usd": 22,
+   "cad": 32,
+   "eur": 20,
+   "gbp": 16,
+   "aud": 32
+  },
   "cv": [
    "#2B1E40",
    "#FFFFFF",
@@ -662,6 +725,13 @@ export const PRODUCTS = [
   "sub": "30 Real Scenarios with Templates",
   "cat": "Technology",
   "price": 59,
+  "prices": {
+   "usd": 19,
+   "cad": 27,
+   "eur": 17,
+   "gbp": 14,
+   "aud": 27
+  },
   "cv": [
    "#2B1E40",
    "#FFFFFF",
@@ -694,6 +764,13 @@ export const PRODUCTS = [
   "sub": "A content calendar for a whole year",
   "cat": "Marketing",
   "price": 49,
+  "prices": {
+   "usd": 15,
+   "cad": 22,
+   "eur": 14,
+   "gbp": 12,
+   "aud": 22
+  },
   "cv": [
    "#EEE6FF",
    "#2B1E40",
@@ -724,6 +801,13 @@ export const PRODUCTS = [
   "sub": "Structure, headlines and before-and-after examples",
   "cat": "Marketing",
   "price": 59,
+  "prices": {
+   "usd": 19,
+   "cad": 27,
+   "eur": 17,
+   "gbp": 14,
+   "aud": 27
+  },
   "cv": [
    "#EEE6FF",
    "#2B1E40",
@@ -756,6 +840,13 @@ export const PRODUCTS = [
   "sub": "How to build a mailing list and write a weekly email",
   "cat": "Marketing",
   "price": 45,
+  "prices": {
+   "usd": 14,
+   "cad": 20,
+   "eur": 13,
+   "gbp": 11,
+   "aud": 20
+  },
   "cv": [
    "#EEE6FF",
    "#2B1E40",
@@ -791,6 +882,13 @@ export const PRODUCTS = [
   "sub": "A profile, posts and conversations that bring in inquiries",
   "cat": "Career",
   "price": 55,
+  "prices": {
+   "usd": 17,
+   "cad": 25,
+   "eur": 16,
+   "gbp": 13,
+   "aud": 25
+  },
   "cv": [
    "#3B2A5C",
    "#FFFFFF",
@@ -824,6 +922,13 @@ export const PRODUCTS = [
   "sub": "Structure, wording and 12 examples by field",
   "cat": "Career",
   "price": 45,
+  "prices": {
+   "usd": 14,
+   "cad": 20,
+   "eur": 13,
+   "gbp": 11,
+   "aud": 20
+  },
   "cv": [
    "#3B2A5C",
    "#FFFFFF",
@@ -857,6 +962,13 @@ export const PRODUCTS = [
   "sub": "60 common questions and how to answer them",
   "cat": "Career",
   "price": 45,
+  "prices": {
+   "usd": 14,
+   "cad": 20,
+   "eur": 13,
+   "gbp": 11,
+   "aud": 20
+  },
   "cv": [
    "#3B2A5C",
    "#FFFFFF",
@@ -889,6 +1001,13 @@ export const PRODUCTS = [
   "sub": "Pricing a Service, Writing a Quote and a Basic Work Agreement",
   "cat": "Career",
   "price": 59,
+  "prices": {
+   "usd": 19,
+   "cad": 27,
+   "eur": 17,
+   "gbp": 14,
+   "aud": 27
+  },
   "cv": [
    "#3B2A5C",
    "#FFFFFF",
@@ -925,6 +1044,13 @@ export const PRODUCTS = [
   "sub": "10 ready-made templates to copy into Word or Google Docs",
   "cat": "Business",
   "price": 39,
+  "prices": {
+   "usd": 12,
+   "cad": 18,
+   "eur": 11,
+   "gbp": 9,
+   "aud": 18
+  },
   "cv": [
    "#F4EEFF",
    "#2B1E40",
@@ -961,6 +1087,13 @@ export const PRODUCTS = [
   "sub": "A Ready Sheet for Planning and Tracking Posts",
   "cat": "Marketing",
   "price": 29,
+  "prices": {
+   "usd": 9,
+   "cad": 13,
+   "eur": 8,
+   "gbp": 7,
+   "aud": 13
+  },
   "cv": [
    "#EEE6FF",
    "#2B1E40",
@@ -997,6 +1130,13 @@ export const PRODUCTS = [
   "sub": "A planner for print and tablet",
   "cat": "Productivity",
   "price": 25,
+  "prices": {
+   "usd": 8,
+   "cad": 11,
+   "eur": 7,
+   "gbp": 6,
+   "aud": 12
+  },
   "cv": [
    "#DCEBFF",
    "#1D2B47",
@@ -1032,6 +1172,13 @@ export const PRODUCTS = [
   "sub": "An orderly home and a clear head in half an hour a day",
   "cat": "Productivity",
   "price": 39,
+  "prices": {
+   "usd": 12,
+   "cad": 18,
+   "eur": 11,
+   "gbp": 9,
+   "aud": 18
+  },
   "cv": [
    "#DCEBFF",
    "#1D2B47",
@@ -1068,6 +1215,13 @@ export const PRODUCTS = [
   "sub": "A 30-day workbook for building one new habit",
   "cat": "Productivity",
   "price": 39,
+  "prices": {
+   "usd": 12,
+   "cad": 18,
+   "eur": 11,
+   "gbp": 9,
+   "aud": 18
+  },
   "cv": [
    "#DCEBFF",
    "#1D2B47",
@@ -1102,6 +1256,13 @@ export const PRODUCTS = [
   "sub": "90 days of guided writing, 5 minutes a day",
   "cat": "Writing",
   "price": 35,
+  "prices": {
+   "usd": 11,
+   "cad": 16,
+   "eur": 10,
+   "gbp": 8,
+   "aud": 16
+  },
   "cv": [
    "#FFF4EA",
    "#2B1E40",
@@ -1140,6 +1301,13 @@ export const PRODUCTS = [
   "sub": "Questions for a New Day, 100 Pages",
   "cat": "Writing",
   "price": 35,
+  "prices": {
+   "usd": 11,
+   "cad": 16,
+   "eur": 10,
+   "gbp": 8,
+   "aud": 16
+  },
   "cv": [
    "#FFF4EA",
    "#2B1E40",
@@ -1166,6 +1334,13 @@ export const PRODUCTS = [
   "sub": "A Practical Guide with 20 Exercises",
   "cat": "Writing",
   "price": 49,
+  "prices": {
+   "usd": 15,
+   "cad": 22,
+   "eur": 14,
+   "gbp": 12,
+   "aud": 22
+  },
   "cv": [
    "#FFF4EA",
    "#2B1E40",
@@ -1202,6 +1377,13 @@ export const PRODUCTS = [
   "sub": "60 daily drawing exercises",
   "cat": "Creativity",
   "price": 39,
+  "prices": {
+   "usd": 12,
+   "cad": 18,
+   "eur": 11,
+   "gbp": 9,
+   "aud": 18
+  },
   "cv": [
    "#FFE7F0",
    "#2B1E40",
@@ -1235,6 +1417,13 @@ export const PRODUCTS = [
   "sub": "Practice Sheets and Letters to Copy",
   "cat": "Creativity",
   "price": 45,
+  "prices": {
+   "usd": 14,
+   "cad": 20,
+   "eur": 13,
+   "gbp": 11,
+   "aud": 20
+  },
   "cv": [
    "#FFE7F0",
    "#2B1E40",
@@ -1269,6 +1458,13 @@ export const PRODUCTS = [
   "sub": "50 short tips, each with a photo exercise",
   "cat": "Photography",
   "price": 45,
+  "prices": {
+   "usd": 14,
+   "cad": 20,
+   "eur": 13,
+   "gbp": 11,
+   "aud": 20
+  },
   "cv": [
    "#1D1D1F",
    "#FFFFFF",
@@ -1301,6 +1497,13 @@ export const PRODUCTS = [
   "sub": "CapCut from Zero to Your First Video",
   "cat": "Photography",
   "price": 49,
+  "prices": {
+   "usd": 15,
+   "cad": 22,
+   "eur": 14,
+   "gbp": 12,
+   "aud": 22
+  },
   "cv": [
    "#1D1D1F",
    "#FFFFFF",
@@ -1340,6 +1543,13 @@ export const PRODUCTS = [
   "sub": "40 Home Recipes, Step by Step",
   "cat": "Cooking",
   "price": 69,
+  "prices": {
+   "usd": 22,
+   "cad": 32,
+   "eur": 20,
+   "gbp": 16,
+   "aud": 32
+  },
   "cv": [
    "#FFE3D6",
    "#3A1F1A",
@@ -1373,6 +1583,13 @@ export const PRODUCTS = [
   "sub": "Sourdough, challah and everyday loaves in an ordinary kitchen",
   "cat": "Cooking",
   "price": 55,
+  "prices": {
+   "usd": 17,
+   "cad": 25,
+   "eur": 16,
+   "gbp": 13,
+   "aud": 25
+  },
   "cv": [
    "#FFE3D6",
    "#3A1F1A",
@@ -1406,6 +1623,13 @@ export const PRODUCTS = [
   "sub": "30 quick dinners for the whole week",
   "cat": "Cooking",
   "price": 49,
+  "prices": {
+   "usd": 15,
+   "cad": 22,
+   "eur": 14,
+   "gbp": 12,
+   "aud": 22
+  },
   "cv": [
    "#FFE3D6",
    "#3A1F1A",
@@ -1438,6 +1662,13 @@ export const PRODUCTS = [
   "sub": "25 Recipes for Cakes and Cookies",
   "cat": "Cooking",
   "price": 49,
+  "prices": {
+   "usd": 15,
+   "cad": 22,
+   "eur": 14,
+   "gbp": 12,
+   "aud": 22
+  },
   "cv": [
    "#FFE3D6",
    "#3A1F1A",
@@ -1469,6 +1700,13 @@ export const PRODUCTS = [
   "sub": "60 ideas for the mid-morning school meal",
   "cat": "Cooking",
   "price": 35,
+  "prices": {
+   "usd": 11,
+   "cad": 16,
+   "eur": 10,
+   "gbp": 8,
+   "aud": 16
+  },
   "cv": [
    "#FFE3D6",
    "#3A1F1A",
@@ -1503,6 +1741,13 @@ export const PRODUCTS = [
   "sub": "Printable menus and shopping lists",
   "cat": "Cooking",
   "price": 29,
+  "prices": {
+   "usd": 9,
+   "cad": 13,
+   "eur": 8,
+   "gbp": 7,
+   "aud": 13
+  },
   "cv": [
    "#FFE3D6",
    "#3A1F1A",
@@ -1531,6 +1776,13 @@ export const PRODUCTS = [
   "sub": "Herbs and Vegetables in Pots, Season by Season",
   "cat": "Home",
   "price": 45,
+  "prices": {
+   "usd": 14,
+   "cad": 20,
+   "eur": 13,
+   "gbp": 11,
+   "aud": 20
+  },
   "cv": [
    "#E2F1EA",
    "#16302A",
@@ -1567,6 +1819,13 @@ export const PRODUCTS = [
   "sub": "Ideas for every room, with shopping lists",
   "cat": "Home",
   "price": 49,
+  "prices": {
+   "usd": 15,
+   "cad": 22,
+   "eur": 14,
+   "gbp": 12,
+   "aud": 22
+  },
   "cv": [
    "#E2F1EA",
    "#16302A",
@@ -1607,6 +1866,13 @@ export const PRODUCTS = [
   "sub": "A simple method for sorting and organising your clothes",
   "cat": "Home",
   "price": 35,
+  "prices": {
+   "usd": 11,
+   "cad": 16,
+   "eur": 10,
+   "gbp": 8,
+   "aud": 16
+  },
   "cv": [
    "#E2F1EA",
    "#16302A",
@@ -1645,6 +1911,13 @@ export const PRODUCTS = [
   "sub": "10 Themes with Prep Checklists",
   "cat": "Family",
   "price": 39,
+  "prices": {
+   "usd": 12,
+   "cad": 18,
+   "eur": 11,
+   "gbp": 9,
+   "aud": 18
+  },
   "cv": [
    "#FFF1DC",
    "#3A2A10",
@@ -1678,6 +1951,13 @@ export const PRODUCTS = [
   "sub": "80 Ideas for Indoors and Out",
   "cat": "Family",
   "price": 39,
+  "prices": {
+   "usd": 12,
+   "cad": 18,
+   "eur": 11,
+   "gbp": 9,
+   "aud": 18
+  },
   "cv": [
    "#FFF1DC",
    "#3A2A10",
@@ -1711,6 +1991,13 @@ export const PRODUCTS = [
   "sub": "Printable activity pages for ages 6–10",
   "cat": "Family",
   "price": 35,
+  "prices": {
+   "usd": 11,
+   "cad": 16,
+   "eur": 10,
+   "gbp": 8,
+   "aud": 16
+  },
   "cv": [
    "#FFF1DC",
    "#3A2A10",
@@ -1744,6 +2031,13 @@ export const PRODUCTS = [
   "sub": "20 Easy Family Trails, with a Diagram for Every Route",
   "cat": "Travel",
   "price": 49,
+  "prices": {
+   "usd": 15,
+   "cad": 22,
+   "eur": 14,
+   "gbp": 12,
+   "aud": 22
+  },
   "cv": [
    "#E6F2FF",
    "#13314D",
@@ -1774,6 +2068,13 @@ export const PRODUCTS = [
   "sub": "Checklists, packing and itinerary planning",
   "cat": "Travel",
   "price": 39,
+  "prices": {
+   "usd": 12,
+   "cad": 18,
+   "eur": 11,
+   "gbp": 9,
+   "aud": 18
+  },
   "cv": [
    "#E6F2FF",
    "#13314D",
@@ -1808,6 +2109,13 @@ export const PRODUCTS = [
   "sub": "How to prepare and deliver a 10-minute talk",
   "cat": "Career",
   "price": 45,
+  "prices": {
+   "usd": 14,
+   "cad": 20,
+   "eur": 13,
+   "gbp": 11,
+   "aud": 20
+  },
   "cv": [
    "#3B2A5C",
    "#FFFFFF",
@@ -1845,6 +2153,13 @@ export const PRODUCTS = [
   "sub": "An 8-week walk-run plan for healthy beginners",
   "cat": "Movement",
   "price": 35,
+  "prices": {
+   "usd": 11,
+   "cad": 16,
+   "eur": 10,
+   "gbp": 8,
+   "aud": 16
+  },
   "cv": [
    "#E3F4EC",
    "#123A2B",
@@ -1879,6 +2194,13 @@ export const PRODUCTS = [
   "sub": "3 short sequences, every pose described precisely",
   "cat": "Movement",
   "price": 39,
+  "prices": {
+   "usd": 12,
+   "cad": 18,
+   "eur": 11,
+   "gbp": 9,
+   "aud": 18
+  },
   "cv": [
    "#E3F4EC",
    "#123A2B",
@@ -1910,6 +2232,13 @@ export const PRODUCTS = [
   "sub": "Five marketing and sales guides, one lower price",
   "cat": "Bundles",
   "price": 199,
+  "prices": {
+   "usd": 65,
+   "cad": 89,
+   "eur": 55,
+   "gbp": 49,
+   "aud": 89
+  },
   "cv": [
    "#1D1D1F",
    "#FFFFFF",
@@ -1935,6 +2264,13 @@ export const PRODUCTS = [
   "sub": "Six kitchen books, from sourdough to a week of dinners",
   "cat": "Bundles",
   "price": 179,
+  "prices": {
+   "usd": 55,
+   "cad": 79,
+   "eur": 49,
+   "gbp": 45,
+   "aud": 85
+  },
   "cv": [
    "#1D1D1F",
    "#FFFFFF",
@@ -1962,6 +2298,13 @@ export const PRODUCTS = [
   "cat": "Personal growth",
   "price": 5,
   "usd": 2,
+  "prices": {
+   "usd": 2,
+   "cad": 3,
+   "eur": 2,
+   "gbp": 2,
+   "aud": 3
+  },
   "cv": [
    "#0E0B12",
    "#FFFFFF",
@@ -1989,5 +2332,869 @@ export const PRODUCTS = [
   "excerpt": "Most people don't live below their potential because they lack talent or desire. They live below it because they try to change everything at once, break down after a week, and conclude that the problem is them. This book is built the other way around. It doesn't ask you to become a different person. It asks you to look honestly at where you are, decide where it matters to you to go, and then move there in steps small enough to hold up even in a busy week.",
   "pages": 52,
   "mb": 1.0
+ },
+ {
+  "id": "b53",
+  "n": 53,
+  "type": "ebook",
+  "title": "A Calm Inbox",
+  "sub": "A one-week plan to empty your email and keep it under control",
+  "cat": "Short guides",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "bars",
+  "description": [
+   "A short, practical plan for getting your email under control in one week. You set three fixed times a day, sort every message with four simple decisions, clear the old backlog in one sitting and keep the inbox calm with a five-minute daily routine. It works in any email app and ends with a one-page checklist."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Chapter 1: Three Fixed Times a Day",
+   "Chapter 2: Four Decisions for Every Message",
+   "Chapter 3: Clearing the Backlog in One Sitting",
+   "Chapter 4: The Week Plan",
+   "Summary: The One-Page Checklist"
+  ],
+  "excerpt": "An overflowing inbox is rarely a problem of too much email. It is a problem of too many open decisions. Every message you read and leave where it is stays in your head as a small unfinished task. This guide gives you one simple way to decide once, a plan to clear what has piled up, and a five-minute routine that keeps the inbox quiet. It works in any email app, on a phone or a computer, and it does not ask you to buy anything.",
+  "pages": 8,
+  "mb": 0.6
+ },
+ {
+  "id": "b54",
+  "n": 54,
+  "type": "ebook",
+  "title": "Meetings That End on Time",
+  "sub": "How to plan, run and close a short meeting that produces decisions",
+  "cat": "Short guides",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "dot",
+  "description": [
+   "A compact guide to meetings that start with a purpose and end with decisions. You learn when a meeting is not needed at all, how to write an agenda of questions, how to keep the conversation on track without being rude, and how to send a summary that makes things happen. It includes ready-to-copy templates and a one-page checklist."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Chapter 1: Do We Need to Meet?",
+   "Chapter 2: An Agenda of Questions",
+   "Chapter 3: Running the Meeting",
+   "Chapter 4: The Summary That Makes Things Happen",
+   "Summary: The One-Page Checklist"
+  ],
+  "excerpt": "A good meeting is short, has a clear reason and ends with everyone knowing who does what by when. Most meetings are missing at least one of these. This guide shows you how to fix that, whether you lead a team, run a volunteer committee or simply invited three colleagues to solve a problem. You get a test for deciding whether to meet at all, an agenda format that works, a few sentences for steering the conversation and a summary template you can copy.",
+  "pages": 9,
+  "mb": 0.6
+ },
+ {
+  "id": "b55",
+  "n": 55,
+  "type": "ebook",
+  "title": "The 20-Minute Weekly Review",
+  "sub": "One short weekly habit that keeps your tasks, calendar and plans in order",
+  "cat": "Short guides",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "sun",
+  "description": [
+   "A simple weekly habit that takes twenty minutes and puts your whole week in order. You collect every loose end, look back at the week that passed, look ahead at the calendar and choose three priorities for the next seven days. The guide includes a printable review page and tips for keeping the habit alive."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Chapter 1: Choose the Time and the Place",
+   "Chapter 2: Collect and Look Back",
+   "Chapter 3: Look Ahead and Choose Three",
+   "Chapter 4: The Review Page",
+   "Summary: The One-Page Checklist"
+  ],
+  "excerpt": "Most weeks do not go wrong because of one big mistake. They go wrong because of small things nobody looked at: a form that was due, a call you meant to return, a meeting you forgot to prepare for. A weekly review is twenty quiet minutes in which you look at everything once, decide what matters, and begin the next week knowing where you stand. This guide gives you the exact steps, a page to fill in and a way to keep the habit even in busy weeks.",
+  "pages": 9,
+  "mb": 0.6
+ },
+ {
+  "id": "b56",
+  "n": 56,
+  "type": "ebook",
+  "title": "A Phone That Lets You Focus",
+  "sub": "Set up your phone in one evening so it stops interrupting you",
+  "cat": "Short guides",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "half",
+  "description": [
+   "A one-evening setup that turns your phone from a source of interruptions into a quiet tool. You sort notifications into three groups, rebuild the home screen, set focus hours and create a few small rules for the moments when the hand reaches for the phone by itself. No apps to buy and no willpower contests, only settings and habits."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Chapter 1: Notifications in Three Groups",
+   "Chapter 2: A Home Screen for Tools",
+   "Chapter 3: Focus Hours and Quiet Nights",
+   "Chapter 4: Small Rules for Weak Moments",
+   "Summary: The One-Page Checklist"
+  ],
+  "excerpt": "Your phone is built to call you back to it. Every sound, badge and banner was designed by someone whose work is to get your attention. You do not need to throw the phone away or win a daily battle of willpower. You need one evening in which you change the settings so that the phone waits for you, and not the other way round. This guide takes you through that evening step by step, on any phone, and adds a few small habits that keep the quiet.",
+  "pages": 8,
+  "mb": 0.6
+ },
+ {
+  "id": "b57",
+  "n": 57,
+  "type": "ebook",
+  "title": "The One-Hour Home Reset",
+  "sub": "A fixed route that gets the whole home presentable in sixty minutes",
+  "cat": "Short guides",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "ring",
+  "description": [
+   "A fixed sixty-minute route that brings a messy home back to a pleasant, presentable state. You prepare one caddy of supplies, work room by room in a set order with a timer, and stop when the hour ends. The guide includes the minute-by-minute plan, a way to split the work in a family and a short version for busy days."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Chapter 1: The Caddy and the Rules",
+   "Chapter 2: The Route, Minute by Minute",
+   "Chapter 3: Room-by-Room Shortcuts",
+   "Chapter 4: Sharing the Hour and Keeping It Up",
+   "Summary: The One-Page Checklist"
+  ],
+  "excerpt": "Cleaning takes as long as you let it. Without a plan, you begin in the kitchen, carry something to the bedroom, notice the wardrobe, and two hours later nothing is finished. The one-hour reset is a fixed route with a timer. You always move in the same order, do the same short list in each room, and stop when the hour ends. The home will not be spotless. It will be tidy, fresh and pleasant, which is what most of us need most weeks.",
+  "pages": 8,
+  "mb": 0.6
+ },
+ {
+  "id": "b58",
+  "n": 58,
+  "type": "ebook",
+  "title": "Laundry Without Guesswork",
+  "sub": "Sorting, washing, drying and stains, explained simply",
+  "cat": "Short guides",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "bars",
+  "description": [
+   "Everything you need to do laundry with confidence: how to read the care label, a simple way to sort, which programme and temperature to choose, how to dry without shrinking and what to do about the most common stains. It includes quick-reference tables and a weekly routine that stops laundry from piling up."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Chapter 1: Reading the Care Label",
+   "Chapter 2: Sorting in Two Minutes",
+   "Chapter 3: Washing and Drying",
+   "Chapter 4: Common Stains",
+   "Summary: The One-Page Checklist"
+  ],
+  "excerpt": "Laundry is not difficult, but nobody really teaches it. Most of us learned by ruining a favourite jumper or turning white shirts pink. This guide collects the basics in one place: how to read a care label, how to sort quickly, which programme to choose, how to dry, and how to deal with common stains. The advice is general. The label inside the garment and the instructions of your machine and detergent always come first.",
+  "pages": 9,
+  "mb": 0.6
+ },
+ {
+  "id": "b59",
+  "n": 59,
+  "type": "ebook",
+  "title": "Home Paperwork in One Box",
+  "sub": "A simple system for the papers and digital documents of a household",
+  "cat": "Short guides",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "dot",
+  "description": [
+   "A simple filing system for a household that fits in one box and one folder on your computer. You gather every paper in the home, sort it with three decisions, file it under eight fixed categories and keep it in order with ten minutes a month. It includes a naming rule for digital files and a one-page list of the documents worth being able to find quickly."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Chapter 1: Gather and Decide",
+   "Chapter 2: Eight Folders",
+   "Chapter 3: The Digital Twin",
+   "Chapter 4: Ten Minutes a Month",
+   "Summary: The One-Page Checklist"
+  ],
+  "excerpt": "Every home receives paper: bills, contracts, warranties, school forms, medical letters. Most of it is never needed again, and a small part is needed urgently on the one day you cannot find it. This guide builds a system small enough to keep up: one box with eight folders, one matching folder on your computer and ten minutes a month. It is about order, not about law. How long a document must be kept differs between countries, so check official guidance or ask a qualified professional about your own case.",
+  "pages": 9,
+  "mb": 0.6
+ },
+ {
+  "id": "b60",
+  "n": 60,
+  "type": "ebook",
+  "title": "The Moving Day Checklist",
+  "sub": "An eight-week countdown for a calm house move",
+  "cat": "Short guides",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "sun",
+  "description": [
+   "A week-by-week countdown that takes the panic out of moving home. You know what to do eight weeks before, how to pack room by room with a labelling system that works, what goes in the first-night box and how to get through moving day and the first week. Checklists throughout, suitable for a rented flat or a family house."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Chapter 1: Eight to Four Weeks Before",
+   "Chapter 2: Packing That Makes Unpacking Easy",
+   "Chapter 3: The Last Week and Moving Day",
+   "Chapter 4: The First Week and the Address List",
+   "Summary: The One-Page Checklist"
+  ],
+  "excerpt": "Moving home is a hundred small tasks that all seem urgent at the same time. The way to stay calm is to spread them over eight weeks and to know, each week, what belongs to it and what can wait. This guide gives you that countdown, a packing method that makes unpacking easy, a list for moving day itself and a plan for the first week in the new place. It suits a small rented flat as well as a family house; skip whatever does not apply to you.",
+  "pages": 11,
+  "mb": 0.6
+ },
+ {
+  "id": "b61",
+  "n": 61,
+  "type": "ebook",
+  "title": "Knife Skills for Home Cooks",
+  "sub": "Hold, cut and care for a knife safely, and prepare vegetables twice as fast",
+  "cat": "Short guides",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "half",
+  "description": [
+   "A beginner's guide to the one skill that speeds up all cooking. You learn which three knives are enough, how to hold the knife and the food safely, the basic cuts with step-by-step instructions for onion, garlic, carrot, pepper and herbs, and how to keep a knife sharp. It ends with a ten-minute practice plan and a safety checklist."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Chapter 1: Three Knives and a Stable Board",
+   "Chapter 2: The Grip and the Claw",
+   "Chapter 3: Five Vegetables, Step by Step",
+   "Chapter 4: Care, Sharpening and Practice",
+   "Summary: The One-Page Checklist"
+  ],
+  "excerpt": "Cutting is where most cooking time goes, and it is the part nobody teaches. With a good grip, a stable board and a few basic movements, preparing vegetables becomes quick and calm, and also safer. This guide teaches you those basics in plain steps. You do not need expensive knives or fast hands. Speed comes by itself after a few weeks; in the beginning, only correct movement matters. Read each step fully before you pick up the knife, and practise slowly.",
+  "pages": 10,
+  "mb": 0.6
+ },
+ {
+  "id": "b62",
+  "n": 62,
+  "type": "ebook",
+  "title": "Rice and Grains That Come Out Right",
+  "sub": "One method, a table of ratios and times, and fixes for every common problem",
+  "cat": "Short guides",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "ring",
+  "description": [
+   "A clear method for cooking rice and seven other grains so that they come out right every time. You get one basic technique, a table of water ratios and cooking times, ways to add flavour, fixes for sticky, hard or burnt results and simple ideas for turning a pot of grains into a meal. It also covers cooling and storing leftovers."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Chapter 1: The Basic Method",
+   "Chapter 2: The Table of Grains",
+   "Chapter 3: Flavour",
+   "Chapter 4: Fixes, Leftovers and Meals",
+   "Summary: The One-Page Checklist"
+  ],
+  "excerpt": "A pot of rice has three ingredients, and still it goes wrong: sticky one day, hard the next, burnt on the third. The reason is nearly always the same: the amount of water, the heat, or a lid lifted too early. This guide gives you one method that works for most grains, a table of ratios and times to keep on the fridge, and a fix for each common problem. The quantities are good starting points. Pots, cookers and brands differ, so adjust a little after your first try.",
+  "pages": 9,
+  "mb": 0.6
+ },
+ {
+  "id": "b63",
+  "n": 63,
+  "type": "ebook",
+  "title": "The Organised Fridge",
+  "sub": "Arrange your fridge and pantry so that food lasts longer and less is thrown away",
+  "cat": "Short guides",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "bars",
+  "description": [
+   "A practical guide to a fridge and pantry that work for you. You empty and reset the fridge in forty minutes, give every shelf a job, learn what does not belong in the fridge at all, set up a pantry you can see into and keep a simple weekly habit that uses food before it spoils. Includes storage tables and a shopping routine."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Chapter 1: The Forty-Minute Reset",
+   "Chapter 2: A Job for Every Shelf",
+   "Chapter 3: What Lives Outside the Fridge",
+   "Chapter 4: The Pantry and the Weekly Habit",
+   "Summary: The One-Page Checklist"
+  ],
+  "excerpt": "A fridge where you cannot see the food is a fridge that wastes it. The lettuce at the back, the half jar of sauce, the cheese under the bag of carrots: all were bought with good intentions and thrown away two weeks later. An organised fridge is not about pretty boxes. It is about seeing everything at one glance and putting each food where it keeps best. This guide walks you through one reset of about forty minutes and the small habits that keep it. The advice is general; follow the dates and storage instructions on the package.",
+  "pages": 8,
+  "mb": 0.6
+ },
+ {
+  "id": "b64",
+  "n": 64,
+  "type": "ebook",
+  "title": "Cook Once, Freeze Smart",
+  "sub": "What freezes well, how to pack it and how to turn the freezer into ready dinners",
+  "cat": "Short guides",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "dot",
+  "description": [
+   "A short guide to using the freezer as a helper for busy weeks. You learn what freezes well and what does not, how to cool, pack and label food properly, how to thaw and reheat it, and how to run a two-hour cooking session that fills the freezer with dinners. It includes a freezer list to hang on the door."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Chapter 1: What Freezes Well",
+   "Chapter 2: Cool, Pack, Label",
+   "Chapter 3: Thawing and Reheating",
+   "Chapter 4: The Two-Hour Session and the Freezer List",
+   "Summary: The One-Page Checklist"
+  ],
+  "excerpt": "The freezer is the most underused tool in the kitchen. For many of us it holds ice, peas and a few mystery packages nobody dares to open. Used well, it is a shelf of home-cooked dinners that wait for the evenings when you have no strength to cook. This guide explains what freezes well, how to pack and label it, how to thaw it and how to fill the freezer in one calm cooking session. The advice is general: follow the manual of your freezer and the instructions on packaged food.",
+  "pages": 12,
+  "mb": 0.6
+ },
+ {
+  "id": "b65",
+  "n": 65,
+  "type": "ebook",
+  "title": "Carry-On Only",
+  "sub": "Pack one small bag for a week away, with a complete list and a folding method",
+  "cat": "Short guides",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "sun",
+  "description": [
+   "A practical method for travelling a week or more with one small bag. You plan clothes with a simple number formula, choose pieces that all go together, roll and pack in layers, handle liquids and electronics at the security check and wash on the go. It includes a complete packing list to copy and a ten-minute routine before you leave home."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Chapter 1: The Number Formula",
+   "Chapter 2: Packing in Layers",
+   "Chapter 3: Liquids, Electronics and Laundry",
+   "Chapter 4: The Complete List",
+   "Summary: The One-Page Checklist"
+  ],
+  "excerpt": "Travelling with one small bag changes a trip. You do not wait at the baggage belt, you do not drag a heavy case up the stairs of the underground, and you always know where everything is. Most people who try it once do not go back. The secret is not a special bag. It is a plan: fewer clothes that all go together, and a fixed way to pack them. This guide gives you the plan and a complete list. Airlines differ in the size and weight they allow, so check the rules on your ticket before you pack.",
+  "pages": 9,
+  "mb": 0.6
+ },
+ {
+  "id": "b66",
+  "n": 66,
+  "type": "ebook",
+  "title": "One Day in a New City",
+  "sub": "A simple plan for seeing the best of any city in a single day, without rushing",
+  "cat": "Short guides",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "half",
+  "description": [
+   "A plan that works in any city when you have only one day. You prepare in thirty minutes the evening before, build the day around one anchor and one neighbourhood, eat well without tourist traps and get around with confidence. The guide includes a day template to fill in, a small-bag list and tips for travelling with children."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Chapter 1: Thirty Minutes the Evening Before",
+   "Chapter 2: The Shape of the Day",
+   "Chapter 3: Eating and Getting Around",
+   "Chapter 4: The Day Template and the Small Bag",
+   "Summary: The One-Page Checklist"
+  ],
+  "excerpt": "One day in a city you do not know can be the best day of a trip or the most tiring one. The difference is rarely the city. It is the plan. People who try to see ten sights spend the day in queues and on public transport, and remember mostly their feet. People who choose one important thing and one area to wander in come home with the feeling that they met the place. This guide gives you a way to plan such a day in half an hour, in any city, for a stopover, a business trip or a day out by train.",
+  "pages": 9,
+  "mb": 0.6
+ },
+ {
+  "id": "b67",
+  "n": 67,
+  "type": "ebook",
+  "title": "Portraits on Your Phone",
+  "sub": "Photograph the people you love so that they look like themselves",
+  "cat": "Short guides",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "ring",
+  "description": [
+   "A short guide to photographing people with a phone: where to stand them in relation to the light, how to choose the distance and the height, what to say so that they relax, and how to photograph children and groups. It ends with a three-step edit and a checklist to read before you press the button. No extra equipment needed."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Chapter 1: Light on a Face",
+   "Chapter 2: Distance, Height and Frame",
+   "Chapter 3: People, Children and Groups",
+   "Chapter 4: A Three-Step Edit and Keeping the Best",
+   "Summary: The One-Page Checklist"
+  ],
+  "excerpt": "The photos that matter most to us are photos of people, and they are the ones that disappoint most often: closed eyes, hard shadows, a stiff smile, a face that somehow looks wider than in life. None of this is the fault of the phone. A good portrait depends on three things you control: the light, the distance and the mood of the person in front of you. This guide deals with exactly these three, in plain steps that work on any phone, and adds a few words on children, groups and editing.",
+  "pages": 10,
+  "mb": 0.6
+ },
+ {
+  "id": "b68",
+  "n": 68,
+  "type": "ebook",
+  "title": "Tame Your Photo Library",
+  "sub": "Back up, clean and organise thousands of phone photos in one weekend",
+  "cat": "Short guides",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "bars",
+  "description": [
+   "A weekend plan for the thousands of photos on your phone. You make two backups first, delete in fast rounds, build a small set of albums, mark favourites and set a ten-minute monthly routine so that the mess does not come back. It ends with ways to enjoy the photos: a yearly album, prints and sharing with the family."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Chapter 1: Back Up Before You Touch Anything",
+   "Chapter 2: Delete in Fast Rounds",
+   "Chapter 3: A Light Structure",
+   "Chapter 4: Ten Minutes a Month, and Enjoying the Photos",
+   "Summary: The One-Page Checklist"
+  ],
+  "excerpt": "Most of us carry thousands of photos in a pocket and can find none of them. Screenshots, receipts, eight nearly identical frames of the same cake and, somewhere among them, the one picture of grandmother laughing. A photo library has value only when you can find things in it and when you know it is safe. This guide gives you a plan for one weekend: first protect everything, then delete, then organise a little, and in the end set a short monthly habit. It works on any phone and with any photo app.",
+  "pages": 11,
+  "mb": 0.6
+ },
+ {
+  "id": "b69",
+  "n": 69,
+  "type": "ebook",
+  "title": "A Language in 15 Minutes a Day",
+  "sub": "A daily routine for learning any language when you have very little time",
+  "cat": "Short guides",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "dot",
+  "description": [
+   "A realistic routine for learning any language in fifteen minutes a day. You set one clear goal, split the quarter of an hour into three five-minute blocks, learn the words that matter first, start speaking from the first week and track your progress with a simple page. It includes a four-week starter plan and ideas for free practice in everyday life."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Chapter 1: One Goal and One Fixed Time",
+   "Chapter 2: Three Blocks of Five Minutes",
+   "Chapter 3: Words First, and Speaking from Week One",
+   "Chapter 4: Free Practice, Tracking and the Four-Week Plan",
+   "Summary: The One-Page Checklist"
+  ],
+  "excerpt": "Most people who start a language stop within a few weeks, and not because they lack talent. They start with an hour a day, miss two days and never come back. A language is learned with small amounts over a long time. Fifteen minutes every day gives you more than ninety hours in a year, and, more importantly, the language never has time to fade between sessions. This guide gives you a routine for those fifteen minutes, for any language and with any materials. It promises no miracles: with steady work you will understand and say more every month.",
+  "pages": 12,
+  "mb": 0.6
+ },
+ {
+  "id": "b70",
+  "n": 70,
+  "type": "ebook",
+  "title": "Messages People Answer",
+  "sub": "Write short, clear work messages and emails that get a reply the first time",
+  "cat": "Short guides",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "sun",
+  "description": [
+   "A short guide to writing work messages that are read, understood and answered. You learn to put the request first, to make the reply easy, to choose between chat, email and a call, and to write follow-ups and difficult messages without tension. It includes before-and-after examples, ready sentence openers and a thirty-second check before sending."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Chapter 1: The Request Comes First",
+   "Chapter 2: Make the Reply Easy",
+   "Chapter 3: Shorter, Simpler, and the Right Channel",
+   "Chapter 4: Follow-Ups, Hard Messages and the Thirty-Second Check",
+   "Summary: The One-Page Checklist"
+  ],
+  "excerpt": "Much of working life happens in writing: messages in the team chat, emails to clients, a note to the building committee. Most of these are read on a phone, between two other things, by someone who has thirty more waiting. A message that takes effort to understand is put aside for later, and later does not always come. Clear writing is not a talent. It is a small set of habits: say what you need first, make the answer easy and remove whatever is not needed. This guide teaches these habits with examples you can copy.",
+  "pages": 12,
+  "mb": 0.6
+ },
+ {
+  "id": "b71",
+  "n": 71,
+  "type": "ebook",
+  "title": "Saying No at Work",
+  "sub": "Protect your time politely, with ready sentences for every common situation",
+  "cat": "Short guides",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "half",
+  "description": [
+   "A short guide to refusing requests at work without damaging relationships. You learn to pause before answering, to decide with three questions, to say no in four short parts and to offer real alternatives. It includes ready sentences for a manager, colleagues, clients and meetings, and a way to deal with the guilt that follows."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Chapter 1: The Pause",
+   "Chapter 2: Three Questions for a Decision",
+   "Chapter 3: How to Say It",
+   "Chapter 4: Alternatives, Pressure and Guilt",
+   "Summary: The One-Page Checklist"
+  ],
+  "excerpt": "Every yes has a price. When you agree to one more task, something else gets less of your time: your main work, your family or your sleep. People who cannot say no do not do more. They do many things late and under pressure, and in the end they disappoint the very people they wanted to please. Saying no well is a skill that can be learned. It needs a short pause, a clear decision and a few simple sentences. This guide gives you all three, with wording you can use tomorrow morning.",
+  "pages": 11,
+  "mb": 0.6
+ },
+ {
+  "id": "b72",
+  "n": 72,
+  "type": "ebook",
+  "title": "Feedback Without Drama",
+  "sub": "How to give useful feedback and how to receive it calmly",
+  "cat": "Short guides",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "ring",
+  "description": [
+   "A practical guide to both sides of feedback. You learn a four-step structure for saying something difficult clearly and kindly, how to give praise that actually helps, how to listen to criticism without defending yourself and how to turn it into one concrete change. It includes ready openers, examples and a preparation page."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Chapter 1: Before You Speak",
+   "Chapter 2: The Four Steps",
+   "Chapter 3: Receiving Feedback",
+   "Chapter 4: The Preparation Page and Hard Cases",
+   "Summary: The One-Page Checklist"
+  ],
+  "excerpt": "Most people avoid feedback from both directions. Giving it feels like starting a quarrel, and receiving it feels like an attack. So small problems are left alone until they become large, and good work goes without a word. Feedback done well is neither a verdict nor a speech. It is information: this is what I saw, this is what it caused, this is what I ask for. This guide gives you a simple structure for giving such information, a way to praise that is worth something and a method for listening to criticism without losing your calm.",
+  "pages": 12,
+  "mb": 0.6
+ },
+ {
+  "id": "b73",
+  "n": 73,
+  "type": "ebook",
+  "title": "Notes You Will Use",
+  "sub": "A simple way to take notes in meetings, courses and reading, and to find them again",
+  "cat": "Short guides",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "bars",
+  "description": [
+   "A simple note-taking method for meetings, lessons and books. You write less during the event, mark actions and questions with three signs, sum up in five minutes afterwards and keep everything in one place where it can be found. The guide works on paper or on a phone and includes page layouts to copy."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Chapter 1: Write Less",
+   "Chapter 2: The Page and the Three Signs",
+   "Chapter 3: Five Minutes Afterwards",
+   "Chapter 4: Finding It Again",
+   "Summary: The One-Page Checklist"
+  ],
+  "excerpt": "Most notes are written once and never read again. They fill notebooks and apps, and when you need the one thing the lecturer said, or the task you promised in the meeting, it cannot be found. The trouble is rarely the handwriting or the app. Notes are useful only when they are short, when what needs doing stands out, and when they live in one place. This guide teaches a method with three parts: write less while it happens, process for five minutes afterwards and keep everything where you can find it.",
+  "pages": 10,
+  "mb": 0.6
+ },
+ {
+  "id": "b74",
+  "n": 74,
+  "type": "ebook",
+  "title": "The Evening Wind-Down",
+  "sub": "A simple routine for the last hour of the day, so that tomorrow begins calmly",
+  "cat": "Short guides",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "dot",
+  "description": [
+   "A gentle routine for the last hour of the day. You close the day with a ten-minute reset of the home, prepare tomorrow in five minutes, put the screens away and choose two or three quiet activities that suit you. The guide includes a routine builder, ideas for evenings with children and a short version for late nights. General habits only, not medical advice."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Chapter 1: A Fixed Time and a Clear Signal",
+   "Chapter 2: Close the Day",
+   "Chapter 3: Screens Away, Quiet In",
+   "Chapter 4: Build Your Routine and Keep It",
+   "Summary: The One-Page Checklist"
+  ],
+  "excerpt": "The way a day ends decides how the next one begins. An evening that runs into the night with a screen in the hand, dishes in the sink and tomorrow's tasks going round in the head leads to a morning that starts tired and late. A wind-down routine is a short, fixed series of actions that tells the body and the head that the day is over. It does not need an hour of meditation or special equipment. This guide helps you build your own routine from simple parts and keep it on ordinary, busy evenings.",
+  "pages": 11,
+  "mb": 0.6
+ },
+ {
+  "id": "b75",
+  "n": 75,
+  "type": "ebook",
+  "title": "The Family Chore Chart",
+  "sub": "Share the housework with children of every age, without daily arguments",
+  "cat": "Short guides",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "sun",
+  "description": [
+   "A guide for parents who want children to take part in the housework without a daily struggle. You get a table of tasks by age, a way to teach each task in four steps, a weekly chart built together with the children, and answers for the common difficulties: forgetting, refusing and doing it badly. Includes a chart to copy and a family meeting plan."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Chapter 1: Which Tasks at Which Age",
+   "Chapter 2: Teaching a Task in Four Steps",
+   "Chapter 3: Building the Chart Together",
+   "Chapter 4: Forgetting, Refusing and Keeping It Going",
+   "Summary: The One-Page Checklist"
+  ],
+  "excerpt": "In many homes one or two adults do everything, and the children are reminded, asked and finally shouted at to hang up a towel. It tires the parents, and it teaches the children that the home is somebody else's work. Children can do far more than we usually ask of them, and they gain a great deal from it: skills, confidence and the feeling that they are needed. This guide helps you divide the housework fairly, teach each task properly and build a simple chart that the family can keep. You run it; the children take part.",
+  "pages": 11,
+  "mb": 0.6
+ },
+ {
+  "id": "b76",
+  "n": 76,
+  "type": "ebook",
+  "title": "Calm School Mornings",
+  "sub": "A routine that gets the whole family out of the door on time, without shouting",
+  "cat": "Short guides",
+  "price": 3,
+  "prices": {
+   "usd": 1,
+   "cad": 1,
+   "eur": 1,
+   "gbp": 1,
+   "aud": 1
+  },
+  "cv": [
+   "#FFF4C7",
+   "#3A300F",
+   "#FFE07A"
+  ],
+  "sh": "half",
+  "description": [
+   "A guide for parents to mornings that run without shouting. You move most of the work to the evening before, build a fixed order of steps with the children, set up a launch pad by the door and use a few quiet tools in place of reminders. It includes a time plan to fill in, a picture chart idea for small children and answers to common difficulties."
+  ],
+  "chapters": [
+   "Before You Start",
+   "Chapter 1: The Morning Begins the Evening Before",
+   "Chapter 2: The Time Plan",
+   "Chapter 3: The Chart, the Launch Pad and the Quiet Tools",
+   "Chapter 4: When It Goes Wrong, and Keeping It Going",
+   "Summary: The One-Page Checklist"
+  ],
+  "excerpt": "A school morning has a fixed end, the moment you have to leave, and many small steps before it. When one of them gets stuck, a missing shoe, an unsigned form or a child who will not get up, the whole morning collapses into hurrying and raised voices, and everyone starts the day in a bad mood. A calm morning is not a matter of character or luck. It comes from doing most of the work the evening before, from a fixed order that the children know by heart and from a few minutes of spare time. This guide shows you how to build all three.",
+  "pages": 12,
+  "mb": 0.6
  }
 ];
