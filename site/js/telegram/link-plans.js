@@ -5,8 +5,9 @@
 // opens one daily topic track in the bot and its books, the library opens everything
 // (worker/src/view/plan-library.ts, bot/src/config/tracks.ts).
 // `price` is the shekel catalogue price the payment provider requires in the default currency; the other
-// currencies are in tools/currency_prices.json. `checkoutName` is the product's name on the payment page: these
-// are bought abroad, where a Hebrew name would not be read, so it is English, short, and the same in every language.
+// currencies are in tools/currency_prices.json. `checkoutName` is the plan's short English name for our own lists
+// and documents. (Owner, 13.11.2026: the payment page itself shows only «Subscription» for every plan — see
+// tools/polar/specs.ts.)
 
 const WEEKLY = { period: "week", trialDays: 1 };
 const STUDIO_PRICE = 105;
