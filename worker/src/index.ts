@@ -7,6 +7,7 @@ import { handleCheckout } from "./checkout/handler.ts";
 import { handleLink, handleLinkStatus } from "./links/handler.ts";
 import { handleLinkAccount } from "./links/account.ts";
 import { handleLinkCancel } from "./links/cancel.ts";
+import { handleLinkCharges } from "./links/charges.ts";
 import { handleWebhook } from "./webhook/handler.ts";
 import { handleHealth } from "./health.ts";
 import { handleDownloads, handleFile } from "./delivery/handler.ts";
@@ -28,6 +29,7 @@ const ROUTES: Route<Handler>[] = [
   route("POST", "/api/links/accounts", (request, env) => handleLinkAccount(request, env, new Date())),
   route("GET", "/api/links/:id/status", (request, env, _ctx, p) => handleLinkStatus(request, env, p.id ?? "")),
   route("POST", "/api/links/:id/cancel", (request, env, _ctx, p) => handleLinkCancel(request, env, p.id ?? "", new Date())),
+  route("GET", "/api/links/:id/charges", (request, env, _ctx, p) => handleLinkCharges(request, env, p.id ?? "")),
   route("POST", "/api/polar/webhook", (request, env, ctx) => handleWebhook(request, env, ctx, new Date())),
   route("GET", "/api/downloads", (request, env) => handleDownloads(request, env)),
   route("GET", "/api/file", (request, env) => handleFile(request, env, new Date())),
